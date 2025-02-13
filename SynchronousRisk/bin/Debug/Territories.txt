@@ -1,0 +1,9 @@
+a	1	b,d,f
+b	2	a,d,e,c
+c	2	b,e
+d	1	a,b,e,g,f
+e	2	c,b,d,g,h
+f	1	a,d,g,i
+g	3	i,f,d,e,h
+h	3	g,e
+i	3	f,g
