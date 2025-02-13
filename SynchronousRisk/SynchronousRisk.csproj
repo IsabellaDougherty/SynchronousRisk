@@ -46,13 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttackPhase.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="Deck.cs" />
+    <Compile Include="Hand.cs" />
     <Compile Include="PlayableForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PlayableForm.Designer.cs">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PlayableForm.resx">

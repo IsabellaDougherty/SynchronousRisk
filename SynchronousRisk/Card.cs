@@ -1,38 +1,44 @@
+
 namespace SynchronousRisk
 {
 
     enum CardType { Infantry, Cavalry, Artillery, Wild }
 
-    class Card : Icomparable<Card>
+    /* Russell Phillips
+	   2/04/2025
+	   Card class with a territory an card type */
+    class Card
     {
-        private string territory { get; }
+        public string Territory { get; }
 
-        private CardType type { get; }
+        public CardType Type { get; }
 
         public Card(string territory, CardType type)
         {
-            this.territory = territory;
-            this.type = type;
+            this.Territory = territory;
+            this.Type = type;
         }
 
+        // returns if cards could be considered the same type, including wilds
         public bool Compare(Card other)
         {
-            if (other.Type == CardType.Wild || this.type == CardType.Wild)
+            if (other.Type == CardType.Wild || this.Type == CardType.Wild)
             {
                 return true;
             }
 
-            return other.CardType == this.CardType;
+            return other.Type == this.Type;
         }
 
-        public card Coerce(Card other)
+        // Returns the type of non-wild card
+        public Card Coerce(Card other)
         {
-            if (this.type == CardType.Wild)
+            if (this.Type == CardType.Wild)
             {
-                return other
+                return other;
             }
 
-            return this
+            return this;
         }
 
     }
