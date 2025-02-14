@@ -48,11 +48,11 @@ namespace SynchronousRisk
             {
                 if (defenderRolls[i] >= attackerRolls[i])
 				{
-					attackerTerritory.troops -= 1;
+					//attackerTerritory.troops -= 1; //troops not implemented yet
 				}
 				else
 				{
-					defenderTerritory.troops -= 1;
+					//defenderTerritory.troops -= 1; //troops not implemented yet
 				}
             }
 

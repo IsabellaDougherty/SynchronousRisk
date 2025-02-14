@@ -9,13 +9,13 @@ namespace SynchronousRisk
 	   Card class with a territory an card type */
     class Card
     {
-        public string Territory { get; }
+        public Territory Territory { get; }
 
         public CardType Type { get; }
 
-        public Card(string territory, CardType type)
+        public Card(Territory territory, CardType type)
         {
-            this.Territory = territory;
+            Territory = territory;
             this.Type = type;
         }
 
