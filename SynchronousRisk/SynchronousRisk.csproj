@@ -46,11 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AttackPhase.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Hand.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
+    <Compile Include="PhaseProcessing\AttackPhase.cs" />
+    <Compile Include="PhaseProcessing\DraftPhase.cs" />
+    <Compile Include="PhaseProcessing\FortifyPhase.cs" />
+    <Compile Include="PhaseProcessing\Phases.cs" />
     <Compile Include="PlayableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +67,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Territories.cs" />
     <Compile Include="Territory.cs" />
+    <Compile Include="Troop.cs" />
+    <EmbeddedResource Include="obj\Debug\SynchronousRisk.PlayableForm.resources" />
+    <EmbeddedResource Include="obj\Debug\SynchronousRisk.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\WindowsFormsApp1.Properties.Resources.resources" />
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +84,46 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\Risk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\SynchronousRisk.csproj.dtbcache.json" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-shm" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-wal" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-shm" />
+    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-wal" />
+    <None Include=".vs\SynchronousRisk\FileContentIndex\00213986-81c2-478b-98f3-8266c5d4321a.vsidx" />
+    <None Include=".vs\SynchronousRisk\FileContentIndex\145b293c-24c1-4756-a5b6-5eb786143eba.vsidx" />
+    <None Include=".vs\SynchronousRisk\FileContentIndex\48585b5f-3923-4ea6-bc6e-2da9b540a022.vsidx" />
+    <None Include=".vs\SynchronousRisk\FileContentIndex\a14143ac-e19c-4fb5-8e0e-baedcc6355cf.vsidx" />
+    <None Include=".vs\SynchronousRisk\FileContentIndex\fef72e6e-1587-4e4b-a55f-75296ac08763.vsidx" />
+    <None Include=".vs\SynchronousRisk\v17\.wsuo" />
+    <None Include=".vs\SynchronousRisk\v17\DocumentLayout.backup.json" />
+    <None Include=".vs\SynchronousRisk\v17\DocumentLayout.json" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include=".vs\WindowsFormsApp1.csproj.dtbcache.json" />
+    <None Include=".vs\WindowsFormsApp1\CopilotIndices\17.12.53.23981\CodeChunks.db" />
+    <None Include=".vs\WindowsFormsApp1\CopilotIndices\17.12.53.23981\SemanticSymbols.db" />
+    <None Include=".vs\WindowsFormsApp1\CopilotIndices\17.12.53.23981\SemanticSymbols.db-shm" />
+    <None Include=".vs\WindowsFormsApp1\CopilotIndices\17.12.53.23981\SemanticSymbols.db-wal" />
+    <None Include=".vs\WindowsFormsApp1\FileContentIndex\0d7edf90-c0ef-434a-b212-4e3992e237f1.vsidx" />
+    <None Include=".vs\WindowsFormsApp1\FileContentIndex\20339abf-c54b-4234-bb62-d81be2ab53a2.vsidx" />
+    <None Include=".vs\WindowsFormsApp1\FileContentIndex\7c701a96-6a95-4945-96f7-550e4f7cf415.vsidx" />
+    <None Include=".vs\WindowsFormsApp1\FileContentIndex\e152dfe6-bad4-40ec-9833-6f9dcd6861ee.vsidx" />
+    <None Include=".vs\WindowsFormsApp1\FileContentIndex\e66eea82-2427-4169-85d3-29534aedb504.vsidx" />
+    <None Include=".vs\WindowsFormsApp1\v17\.suo" />
+    <None Include=".vs\WindowsFormsApp1\v17\DocumentLayout.backup.json" />
+    <None Include=".vs\WindowsFormsApp1\v17\DocumentLayout.json" />
+    <None Include="bin\Debug\SynchronousRisk.exe.config" />
+    <None Include="bin\Debug\WindowsFormsApp1.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\SynchronousRisk.csproj.GenerateResource.cache" />
+    <None Include="obj\Release\SynchronousRisk.csproj.AssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +142,23 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SynchronousRisk.exe" />
+    <Content Include="bin\Debug\SynchronousRisk.pdb" />
+    <Content Include="bin\Debug\Territories.txt" />
+    <Content Include="bin\Debug\WindowsFormsApp1.exe" />
+    <Content Include="bin\Debug\WindowsFormsApp1.pdb" />
+    <Content Include="obj\Debug\SynchronousRisk.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SynchronousRisk.exe" />
+    <Content Include="obj\Debug\SynchronousRisk.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="obj\Debug\WindowsFormsApp1.exe" />
+    <Content Include="obj\Debug\WindowsFormsApp1.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".vs\SynchronousRisk\copilot-chat\32a6feb0\sessions\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

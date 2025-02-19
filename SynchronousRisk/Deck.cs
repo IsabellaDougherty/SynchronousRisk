@@ -19,8 +19,8 @@ namespace SynchronousRisk
 
 
             List<Card> cards = new List<Card>();
-            cards.Add(new Card("wild", CardType.Wild)); // two wilds in each deck
-            cards.Add(new Card("wild", CardType.Wild));
+            cards.Add(new Card("Wild", CardType.Wild)); // two wilds in each deck
+            cards.Add(new Card("Wild", CardType.Wild));
 
             for (int i = 0; i < territories.Count; i++) // each card is an infantry, cavalry, or artillery, roughly evenly
             {

@@ -1,4 +1,6 @@
 
+using System;
+
 namespace SynchronousRisk
 {
 
@@ -12,10 +14,22 @@ namespace SynchronousRisk
         public Territory Territory { get; }
 
         public CardType Type { get; }
+        public String Name { get; }
+
+        public Card(String territory, CardType type)
+        {
+            this.Name = territory;
+            this.Type = type;
+        }
 
         public Card(Territory territory, CardType type)
         {
-            Territory = territory;
+            //IAD 2/17/2025
+            /// <summary>
+            /// Pulls the name using the `GetName()` method from the Territory class to create a new Card object.
+            /// Note: You can create a card with a String alone by inputting a String directly here in place of a Territory object.
+            /// </summary>
+            this.Name = territory.GetName();
             this.Type = type;
         }
 
@@ -40,6 +54,5 @@ namespace SynchronousRisk
 
             return this;
         }
-
     }
 }

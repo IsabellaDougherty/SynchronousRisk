@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SynchronousRisk
+namespace SynchronousRisk.PhaseProcessing
 {
 	/* Russell Phillips
 	   2/10/2025

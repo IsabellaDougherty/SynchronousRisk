@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SynchronousRisk
 {
-    internal class Player
+    public class Player
     {
         Hand PlayerHand = new Hand();
 
