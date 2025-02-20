@@ -10,7 +10,7 @@ namespace SynchronousRisk
     {
         Hand PlayerHand = new Hand();
 
-        List<Territory> OwnedTerritories { get; set; } = new List<Territory>();
+        public List<Territory> OwnedTerritories { get; set; } = new List<Territory>();
         public Player() { }
     }
 }
