@@ -9,8 +9,8 @@ namespace SynchronousRisk
     public class Board
     {
         private Dictionary<string, Territory> territoryLookup;
-
         private Dictionary<string, List<Territory>> borders;
+        private Dictionary<int, Territory> regions;
 
         public Board()
         {
@@ -34,24 +34,34 @@ namespace SynchronousRisk
                 }
                 borders[territoryName] = borderNeighbors;
             }
+            MakeRegions();
         }
-
+        public void MakeRegions()
+        {
+            regions = new Dictionary<int, Territory>();
+            foreach (Territory t in territoryLookup.Values)
+            { if (!regions.ContainsKey(t.GetRegionID())) { regions[t.GetRegionID()] = t; } }
+            foreach (int r in regions.Keys)
+            {
+                Territory[] territoriesInRegion = territoryLookup.Values
+                    .Where(t => t.GetRegionID() == r)
+                    .ToArray();
+                Region newRegion = new Region(r, territoriesInRegion);
+            }
+        }
         public Territory GetTerritoryByName(string name)
         {
             if (territoryLookup.TryGetValue(name, out var territory))
                 return territory;
             return null;
         }
-
         public List<Territory> GetBorders(string territoryName)
         {
             if (borders.TryGetValue(territoryName, out var borderList))
                 return borderList;
             return new List<Territory>();
         }
-
         public IReadOnlyDictionary<string, Territory> GetAllTerritories() { return territoryLookup; }
-
         public string DisplayBoard()
         {
             Dictionary<int, List<Territory>> territoriesByRegion = new Dictionary<int, List<Territory>>();

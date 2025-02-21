@@ -22,12 +22,8 @@ namespace SynchronousRisk
 
         public void PlayableForm_Load(object sender, EventArgs e)
         {
-            //Territories territories = new Territories();
-            //tempTxtBox.Text = Territories.ReadInTerritoryInformation();
-            //Console.WriteLine(tempTxtBox.Text + "\n The file should have been printed above this.");
-
             Board board = new Board();
-            tempTxtBox.Text = board.DisplayBoard();
+            MessageBox.Show(board.DisplayBoard());
         }
     }
 }

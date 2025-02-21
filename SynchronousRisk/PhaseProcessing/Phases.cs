@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-    internal class Phases
+    public class Phases
     {
     }
 }

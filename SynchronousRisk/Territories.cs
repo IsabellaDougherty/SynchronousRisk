@@ -11,11 +11,14 @@ namespace SynchronousRisk
     Class to read in .txt file to generate all territories for a board along with all required information for each territory.*/
     public class Territories
     {
+        /// <summary>
+        /// IAD 2/20/2025: Creates all territories via a .txt file named Territories.txt. Note that if you would like to make new .txt files to use this and the subsequent classes that are associated with this class, the formatting will need to be adhered to in the file or the parsing and subsequent functions from it will need to be adjusted.
+        /// </summary>
         Territory[] territories;
         private int totalTerritories; 
         private int[] territoryRegionIDs;
         private string[] territoryNames;
-        private int[] diffRegions;
+        public int[] diffRegions;
         private string[][] allBorders;
         public Territories()
         {
@@ -24,7 +27,6 @@ namespace SynchronousRisk
             CreateTerritories(territoryNames, territoryRegionIDs, allBorders);
             for (int i = 0; i < totalTerritories; i++) { Console.WriteLine(territories[i].GetTerritoryInformation()); }
         }
-
         /*Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
         public static string ReadInTerritoryInformation()
         {
@@ -49,7 +51,6 @@ namespace SynchronousRisk
             }
         }
         //End of borrowed code
-
         //IAD 2/5/2025: Method to parse the territory information from the .txt file
         private string[] ParseTerritories(string territoriesString)
         {
@@ -91,7 +92,6 @@ namespace SynchronousRisk
             SetAllBorders(borders);
             return territoryInfo;
         }
-
         private void CreateTerritories(string[] names, int[] regionIDs, string[][] borders)
         {
             Troops noTroops = new Troops(-1);
@@ -106,7 +106,6 @@ namespace SynchronousRisk
                 territories[i].ExamineBorders(territoryNames);
             }
         }
-
         public string[] GetTerritoryNames() { return territoryNames; }
         public int[] GetDiffRegions() { return diffRegions; }
         public string[][] GetAllBorders() { return allBorders; }
