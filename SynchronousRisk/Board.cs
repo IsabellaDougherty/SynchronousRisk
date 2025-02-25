@@ -11,6 +11,7 @@ namespace SynchronousRisk
         private Dictionary<string, Territory> territoryLookup;
         private Dictionary<string, List<Territory>> borders;
         private Dictionary<int, Territory> regions;
+        public List<Region> allRegions = new List<Region>();
 
         public Board()
         {
@@ -47,6 +48,7 @@ namespace SynchronousRisk
                     .Where(t => t.GetRegionID() == r)
                     .ToArray();
                 Region newRegion = new Region(r, territoriesInRegion);
+                allRegions.Add(newRegion);
             }
         }
         public Territory GetTerritoryByName(string name)

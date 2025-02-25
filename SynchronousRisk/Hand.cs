@@ -5,26 +5,24 @@ namespace SynchronousRisk
     /* Russell Phillips
 	   2/04/2025
 	   Manages a hand of cards for a player, keeping track of current cards and exchange options */
-    class Hand
+    public class Hand
     {
         private List<Card> cards = new List<Card>();
 
         public Hand() { }
 
         public void Add(Card card)
-        {
-            cards.Add(card);
-        }
+        { cards.Add(card); }
 
+        //IAD 2/24/2025: Implimented a remove method to remove a card from the hand.
+        public void Remove(Card card) { cards.Remove(card); }
+        public int CountCards() { return cards.Count; }
         // returns the best exchange option for cards currently in hand, empty if no options
-        public List<Card> BestExchangeOption()
+        public Card[] BestExchangeOption()
         {
-            if (cards.Count > 3)
-            {
-                return new List<Card>();
-            }
-            int maxValue = 0;
             Card[] bestExchangeOption = { };
+            if (cards.Count < 3) { return bestExchangeOption; }
+            int maxValue = 0;
             for (int i = 0; i < cards.Count; i++)
                 for (int j = i + 1; j < cards.Count; j++)
                     for (int k = j + 1; k < cards.Count; k++)
@@ -36,8 +34,7 @@ namespace SynchronousRisk
                             bestExchangeOption = currentExchangeOption;
                         }
                     }
-
-            return new List<Card>(bestExchangeOption);
+            return bestExchangeOption;
         }
 
         // returns what an array of three cards would be worth if turned in
@@ -61,7 +58,6 @@ namespace SynchronousRisk
                         return 0;
                 }
             }
-
             return 0;
         }
     }

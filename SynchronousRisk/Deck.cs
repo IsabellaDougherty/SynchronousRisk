@@ -6,7 +6,7 @@ namespace SynchronousRisk
     /* Russell Phillilps
 	   2/04/2025
 	   Deck class, makes a deck of cards and manages drawing and discarding */
-    class Deck
+    public class Deck
     {
         private Queue<Card> Cards = new Queue<Card>();
 

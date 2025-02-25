@@ -4,12 +4,12 @@ using System;
 namespace SynchronousRisk
 {
 
-    enum CardType { Infantry, Cavalry, Artillery, Wild }
+    public enum CardType { Infantry, Cavalry, Artillery, Wild }
 
     /* Russell Phillips
 	   2/04/2025
 	   Card class with a territory an card type */
-    class Card
+    public class Card
     {
         public Territory Territory { get; }
 

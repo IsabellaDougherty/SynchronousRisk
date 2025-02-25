@@ -36,5 +36,8 @@ namespace SynchronousRisk
             }
             return true;
         }
+        public int GetRegionBonus() { return regionBonus; }
+        public Territory[] GetTerritories() { return territoriesInRegion; }
+        public int GetRegionID() { return regionID; }
     }
 }

@@ -3,56 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\territories.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:territories.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\phaseprocessing\\phases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\phases.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\territory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:territory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\release\\.netframework,version=v4.8.1.assemblyattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\release\\.netframework,version=v4.8.1.assemblyattributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,20 +58,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 275,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Region.cs",
               "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Region.cs",
               "RelativeDocumentMoniker": "Region.cs",
               "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Region.cs",
               "RelativeToolTip": "Region.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBYAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T02:01:01.314Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hand.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Hand.cs",
+              "RelativeDocumentMoniker": "Hand.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Hand.cs",
+              "RelativeToolTip": "Hand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T04:14:54.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Card.cs",
+              "RelativeDocumentMoniker": "Card.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Card.cs",
+              "RelativeToolTip": "Card.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowA8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T04:13:52.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Deck.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Deck.cs",
+              "RelativeDocumentMoniker": "Deck.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Deck.cs",
+              "RelativeToolTip": "Deck.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wEoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T04:13:38.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T08:28:19.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Phases.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\Phases.cs",
+              "RelativeDocumentMoniker": "PhaseProcessing\\Phases.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\Phases.cs",
+              "RelativeToolTip": "PhaseProcessing\\Phases.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T20:14:59.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DraftPhase.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
+              "RelativeDocumentMoniker": "PhaseProcessing\\DraftPhase.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
+              "RelativeToolTip": "PhaseProcessing\\DraftPhase.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T20:01:58.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AttackPhase.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
+              "RelativeDocumentMoniker": "PhaseProcessing\\AttackPhase.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
+              "RelativeToolTip": "PhaseProcessing\\AttackPhase.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA1wIMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T02:47:31.7Z",
               "EditorCaption": ""
             },
             {
@@ -104,121 +191,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayableForm.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
-              "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
-              "RelativeToolTip": "PlayableForm.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAowBgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T08:44:57.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayableForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
-              "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs [Design]",
-              "RelativeToolTip": "PlayableForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T08:44:53.61Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Territories.txt",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Territories.txt",
-              "RelativeDocumentMoniker": "Territories.txt",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Territories.txt",
-              "RelativeToolTip": "Territories.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-02-20T23:44:39.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Phases.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\Phases.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\Phases.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\Phases.cs",
-              "RelativeToolTip": "PhaseProcessing\\Phases.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:14:59.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "FortifyPhase.cs",
               "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
               "RelativeDocumentMoniker": "PhaseProcessing\\FortifyPhase.cs",
               "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
               "RelativeToolTip": "PhaseProcessing\\FortifyPhase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T20:02:09.264Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DraftPhase.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\DraftPhase.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\DraftPhase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:01:58.603Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AttackPhase.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\AttackPhase.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\AttackPhase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:01:40.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "obj\\Release\\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Release\\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs",
-              "RelativeDocumentMoniker": "obj\\Release\\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Release\\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs",
-              "RelativeToolTip": "obj\\Release\\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T19:57:33.61Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 229,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Board.cs",
               "RelativeDocumentMoniker": "Board.cs",
               "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Board.cs",
               "RelativeToolTip": "Board.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T19:09:09.528Z",
               "EditorCaption": ""
@@ -231,34 +227,22 @@
               "RelativeDocumentMoniker": "Territories.cs",
               "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Territories.cs",
               "RelativeToolTip": "Territories.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAowBUAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwDYAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-19T19:59:30.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 7,
               "Title": "Territory.cs",
               "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Territory.cs",
               "RelativeDocumentMoniker": "Territory.cs",
               "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Territory.cs",
               "RelativeToolTip": "Territory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:00:03.637Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Player.cs",
-              "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Player.cs",
-              "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T08:28:19.277Z",
+              "WhenOpened": "2025-02-19T20:00:03.637Z",
               "EditorCaption": ""
             }
           ]
