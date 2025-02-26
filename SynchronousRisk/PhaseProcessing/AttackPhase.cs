@@ -9,7 +9,7 @@ namespace SynchronousRisk.PhaseProcessing
 	/* Russell Phillips
 	   2/10/2025
 	   class for managing attacks */
-    public class AttackPhase
+    public class AttackPhase : Phases
     {
         private Random rand = new Random();
 		
@@ -17,7 +17,7 @@ namespace SynchronousRisk.PhaseProcessing
 		
 		List<int> defenderRolls = new List<int>();
 		
-        public AttackPhase()
+        public AttackPhase(Territory[] allTerrs, Player currPlay, Board actBoar) : base(allTerrs, currPlay, actBoar)
         {
 
         }
@@ -31,7 +31,7 @@ namespace SynchronousRisk.PhaseProcessing
         // does one step of battle, subtracting lost troops
         private void battle(int attackers, Territory attackerTerritory, Territory defenderTerritory)
         {
-            int defenders = defenderTerritory.Troops;
+            int defenders = defenderTerritory.GetTroops();
             attackerRolls = new List<int>();
             defenderRolls = new List<int>();
 
@@ -51,12 +51,12 @@ namespace SynchronousRisk.PhaseProcessing
             for (int i = 0; i < Math.Min(attackers, defenders); i++)
             {
                 if (defenderRolls[i] >= attackerRolls[i])
-				{
-					attackerTerritory.Troops -= 1;
+                { 
+					attackerTerritory.SetTroops(attackerTerritory.GetTroops() - 1);
 				}
 				else
 				{
-					defenderTerritory.Troops -= 1;
+					defenderTerritory.SetTroops(defenderTerritory.GetTroops() - 1);
 				}
             }
 
@@ -69,7 +69,7 @@ namespace SynchronousRisk.PhaseProcessing
 
             while (attackerTerritory == null)
             {
-                attackerTerritory = InputTerritory();
+                attackerTerritory = GetUserInputTerritory();
                 if (!attackingPlayer.OwnedTerritories.Contains(attackerTerritory))
                 {
                     Console.WriteLine("Sorry, you don't own that territory");
@@ -82,34 +82,35 @@ namespace SynchronousRisk.PhaseProcessing
             
             while (defenderTerritory == null)
             {
-                defenderTerritory = InputTerritory();
+                defenderTerritory = GetUserInputTerritory();
                 if (attackingPlayer.OwnedTerritories.Contains(defenderTerritory))
                 {
-9                   Console.WriteLine("Sorry, you can't attack yourself");
+                    Console.WriteLine("Sorry, you can't attack yourself");
                     defenderTerritory = null;
                 }
             }
 
-            int attackers -1;
+            int attackers = -1;
 
             while (attackers != 0 )
             {
                 Console.WriteLine("input number to attack with (0 to stop attacking)");
-                attackers = InputInteger(0, attackerTerritory.Troops);
+                attackers = GetUserInputNumber(0, attackerTerritory.GetTroops());
 
-                battle(attackers, attackerTerritory, defenederTerritory);
+                battle(attackers, attackerTerritory, defenderTerritory);
 
-                WriteRoles()
-                   
-                Console.WriteLine($"You now have {atackerTerritory.Troops} troops left, and the defender has {defenderTerritory.Troops} troops left")
+                WriteRoles();
+
+
+                Console.WriteLine($"You now have {attackerTerritory.GetTroops()} troops left, and the defender has {defenderTerritory.GetTroops()} troops left");
             }
 
-            Console.WriteLine("attack somewhere else? 1 for yes, 0 for no";
-            int cont = InputInteger(0, 1);
+            Console.WriteLine("attack somewhere else? 1 for yes, 0 for no");
+            int cont = GetUserInputNumber(0, 1);
             
             if (cont == 1)
             {
-                Phase();
+                Phase(attackingPlayer);
             }
 
         }
@@ -121,22 +122,6 @@ namespace SynchronousRisk.PhaseProcessing
             Console.WriteLine("The defenders roles were: ");
             Console.WriteLine(defenderRolls);
         }
-
-        private bool skip()
-        {
-            return true;
-        }
-
-        private Territory InputTerritory()
-        {
-            return new Territory("", 1, new string[3]);
-        }
-
-        private int InputInteger(int min, int max)
-        {
-            return 3;
-        }
-
 
     }
 }
