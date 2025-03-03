@@ -9,3 +9,14 @@ C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Synchronou
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\Territories.txt
+C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
+C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
+C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
