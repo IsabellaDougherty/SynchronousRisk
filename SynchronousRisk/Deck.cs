@@ -19,10 +19,10 @@ namespace SynchronousRisk
 
 
             List<Card> cards = new List<Card>();
-            cards.Add(new Card("Wild", CardType.Wild)); // two wilds in each deck
+            cards.Add(new Card("Wild", CardType.Wild)); // Two wilds in each deck
             cards.Add(new Card("Wild", CardType.Wild));
 
-            for (int i = 0; i < territories.Count; i++) // each card is an infantry, cavalry, or artillery, roughly evenly
+            for (int i = 0; i < territories.Count; i++) // Each card is an infantry, cavalry, or artillery, roughly evenly
             {
                 switch (i % 3)
                 {
@@ -41,10 +41,9 @@ namespace SynchronousRisk
             Shuffle();
         }
 
-        // shuffle the draw pile
+        // Shuffle the draw pile (using the Fisher-Yates shuffle)
         private void Shuffle()
         {
-            // usings the Fisher-Yates shuffle
             List<Card> lst = new List<Card>(Cards);
             for (int i = Cards.Count; i > 0; i--)
             {
@@ -56,10 +55,10 @@ namespace SynchronousRisk
             Cards = new Queue<Card>(lst);
         }
 
-        // draw card from deck
+        // Draw card from deck
         public Card Draw()
         {
-            if (Cards.Count == 0) // if no more cards to draw, shuffle the discard into a new draw pile
+            if (Cards.Count == 0)
             {
                 Cards = DiscardPile;
                 DiscardPile = new Queue<Card>();

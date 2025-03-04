@@ -17,10 +17,15 @@ namespace SynchronousRisk
         //IAD 2/24/2025: Implimented a remove method to remove a card from the hand.
         public void Remove(Card card) { cards.Remove(card); }
         public int CountCards() { return cards.Count; }
-        // returns the best exchange option for cards currently in hand, empty if no options
+        /// <summary>
+        /// Returns the best exchange option for cards currently in hand. If less than three cards are in hand, returns an array of null.
+        /// </summary>
+        /// <returns></returns>
         public Card[] BestExchangeOption()
         {
-            Card[] bestExchangeOption = { };
+            //IAD 3/3/2025: Adjusted logic of function to return an array instead of a list to match the exchange value function
+            //  and adjusted the bestExchangeOption to be a single value array of null fail checking.
+            Card[] bestExchangeOption = { null };
             if (cards.Count < 3) { return bestExchangeOption; }
             int maxValue = 0;
             for (int i = 0; i < cards.Count; i++)
@@ -37,14 +42,14 @@ namespace SynchronousRisk
             return bestExchangeOption;
         }
 
-        // returns what an array of three cards would be worth if turned in
+        // Returns what an array of three cards would be worth if turned in
         public int ExchangeValue(Card[] cards)
         {
-            if (cards[0].Type != cards[1].Type && cards[1].Type != cards[2].Type && cards[0].Type != cards[1].Type) // all different cards
+            if (cards[0].Type != cards[1].Type && cards[1].Type != cards[2].Type && cards[0].Type != cards[1].Type) // All different cards
             {
                 return 10;
             }
-            if (cards[0].Compare(cards[1]) && cards[1].Compare(cards[2])) // all same cards
+            if (cards[0].Compare(cards[1]) && cards[1].Compare(cards[2])) // All same cards
             {
                 switch (cards[0].Coerce(cards[1]).Coerce(cards[2]).Type)
                 {

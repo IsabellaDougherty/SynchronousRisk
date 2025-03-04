@@ -26,14 +26,9 @@ namespace SynchronousRisk
         public bool AllTerritoriesOwnedByPlayer(Player player)
         {
             Territory[] playerTerritories = player.OwnedTerritories.ToArray();
-            for (int i = 0; i < territoriesInRegion.Length; i++)
-            {
-                if (!playerTerritories.Contains(territoriesInRegion[i]))
-                {
-                    return false;
-                }
-                else return true;
-            }
+            for (int i = 0; i < territoriesInRegion.Length; i++) {
+                if (!playerTerritories.Contains(territoriesInRegion[i])) { return false; }
+                else return true; }
             return true;
         }
         public int GetRegionBonus() { return regionBonus; }

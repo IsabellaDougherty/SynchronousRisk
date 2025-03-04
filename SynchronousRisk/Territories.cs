@@ -25,7 +25,7 @@ namespace SynchronousRisk
             ParseTerritories(ReadInTerritoryInformation());
             GetSetTotalTerritories();
             CreateTerritories(territoryNames, territoryRegionIDs, allBorders);
-            for (int i = 0; i < totalTerritories; i++) { Console.WriteLine(territories[i].GetTerritoryInformation()); }
+            //for (int i = 0; i < totalTerritories; i++) { Console.WriteLine(territories[i].GetTerritoryInformation()); }
         }
         /*Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
         public static string ReadInTerritoryInformation()

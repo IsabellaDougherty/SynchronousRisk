@@ -33,7 +33,7 @@ namespace SynchronousRisk
             this.Type = type;
         }
 
-        // returns if cards could be considered the same type, including wilds
+        // Returns if cards could be considered the same type, including wilds
         public bool Compare(Card other)
         {
             if (other.Type == CardType.Wild || this.Type == CardType.Wild)

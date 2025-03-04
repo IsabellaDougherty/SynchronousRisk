@@ -22,13 +22,13 @@ namespace SynchronousRisk.PhaseProcessing
 
         }
 
-        // returns the result of 6 sided dice
+        // Returns the result of 6 sided dice
         private int d6()
         {
             return rand.Next(1, 7);
         }
 
-        // does one step of battle, subtracting lost troops
+        // Does one step of battle, subtracting lost troops
         private void battle(int attackers, Territory attackerTerritory, Territory defenderTerritory)
         {
             int defenders = defenderTerritory.Troops;
