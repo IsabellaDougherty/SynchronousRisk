@@ -94,10 +94,10 @@ namespace SynchronousRisk
         }
         private void CreateTerritories(string[] names, int[] regionIDs, string[][] borders)
         {
-            Troops noTroops = new Troops(-1);
             territories = new Territory[totalTerritories];
             for (int i = 0; i < totalTerritories; i++)
             {
+                Troops noTroops = new Troops(-1);
                 territories[i] = new Territory(names[i], regionIDs[i], borders[i], noTroops);
             }
             //IAD 2/10/2025: Ensure all territories have borders that are existing territory names

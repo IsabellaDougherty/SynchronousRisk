@@ -12,10 +12,12 @@ namespace SynchronousRisk
         private Dictionary<string, List<Territory>> borders;
         private Dictionary<int, Territory> regions;
         public List<Region> allRegions = new List<Region>();
+        public Territories territories;
 
         public Board()
         {
             Territories allTerritories = new Territories();
+            territories = allTerritories;
             Territory[] territoryArray = allTerritories.GetTerritories();
             territoryLookup = new Dictionary<string, Territory>();
             borders = new Dictionary<string, List<Territory>>();
@@ -51,6 +53,12 @@ namespace SynchronousRisk
                 allRegions.Add(newRegion);
             }
         }
+        
+        public Territory[] GetTerritories()
+        {
+            return territories.GetTerritories();
+        }
+
         public Territory GetTerritoryByName(string name)
         {
             if (territoryLookup.TryGetValue(name, out var territory))

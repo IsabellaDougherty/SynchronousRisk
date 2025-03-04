@@ -12,11 +12,8 @@ namespace SynchronousRisk.PhaseProcessing
     /// </summary>
     internal class DraftPhase : Phases
     {
-        internal DraftPhase(Territory[] allTerrs, Player currPlay, Board actBoar) : base(allTerrs, currPlay, actBoar)
+        internal DraftPhase(Player currPlay, Board actBoar) : base(currPlay, actBoar)
         {
-            this.allTerritories = allTerrs;
-            this.currentPlayer = currPlay;
-            this.activeBoard = actBoar;
         }
         internal int DraftableTroops()
         {

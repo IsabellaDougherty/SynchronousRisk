@@ -20,3 +20,14 @@ C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.
 C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
 C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Territories.txt
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb

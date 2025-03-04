@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
-
+using System.Security.Cryptography.X509Certificates;
 using SynchronousRisk;
+using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
@@ -16,8 +17,11 @@ namespace SynchronousRisk.PhaseProcessing
 		List<int> attackerRolls = new List<int>();
 		
 		List<int> defenderRolls = new List<int>();
+
+        Territory AttackerTerritory;
+        Territory DefenderTerritory;
 		
-        public AttackPhase(Territory[] allTerrs, Player currPlay, Board actBoar) : base(allTerrs, currPlay, actBoar)
+        public AttackPhase(Player currPlay, Board actBoar) : base(currPlay, actBoar)
         {
 
         }
@@ -29,9 +33,8 @@ namespace SynchronousRisk.PhaseProcessing
         }
 
         // Does one step of battle, subtracting lost troops
-        private void battle(int attackers, Territory attackerTerritory, Territory defenderTerritory)
+        // does one step of battle, subtracting lost troops
         {
-            int defenders = defenderTerritory.GetTroops();
             attackerRolls = new List<int>();
             defenderRolls = new List<int>();
 
@@ -50,77 +53,102 @@ namespace SynchronousRisk.PhaseProcessing
 
             for (int i = 0; i < Math.Min(attackers, defenders); i++)
             {
+                Console.WriteLine(attackerRolls[i]);
+                Console.WriteLine(defenderRolls[i]);
                 if (defenderRolls[i] >= attackerRolls[i])
                 { 
-					attackerTerritory.SetTroops(attackerTerritory.GetTroops() - 1);
+					AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - 1);
 				}
 				else
 				{
-					defenderTerritory.SetTroops(defenderTerritory.GetTroops() - 1);
+					DefenderTerritory.SetTroops(DefenderTerritory.GetTroops() - 1);
 				}
             }
 
         }
-
-        void Phase(Player attackingPlayer)
+        public override UIManager Start()
         {
-            Console.WriteLine("Input territory to attack from");
-            Territory attackerTerritory = null;
+            return new UIManager("Input Territory to attack from", GetAttackerTerritory);
+        }
 
-            while (attackerTerritory == null)
+        public UIManager GetAttackerTerritory(string inp)
+        {
+            AttackerTerritory = GetTerritory(inp);
+            if (AttackerTerritory == null)
             {
-                attackerTerritory = GetUserInputTerritory();
-                if (!attackingPlayer.OwnedTerritories.Contains(attackerTerritory))
-                {
-                    Console.WriteLine("Sorry, you don't own that territory");
-                    attackerTerritory = null;
-                }
+                return new UIManager("Sorry, couldn't find that territory, try again", GetAttackerTerritory);
             }
 
-            Console.WriteLine("Input territory to attack");
-            Territory defenderTerritory = null;
+            if (!currentPlayer.OwnedTerritories.Contains(AttackerTerritory))
+            {
+                return new UIManager("Sorry, you don't own that territory", GetAttackerTerritory);
+            }
+
+            if (AttackerTerritory.GetTroops() < 2)
+            {
+                return new UIManager("Sorry, you don't have enough troops there", GetAttackerTerritory);
+            }
+
+            return new UIManager("Input territory to attack", GetDefenderTerritory);
+        }
+        public UIManager GetDefenderTerritory(string inp)
+        {
+
+            DefenderTerritory = GetTerritory(inp);
             
-            while (defenderTerritory == null)
+            if (DefenderTerritory == null)
             {
-                defenderTerritory = GetUserInputTerritory();
-                if (attackingPlayer.OwnedTerritories.Contains(defenderTerritory))
-                {
-                    Console.WriteLine("Sorry, you can't attack yourself");
-                    defenderTerritory = null;
-                }
+                return new UIManager("Sorry, couldn't find that territory, try again", GetDefenderTerritory);
             }
 
-            int attackers = -1;
-
-            while (attackers != 0 )
+            if (currentPlayer.OwnedTerritories.Contains(DefenderTerritory))
             {
-                Console.WriteLine("input number to attack with (0 to stop attacking)");
-                attackers = GetUserInputNumber(0, attackerTerritory.GetTroops());
-
-                battle(attackers, attackerTerritory, defenderTerritory);
-
-                WriteRoles();
-
-
-                Console.WriteLine($"You now have {attackerTerritory.GetTroops()} troops left, and the defender has {defenderTerritory.GetTroops()} troops left");
+                return new UIManager("Sorry, you can't attack yourself", GetDefenderTerritory);
             }
 
-            Console.WriteLine("attack somewhere else? 1 for yes, 0 for no");
-            int cont = GetUserInputNumber(0, 1);
+            return new UIManager("Input number to attack with (0 to stop attacking)", GetNumAttackers);
+        }
+
+        public UIManager GetNumAttackers(string inp)
+        {
+            int attackers = int.Parse(inp);
+            if (attackers > AttackerTerritory.GetTroops() - 1 || attackers < 0 || attackers > 3) // have to leave one troop behind
+            {
+                return new UIManager("Sorry, invalid number of troops", GetNumAttackers);
+            }
+            battle(attackers);
+            WriteRolls();
+            string output = $"You now have {AttackerTerritory.GetTroops()} troops left, and the defender has {DefenderTerritory.GetTroops()} troops left ";
+            
+            if (AttackerTerritory.GetTroops() <= 1)
+            {
+                return new UIManager(output + "You no longer have enough troops to attack. Attack somewhere else? 1 for yes, 0 for no", Continue);
+            }
+
+            if (attackers > 0)
+            {
+                return new UIManager(output + "Input number to attack with (0 to stop attacking)", GetNumAttackers);
+            }
+            return new UIManager("Attack somewhere else? 1 for yes, 0 for no", Continue);
+        }
+        public UIManager Continue(string inp)
+        {
+            int cont = int.Parse(inp);
             
             if (cont == 1)
             {
-                Phase(attackingPlayer);
+                return new UIManager("Input territory to attack from", GetAttackerTerritory);
             }
 
+            return new UIManager();
         }
 
-        private void WriteRoles()
+        private void WriteRolls()
         {
-            Console.WriteLine("Your roles were: ");
-            Console.WriteLine(attackerRolls);
-            Console.WriteLine("The defenders roles were: ");
-            Console.WriteLine(defenderRolls);
+            Console.WriteLine("Your rolls were: ");
+            Console.WriteLine(string.Join(" ", attackerRolls));
+            Console.WriteLine("The defenders rolls were: ");
+            Console.WriteLine(string.Join(" ", defenderRolls));
         }
 
     }

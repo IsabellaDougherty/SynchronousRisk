@@ -65,6 +65,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Hand.cs" />
+    <Compile Include="Menus\UIManager.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="PhaseProcessing\AttackPhase.cs" />

@@ -5,63 +5,87 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SynchronousRisk;
+using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
     public class FortifyPhase : Phases
     {
 
-        public FortifyPhase(Territory[] allTerrs, Player currPlay, Board actBoar) : base(allTerrs, currPlay, actBoar)
+        Territory SourceTerritory;
+        Territory DestinationTerritory;
+
+        public FortifyPhase(Player currPlay, Board actBoar) : base(currPlay, actBoar)
         {
 
         }
-
-        void Phase(Player fortifyingPlayer)
+        public override UIManager Start()
         {
-            Console.WriteLine("Input territory to fortify from");
-            Territory sourceTerritory = null;
+            return new UIManager("Input Territory to foritify from", GetSourceTerritory);
+        }
 
-            while (sourceTerritory == null)
+        public UIManager GetSourceTerritory(string inp)
+        {
+            SourceTerritory = GetTerritory(inp);
+            if (SourceTerritory == null)
             {
-                sourceTerritory = GetUserInputTerritory();
-                if (!fortifyingPlayer.OwnedTerritories.Contains(sourceTerritory))
-                {
-                    Console.WriteLine("Sorry, you don't own that territory");
-                    sourceTerritory = null;
-                }
+                return new UIManager("Sorry, couldn't find that territory, try again", GetSourceTerritory);
             }
 
-            Console.WriteLine("Input territory to fortify to");
-            Territory destinationTerritory = null;
-            
-            while (destinationTerritory == null)
+            if (!currentPlayer.OwnedTerritories.Contains(SourceTerritory))
             {
-                destinationTerritory = GetUserInputTerritory();
-                if (!fortifyingPlayer.OwnedTerritories.Contains(destinationTerritory))
-                {
-                    Console.WriteLine("Sorry, you don't own that territory");
-                    destinationTerritory = null;
-                }
+                return new UIManager("Sorry, you don't own that territory", GetSourceTerritory);
             }
 
+            if (SourceTerritory.GetTroops() < 2)
+            {
+                return new UIManager("Sorry, you don't have enough troops there", GetSourceTerritory);
+            }
 
-            Console.WriteLine("input number to transfer");
-            int numberTransfer = GetUserInputNumber(0, sourceTerritory.GetTroops());
+            return new UIManager("Input territory to fortify to", GetDestinationTerritory);
+        }
+        public UIManager GetDestinationTerritory(string inp)
+        {
 
-            sourceTerritory.SetTroops(sourceTerritory.GetTroops() - numberTransfer);
-            destinationTerritory.SetTroops(destinationTerritory.GetTroops() - numberTransfer);
+            DestinationTerritory = GetTerritory(inp);
 
-            Console.WriteLine($"The first territory now has {destinationTerritory.GetTroops()} troops left, and the second territory has {destinationTerritory.GetTroops()} troops");
+            if (DestinationTerritory == null)
+            {
+                return new UIManager("Sorry, couldn't find that territory, try again", GetDestinationTerritory);
+            }
 
-            Console.WriteLine("Fortify somewhere else? 1 for yes, 0 for no");
-            int cont = GetUserInputNumber(0, 1);
-            
+            if (!currentPlayer.OwnedTerritories.Contains(DestinationTerritory))
+            {
+                return new UIManager("Sorry, you don't own that territory", GetDestinationTerritory);
+            }
+
+            return new UIManager($"you have {SourceTerritory.GetTroops()} at the source, and {DestinationTerritory.GetTroops()} at the destination. Input number to transfer", GetNumTransfer);
+        }
+
+        public UIManager GetNumTransfer(string inp)
+        {
+            int numTransfer = int.Parse(inp);
+            if (numTransfer > SourceTerritory.GetTroops() - 1 || numTransfer < 0) // have to leave one troop behind
+            {
+                return new UIManager("Sorry, invalid number of troops", GetNumTransfer);
+            }
+            SourceTerritory.SetTroops(SourceTerritory.GetTroops() - numTransfer);
+            DestinationTerritory.SetTroops(DestinationTerritory.GetTroops() + numTransfer);
+            string output = $"You have {SourceTerritory.GetTroops()} troops left at the source, and {DestinationTerritory.GetTroops()} troops at the destination ";
+
+            return new UIManager(output + "Fortify somewhere else? 1 for yes, 0 for no", Continue);
+        }
+        public UIManager Continue(string inp)
+        {
+            int cont = int.Parse(inp);
+
             if (cont == 1)
             {
-                Phase(fortifyingPlayer);
+                return new UIManager("Input territory to attack from", GetSourceTerritory);
             }
 
+            return new UIManager();
         }
-
     }
 }
+
