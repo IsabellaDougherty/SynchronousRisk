@@ -32,9 +32,10 @@ namespace SynchronousRisk.PhaseProcessing
             return rand.Next(1, 7);
         }
 
-        // Does one step of battle, subtracting lost troops
         // does one step of battle, subtracting lost troops
+        private void battle(int attackers)
         {
+            int defenders = Math.Min(DefenderTerritory.GetTroops(), 2);
             attackerRolls = new List<int>();
             defenderRolls = new List<int>();
 
