@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "PlayableForm";
             this.Load += new System.EventHandler(this.PlayableForm_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayableForm_MouseClick);
             this.ResumeLayout(false);
 
         }

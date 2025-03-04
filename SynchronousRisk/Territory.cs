@@ -35,5 +35,9 @@ namespace SynchronousRisk
         {
             return "Territory Name: " + GetName() + "\nRegion ID: " + GetRegionID() + "\nBorders: " + GetBorders();
         }
+
+        public int GetTroops() { return t.getTroops(); }
+
+        public void SetTroops(int newTroops) { t.setTroops(newTroops);  }
     }
 }

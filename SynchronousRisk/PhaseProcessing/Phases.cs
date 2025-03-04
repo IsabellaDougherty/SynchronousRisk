@@ -23,14 +23,29 @@ namespace SynchronousRisk.PhaseProcessing
             currentPlayer = currPlay;
             activeBoard = actBoar;
         }
+        public int GetUserInputNumber(int min, int max)
+        {
+            int numReturn;
+            while (!int.TryParse(Console.ReadLine(), out numReturn) && numReturn >= min && numReturn <= max)
+            {
+                Console.WriteLine($"Invalid input. Please enter a valid number, between {min} and {max}");
+            }
+            return numReturn;
+        }
         public int GetUserInputNumber()
         {
             int numReturn;
             while (!int.TryParse(Console.ReadLine(), out numReturn))
             {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
+                Console.WriteLine($"Invalid input. Please enter a valid number");
             }
             return numReturn;
+        }
+
+        public Territory GetUserInputTerritory()
+        {
+            Territory territoryReturn = GetTerritory(Console.ReadLine());
+            return territoryReturn;
         }
         public Territory GetTerritory(string name)
         {

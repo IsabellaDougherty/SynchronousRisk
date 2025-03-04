@@ -8,10 +8,13 @@ using SynchronousRisk;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-    public class FortifyPhase
+    public class FortifyPhase : Phases
     {
 
-        public FortifyPhase() { }
+        public FortifyPhase(Territory[] allTerrs, Player currPlay, Board actBoar) : base(allTerrs, currPlay, actBoar)
+        {
+
+        }
 
         void Phase(Player fortifyingPlayer)
         {
@@ -20,7 +23,7 @@ namespace SynchronousRisk.PhaseProcessing
 
             while (sourceTerritory == null)
             {
-                sourceTerritory = InputTerritory();
+                sourceTerritory = GetUserInputTerritory();
                 if (!fortifyingPlayer.OwnedTerritories.Contains(sourceTerritory))
                 {
                     Console.WriteLine("Sorry, you don't own that territory");
@@ -33,48 +36,32 @@ namespace SynchronousRisk.PhaseProcessing
             
             while (destinationTerritory == null)
             {
-                destinationTerritory = InputTerritory();
+                destinationTerritory = GetUserInputTerritory();
                 if (!fortifyingPlayer.OwnedTerritories.Contains(destinationTerritory))
                 {
-9                   Console.WriteLine("Sorry, you don't own that territory");
+                    Console.WriteLine("Sorry, you don't own that territory");
                     destinationTerritory = null;
                 }
             }
 
 
             Console.WriteLine("input number to transfer");
-            int numberTransfer = InputInteger(0, sourceTerritory.Troops);
+            int numberTransfer = GetUserInputNumber(0, sourceTerritory.GetTroops());
 
-            sourceTerritory.Troops -= numberTransfer;
-            destinationTerritory.Troops -= numberTransfer;
+            sourceTerritory.SetTroops(sourceTerritory.GetTroops() - numberTransfer);
+            destinationTerritory.SetTroops(destinationTerritory.GetTroops() - numberTransfer);
 
-            Console.WriteLine($"The first territory now has {atackerTerritory.Troops} troops left, and the second territory has {destinationTerritory.Troops} troops")
+            Console.WriteLine($"The first territory now has {destinationTerritory.GetTroops()} troops left, and the second territory has {destinationTerritory.GetTroops()} troops");
 
-            Console.WriteLine("Fortify somewhere else? 1 for yes, 0 for no";
-            int cont = InputInteger(0, 1);
+            Console.WriteLine("Fortify somewhere else? 1 for yes, 0 for no");
+            int cont = GetUserInputNumber(0, 1);
             
             if (cont == 1)
             {
-                Phase();
+                Phase(fortifyingPlayer);
             }
 
         }
-
-        private bool skip()
-        {
-            return true;
-        }
-
-        private Territory InputTerritory()
-        {
-            return new Territory("", 1, new string[3]);
-        }
-
-        private int InputInteger(int min, int max)
-        {
-            return 3;
-        }
-
 
     }
 }
