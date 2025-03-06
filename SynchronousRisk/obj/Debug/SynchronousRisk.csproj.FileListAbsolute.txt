@@ -1,37 +1,3 @@
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
-C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
-C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\Territories.txt
-C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
-C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
-C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
-<<<<<<< Updated upstream
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Territories.txt
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
-C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
-=======
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Text Files\TerritoriesInformation.txt
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryEarth.png
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryFire.png
@@ -42,4 +8,13 @@ C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyFire.png
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyLeaf.png
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyWater.png
->>>>>>> Stashed changes
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
