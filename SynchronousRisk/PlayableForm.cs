@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SynchronousRisk.Properties;
+using System;
+using System.Collections;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace SynchronousRisk
 {
@@ -18,24 +17,24 @@ namespace SynchronousRisk
         int i = 0;
 
         double[] northAmericaXPositions = { 27, 7, 3.2, 8, 5.5, 4, 8.5, 5, 7.3 };
-        double[] northAmericaYPositions = {10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6};
+        double[] northAmericaYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6 };
         int[] northAmericaIcons = { 0, 1, 2, 3, 3, 2, 1, 0, 1 };
 
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
-
         // Karen Dixon 3/3/2025: Bitmaps for each icon
-        Bitmap[] playerIcons = { new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyEarth.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyFire.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyLeaf.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyWater.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryEarth.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryFire.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
-                            new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};
+        Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
+        /*{new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyEarth.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyFire.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyLeaf.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyWater.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryEarth.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryFire.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
+                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};*/
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
 
-        Bitmap worldMap = new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\Background.png");
+        Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
         public PlayableForm()
@@ -43,11 +42,28 @@ namespace SynchronousRisk
             InitializeComponent();
             Territories territories = new Territories();
         }
-
+        /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
+         * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
+        public void ReadInBitmaps()
+        {
+            int incriment = 0;
+            string iconsFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Assets", "Icons");
+            string[] iconFiles = Directory.GetFiles(iconsFolder)
+                .Where(file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase)).ToArray();
+            foreach (string icon in iconFiles)
+            {
+                using (Bitmap bitmap = new Bitmap(icon))
+                {
+                    playerIcons[incriment] = new Bitmap(bitmap);
+                    incriment++;
+                }
+            }
+        }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
             Board board = new Board();
-            MessageBox.Show(board.DisplayBoard());
+            //MessageBox.Show(board.DisplayBoard());
+            ReadInBitmaps();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             playerIconBounds.Width = Width / 25;
@@ -62,6 +78,12 @@ namespace SynchronousRisk
             context.MaximumBuffer = new Size(Width, Height);
 
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
+
+            //IAD 3/6/2025: Troubleshooting lines of code for ensurance of playerIcons array filling
+            /*string playerIconsFillingValuesString = "Player icons initialized\n"; int startingAtOne = 1;
+            foreach (Bitmap bm in playerIcons) { playerIconsFillingValuesString += startingAtOne + "\n"; }
+            MessageBox.Show(playerIconsFillingValuesString);*/
+
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
 
