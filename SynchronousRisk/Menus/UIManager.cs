@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace SynchronousRisk.Menus
 {
+    /* Russell Phillips
+     * 3/6/2025
+     * class that manages communication between UI and game logic
+     */
     public class UIManager
     {
         Func<String, UIManager> Func;

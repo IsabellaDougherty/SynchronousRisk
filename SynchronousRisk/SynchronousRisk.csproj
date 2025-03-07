@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menus\UIManager.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="obj\Game Pieces\Board.cs" />
     <Compile Include="obj\Game Pieces\Card.cs" />
     <Compile Include="obj\Game Pieces\Deck.cs" />
