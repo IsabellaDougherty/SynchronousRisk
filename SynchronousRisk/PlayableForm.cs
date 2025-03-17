@@ -40,7 +40,6 @@ namespace SynchronousRisk
         public PlayableForm()
         {
             InitializeComponent();
-            Territories territories = new Territories();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
