@@ -89,6 +89,8 @@
     <Compile Include="obj\Game Pieces\Territories.cs" />
     <Compile Include="obj\Game Pieces\Territory.cs" />
     <Compile Include="obj\Game Pieces\Troop.cs" />
+    <Compile Include="Resources\Assets\Text Files\FileReadIn.cs" />
+    <Compile Include="Resources\Assets\Text Files\InformationDatasets.cs" />
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </EmbeddedResource>

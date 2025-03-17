@@ -1,26 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\",
+  "WorkspaceRootPath": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\russell\\documents\\github\\synchronousrisk\\synchronousrisk\\phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\obj\\game pieces\\territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\territories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\russell\\documents\\github\\synchronousrisk\\synchronousrisk\\obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\resources\\assets\\text files\\filereadin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:resources\\assets\\text files\\filereadin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\russell\\documents\\github\\synchronousrisk\\synchronousrisk\\phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\russell\\documents\\github\\synchronousrisk\\synchronousrisk\\phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\russell\\documents\\github\\synchronousrisk\\synchronousrisk\\menus\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:menus\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,13 +25,9 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 299,
-          "SelectedChildIndex": 8,
+          "DockedWidth": 336,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -65,68 +57,66 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 251,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FortifyPhase.cs",
-              "DocumentMoniker": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\FortifyPhase.cs",
-              "ToolTip": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\FortifyPhase.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
+              "RelativeDocumentMoniker": "obj\\Game Pieces\\Board.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
+              "RelativeToolTip": "obj\\Game Pieces\\Board.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T00:33:40.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T19:42:21.089Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
-              "RelativeDocumentMoniker": "obj\\Game Pieces\\Player.cs",
-              "ToolTip": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
-              "RelativeToolTip": "obj\\Game Pieces\\Player.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "FileReadIn.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Resources\\Assets\\Text Files\\FileReadIn.cs",
+              "RelativeDocumentMoniker": "Resources\\Assets\\Text Files\\FileReadIn.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Resources\\Assets\\Text Files\\FileReadIn.cs",
+              "RelativeToolTip": "Resources\\Assets\\Text Files\\FileReadIn.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAACDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:28:42.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-10T22:49:55.3Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AttackPhase.cs",
-              "DocumentMoniker": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\AttackPhase.cs",
-              "ToolTip": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\AttackPhase.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Title": "PlayableForm.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
+              "RelativeDocumentMoniker": "PlayableForm.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
+              "RelativeToolTip": "PlayableForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:15:54.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-11T20:08:33.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DraftPhase.cs",
-              "DocumentMoniker": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\DraftPhase.cs",
-              "ToolTip": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\DraftPhase.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAIwAUAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Territories.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Territories.cs",
+              "RelativeDocumentMoniker": "obj\\Game Pieces\\Territories.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Territories.cs",
+              "RelativeToolTip": "obj\\Game Pieces\\Territories.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAIAwwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:13:49.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\Menus\\UIManager.cs",
-              "RelativeDocumentMoniker": "Menus\\UIManager.cs",
-              "ToolTip": "C:\\Users\\Russell\\Documents\\GitHub\\SynchronousRisk\\SynchronousRisk\\Menus\\UIManager.cs",
-              "RelativeToolTip": "Menus\\UIManager.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA5wBAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:15:46.296Z",
+              "WhenOpened": "2025-03-10T21:35:54.693Z",
               "EditorCaption": ""
             }
           ]
