@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
     <Compile Include="obj\Game Pieces\Board.cs" />
     <Compile Include="obj\Game Pieces\Card.cs" />

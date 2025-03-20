@@ -18,10 +18,12 @@ namespace SynchronousRisk.PhaseProcessing
         /// </summary>
         internal Player currentPlayer;
         internal Board activeBoard;
-        public Phases(Player currPlay, Board actBoar) 
+        internal Player[] Players;
+        public Phases(Player currPlay, Board actBoar, Player[] players) 
         {
             currentPlayer = currPlay;
             activeBoard = actBoar;
+            Players = players;
         }
         public int GetUserInputNumber(int min, int max)
         {

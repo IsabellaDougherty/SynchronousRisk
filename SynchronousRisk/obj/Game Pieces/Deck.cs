@@ -14,7 +14,7 @@ namespace SynchronousRisk
 
         private Random Rand = new Random();
 
-        public Deck(List<string> territories)
+        public Deck(Territory[] territories)
         {
 
 
@@ -22,7 +22,7 @@ namespace SynchronousRisk
             cards.Add(new Card("Wild", CardType.Wild)); // Two wilds in each deck
             cards.Add(new Card("Wild", CardType.Wild));
 
-            for (int i = 0; i < territories.Count; i++) // Each card is an infantry, cavalry, or artillery, roughly evenly
+            for (int i = 0; i < territories.Length; i++) // Each card is an infantry, cavalry, or artillery, roughly evenly
             {
                 switch (i % 3)
                 {
@@ -41,11 +41,14 @@ namespace SynchronousRisk
             Shuffle();
         }
 
-        // Shuffle the draw pile (using the Fisher-Yates shuffle)
+        /// <summary>
+        /// Shuffle the draw pile (using the Fisher-Yates shuffle)
+        /// </summary>
+         // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
         private void Shuffle()
         {
             List<Card> lst = new List<Card>(Cards);
-            for (int i = Cards.Count; i > 0; i--)
+            for (int i = Cards.Count - 1; i > 0; i--)
             {
                 int j = Rand.Next(i + 1);
                 Card value = lst[j];

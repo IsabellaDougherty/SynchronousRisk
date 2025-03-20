@@ -15,48 +15,47 @@ namespace SynchronousRisk.PhaseProcessing
         Territory SourceTerritory;
         Territory DestinationTerritory;
 
-        public FortifyPhase(Player currPlay, Board actBoar) : base(currPlay, actBoar)
+        public FortifyPhase(Player currPlay, Board actBoar, Player[] players) : base(currPlay, actBoar, players)
         {
 
         }
         public override UIManager Start()
         {
-            return new UIManager("Input Territory to foritify from", GetSourceTerritory);
+            return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory);
         }
 
-        public UIManager GetSourceTerritory(string inp)
+        public UIManager GetSourceTerritory(Territory sourceTerr)
         {
-            SourceTerritory = GetTerritory(inp);
+            SourceTerritory = sourceTerr;
             if (SourceTerritory == null)
             {
-                return new UIManager("Sorry, couldn't find that territory, try again", GetSourceTerritory);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetSourceTerritory);
             }
 
             if (!currentPlayer.OwnedTerritories.Contains(SourceTerritory))
             {
-                return new UIManager("Sorry, you don't own that territory", GetSourceTerritory);
+                return new SelectTerritory("Sorry, you don't own that territory", GetSourceTerritory);
             }
 
             if (SourceTerritory.GetTroops() < 2)
             {
-                return new UIManager("Sorry, you don't have enough troops there", GetSourceTerritory);
+                return new SelectTerritory("Sorry, you don't have enough troops there", GetSourceTerritory);
             }
 
-            return new UIManager("Input territory to fortify to", GetDestinationTerritory);
+            return new SelectTerritory("Input territory to fortify to", GetDestinationTerritory);
         }
-        public UIManager GetDestinationTerritory(string inp)
+        public UIManager GetDestinationTerritory(Territory destinationTerr)
         {
-
-            DestinationTerritory = GetTerritory(inp);
+            DestinationTerritory = destinationTerr;
 
             if (DestinationTerritory == null)
             {
-                return new UIManager("Sorry, couldn't find that territory, try again", GetDestinationTerritory);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDestinationTerritory);
             }
 
             if (!currentPlayer.OwnedTerritories.Contains(DestinationTerritory))
             {
-                return new UIManager("Sorry, you don't own that territory", GetDestinationTerritory);
+                return new SelectTerritory("Sorry, you don't own that territory", GetDestinationTerritory);
             }
 
             return new UIManager($"you have {SourceTerritory.GetTroops()} at the source, and {DestinationTerritory.GetTroops()} at the destination. Input number to transfer", GetNumTransfer);
@@ -81,7 +80,7 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (cont == 1)
             {
-                return new UIManager("Input territory to attack from", GetSourceTerritory);
+                return new SelectTerritory("Input territory to attack from", GetSourceTerritory);
             }
 
             return new UIManager();
