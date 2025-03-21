@@ -146,6 +146,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
+    <Content Include="Resources\Assets\Buttons\EndTurn.png" />
+    <Content Include="Resources\Assets\Buttons\NextPhase.png" />
     <Content Include="Resources\Assets\Text Files\TerritoriesInformation.txt">
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -16,9 +16,9 @@ namespace SynchronousRisk
         // Karen Dixon 3/3/2025: Variables required for the graphics
         int i = 0;
 
-        double[] northAmericaXPositions = { 27, 7, 3.2, 8, 5.5, 4, 8.5, 5, 7.3 };
-        double[] northAmericaYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6 };
-        int[] northAmericaIcons = { 0, 1, 2, 3, 3, 2, 1, 0, 1 };
+        double[] iconXPositions = { 27, 7, 3.2, 8, 5.5, 3.9, 8.5, 5, 7.3, 5, 5.7, 3.7, 4.5, 2.5, 2.01, 1.77, 2.7, 2.14, 2.5, 2.02, 1.5, 1.38, 1.26, 1.14, 1.26, 1.27, 1.095, 1.55, 1.3, 1.7, 1.4, 1.265, 2.4, 1.95, 1.95, 1.85, 1.95, 1.6, 1.25, 1.12, 1.19, 1.07 };
+        double[] iconYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6, 2.25, 1.85, 1.9, 1.5, 8, 10, 5, 4.4, 4, 2.7, 3.1, 7, 10, 13, 13, 6, 3.8, 3.8, 3.7, 2.9, 2.5, 2.4, 2.25, 2, 2.2, 1.66, 1.9, 1.4, 1.4, 1.7, 1.82, 1.42, 1.45 }; 
+        int[] icons = { 0, 1, 2, 3, 3, 2, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5 };
 
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
@@ -86,6 +86,9 @@ namespace SynchronousRisk
 
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+
+            //btnNextPhase.Visible = false;
+            //btnNextPhase.Enabled = false;
 
             WindowState = FormWindowState.Maximized;
         }
@@ -269,24 +272,16 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-            for (i = 0; i < northAmericaXPositions.Length; i++)
+            for (i = 0; i < iconXPositions.Length; i++)
             {
-                playerIconBounds.X = (int)(Width / northAmericaXPositions[i]);
-                playerIconBounds.Y = (int)(Height / northAmericaYPositions[i]);
-                g.DrawImage(playerIcons[northAmericaIcons[i]], playerIconBounds);
+                playerIconBounds.X = (int)(Width / iconXPositions[i]);
+                playerIconBounds.Y = (int)(Height / iconYPositions[i]);
+                g.DrawImage(playerIcons[icons[i]], playerIconBounds);
             }
         }
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
         void OnResize(object sender, EventArgs e)
         {
-            if (Width < 200)
-            {
-                Width = 200;
-            }
-            if (Height < 200)
-            {
-                Height = 200;
-            }
             wolrdMapBounds.Width = Width;
             wolrdMapBounds.Height = Height;
 
@@ -300,6 +295,13 @@ namespace SynchronousRisk
                 graphics = null;
             }
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+        private void btnNextPhase_Click(object sender, EventArgs e)
+        {
+            btnNextPhase.Visible = false;
+            btnNextPhase.Enabled = false;
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
