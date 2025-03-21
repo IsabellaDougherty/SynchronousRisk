@@ -1,6 +1,9 @@
-﻿using SynchronousRisk.Properties;
+﻿using SynchronousRisk.Menus;
+using SynchronousRisk.PhaseProcessing;
+using SynchronousRisk.Properties;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -37,6 +40,14 @@ namespace SynchronousRisk
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
+        Board board;
+
+        UIManager currMenu;
+        Deck deck;
+
+        Player[] players;
+        int currPlayer;
+
         public PlayableForm()
         {
             InitializeComponent();
@@ -60,7 +71,15 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
-            Board board = new Board();
+            board = new Board();
+            deck = new Deck(board.GetTerritories());
+            SetUpPlayers(6); // default six players for now, need to be user secified
+            DivideTerritories();
+            currMenu = new UIManager();
+
+            SubmitTxtBox.Hide();
+            SubmitButton.Hide();
+
             //MessageBox.Show(board.DisplayBoard());
             ReadInBitmaps();
 
@@ -87,6 +106,61 @@ namespace SynchronousRisk
             graphics.Render(Graphics.FromHwnd(Handle));
 
             WindowState = FormWindowState.Maximized;
+
+            SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Set up a list of players and an index that represents whose turn it is
+        /// </summary>
+        private void SetUpPlayers(int numPlayers)
+        {
+            players = new Player[numPlayers];
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = new Player(deck);
+            }
+
+            currPlayer = 0;
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Randomly divedes territories to each player as evenly as possible
+        /// </summary>
+        private void DivideTerritories()
+        {
+            List<Territory> territories = new List<Territory>(board.GetTerritories());
+            shuffle(territories);
+
+            for (int i = 0; i < territories.Count; i++)
+            {
+                players[i % players.Count()].OwnedTerritories.Add(territories[i]);
+                territories[i].SetTroops(1);
+            }
+
+        }
+
+        
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// shuffles a generic list in place
+        /// </summary>
+        /// <typeparam name="T">type of list to be shuffled</typeparam>
+        /// <param name="lst">list to be shuffled</param>
+        /// <returns>shuffled list</returns>
+        private List<T> shuffle<T>(List<T> lst)
+        {
+            Random Rand = new Random();
+            for (int i = lst.Count - 1; i > 0; i--)
+            {
+                int j = Rand.Next(i + 1);
+                T value = lst[j];
+                lst[j] = lst[i];
+                lst[i] = value;
+            }
+            return lst;
         }
         // Karen Dixon 2/20/2025: Checks what color was clicked on
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
@@ -102,6 +176,7 @@ namespace SynchronousRisk
             // Debug Elements - REMOVE BEFORE SUBMISSION
             g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
             String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";
+            String TerritoryString = "";
 
             // North America
             if (color.R == 181)
@@ -109,29 +184,29 @@ namespace SynchronousRisk
                 if (color.G == 110)
                 {
                     if (color.B == 211)
-                        messageString += "Alaska";
+                        TerritoryString += "Alaska";
                     else if (color.B == 212)
-                        messageString += "North West Territory";
+                        TerritoryString += "North West Territory";
                     else if (color.B == 213)
-                        messageString += "Greendland";
+                        TerritoryString += "Greendland";
                 }
                 else if (color.G == 111)
                 {
                     if (color.B == 211)
-                        messageString += "Alberta";
+                        TerritoryString += "Alberta";
                     else if (color.B == 212)
-                        messageString += "Ontario";
+                        TerritoryString += "Ontario";
                     else if (color.B == 213)
-                        messageString += "Quebec";
+                        TerritoryString += "Quebec";
                 }
                 else if (color.G == 112)
                 {
                     if (color.B == 211)
-                        messageString += "Western United States";
+                        TerritoryString += "Western United States";
                     else if (color.B == 212)
-                        messageString += "Eastern United States";
+                        TerritoryString += "Eastern United States";
                     else if (color.B == 213)
-                        messageString += "Central America";
+                        TerritoryString += "Central America";
                 }
             }
             // South America
@@ -140,14 +215,14 @@ namespace SynchronousRisk
                 if (color.G == 212)
                 {
                     if (color.B == 110)
-                        messageString += "Venezuela";
+                        TerritoryString += "Venezuela";
                     else if (color.B == 111)
-                        messageString += "Peru";
+                        TerritoryString += "Peru";
                     else if (color.B == 112)
-                        messageString += "Brazil";
+                        TerritoryString += "Brazil";
                 }
                 else if (color.G == 213 && color.B == 110)
-                    messageString += "Argentina";
+                    TerritoryString += "Argentina";
             }
             // Europe
             else if (color.R == 95)
@@ -155,23 +230,23 @@ namespace SynchronousRisk
                 if (color.G == 212)
                 {
                     if (color.B == 116)
-                        messageString += "Iceland";
+                        TerritoryString += "Iceland";
                     else if (color.B == 117)
-                        messageString += "Scandinavia";
+                        TerritoryString += "Scandinavia";
                     else if (color.B == 118)
-                        messageString += "Ukraine";
+                        TerritoryString += "Ukraine";
                 }
                 else if (color.G == 213)
                 {
                     if (color.B == 116)
-                        messageString += "Great Britain";
+                        TerritoryString += "Great Britain";
                     else if (color.B == 117)
-                        messageString += "Northern Europe";
+                        TerritoryString += "Northern Europe";
                     else if (color.B == 118)
-                        messageString += "Western Europe";
+                        TerritoryString += "Western Europe";
                 }
                 else if (color.G == 214 && color.B == 116)
-                    messageString += "Southern Europe";
+                    TerritoryString += "Southern Europe";
             }
             // Asia
             else if (color.R == 214)
@@ -179,38 +254,38 @@ namespace SynchronousRisk
                 if (color.G == 99)
                 {
                     if (color.B == 90)
-                        messageString += "Ural";
+                        TerritoryString += "Ural";
                     else if (color.B == 91)
-                        messageString += "Siberia";
+                        TerritoryString += "Siberia";
                     else if (color.B == 92)
-                        messageString += "Yakutsk";
+                        TerritoryString += "Yakutsk";
                 }
                 else if (color.G == 100)
                 {
                     if (color.B == 90)
-                        messageString += "Kamchatka";
+                        TerritoryString += "Kamchatka";
                     else if (color.B == 91)
-                        messageString += "Irkutsk";
+                        TerritoryString += "Irkutsk";
                     else if (color.B == 92)
-                        messageString += "Mongolia";
+                        TerritoryString += "Mongolia";
                 }
                 else if (color.G == 101)
                 {
                     if (color.B == 90)
-                        messageString += "Japan";
+                        TerritoryString += "Japan";
                     else if (color.B == 91)
-                        messageString += "Afghanistan";
+                        TerritoryString += "Afghanistan";
                     else if (color.B == 92)
-                        messageString += "China";
+                        TerritoryString += "China";
                 }
                 else if (color.G == 102)
                 {
                     if (color.B == 90)
-                        messageString += "Middle East";
+                        TerritoryString += "Middle East";
                     else if (color.B == 91)
-                        messageString += "India";
+                        TerritoryString += "India";
                     else if (color.B == 92)
-                        messageString += "Siam";
+                        TerritoryString += "Siam";
                 }
             }
             //Africa
@@ -219,20 +294,20 @@ namespace SynchronousRisk
                 if (color.G == 95)
                 {
                     if (color.B == 214)
-                        messageString += "North Africa";
+                        TerritoryString += "North Africa";
                     else if (color.B == 215)
-                        messageString += "Egypt";
+                        TerritoryString += "Egypt";
                     else if (color.B == 216)
-                        messageString += "Congo";
+                        TerritoryString += "Congo";
                 }
                 else if (color.G == 96)
                 {
                     if (color.B == 214)
-                        messageString += "East Africa";
+                        TerritoryString += "East Africa";
                     else if (color.B == 215)
-                        messageString += "South Africa";
+                        TerritoryString += "South Africa";
                     else if (color.B == 216)
-                        messageString += "Madagascar";
+                        TerritoryString += "Madagascar";
                 }
             }
             // Australia
@@ -241,27 +316,74 @@ namespace SynchronousRisk
                 if (color.G == 214)
                 {
                     if (color.B == 208)
-                        messageString += "Indonesiaa";
+                        TerritoryString += "Indonesiaa";
                     else if (color.B == 209)
-                        messageString += "New Guinea";
+                        TerritoryString += "New Guinea";
                     else if (color.B == 210)
-                        messageString += "Western Australia";
+                        TerritoryString += "Western Australia";
                 }
                 else if (color.G == 215 && color.B == 208)
-                    messageString += "Eastern Australia";
+                    TerritoryString += "Eastern Australia";
             }
             // Water
             else if (color.R == 108 && color.G == 174 && color.B == 205)
-                messageString += "Water";
+                TerritoryString += "Water";
             // Anything Else
             else
-                messageString += "Something";
+                TerritoryString += "Something";
 
+            
             //DrawToBuffer(graphics.Graphics);
             //graphics.Render(Graphics.FromHwnd(Handle));
 
+
+            if (currMenu is SelectTerritory)
+            {
+                Territory SelectedTerritory = board.GetTerritoryByName(TerritoryString);
+                currMenu = currMenu.InputTerritory(SelectedTerritory);
+                SelectNextScreen();
+            }
             // Debug Element - REMOVE BEFORE SUBMISSION
-            MessageBox.Show(messageString);
+            //messageString += TerritoryString;
+            //MessageBox.Show(TerritoryString);
+        }
+
+        /// Russell Phillips 3/10/2025
+        /// <summary>
+        /// shows appropiate screen for current menu state
+        /// </summary>
+        void SelectNextScreen()
+        {
+            if (!currMenu.CanContinue())
+            {
+                SelectNextPlayer();
+            }
+            SubmitTxtBox.Text = "";
+            outputLbl.Text = currMenu.GetDisplay();
+            SubmitTxtBox.Hide();
+            SubmitButton.Hide();
+            if (currMenu.GetType() == typeof(UIManager))
+            {
+                SubmitTxtBox.Show();
+                SubmitButton.Show();
+            }
+            else if (currMenu is SelectTerritory)
+            { 
+            }
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Start a new turn for the next player
+        /// </summary>
+        void SelectNextPlayer()
+        {
+            currPlayer++;
+            Player player = players[currPlayer];
+            Phases phase = new DraftPhase(player, board, players);
+            currMenu = phase.Start();
         }
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
         // This prevents flickering caused by redrawing everything every frame.
@@ -301,6 +423,15 @@ namespace SynchronousRisk
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            if (currMenu.CanContinue())
+            {
+                currMenu = currMenu.Call((SubmitTxtBox.Text));
+                SelectNextScreen();
+            }
         }
     }
 }
