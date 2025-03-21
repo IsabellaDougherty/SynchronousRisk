@@ -1,6 +1,7 @@
 ﻿using SynchronousRisk.Menus;
 using SynchronousRisk.PhaseProcessing;
 using SynchronousRisk.Properties;
+using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace SynchronousRisk
 {
     public partial class PlayableForm : Form
     {
+        public InformationDatasets infoData = new InformationDatasets();
+        public Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
+        Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
+        public Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();
+        public int[] water = new int[] { 108, 174, 205 };
         // Karen Dixon 3/3/2025: Variables required for the graphics
         int i = 0;
 
@@ -36,24 +42,23 @@ namespace SynchronousRisk
                         new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
                         new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};*/
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
-
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
-
         Board board;
-
         UIManager currMenu;
         Deck deck;
-
         Player[] players;
         int currPlayer;
-
+        /// <summary>
+        /// Constructor for the PlayableForm class.
+        /// </summary>
         public PlayableForm()
         {
             InitializeComponent();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
+        
         public void ReadInBitmaps()
         {
             int incriment = 0;
@@ -71,6 +76,9 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
+            territories = infoData.territoryLookup;
+            regions = infoData.regions;
+            rgbValues = infoData.rgbLookup;
             board = new Board();
             deck = new Deck(board.GetTerritories());
             SetUpPlayers(6); // default six players for now, need to be user secified
@@ -141,8 +149,6 @@ namespace SynchronousRisk
             }
 
         }
-
-        
         /// Russell Phillips 3/18/2025
         /// <summary>
         /// shuffles a generic list in place
@@ -171,6 +177,7 @@ namespace SynchronousRisk
             position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
             position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
             Color color = resizedBackground.GetPixel(position.X, position.Y);
+            int[] colorRGB = { color.R, color.G, color.B };
             Graphics g = CreateGraphics();
 
             // Debug Elements - REMOVE BEFORE SUBMISSION
@@ -178,7 +185,11 @@ namespace SynchronousRisk
             String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";
             String TerritoryString = "";
 
-            // North America
+            //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
+            TerritoryString += rgbLookup(colorRGB).GetName();
+
+            // Karen Dixon 2/20/2025
+            /*// North America
             if (color.R == 181)
             {
                 if (color.G == 110)
@@ -330,11 +341,7 @@ namespace SynchronousRisk
                 TerritoryString += "Water";
             // Anything Else
             else
-                TerritoryString += "Something";
-
-            
-            //DrawToBuffer(graphics.Graphics);
-            //graphics.Render(Graphics.FromHwnd(Handle));
+                TerritoryString += "Something";*/
 
 
             if (currMenu is SelectTerritory)
@@ -343,9 +350,16 @@ namespace SynchronousRisk
                 currMenu = currMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
-            // Debug Element - REMOVE BEFORE SUBMISSION
-            //messageString += TerritoryString;
-            //MessageBox.Show(TerritoryString);
+        }
+        /// IAD 3/20/2025 <summary> Looks up a territory based on the rgb values of the pixel clicked on  </summary> <param name="rgb"></param>  <returns></returns>
+        private Territory rgbLookup(int[] rgb)
+        {
+            foreach (Territory t in rgbValues.Values)
+            {
+                if (t.GetRGB().SequenceEqual(rgb)) { return t; }
+                else if (rgb == water) { return null; }
+            }
+            return null;
         }
 
         /// Russell Phillips 3/10/2025
