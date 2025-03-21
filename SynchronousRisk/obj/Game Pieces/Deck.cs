@@ -38,6 +38,7 @@ namespace SynchronousRisk
                 }
             }
 
+            Cards = new Queue<Card>(cards);
             Shuffle();
         }
 
