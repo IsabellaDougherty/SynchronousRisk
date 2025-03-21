@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CustomControls">
+      <HintPath>..\..\..\..\Coding Projects\CustomControls\CustomControls\CustomControls\bin\Debug\CustomControls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -149,6 +152,7 @@
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
+    <Content Include="Resources\Assets\SynchronousRiskIcon.ico" />
     <Content Include="Resources\Assets\Text Files\TerritoriesInformation.txt">
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,34 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\",
+  "WorkspaceRootPath": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\graphicsassistance\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\menus\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:menus\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SynchronousRisk||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\fortifyphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\draftphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:phaseprocessing\\attackphase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\graphicsassistance\\synchronousrisk\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,8 +23,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 299,
-          "SelectedChildIndex": 8,
+          "DockedWidth": 336,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,105 +44,55 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayableForm.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
-              "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs*",
-              "RelativeToolTip": "PlayableForm.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T15:13:01.903Z",
+              "DocumentIndex": 2,
+              "Title": "SynchronousRisk",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\SynchronousRisk.csproj",
+              "RelativeDocumentMoniker": "SynchronousRisk.csproj",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\SynchronousRisk.csproj",
+              "RelativeToolTip": "SynchronousRisk.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-21T05:26:43.05Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PlayableForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\PlayableForm.cs",
               "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs [Design]*",
-              "RelativeToolTip": "PlayableForm.cs [Design]*",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\PlayableForm.cs [Design]",
+              "RelativeToolTip": "PlayableForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T15:12:52.317Z",
+              "WhenOpened": "2025-03-21T04:59:15.727Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FortifyPhase.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\FortifyPhase.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\FortifyPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\FortifyPhase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PlayableForm.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\PlayableForm.cs",
+              "RelativeDocumentMoniker": "PlayableForm.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\GraphicsAssistance\\SynchronousRisk\\PlayableForm.cs",
+              "RelativeToolTip": "PlayableForm.cs",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAhwDgBAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T00:33:40.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
-              "RelativeDocumentMoniker": "obj\\Game Pieces\\Player.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
-              "RelativeToolTip": "obj\\Game Pieces\\Player.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:28:42.929Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AttackPhase.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\AttackPhase.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\AttackPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\AttackPhase.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:15:54.405Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DraftPhase.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeDocumentMoniker": "PhaseProcessing\\DraftPhase.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PhaseProcessing\\DraftPhase.cs",
-              "RelativeToolTip": "PhaseProcessing\\DraftPhase.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAIwAUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:13:49.134Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UIManager.cs",
-              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\Menus\\UIManager.cs",
-              "RelativeDocumentMoniker": "Menus\\UIManager.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\Menus\\UIManager.cs",
-              "RelativeToolTip": "Menus\\UIManager.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T23:15:46.296Z",
+              "WhenOpened": "2025-03-21T04:46:44.87Z",
               "EditorCaption": ""
             }
           ]

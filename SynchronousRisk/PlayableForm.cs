@@ -288,6 +288,8 @@ namespace SynchronousRisk
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
 
+            btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
+            btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
             context.MaximumBuffer = new Size(Width, Height);
             if (graphics != null)
             {
@@ -304,6 +306,11 @@ namespace SynchronousRisk
             btnNextPhase.Enabled = false;
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void btnNextPhase_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Next Phase Button Clicked");
         }
     }
 }
