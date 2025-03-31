@@ -186,7 +186,7 @@ namespace SynchronousRisk
             String TerritoryString = "";
 
             //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
-            TerritoryString += rgbLookup(colorRGB).GetName();
+            if(rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName(); 
 
             // Karen Dixon 2/20/2025
             /*// North America
