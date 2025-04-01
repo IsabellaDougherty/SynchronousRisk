@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,15 +16,17 @@ namespace SynchronousRisk
         public int[] rgb;
         public string[] b;
         public Troops t;
+        public PointF position;
         /// IAD 2/10/2025 <param name="names"></param>
         /// <param name="RGB"></param>
         /// <param name="borders"></param>
         /// <param name="troopsPresent"></param>
-        public Territory(string names, int[] RGB, string[] borders, Troops troopsPresent)
+        public Territory(string name, int[] RGB, string[] borders, PointF p, Troops troopsPresent)
         {
-            n = names;
+            n = name;
             rgb = RGB;
             b = borders;
+            position = p;
             if (troopsPresent.getTroops() != 0) t = troopsPresent;
             else t.setTroops(-1);
         }
@@ -42,6 +45,7 @@ namespace SynchronousRisk
         /// </summary>
         /// <returns></returns>
         public string GetName() { return n; }
+        public PointF GetPosition() { return position; }
         /// IAD 2/10/2025 <summary>
         /// Returns the region ID of the territory
         /// </summary>

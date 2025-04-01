@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace SynchronousRisk.Resources.Assets.Text_Files
 {
@@ -30,21 +31,28 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             string[] names = new string[lineSplit.Length];
             string[] territoryRGBStrings = new string[lineSplit.Length];
             string[][] borders = new string[lineSplit.Length][];
+            string[] stringPositions = new string[lineSplit.Length];
             int index = 0;
             foreach (string line in lineSplit)
             {
                 string[] tabSplit = line.Split('\t');
-                if (tabSplit.Length < 3) throw new Exception($"Invalid data on line {index + 1}: {line[index]}");
+                if (tabSplit.Length < 4) throw new Exception($"Invalid data on line {index + 1}: {line[index]}");
                 names[index] = tabSplit[0].Trim();
                 territoryRGBStrings[index] = tabSplit[1].Trim();
                 borders[index] = tabSplit[2].Split(',');
+                stringPositions[index] = tabSplit[3].Trim();
                 foreach (string border in borders[index]) border.Trim();
                 index++;
             }
             index = 0;
             int[][] territoryRGBs = new int[territoryRGBStrings.Length][];
             foreach (string RGB in territoryRGBStrings) { territoryRGBs[index] = RGBParse(RGB); index++; }
-            FillTerritoryLookup(names, territoryRGBs, borders);
+            List<PointF> positionsList = new List<PointF>();
+            foreach (string pos in stringPositions) 
+                positionsList.Add(PositionParse(pos));
+            PointF[] positions = new PointF[positionsList.Count];
+            positions = positionsList.ToArray();
+            FillTerritoryLookup(names, territoryRGBs, positions, borders);
         }
         /// IAD 3/17/2025 <summary>
         /// Parses input RGB string into a size 3 int array with int[0] being red, int[1] being green, and int[2] being blue.
@@ -62,17 +70,33 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             else throw new Exception($"Invalid RGB values.");
             return output;
         }
+        /// IAD 3/31/2025 <summary> Parses input position string into a Point object with x and y values. </summary> 
+        /// <param name="position"></param> <returns></returns> <exception cref="Exception"></exception>
+        private PointF PositionParse(string position)
+        {
+            string[] positionSplit = position.Split(',');
+            if (positionSplit.Length < 2) throw new Exception($"Invalid number of position values.");
+            else foreach (string pos in positionSplit) pos.Trim();
+            PointF output = new PointF();
+            if (double.TryParse(positionSplit[0], out double x) && double.TryParse(positionSplit[1], out double y))
+            { 
+                output.X = (float)double.Parse(positionSplit[0]); 
+                output.Y = (float)double.Parse(positionSplit[1]); 
+            }
+            else throw new Exception($"Invalid position values.");
+            return output;
+        }
         /// IAD 3/17/2025 <summary>
         /// Fills the territory lookup dictionary with information provided from the parameters.
         /// </summary>
         /// <param name="names"></param>
         /// <param name="territoryIDs"></param>
         /// <param name="borders"></param>
-        private void FillTerritoryLookup(string[] names, int[][] territoryIDs, string[][] borders)
+        private void FillTerritoryLookup(string[] names, int[][] territoryIDs, PointF[] positions, string[][] borders)
         {
             for (int i = 0; i < names.Length; i++)
             {
-                Territory tempTerr = new Territory(names[i], territoryIDs[i], borders[i], new Troops(-1));
+                Territory tempTerr = new Territory(names[i], territoryIDs[i], borders[i], positions[i], new Troops(-1));
                 string name = names[i];
                 territoryLookup.Add(name, tempTerr);
                 FillrgbLookup(tempTerr);

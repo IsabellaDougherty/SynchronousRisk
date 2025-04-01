@@ -1,42 +1,42 @@
-Alaska	181, 110, 211	North West Territory,Alberta,Kamchatka
-North West Territory	181, 110, 212	Greenland,Quebec,Ontario,Alberta,Alaska
-Greenland	181, 110, 213	North West Territory,Ontario,Quebec,Iceland
-Alberta	181, 111, 211	Alaska,North West Territory,Ontario,Western United States
-Ontario	181, 111, 212	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta
-Quebec	181, 111, 213	Greenland,North West Territory,Ontario,Eastern United States
-Western United States	181, 112, 211	Alberta,Ontario,Eastern United States,Central America
-Eastern United States	181, 112, 212	Central America,Western United States,Ontario,Quebec
-Central America	181, 112, 213	Western United States,Eastern United States,Venezuela
-Venezuela	208, 212, 110	Central America,Brazil,Peru
-Peru	208, 212, 111	Venezuela,Brazil,Argentina
-Brazil	208, 212, 112	Argentina,Peru,Venezuela,North Africa
-Argentina	208, 213, 110	Peru,Brazil
-Iceland	95, 212, 116	Greenland,Scandinavia,Great Britain
-Scandinavia	95, 212, 117	Iceland,Ukraine,Great Britain,Northern Europe
-Ukraine	95, 212, 118	Scandinavia,Ural,Afghanistan,Middle East,Southern Europe,Northern Europe
-Great Britain	95, 213, 116	Iceland,Scandinavia,Northern Europe,Western Europe
-Northern Europe	95, 213, 117	Southern Europe,Ukraine,Scandinavia,Great Britain,Western Europe
-Western Europe	95, 213, 118	Great Britain,Northern Europe,Southern Europe,North Africa
-Southern Europe	95, 214, 116	Western Europe,Northern Europe,Ukraine,Middle East,Egypt,North Africa
-Ural	214,  99,  90	Ukraine,Siberia,China,Afghanistan
-Siberia	214,  99,  91	Ural,China,Mongolia,Irkutsk,Yakutsk
-Yakutsk	214,  99,  92	Siberia,Irkutsk,Kamchatka
-Kamchatka	214, 100,  90	Alaska,Japan,Mongolia,Irkutsk,Yakutsk
-Irkutsk	214, 100,  91	Siberia,Yakutsk,Kamchatka,Mongolia
-Mongolia	214, 100,  92	Siberia,Irkutsk,Kamchatka,Japan,China
-Japan	214, 101,  90	Mongolia,Kamchatka
-Afghanistan	214, 101,  91	Ukraine,Ural,China,India,Middle East
-China	214, 101,  92	Siam,India,Afghanistan,Ural,Siberia,Mongolia
-Middle East	214, 102,  90	Southern Europe,Ukraine,Afghanistan,India,East Africa,Egypt
-India	214, 102,  91	Middle East,Afghanistan,China,Siam
-Siam	214, 102,  92	Indonesia,India,China
-North Africa	90,  95, 214	Brazil,Western Europe,Southern Europe,Egypt,East Africa,Congo
-Egypt	90,  95, 215	North Africa,Southern Europe,Middle East,East Africa
-Congo	90,  95, 216	North Africa,East Africa,South Africa
-East Africa	90,  96, 214	North Africa,Egypt,Middle East,Congo,South Africa,Madagascar
-South Africa	90,  96, 215	Congo,East Africa,Madagascar
-Madagascar	90,  96, 216	South Africa,East Africa
-Indonesia	91, 214, 208	Siam,Western Australia,New Guinea
-New Guinea	91, 214, 209	Indonesia,Eastern Australia,Western Australia
-Western Australia	91, 214, 210	Indonesia,New Guinea,Eastern Australia
-Eastern Australia	91, 215, 208	New Guinea,Western Australia
+Alaska	181, 110, 211	North West Territory,Alberta,Kamchatka	27, 10.5
+North West Territory	181, 110, 212	Greenland,Quebec,Ontario,Alberta,Alaska	7, 10
+Greenland	181, 110, 213	North West Territory,Ontario,Quebec,Iceland	3.2, 15
+Alberta	181, 111, 211	Alaska,North West Territory,Ontario,Western United States	8, 6
+Ontario	181, 111, 212	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta	5.5, 5.5
+Quebec	181, 111, 213	Greenland,North West Territory,Ontario,Eastern United States	3.9, 5.7
+Western United States	181, 112, 211	Alberta,Ontario,Eastern United States,Central America	8.7, 4
+Eastern United States	181, 112, 212	Central America,Western United States,Ontario,Quebec	5, 3.5
+Central America	181, 112, 213	Western United States,Eastern United States,Venezuela	7.3, 2.6
+Venezuela	208, 212, 110	Central America,Brazil,Peru	5, 2.25
+Peru	208, 212, 111	Venezuela,Brazil,Argentina	4.7, 1.8
+Brazil	208, 212, 112	Argentina,Peru,Venezuela,North Africa	3.7, 1.9
+Argentina	208, 213, 110	Peru,Brazil	4.5, 1.5
+Iceland	95, 212, 116	Greenland,Scandinavia,Great Britain	2.5, 7.3
+Scandinavia	95, 212, 117	Iceland,Ukraine,Great Britain,Northern Europe	2.01, 10
+Ukraine	95, 212, 118	Scandinavia,Ural,Afghanistan,Middle East,Southern Europe,Northern Europe	1.77, 5
+Great Britain	95, 213, 116	Iceland,Scandinavia,Northern Europe,Western Europe	2.7, 4
+Northern Europe	95, 213, 117	Southern Europe,Ukraine,Scandinavia,Great Britain,Western Europe	2.14, 4
+Western Europe	95, 213, 118	Great Britain,Northern Europe,Southern Europe,North Africa	2.5, 2.7
+Southern Europe	95, 214, 116	Western Europe,Northern Europe,Ukraine,Middle East,Egypt,North Africa	2.02, 3.1
+Ural	214,  99,  90	Ukraine,Siberia,China,Afghanistan	1.5, 7
+Siberia	214,  99,  91	Ural,China,Mongolia,Irkutsk,Yakutsk	1.38, 10
+Yakutsk	214,  99,  92	Siberia,Irkutsk,Kamchatka	1.26, 13
+Kamchatka	214, 100,  90	Alaska,Japan,Mongolia,Irkutsk,Yakutsk	1.14, 13
+Irkutsk	214, 100,  91	Siberia,Yakutsk,Kamchatka,Mongolia	1.26, 6
+Mongolia	214, 100,  92	Siberia,Irkutsk,Kamchatka,Japan,China	1.27, 3.8
+Japan	214, 101,  90	Mongolia,Kamchatka	1.105, 3.75
+Afghanistan	214, 101,  91	Ukraine,Ural,China,India,Middle East	1.55, 3.7
+China	214, 101,  92	Siam,India,Afghanistan,Ural,Siberia,Mongolia	1.3, 2.9
+Middle East	214, 102,  90	Southern Europe,Ukraine,Afghanistan,India,East Africa,Egypt	1.7, 2.5
+India	214, 102,  91	Middle East,Afghanistan,China,Siam	1.4, 2.4
+Siam	214, 102,  92	Indonesia,India,China	1.265, 2.25
+North Africa	90,  95, 214	Brazil,Western Europe,Southern Europe,Egypt,East Africa,Congo	2.4, 2
+Egypt	90,  95, 215	North Africa,Southern Europe,Middle East,East Africa	1.95, 2.18
+Congo	90,  95, 216	North Africa,East Africa,South Africa	1.95, 1.66
+East Africa	90,  96, 214	North Africa,Egypt,Middle East,Congo,South Africa,Madagascar	1.85, 1.9
+South Africa	90,  96, 215	Congo,East Africa,Madagascar	1.95, 1.4
+Madagascar	90,  96, 216	South Africa,East Africa	1.63, 1.4
+Indonesia	91, 214, 208	Siam,Western Australia,New Guinea	1.235, 1.65
+New Guinea	91, 214, 209	Indonesia,Eastern Australia,Western Australia	1.12, 1.8
+Western Australia	91, 214, 210	Indonesia,New Guinea,Eastern Australia	1.19, 1.42
+Eastern Australia	91, 215, 208	New Guinea,Western Australia	1.07, 1.45

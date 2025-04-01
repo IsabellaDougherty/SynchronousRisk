@@ -25,22 +25,10 @@ namespace SynchronousRisk
         // Karen Dixon 3/3/2025: Variables required for the graphics
         int i = 0;
 
-        double[] northAmericaXPositions = { 27, 7, 3.2, 8, 5.5, 4, 8.5, 5, 7.3 };
-        double[] northAmericaYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6 };
-        int[] northAmericaIcons = { 0, 1, 2, 3, 3, 2, 1, 0, 1 };
-
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
         // Karen Dixon 3/3/2025: Bitmaps for each icon
         Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
-        /*{new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyEarth.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyFire.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyLeaf.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyWater.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryEarth.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryFire.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};*/
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
@@ -49,16 +37,13 @@ namespace SynchronousRisk
         Deck deck;
         Player[] players;
         int currPlayer;
-        /// <summary>
-        /// Constructor for the PlayableForm class.
-        /// </summary>
+        /// <summary> Constructor for the PlayableForm class. </summary>
         public PlayableForm()
         {
             InitializeComponent();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
-        
         public void ReadInBitmaps()
         {
             int incriment = 0;
@@ -87,9 +72,6 @@ namespace SynchronousRisk
 
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
-
-            //MessageBox.Show(board.DisplayBoard());
-            ReadInBitmaps();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             playerIconBounds.Width = Width / 25;
@@ -124,10 +106,11 @@ namespace SynchronousRisk
         /// </summary>
         private void SetUpPlayers(int numPlayers)
         {
+            ReadInBitmaps();
             players = new Player[numPlayers];
             for (int i = 0; i < players.Length; i++)
             {
-                players[i] = new Player(deck);
+                players[i] = new Player(deck, playerIcons[i]);
             }
 
             currPlayer = 0;
@@ -181,169 +164,12 @@ namespace SynchronousRisk
             Graphics g = CreateGraphics();
 
             // Debug Elements - REMOVE BEFORE SUBMISSION
-            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
-            String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";
+            /*g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
+            String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";*/
             String TerritoryString = "";
 
             //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
             if(rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName(); 
-
-            // Karen Dixon 2/20/2025
-            /*// North America
-            if (color.R == 181)
-            {
-                if (color.G == 110)
-                {
-                    if (color.B == 211)
-                        TerritoryString += "Alaska";
-                    else if (color.B == 212)
-                        TerritoryString += "North West Territory";
-                    else if (color.B == 213)
-                        TerritoryString += "Greendland";
-                }
-                else if (color.G == 111)
-                {
-                    if (color.B == 211)
-                        TerritoryString += "Alberta";
-                    else if (color.B == 212)
-                        TerritoryString += "Ontario";
-                    else if (color.B == 213)
-                        TerritoryString += "Quebec";
-                }
-                else if (color.G == 112)
-                {
-                    if (color.B == 211)
-                        TerritoryString += "Western United States";
-                    else if (color.B == 212)
-                        TerritoryString += "Eastern United States";
-                    else if (color.B == 213)
-                        TerritoryString += "Central America";
-                }
-            }
-            // South America
-            else if (color.R == 208)
-            {
-                if (color.G == 212)
-                {
-                    if (color.B == 110)
-                        TerritoryString += "Venezuela";
-                    else if (color.B == 111)
-                        TerritoryString += "Peru";
-                    else if (color.B == 112)
-                        TerritoryString += "Brazil";
-                }
-                else if (color.G == 213 && color.B == 110)
-                    TerritoryString += "Argentina";
-            }
-            // Europe
-            else if (color.R == 95)
-            {
-                if (color.G == 212)
-                {
-                    if (color.B == 116)
-                        TerritoryString += "Iceland";
-                    else if (color.B == 117)
-                        TerritoryString += "Scandinavia";
-                    else if (color.B == 118)
-                        TerritoryString += "Ukraine";
-                }
-                else if (color.G == 213)
-                {
-                    if (color.B == 116)
-                        TerritoryString += "Great Britain";
-                    else if (color.B == 117)
-                        TerritoryString += "Northern Europe";
-                    else if (color.B == 118)
-                        TerritoryString += "Western Europe";
-                }
-                else if (color.G == 214 && color.B == 116)
-                    TerritoryString += "Southern Europe";
-            }
-            // Asia
-            else if (color.R == 214)
-            {
-                if (color.G == 99)
-                {
-                    if (color.B == 90)
-                        TerritoryString += "Ural";
-                    else if (color.B == 91)
-                        TerritoryString += "Siberia";
-                    else if (color.B == 92)
-                        TerritoryString += "Yakutsk";
-                }
-                else if (color.G == 100)
-                {
-                    if (color.B == 90)
-                        TerritoryString += "Kamchatka";
-                    else if (color.B == 91)
-                        TerritoryString += "Irkutsk";
-                    else if (color.B == 92)
-                        TerritoryString += "Mongolia";
-                }
-                else if (color.G == 101)
-                {
-                    if (color.B == 90)
-                        TerritoryString += "Japan";
-                    else if (color.B == 91)
-                        TerritoryString += "Afghanistan";
-                    else if (color.B == 92)
-                        TerritoryString += "China";
-                }
-                else if (color.G == 102)
-                {
-                    if (color.B == 90)
-                        TerritoryString += "Middle East";
-                    else if (color.B == 91)
-                        TerritoryString += "India";
-                    else if (color.B == 92)
-                        TerritoryString += "Siam";
-                }
-            }
-            //Africa
-            else if (color.R == 90)
-            {
-                if (color.G == 95)
-                {
-                    if (color.B == 214)
-                        TerritoryString += "North Africa";
-                    else if (color.B == 215)
-                        TerritoryString += "Egypt";
-                    else if (color.B == 216)
-                        TerritoryString += "Congo";
-                }
-                else if (color.G == 96)
-                {
-                    if (color.B == 214)
-                        TerritoryString += "East Africa";
-                    else if (color.B == 215)
-                        TerritoryString += "South Africa";
-                    else if (color.B == 216)
-                        TerritoryString += "Madagascar";
-                }
-            }
-            // Australia
-            else if (color.R == 91)
-            {
-                if (color.G == 214)
-                {
-                    if (color.B == 208)
-                        TerritoryString += "Indonesiaa";
-                    else if (color.B == 209)
-                        TerritoryString += "New Guinea";
-                    else if (color.B == 210)
-                        TerritoryString += "Western Australia";
-                }
-                else if (color.G == 215 && color.B == 208)
-                    TerritoryString += "Eastern Australia";
-            }
-            // Water
-            else if (color.R == 108 && color.G == 174 && color.B == 205)
-                TerritoryString += "Water";
-            // Anything Else
-            else
-                TerritoryString += "Something";*/
-
-
             if (currMenu is SelectTerritory)
             {
                 Territory SelectedTerritory = board.GetTerritoryByName(TerritoryString);
@@ -404,12 +230,20 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-            for (i = 0; i < northAmericaXPositions.Length; i++)
+            foreach(Territory t in territories.Values)
             {
-                playerIconBounds.X = (int)(Width / northAmericaXPositions[i]);
-                playerIconBounds.Y = (int)(Height / northAmericaYPositions[i]);
-                g.DrawImage(playerIcons[northAmericaIcons[i]], playerIconBounds);
+                playerIconBounds.X = (int)(Width / t.GetPosition().X);
+                playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
+                Player owner = TerritoryOwnedByWho(t);
+                if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
             }
+        }
+        private Player TerritoryOwnedByWho(Territory terr)
+        {
+            foreach (Player p in players)
+                foreach (Territory owned in p.OwnedTerritories)
+                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
+            return null;
         }
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
         void OnResize(object sender, EventArgs e)
@@ -438,7 +272,6 @@ namespace SynchronousRisk
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
-
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (currMenu.CanContinue())
@@ -447,5 +280,6 @@ namespace SynchronousRisk
                 SelectNextScreen();
             }
         }
+
     }
 }
