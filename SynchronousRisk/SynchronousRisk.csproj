@@ -155,6 +155,8 @@
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
+    <Content Include="Resources\Assets\CurrentPhasePointer.png" />
+    <Content Include="Resources\Assets\GreyCircle.png" />
     <Content Include="Resources\Assets\SynchronousRiskIcon.ico" />
     <Content Include="Resources\Assets\Text Files\TerritoriesInformation.txt">
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>

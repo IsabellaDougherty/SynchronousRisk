@@ -103,6 +103,16 @@ namespace SynchronousRisk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CurrentPhasePointer {
+            get {
+                object obj = ResourceManager.GetObject("CurrentPhasePointer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EarthMap {
             get {
                 object obj = ResourceManager.GetObject("EarthMap", resourceCulture);
@@ -116,6 +126,16 @@ namespace SynchronousRisk.Properties {
         internal static System.Drawing.Bitmap EndTurn {
             get {
                 object obj = ResourceManager.GetObject("EndTurn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreyCircle {
+            get {
+                object obj = ResourceManager.GetObject("GreyCircle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

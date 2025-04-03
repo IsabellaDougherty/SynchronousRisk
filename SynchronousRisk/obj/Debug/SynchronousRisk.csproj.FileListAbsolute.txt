@@ -61,3 +61,5 @@ C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\De
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\CustomControls.dll
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date

@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\",
+  "WorkspaceRootPath": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|SynchronousRisk||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -17,23 +17,23 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\resources\\assets\\text files\\territoriesinformation.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\resources\\assets\\text files\\territoriesinformation.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:resources\\assets\\text files\\territoriesinformation.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\game pieces\\territory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\game pieces\\territory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\territory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\bella\\desktop\\school\\capstone\\risk\\synchronousrisk\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
@@ -44,17 +44,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 336,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PlayableForm.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
               "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
               "RelativeToolTip": "PlayableForm.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAAAAoBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T15:13:01.903Z",
               "IsPinned": true,
@@ -64,39 +64,14 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Territory.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Territory.cs",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Territory.cs",
               "RelativeDocumentMoniker": "obj\\Game Pieces\\Territory.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Territory.cs",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Territory.cs",
               "RelativeToolTip": "obj\\Game Pieces\\Territory.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAkwC8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T20:46:54.978Z",
               "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserControl1.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T18:05:15.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SynchronousRisk",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\SynchronousRisk.csproj",
-              "RelativeDocumentMoniker": "SynchronousRisk.csproj",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\SynchronousRisk.csproj",
-              "RelativeToolTip": "SynchronousRisk.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-03T18:03:25.691Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -116,27 +91,51 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserControl1.cs",
+              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
+              "ToolTip": "C:\\Users\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
+              "RelativeToolTip": "..\\..\\..\\Bella\\Desktop\\Coding Projects\\CustomControls\\CustomControls\\CustomControls\\UserControl1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T18:05:15.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SynchronousRisk",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\SynchronousRisk.csproj",
+              "RelativeDocumentMoniker": "SynchronousRisk.csproj",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\SynchronousRisk.csproj",
+              "RelativeToolTip": "SynchronousRisk.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-03T18:03:25.691Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Board.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
               "RelativeDocumentMoniker": "obj\\Game Pieces\\Board.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Board.cs",
               "RelativeToolTip": "obj\\Game Pieces\\Board.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -144,11 +143,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayableForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
               "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\PlayableForm.cs [Design]",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs [Design]",
               "RelativeToolTip": "PlayableForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T00:24:02.123Z",
@@ -158,9 +157,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "TerritoriesInformation.txt",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
               "RelativeDocumentMoniker": "Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
               "RelativeToolTip": "Resources\\Assets\\Text Files\\TerritoriesInformation.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
@@ -170,9 +169,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
               "RelativeDocumentMoniker": "obj\\Game Pieces\\Player.cs",
-              "ToolTip": "C:\\Users\\Bella\\Desktop\\School\\Capstone\\Risk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\Game Pieces\\Player.cs",
               "RelativeToolTip": "obj\\Game Pieces\\Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

@@ -19,6 +19,12 @@ namespace SynchronousRisk
         double[] iconXPositions = { 27, 7, 3.2, 8, 5.5, 3.9, 8.5, 5, 7.3, 5, 5.7, 3.7, 4.5, 2.5, 2.01, 1.77, 2.7, 2.14, 2.5, 2.02, 1.5, 1.38, 1.26, 1.14, 1.26, 1.27, 1.095, 1.55, 1.3, 1.7, 1.4, 1.265, 2.4, 1.95, 1.95, 1.85, 1.95, 1.6, 1.25, 1.12, 1.19, 1.07 };
         double[] iconYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6, 2.25, 1.85, 1.9, 1.5, 8, 10, 5, 4.4, 4, 2.7, 3.1, 7, 10, 13, 13, 6, 3.8, 3.8, 3.7, 2.9, 2.5, 2.4, 2.25, 2, 2.2, 1.66, 1.9, 1.4, 1.4, 1.7, 1.82, 1.42, 1.45 }; 
         int[] icons = { 0, 1, 2, 3, 3, 2, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5 };
+        
+        int currentPhase = 0;
+        double[] phaseXPositions = {7.5, 3.38, 2.18, 1.62, 1.28 };
+
+        int[] troops = { 0, 100, 2, 3, 3, 2, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5 };
+        Label[] troopLabels = new Label[42];
 
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
@@ -32,7 +38,13 @@ namespace SynchronousRisk
                         new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryFire.png"),
                         new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
                         new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};*/
-        Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
+        Rectangle playerIconBounds = new Rectangle(0, 0, 0, 0);
+
+        Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
+        Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
+
+        Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
+        Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
 
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
@@ -40,6 +52,15 @@ namespace SynchronousRisk
         public PlayableForm()
         {
             InitializeComponent();
+            for (i = 0; i < iconXPositions.Length; i++)
+            {
+                troopLabels[i] = new Label();
+                troopLabels[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#383838");
+                troopLabels[i].ForeColor = Color.White;
+                troopLabels[i].Width = 25;
+                troopLabels[i].Height = 15;
+                this.Controls.Add(troopLabels[i]);
+            }
             Territories territories = new Territories();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
@@ -66,11 +87,17 @@ namespace SynchronousRisk
             ReadInBitmaps();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
+            wolrdMapBounds.Width = Width;
+            wolrdMapBounds.Height = Height;
+
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
 
-            wolrdMapBounds.Width = Width;
-            wolrdMapBounds.Height = Height;
+            greyCircleBounds.Width = Width / 45;
+            greyCircleBounds.Height = Height / 45;
+
+            currentPhasePointerBounds.Width = Width / 70;
+            currentPhasePointerBounds.Height = Height / 30;
 
             Resize += new EventHandler(OnResize);
 
@@ -272,11 +299,23 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
+
+            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
+            currentPhasePointerBounds.Y = (int)(Height / 1.165);
+            g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
+
             for (i = 0; i < iconXPositions.Length; i++)
             {
                 playerIconBounds.X = (int)(Width / iconXPositions[i]);
                 playerIconBounds.Y = (int)(Height / iconYPositions[i]);
                 g.DrawImage(playerIcons[icons[i]], playerIconBounds);
+
+                greyCircleBounds.X = playerIconBounds.X + (int)(Width / 35);
+                greyCircleBounds.Y = playerIconBounds.Y + (int)(Height / 35);
+                g.DrawImage(greyCircle, greyCircleBounds);
+
+                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
+                troopLabels[i].Text = troops[i].ToString();
             }
         }
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
@@ -287,6 +326,12 @@ namespace SynchronousRisk
 
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
+
+            greyCircleBounds.Width = Width / 45;
+            greyCircleBounds.Height = Height / 45;
+
+            currentPhasePointerBounds.Width = Width / 70;
+            currentPhasePointerBounds.Height = Height / 30;
 
             btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
             btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
@@ -300,17 +345,12 @@ namespace SynchronousRisk
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
-        private void btnNextPhase_Click(object sender, EventArgs e)
-        {
-            btnNextPhase.Visible = false;
-            btnNextPhase.Enabled = false;
-            DrawToBuffer(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
-        }
-
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Next Phase Button Clicked");
+            //MessageBox.Show("Next Phase Button Clicked");
+            currentPhase = (currentPhase + 1) % 5;
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
         }
     }
 }
