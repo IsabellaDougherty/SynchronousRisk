@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menus\UIManager.cs" />
+    <Compile Include="obj\Controls\ImageShapedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="obj\Game Pieces\Board.cs" />
     <Compile Include="obj\Game Pieces\Card.cs" />
     <Compile Include="obj\Game Pieces\Deck.cs" />
@@ -157,6 +160,7 @@
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\CustomControls.dll" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Icons\AngryEarth.png">

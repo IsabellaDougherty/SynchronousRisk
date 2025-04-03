@@ -4,3 +4,9 @@
 
 *.vsidx
 SynchronousRisk/bin/Debug/*
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/CodeChunks.db
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/CodeChunks.db-shm
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/CodeChunks.db-wal
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/SemanticSymbols.db
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/SemanticSymbols.db-shm
+/SynchronousRisk/.vs/SynchronousRisk/CopilotIndices/17.12.53.23981/SemanticSymbols.db-wal
