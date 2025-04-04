@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,12 @@ namespace SynchronousRisk
     {
         Hand playerHand = new Hand();
         Deck deck;
+        private Bitmap Icon { get; set; }
         public List<Territory> OwnedTerritories { get; set; } = new List<Territory>();
-        public Player(Deck d) 
+        public Player(Deck d, Bitmap i) 
         {
             deck = d;
+            Icon = i;
         }
         public void DrawCard()
         {   //IAD 2/24/2025
@@ -28,6 +31,7 @@ namespace SynchronousRisk
         }
         public void DiscardCard(Card card) { deck.Discard(card); }
         public Hand GetHand() { return playerHand; }
+        public Bitmap GetIcon() { return Icon; }
         public int GetNumCardsInHand() { return playerHand.CountCards(); }
         public int TradeCards()
         {   //IAD 2/24/2025

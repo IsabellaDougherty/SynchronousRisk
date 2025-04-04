@@ -68,7 +68,7 @@ namespace SynchronousRisk.PhaseProcessing
             if (numOwnedTerritories > 8)
             {
                 draftableTroops = numOwnedTerritories / 3;
-                foreach (Region r in this.activeBoard.allRegions){ 
+                foreach (Region r in this.activeBoard.GetRegions()){ 
                     if(r.AllTerritoriesOwnedByPlayer(currentPlayer)){ 
                         draftableTroops += r.GetRegionBonus(); }}
             }
