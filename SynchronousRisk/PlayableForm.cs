@@ -57,8 +57,9 @@ namespace SynchronousRisk
                 troopLabels[i] = new Label();
                 troopLabels[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#383838");
                 troopLabels[i].ForeColor = Color.White;
-                troopLabels[i].Width = 25;
+                troopLabels[i].Width = 30;
                 troopLabels[i].Height = 15;
+                troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
             Territories territories = new Territories();

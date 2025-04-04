@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:playableform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -31,10 +31,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:obj\\game pieces\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|c:\\users\\janae\\synchronousrisk\\synchronousrisk\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{18C67C6E-2ED5-424A-B40C-3C7402AADF4E}|SynchronousRisk.csproj|solutionrelative:properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,9 +48,9 @@
               "Title": "PlayableForm.cs",
               "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
               "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
-              "RelativeToolTip": "PlayableForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs*",
+              "RelativeToolTip": "PlayableForm.cs*",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDsAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T15:13:01.903Z",
               "IsPinned": true,
@@ -126,8 +122,7 @@
               "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\SynchronousRisk.csproj",
               "RelativeToolTip": "SynchronousRisk.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-03T18:03:25.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T18:03:25.691Z"
             },
             {
               "$type": "Document",
@@ -147,8 +142,8 @@
               "Title": "PlayableForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs",
               "RelativeDocumentMoniker": "PlayableForm.cs",
-              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs [Design]",
-              "RelativeToolTip": "PlayableForm.cs [Design]",
+              "ToolTip": "C:\\Users\\janae\\SynchronousRisk\\SynchronousRisk\\PlayableForm.cs [Design]*",
+              "RelativeToolTip": "PlayableForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T00:24:02.123Z",
               "EditorCaption": " [Design]"
