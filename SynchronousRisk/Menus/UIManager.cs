@@ -12,11 +12,11 @@ namespace SynchronousRisk.Menus
      */
     public class UIManager
     {
-        Func<String, UIManager> Func;
+        internal Func<String, UIManager> Func;
 
-        String Display;
+        internal String Display;
 
-        bool Continue;
+        internal bool Continue;
 
         public UIManager()
         {
@@ -29,9 +29,15 @@ namespace SynchronousRisk.Menus
             Continue = true;
         }
 
-        public UIManager Call(String inp)
+        public virtual UIManager Call(String inp)
         {
             return Func(inp);
+        }
+
+        public virtual UIManager InputTerritory(Territory terr)
+        {
+            Display = "Sorry invalid action";
+            return this;
         }
 
         public string GetDisplay()

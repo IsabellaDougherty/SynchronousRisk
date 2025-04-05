@@ -49,6 +49,35 @@
             this.btnNextPhase.TabIndex = 0;
             this.btnNextPhase.UseVisualStyleBackColor = false;
             this.btnNextPhase.Click += new System.EventHandler(this.btnNextPhase_Click_1);
+            this.outputLbl = new System.Windows.Forms.Label();
+            this.SubmitButton = new System.Windows.Forms.Button();
+            this.SubmitTxtBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // outputLbl
+            // 
+            this.outputLbl.AutoSize = true;
+            this.outputLbl.Location = new System.Drawing.Point(376, 13);
+            this.outputLbl.Name = "outputLbl";
+            this.outputLbl.Size = new System.Drawing.Size(0, 13);
+            this.outputLbl.TabIndex = 0;
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.Location = new System.Drawing.Point(12, 331);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(100, 23);
+            this.SubmitButton.TabIndex = 1;
+            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+            // 
+            // SubmitTxtBox
+            // 
+            this.SubmitTxtBox.Location = new System.Drawing.Point(12, 305);
+            this.SubmitTxtBox.Name = "SubmitTxtBox";
+            this.SubmitTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.SubmitTxtBox.TabIndex = 2;
             // 
             // PlayableForm
             // 
@@ -57,16 +86,23 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnNextPhase);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.SubmitTxtBox);
+            this.Controls.Add(this.SubmitButton);
+            this.Controls.Add(this.outputLbl);
             this.Name = "PlayableForm";
             this.Load += new System.EventHandler(this.PlayableForm_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayableForm_MouseClick);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private CustomControls.ImageShapedButton btnNextPhase;
+        private System.Windows.Forms.Label outputLbl;
+        private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.TextBox SubmitTxtBox;
     }
 }
 

@@ -15,26 +15,31 @@ namespace SynchronousRisk.PhaseProcessing
     internal class DraftPhase : Phases
     {
         private int troopsRemaining;
-        private Territory currTerritory;
-        internal DraftPhase(Player currPlay, Board actBoar) : base(currPlay, actBoar)
+        private Territory CurrTerritory;
+        internal DraftPhase(Player currPlay, Board actBoar, Player[] players) : base(currPlay, actBoar, players)
         {
         }
 
         public override UIManager Start()
         {
             troopsRemaining = DraftableTroops();
-            return new UIManager("You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
+            return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
 
-        public UIManager ChooseTerritory(string inp)
+        public UIManager ChooseTerritory(Territory currTerritory)
         {
-            currTerritory = GetTerritory(inp);
+            CurrTerritory = currTerritory;
             if (currTerritory == null)
             {
-                return new UIManager("Territory not found, please try again", ChooseTerritory);
+                return new SelectTerritory("Territory not found, please try again", ChooseTerritory);
             }
 
-            return new UIManager("You have {troopsRemaining} troops remaining. Input number of troops", ChooseTerritory);
+            if (!currentPlayer.OwnedTerritories.Contains(currTerritory))
+            {
+                return new SelectTerritory("You don't own this territory, please try again", ChooseTerritory);
+            }
+
+            return new UIManager($"You have {troopsRemaining} troops remaining. Input number of troops", ChooseNumTroops);
         }
 
         public UIManager ChooseNumTroops(string inp)
@@ -42,17 +47,17 @@ namespace SynchronousRisk.PhaseProcessing
             int numTroops = int.Parse(inp);
             if (numTroops <= troopsRemaining)
             {
-                currTerritory.SetTroops(currTerritory.GetTroops() + numTroops);
+                CurrTerritory.SetTroops(CurrTerritory.GetTroops() + numTroops);
             }
             troopsRemaining -= numTroops;
 
             if (troopsRemaining > 0 )
             {
-                return new UIManager("You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
+                return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
             }
             else
             {
-                return new UIManager();
+                return new AttackPhase(currentPlayer, activeBoard, Players).Start();
             }
         }
 
@@ -63,7 +68,7 @@ namespace SynchronousRisk.PhaseProcessing
             if (numOwnedTerritories > 8)
             {
                 draftableTroops = numOwnedTerritories / 3;
-                foreach (Region r in this.activeBoard.allRegions){ 
+                foreach (Region r in this.activeBoard.GetRegions()){ 
                     if(r.AllTerritoriesOwnedByPlayer(currentPlayer)){ 
                         draftableTroops += r.GetRegionBonus(); }}
             }

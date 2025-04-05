@@ -1,6 +1,10 @@
-﻿using SynchronousRisk.Properties;
+﻿using SynchronousRisk.Menus;
+using SynchronousRisk.PhaseProcessing;
+using SynchronousRisk.Properties;
+using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -13,42 +17,29 @@ namespace SynchronousRisk
 {
     public partial class PlayableForm : Form
     {
+        public InformationDatasets infoData = new InformationDatasets();
+        public Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
+        Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
+        public Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();
+        public int[] water = new int[] { 108, 174, 205 };
         // Karen Dixon 3/3/2025: Variables required for the graphics
-        int i = 0;
-
-        double[] iconXPositions = { 27, 7, 3.2, 8, 5.5, 3.9, 8.5, 5, 7.3, 5, 5.7, 3.7, 4.5, 2.5, 2.01, 1.77, 2.7, 2.14, 2.5, 2.02, 1.5, 1.38, 1.26, 1.14, 1.26, 1.27, 1.095, 1.55, 1.3, 1.7, 1.4, 1.265, 2.4, 1.95, 1.95, 1.85, 1.95, 1.6, 1.25, 1.12, 1.19, 1.07 };
-        double[] iconYPositions = { 10.5, 10, 15, 6, 5.5, 5.7, 4, 3.5, 2.6, 2.25, 1.85, 1.9, 1.5, 8, 10, 5, 4.4, 4, 2.7, 3.1, 7, 10, 13, 13, 6, 3.8, 3.8, 3.7, 2.9, 2.5, 2.4, 2.25, 2, 2.2, 1.66, 1.9, 1.4, 1.4, 1.7, 1.82, 1.42, 1.45 }; 
-        int[] icons = { 0, 1, 2, 3, 3, 2, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5 };
-        
-        int currentPhase = 0;
-        double[] phaseXPositions = {7.5, 3.38, 2.18, 1.62, 1.28 };
-
-        int[] troops = { 0, 100, 2, 3, 3, 2, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5 };
         Label[] troopLabels = new Label[42];
-
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
-        // Karen Dixon 3/3/2025: Bitmaps for each icon
         Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
-        /*{new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyEarth.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyFire.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyLeaf.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\HappyWater.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryEarth.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryFire.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryLeaf.png"),
-                        new Bitmap(@"C:\Users\janae\source\repos\ConcurrentRiskTesting\AngryWater.png")};*/
         Rectangle playerIconBounds = new Rectangle(0, 0, 0, 0);
-
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
         Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
-
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
-
+        Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
-
+        Board board;
+        UIManager currMenu;
+        Deck deck;
+        Player[] players;
+        int currPlayer;
         public PlayableForm()
         {
             InitializeComponent();
@@ -83,9 +74,17 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
-            Board board = new Board();
-            //MessageBox.Show(board.DisplayBoard());
-            ReadInBitmaps();
+            territories = infoData.territoryLookup;
+            regions = infoData.regions;
+            rgbValues = infoData.rgbLookup;
+            board = new Board();
+            deck = new Deck(board.GetTerritories());
+            SetUpPlayers(6); // default six players for now, need to be user secified
+            DivideTerritories();
+            currMenu = new UIManager();
+
+            SubmitTxtBox.Hide();
+            SubmitButton.Hide();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -119,6 +118,60 @@ namespace SynchronousRisk
             //btnNextPhase.Enabled = false;
 
             WindowState = FormWindowState.Maximized;
+
+            SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Set up a list of players and an index that represents whose turn it is
+        /// </summary>
+        private void SetUpPlayers(int numPlayers)
+        {
+            ReadInBitmaps();
+            players = new Player[numPlayers];
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = new Player(deck, playerIcons[i]);
+            }
+
+            currPlayer = 0;
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Randomly divedes territories to each player as evenly as possible
+        /// </summary>
+        private void DivideTerritories()
+        {
+            List<Territory> territories = new List<Territory>(board.GetTerritories());
+            shuffle(territories);
+
+            for (int i = 0; i < territories.Count; i++)
+            {
+                players[i % players.Count()].OwnedTerritories.Add(territories[i]);
+                territories[i].SetTroops(1);
+            }
+
+        }
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// shuffles a generic list in place
+        /// </summary>
+        /// <typeparam name="T">type of list to be shuffled</typeparam>
+        /// <param name="lst">list to be shuffled</param>
+        /// <returns>shuffled list</returns>
+        private List<T> shuffle<T>(List<T> lst)
+        {
+            Random Rand = new Random();
+            for (int i = lst.Count - 1; i > 0; i--)
+            {
+                int j = Rand.Next(i + 1);
+                T value = lst[j];
+                lst[j] = lst[i];
+                lst[i] = value;
+            }
+            return lst;
         }
         // Karen Dixon 2/20/2025: Checks what color was clicked on
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
@@ -129,195 +182,99 @@ namespace SynchronousRisk
             position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
             position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
             Color color = resizedBackground.GetPixel(position.X, position.Y);
+            int[] colorRGB = { color.R, color.G, color.B };
             Graphics g = CreateGraphics();
 
             // Debug Elements - REMOVE BEFORE SUBMISSION
-            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
-            String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";
+            /*g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
+            String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";*/
+            String TerritoryString = "";
 
-            // North America
-            if (color.R == 181)
+            //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
+            if(rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName(); 
+            if (currMenu is SelectTerritory)
             {
-                if (color.G == 110)
-                {
-                    if (color.B == 211)
-                        messageString += "Alaska";
-                    else if (color.B == 212)
-                        messageString += "North West Territory";
-                    else if (color.B == 213)
-                        messageString += "Greendland";
-                }
-                else if (color.G == 111)
-                {
-                    if (color.B == 211)
-                        messageString += "Alberta";
-                    else if (color.B == 212)
-                        messageString += "Ontario";
-                    else if (color.B == 213)
-                        messageString += "Quebec";
-                }
-                else if (color.G == 112)
-                {
-                    if (color.B == 211)
-                        messageString += "Western United States";
-                    else if (color.B == 212)
-                        messageString += "Eastern United States";
-                    else if (color.B == 213)
-                        messageString += "Central America";
-                }
+                Territory SelectedTerritory = board.GetTerritoryByName(TerritoryString);
+                currMenu = currMenu.InputTerritory(SelectedTerritory);
+                SelectNextScreen();
             }
-            // South America
-            else if (color.R == 208)
+        }
+        /// IAD 3/20/2025 <summary> Looks up a territory based on the rgb values of the pixel clicked on  </summary> <param name="rgb"></param>  <returns></returns>
+        private Territory rgbLookup(int[] rgb)
+        {
+            foreach (Territory t in rgbValues.Values)
             {
-                if (color.G == 212)
-                {
-                    if (color.B == 110)
-                        messageString += "Venezuela";
-                    else if (color.B == 111)
-                        messageString += "Peru";
-                    else if (color.B == 112)
-                        messageString += "Brazil";
-                }
-                else if (color.G == 213 && color.B == 110)
-                    messageString += "Argentina";
+                if (t.GetRGB().SequenceEqual(rgb)) { return t; }
+                else if (rgb == water) { return null; }
             }
-            // Europe
-            else if (color.R == 95)
-            {
-                if (color.G == 212)
-                {
-                    if (color.B == 116)
-                        messageString += "Iceland";
-                    else if (color.B == 117)
-                        messageString += "Scandinavia";
-                    else if (color.B == 118)
-                        messageString += "Ukraine";
-                }
-                else if (color.G == 213)
-                {
-                    if (color.B == 116)
-                        messageString += "Great Britain";
-                    else if (color.B == 117)
-                        messageString += "Northern Europe";
-                    else if (color.B == 118)
-                        messageString += "Western Europe";
-                }
-                else if (color.G == 214 && color.B == 116)
-                    messageString += "Southern Europe";
-            }
-            // Asia
-            else if (color.R == 214)
-            {
-                if (color.G == 99)
-                {
-                    if (color.B == 90)
-                        messageString += "Ural";
-                    else if (color.B == 91)
-                        messageString += "Siberia";
-                    else if (color.B == 92)
-                        messageString += "Yakutsk";
-                }
-                else if (color.G == 100)
-                {
-                    if (color.B == 90)
-                        messageString += "Kamchatka";
-                    else if (color.B == 91)
-                        messageString += "Irkutsk";
-                    else if (color.B == 92)
-                        messageString += "Mongolia";
-                }
-                else if (color.G == 101)
-                {
-                    if (color.B == 90)
-                        messageString += "Japan";
-                    else if (color.B == 91)
-                        messageString += "Afghanistan";
-                    else if (color.B == 92)
-                        messageString += "China";
-                }
-                else if (color.G == 102)
-                {
-                    if (color.B == 90)
-                        messageString += "Middle East";
-                    else if (color.B == 91)
-                        messageString += "India";
-                    else if (color.B == 92)
-                        messageString += "Siam";
-                }
-            }
-            //Africa
-            else if (color.R == 90)
-            {
-                if (color.G == 95)
-                {
-                    if (color.B == 214)
-                        messageString += "North Africa";
-                    else if (color.B == 215)
-                        messageString += "Egypt";
-                    else if (color.B == 216)
-                        messageString += "Congo";
-                }
-                else if (color.G == 96)
-                {
-                    if (color.B == 214)
-                        messageString += "East Africa";
-                    else if (color.B == 215)
-                        messageString += "South Africa";
-                    else if (color.B == 216)
-                        messageString += "Madagascar";
-                }
-            }
-            // Australia
-            else if (color.R == 91)
-            {
-                if (color.G == 214)
-                {
-                    if (color.B == 208)
-                        messageString += "Indonesiaa";
-                    else if (color.B == 209)
-                        messageString += "New Guinea";
-                    else if (color.B == 210)
-                        messageString += "Western Australia";
-                }
-                else if (color.G == 215 && color.B == 208)
-                    messageString += "Eastern Australia";
-            }
-            // Water
-            else if (color.R == 108 && color.G == 174 && color.B == 205)
-                messageString += "Water";
-            // Anything Else
-            else
-                messageString += "Something";
+            return null;
+        }
 
-            //DrawToBuffer(graphics.Graphics);
-            //graphics.Render(Graphics.FromHwnd(Handle));
+        /// Russell Phillips 3/10/2025
+        /// <summary>
+        /// shows appropiate screen for current menu state
+        /// </summary>
+        void SelectNextScreen()
+        {
+            if (!currMenu.CanContinue())
+            {
+                SelectNextPlayer();
+            }
+            SubmitTxtBox.Text = "";
+            outputLbl.Text = currMenu.GetDisplay();
+            SubmitTxtBox.Hide();
+            SubmitButton.Hide();
+            if (currMenu.GetType() == typeof(UIManager))
+            {
+                SubmitTxtBox.Show();
+                SubmitButton.Show();
+            }
+            else if (currMenu is SelectTerritory)
+            { 
+            }
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
 
-            // Debug Element - REMOVE BEFORE SUBMISSION
-            MessageBox.Show(messageString);
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// Start a new turn for the next player
+        /// </summary>
+        void SelectNextPlayer()
+        {
+            currPlayer++;
+            Player player = players[currPlayer];
+            Phases phase = new DraftPhase(player, board, players);
+            currMenu = phase.Start();
         }
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
         // This prevents flickering caused by redrawing everything every frame.
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-
             currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
             currentPhasePointerBounds.Y = (int)(Height / 1.165);
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
-            for (i = 0; i < iconXPositions.Length; i++)
-            {
-                playerIconBounds.X = (int)(Width / iconXPositions[i]);
-                playerIconBounds.Y = (int)(Height / iconYPositions[i]);
-                g.DrawImage(playerIcons[icons[i]], playerIconBounds);
+            foreach (Territory t in territories.Values)
+                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
+                troopLabels[i].Text = troops[i].ToString();
+                playerIconBounds.X = (int)(Width / t.GetPosition().X);
+                playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
+                Player owner = TerritoryOwnedByWho(t);
+                if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
 
                 greyCircleBounds.X = playerIconBounds.X + (int)(Width / 35);
                 greyCircleBounds.Y = playerIconBounds.Y + (int)(Height / 35);
                 g.DrawImage(greyCircle, greyCircleBounds);
-
-                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
-                troopLabels[i].Text = troops[i].ToString();
             }
+        }
+        private Player TerritoryOwnedByWho(Territory terr)
+        {
+            foreach (Player p in players)
+                foreach (Territory owned in p.OwnedTerritories)
+                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
+            return null;
         }
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
         void OnResize(object sender, EventArgs e)
@@ -352,6 +309,14 @@ namespace SynchronousRisk
             currentPhase = (currentPhase + 1) % 5;
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+        }
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            if (currMenu.CanContinue())
+            {
+                currMenu = currMenu.Call((SubmitTxtBox.Text));
+                SelectNextScreen();
+            }
         }
     }
 }
