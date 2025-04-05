@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CustomControls">
+      <HintPath>..\..\..\..\Coding Projects\CustomControls\CustomControls\CustomControls\bin\Debug\CustomControls.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,6 +66,9 @@
   <ItemGroup>
     <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
+    <Compile Include="obj\Controls\ImageShapedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="obj\Game Pieces\Board.cs" />
     <Compile Include="obj\Game Pieces\Card.cs" />
     <Compile Include="obj\Game Pieces\Deck.cs" />
@@ -148,10 +154,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
+    <Content Include="Resources\Assets\Buttons\EndTurn.png" />
+    <Content Include="Resources\Assets\Buttons\NextPhase.png" />
+    <Content Include="Resources\Assets\CurrentPhasePointer.png" />
+    <Content Include="Resources\Assets\GreyCircle.png" />
+    <Content Include="Resources\Assets\SynchronousRiskIcon.ico" />
     <Content Include="Resources\Assets\Text Files\TerritoriesInformation.txt">
       <CustomToolNamespace>SynchronousRisk</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\CustomControls.dll" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Icons\AngryEarth.png">
