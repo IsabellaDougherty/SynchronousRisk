@@ -13,3 +13,9 @@ SynchronousRisk/bin/Debug/*
 /SynchronousRisk/.vs/SynchronousRisk/v17/.suo
 /SynchronousRisk/.vs/SynchronousRisk/v17/DocumentLayout.backup.json
 /SynchronousRisk/.vs/SynchronousRisk/v17/DocumentLayout.json
+/SynchronousRisk/obj/Debug/SynchronousRisk.csproj.GenerateResource.cache
+/SynchronousRisk/obj/Debug/SynchronousRisk.exe
+/SynchronousRisk/obj/Debug/SynchronousRisk.pdb
+/SynchronousRisk/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/SynchronousRisk/bin/Debug/SynchronousRisk.exe
+/SynchronousRisk/bin/Debug/SynchronousRisk.pdb

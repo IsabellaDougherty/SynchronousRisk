@@ -44,7 +44,8 @@ namespace SynchronousRisk.PhaseProcessing
 
         public UIManager ChooseNumTroops(string inp)
         {
-            int numTroops = int.Parse(inp);
+            int numTroops = 0;
+            if (inp != "") { numTroops = int.Parse(inp); }
             if (numTroops <= troopsRemaining)
             {
                 CurrTerritory.SetTroops(CurrTerritory.GetTroops() + numTroops);
