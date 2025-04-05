@@ -28,6 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayableForm));
+            this.btnNextPhase = new CustomControls.ImageShapedButton();
+            this.SuspendLayout();
+            // 
+            // btnNextPhase
+            // 
+            this.btnNextPhase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextPhase.BackColor = System.Drawing.Color.Transparent;
+            this.btnNextPhase.BackgroundImage = global::SynchronousRisk.Properties.Resources.NextPhase;
+            this.btnNextPhase.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNextPhase.ButtonImage = global::SynchronousRisk.Properties.Resources.NextPhase;
+            this.btnNextPhase.FlatAppearance.BorderSize = 0;
+            this.btnNextPhase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNextPhase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnNextPhase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextPhase.Location = new System.Drawing.Point(643, 350);
+            this.btnNextPhase.Name = "btnNextPhase";
+            this.btnNextPhase.Size = new System.Drawing.Size(145, 88);
+            this.btnNextPhase.TabIndex = 0;
+            this.btnNextPhase.UseVisualStyleBackColor = false;
+            this.btnNextPhase.Click += new System.EventHandler(this.btnNextPhase_Click_1);
             this.outputLbl = new System.Windows.Forms.Label();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.SubmitTxtBox = new System.Windows.Forms.TextBox();
@@ -63,6 +84,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNextPhase);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Controls.Add(this.SubmitTxtBox);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.outputLbl);
@@ -76,6 +99,7 @@
 
         #endregion
 
+        private CustomControls.ImageShapedButton btnNextPhase;
         private System.Windows.Forms.Label outputLbl;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.TextBox SubmitTxtBox;

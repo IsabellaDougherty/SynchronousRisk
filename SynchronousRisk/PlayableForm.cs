@@ -23,12 +23,15 @@ namespace SynchronousRisk
         public Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();
         public int[] water = new int[] { 108, 174, 205 };
         // Karen Dixon 3/3/2025: Variables required for the graphics
-        int i = 0;
-
+        Label[] troopLabels = new Label[42];
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
-        // Karen Dixon 3/3/2025: Bitmaps for each icon
         Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
+        Rectangle playerIconBounds = new Rectangle(0, 0, 0, 0);
+        Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
+        Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
+        Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
+        Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
@@ -37,10 +40,20 @@ namespace SynchronousRisk
         Deck deck;
         Player[] players;
         int currPlayer;
-        /// <summary> Constructor for the PlayableForm class. </summary>
         public PlayableForm()
         {
             InitializeComponent();
+            for (i = 0; i < iconXPositions.Length; i++)
+            {
+                troopLabels[i] = new Label();
+                troopLabels[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#383838");
+                troopLabels[i].ForeColor = Color.White;
+                troopLabels[i].Width = 30;
+                troopLabels[i].Height = 15;
+                troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
+                this.Controls.Add(troopLabels[i]);
+            }
+            Territories territories = new Territories();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
@@ -74,11 +87,17 @@ namespace SynchronousRisk
             SubmitButton.Hide();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
+            wolrdMapBounds.Width = Width;
+            wolrdMapBounds.Height = Height;
+
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
 
-            wolrdMapBounds.Width = Width;
-            wolrdMapBounds.Height = Height;
+            greyCircleBounds.Width = Width / 45;
+            greyCircleBounds.Height = Height / 45;
+
+            currentPhasePointerBounds.Width = Width / 70;
+            currentPhasePointerBounds.Height = Height / 30;
 
             Resize += new EventHandler(OnResize);
 
@@ -94,6 +113,9 @@ namespace SynchronousRisk
 
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+
+            //btnNextPhase.Visible = false;
+            //btnNextPhase.Enabled = false;
 
             WindowState = FormWindowState.Maximized;
 
@@ -230,12 +252,21 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-            foreach(Territory t in territories.Values)
-            {
+            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
+            currentPhasePointerBounds.Y = (int)(Height / 1.165);
+            g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
+
+            foreach (Territory t in territories.Values)
+                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
+                troopLabels[i].Text = troops[i].ToString();
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
                 playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
                 Player owner = TerritoryOwnedByWho(t);
                 if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
+
+                greyCircleBounds.X = playerIconBounds.X + (int)(Width / 35);
+                greyCircleBounds.Y = playerIconBounds.Y + (int)(Height / 35);
+                g.DrawImage(greyCircle, greyCircleBounds);
             }
         }
         private Player TerritoryOwnedByWho(Territory terr)
@@ -248,20 +279,20 @@ namespace SynchronousRisk
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
         void OnResize(object sender, EventArgs e)
         {
-            if (Width < 200)
-            {
-                Width = 200;
-            }
-            if (Height < 200)
-            {
-                Height = 200;
-            }
             wolrdMapBounds.Width = Width;
             wolrdMapBounds.Height = Height;
 
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
 
+            greyCircleBounds.Width = Width / 45;
+            greyCircleBounds.Height = Height / 45;
+
+            currentPhasePointerBounds.Width = Width / 70;
+            currentPhasePointerBounds.Height = Height / 30;
+
+            btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
+            btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
             context.MaximumBuffer = new Size(Width, Height);
             if (graphics != null)
             {
@@ -269,6 +300,13 @@ namespace SynchronousRisk
                 graphics = null;
             }
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+        private void btnNextPhase_Click_1(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Next Phase Button Clicked");
+            currentPhase = (currentPhase + 1) % 5;
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
@@ -280,6 +318,5 @@ namespace SynchronousRisk
                 SelectNextScreen();
             }
         }
-
     }
 }

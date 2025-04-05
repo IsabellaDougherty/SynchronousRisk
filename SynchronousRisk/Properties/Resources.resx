@@ -118,34 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AngryEarth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Icons\AngryEarth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AngryFire" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Icons\AngryFire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AngryLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Icons\AngryLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EarthMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Backgrounds\EarthMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AngryWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Icons\AngryWater.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EarthMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Backgrounds\EarthMap.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HappyEarth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Icons\HappyEarth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="HappyFire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Icons\HappyFire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HappyLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Icons\HappyLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TerritoriesInformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Text Files\TerritoriesInformation.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AngryFire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Icons\AngryFire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HappyWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Assets\Icons\HappyWater.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TerritoriesInformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Assets\Text Files\TerritoriesInformation.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="HappyLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Icons\HappyLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AngryLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Icons\AngryLeaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HappyEarth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Icons\HappyEarth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AngryEarth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Icons\AngryEarth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EndTurn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Buttons\EndTurn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NextPhase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\Buttons\NextPhase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SynchronousRiskIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\SynchronousRiskIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CurrentPhasePointer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\CurrentPhasePointer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreyCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Assets\GreyCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
