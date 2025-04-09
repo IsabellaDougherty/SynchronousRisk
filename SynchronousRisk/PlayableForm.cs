@@ -34,15 +34,13 @@ namespace SynchronousRisk
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
-        Board board;
         UIManager currMenu;
-        Deck deck;
-        Player[] players;
-        int currPlayer;
+        GameState gameState;
         public PlayableForm()
         {
             InitializeComponent();
-            for (i = 0; i < iconXPositions.Length; i++)
+            /*
+            for (int i = 0; i < iconXPositions.Length; i++)
             {
                 troopLabels[i] = new Label();
                 troopLabels[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#383838");
@@ -52,6 +50,7 @@ namespace SynchronousRisk
                 troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
+            */
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
@@ -72,13 +71,12 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
+            gameState = new GameState();
             territories = infoData.territoryLookup;
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
-            board = new Board();
-            deck = new Deck(board.GetTerritories());
-            SetUpPlayers(6); // default six players for now, need to be user secified
-            DivideTerritories();
+            ReadInBitmaps();
+            gameState.SetUpPlayers(6, playerIcons);  // default six players for now, need to be user secified
             currMenu = new UIManager();
 
             SubmitTxtBox.Hide();
@@ -120,57 +118,6 @@ namespace SynchronousRisk
             SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
         }
 
-        /// Russell Phillips 3/18/2025
-        /// <summary>
-        /// Set up a list of players and an index that represents whose turn it is
-        /// </summary>
-        private void SetUpPlayers(int numPlayers)
-        {
-            ReadInBitmaps();
-            players = new Player[numPlayers];
-            for (int i = 0; i < players.Length; i++)
-            {
-                players[i] = new Player(deck, playerIcons[i]);
-            }
-
-            currPlayer = 0;
-        }
-
-        /// Russell Phillips 3/18/2025
-        /// <summary>
-        /// Randomly divedes territories to each player as evenly as possible
-        /// </summary>
-        private void DivideTerritories()
-        {
-            List<Territory> territories = new List<Territory>(board.GetTerritories());
-            shuffle(territories);
-
-            for (int i = 0; i < territories.Count; i++)
-            {
-                players[i % players.Count()].OwnedTerritories.Add(territories[i]);
-                territories[i].SetTroops(1);
-            }
-
-        }
-        /// Russell Phillips 3/18/2025
-        /// <summary>
-        /// shuffles a generic list in place
-        /// </summary>
-        /// <typeparam name="T">type of list to be shuffled</typeparam>
-        /// <param name="lst">list to be shuffled</param>
-        /// <returns>shuffled list</returns>
-        private List<T> shuffle<T>(List<T> lst)
-        {
-            Random Rand = new Random();
-            for (int i = lst.Count - 1; i > 0; i--)
-            {
-                int j = Rand.Next(i + 1);
-                T value = lst[j];
-                lst[j] = lst[i];
-                lst[i] = value;
-            }
-            return lst;
-        }
         // Karen Dixon 2/20/2025: Checks what color was clicked on
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
         {
@@ -192,7 +139,7 @@ namespace SynchronousRisk
             if(rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName(); 
             if (currMenu is SelectTerritory)
             {
-                Territory SelectedTerritory = board.GetTerritoryByName(TerritoryString);
+                Territory SelectedTerritory = gameState.Board.GetTerritoryByName(TerritoryString);
                 currMenu = currMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
@@ -216,7 +163,7 @@ namespace SynchronousRisk
         {
             if (!currMenu.CanContinue())
             {
-                SelectNextPlayer();
+                currMenu = gameState.NextPlayerTurn();
             }
             SubmitTxtBox.Text = "";
             outputLbl.Text = currMenu.GetDisplay();
@@ -234,17 +181,6 @@ namespace SynchronousRisk
             graphics.Render(Graphics.FromHwnd(Handle));
         }
 
-        /// Russell Phillips 3/18/2025
-        /// <summary>
-        /// Start a new turn for the next player
-        /// </summary>
-        void SelectNextPlayer()
-        {
-            currPlayer++;
-            Player player = players[currPlayer];
-            Phases phase = new DraftPhase(player, board, players);
-            currMenu = phase.Start();
-        }
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
         // This prevents flickering caused by redrawing everything every frame.
         void DrawToBuffer(Graphics g)
@@ -256,11 +192,11 @@ namespace SynchronousRisk
 
             foreach (Territory t in territories.Values)
             {
-                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
-                troopLabels[i].Text = troops[i].ToString();
+                //troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
+                //troopLabels[i].Text = troops[i].ToString();
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
                 playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
-                Player owner = TerritoryOwnedByWho(t);
+                Player owner = gameState.TerritoryOwnedByWho(t);
                 if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
 
                 greyCircleBounds.X = playerIconBounds.X + (int)(Width / 35);
@@ -268,13 +204,7 @@ namespace SynchronousRisk
                 g.DrawImage(greyCircle, greyCircleBounds);
             }
         }
-        private Player TerritoryOwnedByWho(Territory terr)
-        {
-            foreach (Player p in players)
-                foreach (Territory owned in p.OwnedTerritories)
-                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
-            return null;
-        }
+
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
         void OnResize(object sender, EventArgs e)
         {
