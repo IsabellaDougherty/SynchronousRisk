@@ -63,3 +63,25 @@ C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\De
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
 C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\CustomControls.dll
 C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Text Files\TerritoriesInformation.txt
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryEarth.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryFire.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryLeaf.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryWater.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Backgrounds\EarthMap.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyEarth.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyFire.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyLeaf.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\HappyWater.png
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\CustomControls.dll
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb

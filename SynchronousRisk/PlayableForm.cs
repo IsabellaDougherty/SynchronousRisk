@@ -27,7 +27,6 @@ namespace SynchronousRisk
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
         Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
-        Rectangle playerIconBounds = new Rectangle(0, 0, 0, 0);
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
         Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
@@ -53,7 +52,6 @@ namespace SynchronousRisk
                 troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
-            Territories territories = new Territories();
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
@@ -252,11 +250,12 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
+            //currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
             currentPhasePointerBounds.Y = (int)(Height / 1.165);
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
             foreach (Territory t in territories.Values)
+            {
                 troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
                 troopLabels[i].Text = troops[i].ToString();
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
@@ -306,10 +305,11 @@ namespace SynchronousRisk
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
             //MessageBox.Show("Next Phase Button Clicked");
-            currentPhase = (currentPhase + 1) % 5;
+            //currentPhase = (currentPhase + 1) % 5;
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
+
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (currMenu.CanContinue())
