@@ -39,8 +39,8 @@ namespace SynchronousRisk
         public PlayableForm()
         {
             InitializeComponent();
-            /*
-            for (int i = 0; i < iconXPositions.Length; i++)
+            
+            for (int i = 0; i < troopLabels.Length; i++)
             {
                 troopLabels[i] = new Label();
                 troopLabels[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#383838");
@@ -50,7 +50,7 @@ namespace SynchronousRisk
                 troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
-            */
+            
         }
         /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
          * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
@@ -187,18 +187,24 @@ namespace SynchronousRisk
             currentPhasePointerBounds.Y = (int)(Height / 1.165);
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
+            int i = 0;
             foreach (Territory t in territories.Values)
             {
-                //troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
-                //troopLabels[i].Text = troops[i].ToString();
+                // Draw player icons
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
                 playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
                 Player owner = gameState.TerritoryOwnedByWho(t);
                 if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
 
+                // Draw the grey circle for the troop labels
                 greyCircleBounds.X = playerIconBounds.X + (int)(Width / 35);
                 greyCircleBounds.Y = playerIconBounds.Y + (int)(Height / 35);
                 g.DrawImage(greyCircle, greyCircleBounds);
+
+                // Position and fill in the troop labels
+                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
+                troopLabels[i].Text = t.GetTroops().ToString();
+                i++;
             }
 
             g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle(20,20,100,100));
@@ -213,7 +219,7 @@ namespace SynchronousRisk
             playerIconBounds.Width = Width / 25;
             playerIconBounds.Height = Height / 25;
 
-            greyCircleBounds.Width = Width / 45;
+            greyCircleBounds.Width = Width / 42;
             greyCircleBounds.Height = Height / 45;
 
             currentPhasePointerBounds.Width = Width / 70;
