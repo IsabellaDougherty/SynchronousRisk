@@ -23,7 +23,7 @@ namespace SynchronousRisk.PhaseProcessing
 
         bool BattleWon = false;
 		
-        public AttackPhase(Player currPlay, Board actBoar, Player[] players) : base(currPlay, actBoar, players)
+        public AttackPhase(GameState g) : base(g)
         {
 
         }
@@ -82,7 +82,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, couldn't find that territory, try again", GetAttackerTerritory);
             }
 
-            if (!currentPlayer.OwnedTerritories.Contains(AttackerTerritory))
+            if (!CurrentPlayer.OwnedTerritories.Contains(AttackerTerritory))
             {
                 return new SelectTerritory("Sorry, you don't own that territory", GetAttackerTerritory);
             }
@@ -103,7 +103,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDefenderTerritory);
             }
 
-            if (currentPlayer.OwnedTerritories.Contains(DefenderTerritory))
+            if (CurrentPlayer.OwnedTerritories.Contains(DefenderTerritory))
             {
                 return new SelectTerritory("Sorry, you can't attack yourself", GetDefenderTerritory);
             }
@@ -169,7 +169,7 @@ namespace SynchronousRisk.PhaseProcessing
         {
             if (DefenderTerritory.GetTroops() <= 0)
             {
-                currentPlayer.OwnedTerritories.Add(DefenderTerritory);
+                CurrentPlayer.OwnedTerritories.Add(DefenderTerritory);
 
                 for (int i = 0; i < Players.Length; i++) // make sure no one else owns the territory
                 {
@@ -197,9 +197,11 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (BattleWon)
             {
-                currentPlayer.DrawCard();
+                CurrentPlayer.DrawCard();
             }
-            return new FortifyPhase(currentPlayer, activeBoard, Players).Start();
+
+            gameState.NextPlayerTurn();
+            return new FortifyPhase(gameState).Start();
         }
 
         private void WriteRolls()

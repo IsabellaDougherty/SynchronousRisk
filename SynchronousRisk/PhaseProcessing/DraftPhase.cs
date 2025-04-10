@@ -16,7 +16,7 @@ namespace SynchronousRisk.PhaseProcessing
     {
         private int troopsRemaining;
         private Territory CurrTerritory;
-        internal DraftPhase(Player currPlay, Board actBoar, Player[] players) : base(currPlay, actBoar, players)
+        internal DraftPhase(GameState g) : base(g)
         {
         }
 
@@ -34,7 +34,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Territory not found, please try again", ChooseTerritory);
             }
 
-            if (!currentPlayer.OwnedTerritories.Contains(currTerritory))
+            if (!CurrentPlayer.OwnedTerritories.Contains(currTerritory))
             {
                 return new SelectTerritory("You don't own this territory, please try again", ChooseTerritory);
             }
@@ -58,19 +58,20 @@ namespace SynchronousRisk.PhaseProcessing
             }
             else
             {
-                return new AttackPhase(currentPlayer, activeBoard, Players).Start();
+                gameState.NextPlayerTurn();
+                return new AttackPhase(gameState).Start();
             }
         }
 
         internal int DraftableTroops()
         {
-            int numOwnedTerritories = currentPlayer.OwnedTerritories.Count;
+            int numOwnedTerritories = CurrentPlayer.OwnedTerritories.Count;
             int draftableTroops = 0;
             if (numOwnedTerritories > 8)
             {
                 draftableTroops = numOwnedTerritories / 3;
                 foreach (Region r in this.activeBoard.GetRegions()){ 
-                    if(r.AllTerritoriesOwnedByPlayer(currentPlayer)){ 
+                    if(r.AllTerritoriesOwnedByPlayer(CurrentPlayer)){ 
                         draftableTroops += r.GetRegionBonus(); }}
             }
             if(draftableTroops < 3) { draftableTroops = 3; }
@@ -79,9 +80,9 @@ namespace SynchronousRisk.PhaseProcessing
         internal int CardDraft()
         {
             int draftableTroops = 0;
-            if(currentPlayer.GetNumCardsInHand() >= 3)
+            if(CurrentPlayer.GetNumCardsInHand() >= 3)
             {
-                currentPlayer.TradeCards();
+                CurrentPlayer.TradeCards();
             }
             return draftableTroops;
         }

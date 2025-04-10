@@ -15,14 +15,14 @@ namespace SynchronousRisk
     /// <summary>
     /// Class that represents gamestate
     /// </summary>
-    internal class GameState
+    public class GameState
     {
         Deck Deck;
 
         public Board Board;
-        Player[] Players;
-        Player CurrentTurnsPlayer;
-        int currPlayer;
+        public Player[] Players;
+        public Player CurrentTurnsPlayer;
+        public int currPlayer;
 
         public GameState()
         {
@@ -89,13 +89,10 @@ namespace SynchronousRisk
         /// <summary>
         /// Start a new turn for the next player
         /// </summary>
-        public UIManager NextPlayerTurn()
+        public void NextPlayerTurn()
         {
-            currPlayer++;
+            currPlayer = (currPlayer + 1) % Players.Count();
             CurrentTurnsPlayer = Players[currPlayer];
-            Phases phase = new DraftPhase(CurrentTurnsPlayer, Board, Players);
-            return phase.Start();
-            
         }
 
         public void RestartTurns()

@@ -16,14 +16,13 @@ namespace SynchronousRisk.PhaseProcessing
         /// <summary>
         /// Base class for all independent phases to inherit from for integratable functions that interact with the UI directly.
         /// </summary>
-        internal Player currentPlayer;
-        internal Board activeBoard;
-        internal Player[] Players;
-        public Phases(Player currPlay, Board actBoar, Player[] players) 
+        internal GameState gameState;
+        internal Player CurrentPlayer { get { return gameState.CurrentTurnsPlayer; } }
+        internal Board activeBoard { get { return gameState.Board; } }
+        internal Player[] Players { get { return gameState.Players; } }
+        public Phases(GameState g) 
         {
-            currentPlayer = currPlay;
-            activeBoard = actBoar;
-            Players = players;
+            gameState = g;
         }
         public int GetUserInputNumber(int min, int max)
         {

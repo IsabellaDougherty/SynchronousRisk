@@ -77,7 +77,8 @@ namespace SynchronousRisk
             rgbValues = infoData.rgbLookup;
             ReadInBitmaps();
             gameState.SetUpPlayers(6, playerIcons);  // default six players for now, need to be user secified
-            currMenu = new UIManager();
+            Phases phase = new SetupPhase(gameState);
+            currMenu = phase.Start();
 
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
@@ -161,10 +162,6 @@ namespace SynchronousRisk
         /// </summary>
         void SelectNextScreen()
         {
-            if (!currMenu.CanContinue())
-            {
-                currMenu = gameState.NextPlayerTurn();
-            }
             SubmitTxtBox.Text = "";
             outputLbl.Text = currMenu.GetDisplay();
             SubmitTxtBox.Hide();
@@ -203,6 +200,8 @@ namespace SynchronousRisk
                 greyCircleBounds.Y = playerIconBounds.Y + (int)(Height / 35);
                 g.DrawImage(greyCircle, greyCircleBounds);
             }
+
+            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle(20,20,100,100));
         }
 
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.

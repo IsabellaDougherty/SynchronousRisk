@@ -79,6 +79,7 @@
     <Compile Include="PhaseProcessing\DraftPhase.cs" />
     <Compile Include="PhaseProcessing\FortifyPhase.cs" />
     <Compile Include="PhaseProcessing\Phases.cs" />
+    <Compile Include="PhaseProcessing\SetupPhase.cs" />
     <Compile Include="PlayableForm.cs">
       <SubType>Form</SubType>
     </Compile>

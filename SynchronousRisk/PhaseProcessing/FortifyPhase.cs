@@ -15,7 +15,7 @@ namespace SynchronousRisk.PhaseProcessing
         Territory SourceTerritory;
         Territory DestinationTerritory;
 
-        public FortifyPhase(Player currPlay, Board actBoar, Player[] players) : base(currPlay, actBoar, players)
+        public FortifyPhase(GameState g) : base(g)
         {
 
         }
@@ -32,7 +32,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, couldn't find that territory, try again", GetSourceTerritory);
             }
 
-            if (!currentPlayer.OwnedTerritories.Contains(SourceTerritory))
+            if (!CurrentPlayer.OwnedTerritories.Contains(SourceTerritory))
             {
                 return new SelectTerritory("Sorry, you don't own that territory", GetSourceTerritory);
             }
@@ -53,7 +53,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDestinationTerritory);
             }
 
-            if (!currentPlayer.OwnedTerritories.Contains(DestinationTerritory))
+            if (!CurrentPlayer.OwnedTerritories.Contains(DestinationTerritory))
             {
                 return new SelectTerritory("Sorry, you don't own that territory", GetDestinationTerritory);
             }
@@ -83,7 +83,8 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Input territory to attack from", GetSourceTerritory);
             }
 
-            return new UIManager();
+            gameState.NextPlayerTurn();
+            return new FortifyPhase(gameState).Start();
         }
     }
 }
