@@ -39,13 +39,11 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("You don't own this territory, please try again", ChooseTerritory);
             }
 
-            return new UIManager($"You have {troopsRemaining} troops remaining. Input number of troops", ChooseNumTroops);
+            return new SelectNumber($"You have {troopsRemaining} troops remaining. Input number of troops", ChooseNumTroops, 0, troopsRemaining);
         }
 
-        public UIManager ChooseNumTroops(string inp)
+        public UIManager ChooseNumTroops(int numTroops)
         {
-            int numTroops = 0;
-            if (inp != "") { numTroops = int.Parse(inp); }
             if (numTroops <= troopsRemaining)
             {
                 CurrTerritory.SetTroops(CurrTerritory.GetTroops() + numTroops);
@@ -58,7 +56,6 @@ namespace SynchronousRisk.PhaseProcessing
             }
             else
             {
-                gameState.NextPlayerTurn();
                 return new AttackPhase(gameState).Start();
             }
         }

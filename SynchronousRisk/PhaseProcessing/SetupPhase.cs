@@ -43,6 +43,15 @@ namespace SynchronousRisk.PhaseProcessing
             }
         }
 
+        public SetupPhase(GameState g, int numTroops) : base(g)
+        {
+            TroopsLeftPerPlayer = new Dictionary<Player, int>();
+            foreach (Player player in gameState.GetPlayers())
+            {
+                TroopsLeftPerPlayer[player] = numTroops;
+            }
+        }
+
         public override UIManager Start()
         {
             return new SelectTerritory("Choose a territory to place a troop", Next);

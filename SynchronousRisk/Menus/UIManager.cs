@@ -40,6 +40,12 @@ namespace SynchronousRisk.Menus
             return this;
         }
 
+        public virtual UIManager InputInt(int i)
+        {
+            Display = "Sorry invalid action";
+            return this;
+        }
+
         public string GetDisplay()
         {
             return Display;

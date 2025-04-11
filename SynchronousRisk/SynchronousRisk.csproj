@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState.cs" />
+    <Compile Include="Menus\SelectNumber.cs" />
     <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
     <Compile Include="obj\Controls\ImageShapedButton.cs">
