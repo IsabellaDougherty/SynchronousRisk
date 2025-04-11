@@ -77,11 +77,12 @@ namespace SynchronousRisk
             rgbValues = infoData.rgbLookup;
             ReadInBitmaps();
             gameState.SetUpPlayers(6, playerIcons);  // default six players for now, need to be user secified
-            Phases phase = new SetupPhase(gameState);
+            Phases phase = new SetupPhase(gameState, 1);
             currMenu = phase.Start();
 
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
+            SubmitNumTrackBar.Hide();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -166,6 +167,8 @@ namespace SynchronousRisk
             outputLbl.Text = currMenu.GetDisplay();
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
+            SubmitNumTrackBar.Hide();
+            CurrentValueTrackBarLbl.Text = "";
             if (currMenu.GetType() == typeof(UIManager))
             {
                 SubmitTxtBox.Show();
@@ -173,6 +176,15 @@ namespace SynchronousRisk
             }
             else if (currMenu is SelectTerritory)
             { 
+            }
+            else if (currMenu is SelectNumber sn)
+            {
+                SubmitButton.Show();
+                SubmitNumTrackBar.Show();
+                SubmitNumTrackBar.Minimum = sn.Min;
+                SubmitNumTrackBar.Maximum = sn.Max;
+
+                UpdateCurrentValueLbl();
             }
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
@@ -188,7 +200,7 @@ namespace SynchronousRisk
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
             int i = 0;
-            foreach (Territory t in territories.Values)
+            foreach (Territory t in gameState.Board.GetTerritories())
             {
                 // Draw player icons
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
@@ -247,11 +259,25 @@ namespace SynchronousRisk
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (currMenu.CanContinue())
+            if (currMenu is SelectNumber)
+            {
+                currMenu = currMenu.InputInt(SubmitNumTrackBar.Value);
+            }
+            else
             {
                 currMenu = currMenu.Call((SubmitTxtBox.Text));
-                SelectNextScreen();
             }
+            SelectNextScreen();
+        }
+
+        private void SubmitNumTrackBar_Scroll(object sender, EventArgs e)
+        {
+            UpdateCurrentValueLbl();
+        }
+
+        private void UpdateCurrentValueLbl()
+        {
+            CurrentValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Minimum}    {SubmitNumTrackBar.Value}      {SubmitNumTrackBar.Maximum}";
         }
     }
 }

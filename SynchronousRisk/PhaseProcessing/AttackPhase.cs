@@ -108,15 +108,14 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, you can't attack yourself", GetDefenderTerritory);
             }
 
-            return new UIManager("Input number to attack with (0 to stop attacking)", GetNumAttackers);
+            return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
         }
 
-        public UIManager GetNumAttackers(string inp)
+        public UIManager GetNumAttackers(int attackers)
         {
-            int attackers = int.Parse(inp);
             if (attackers > AttackerTerritory.GetTroops() - 1 || attackers < 0 || attackers > 3) // have to leave one troop behind
             {
-                return new UIManager("Sorry, invalid number of troops", GetNumAttackers);
+                return new SelectNumber("Sorry, invalid number of troops", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
             }
 
             battle(attackers);
@@ -126,7 +125,7 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (CheckBattleWon())
             {
-                return new UIManager(output + "Input number of troops to transfer", TransferTroops);
+                return new SelectNumber(output + "Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1);
             }
             
             if (AttackerTerritory.GetTroops() <= 1)
@@ -136,23 +135,22 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (attackers > 0)
             {
-                return new UIManager(output + "Input number to attack with (0 to stop attacking)", GetNumAttackers);
+                return new SelectNumber(output + "Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Max(AttackerTerritory.GetTroops() - 1, 3));
             }
             return new UIManager("Attack somewhere else? 1 for yes, 0 for no", Continue);
         }
 
-        private UIManager TransferTroops(string inp)
+        private UIManager TransferTroops(int transfer)
         {
-            int transfer = int.Parse(inp);
 
             if (transfer > AttackerTerritory.GetTroops() - 1)
             {
-                return new UIManager("Sorry, but you can't transfer that many trops", TransferTroops);
+                //return new UIManager("Sorry, but you can't transfer that many trops", TransferTroops);
             }
 
             if (transfer < 1)
             {
-                return new UIManager("Sorry, but you must transfer at least one troop", TransferTroops);
+                //return new UIManager("Sorry, but you must transfer at least one troop", TransferTroops);
             }
 
             AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - transfer);
@@ -200,7 +198,6 @@ namespace SynchronousRisk.PhaseProcessing
                 CurrentPlayer.DrawCard();
             }
 
-            gameState.NextPlayerTurn();
             return new FortifyPhase(gameState).Start();
         }
 

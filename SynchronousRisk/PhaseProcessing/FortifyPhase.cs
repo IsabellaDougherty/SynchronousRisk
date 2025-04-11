@@ -58,21 +58,19 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectTerritory("Sorry, you don't own that territory", GetDestinationTerritory);
             }
 
-            return new UIManager($"you have {SourceTerritory.GetTroops()} at the source, and {DestinationTerritory.GetTroops()} at the destination. Input number to transfer", GetNumTransfer);
+            return new SelectNumber($"Input number to transfer", GetNumTransfer, 0, SourceTerritory.GetTroops() - 1);
         }
 
-        public UIManager GetNumTransfer(string inp)
+        public UIManager GetNumTransfer(int numTransfer)
         {
-            int numTransfer = int.Parse(inp);
             if (numTransfer > SourceTerritory.GetTroops() - 1 || numTransfer < 0) // have to leave one troop behind
             {
-                return new UIManager("Sorry, invalid number of troops", GetNumTransfer);
+                //return new UIManager("Sorry, invalid number of troops", GetNumTransfer);
             }
             SourceTerritory.SetTroops(SourceTerritory.GetTroops() - numTransfer);
             DestinationTerritory.SetTroops(DestinationTerritory.GetTroops() + numTransfer);
-            string output = $"You have {SourceTerritory.GetTroops()} troops left at the source, and {DestinationTerritory.GetTroops()} troops at the destination ";
 
-            return new UIManager(output + "Fortify somewhere else? 1 for yes, 0 for no", Continue);
+            return new UIManager("Fortify somewhere else? 1 for yes, 0 for no", Continue);
         }
         public UIManager Continue(string inp)
         {
@@ -84,7 +82,7 @@ namespace SynchronousRisk.PhaseProcessing
             }
 
             gameState.NextPlayerTurn();
-            return new FortifyPhase(gameState).Start();
+            return new DraftPhase(gameState).Start();
         }
     }
 }
