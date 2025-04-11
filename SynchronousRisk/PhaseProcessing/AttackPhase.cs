@@ -167,7 +167,6 @@ namespace SynchronousRisk.PhaseProcessing
         {
             if (DefenderTerritory.GetTroops() <= 0)
             {
-                CurrentPlayer.OwnedTerritories.Add(DefenderTerritory);
 
                 for (int i = 0; i < Players.Length; i++) // make sure no one else owns the territory
                 {
@@ -177,6 +176,8 @@ namespace SynchronousRisk.PhaseProcessing
                         break;
                     }
                 }
+
+                CurrentPlayer.OwnedTerritories.Add(DefenderTerritory);
 
                 BattleWon = true;
                 return true;

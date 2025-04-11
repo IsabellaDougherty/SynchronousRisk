@@ -97,6 +97,8 @@ namespace SynchronousRisk
 
         public void RestartTurns()
         {
+            currPlayer = 0;
+            CurrentTurnsPlayer = Players[currPlayer];
 
         }
 
