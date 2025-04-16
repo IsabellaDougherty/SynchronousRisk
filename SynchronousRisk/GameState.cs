@@ -24,10 +24,13 @@ namespace SynchronousRisk
         public Player CurrentTurnsPlayer;
         public int currPlayer;
 
+        public int PhaseInt;
+
         public GameState()
         {
             Board = new Board();
             Deck = new Deck(Board.GetTerritories());
+            PhaseInt = 0;
         }
 
         /// Russell Phillips 3/18/2025

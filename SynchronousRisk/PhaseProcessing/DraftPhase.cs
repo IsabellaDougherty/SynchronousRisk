@@ -22,6 +22,8 @@ namespace SynchronousRisk.PhaseProcessing
 
         public override UIManager Start()
         {
+            gameState.NextPlayerTurn();
+            gameState.PhaseInt = 1;
             troopsRemaining = DraftableTroops();
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }

@@ -23,6 +23,16 @@ namespace SynchronousRisk.Menus
             Continue = true;
         }
 
+        public SelectNumber(string d, Func<int, UIManager> Func, int mi, int ma, Phases nextPhase)
+        {
+            Display = d; 
+            Min = mi;
+            Max = ma;
+            IntFunc = Func;
+            NextPhase = nextPhase;
+            Continue = false;
+        }
+
         public override UIManager InputInt(int i)
         {
             return IntFunc(i);
@@ -32,6 +42,17 @@ namespace SynchronousRisk.Menus
         {
             Display = "sorry invalid action";
             return this;
+        }
+        public override UIManager NextPhaseManager()
+        {
+            if (NextPhase is null)
+            {
+                return base.NextPhaseManager();
+            }
+            else
+            {
+                return NextPhase.Start();
+            }
         }
     }
 }

@@ -31,6 +31,7 @@ namespace SynchronousRisk
         Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
+        double[] phaseXPositions = { 7.5, 3.38, 2.18, 1.62, 1.28 };
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
@@ -195,7 +196,7 @@ namespace SynchronousRisk
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
-            //currentPhasePointerBounds.X = (int)(Width / phaseXPositions[currentPhase]);
+            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt]);
             currentPhasePointerBounds.Y = (int)(Height / 1.165);
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
@@ -251,10 +252,9 @@ namespace SynchronousRisk
         }
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
-            //MessageBox.Show("Next Phase Button Clicked");
-            //currentPhase = (currentPhase + 1) % 5;
-            DrawToBuffer(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
+            currMenu = currMenu.NextPhaseManager();
+            SelectNextScreen();
+
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)

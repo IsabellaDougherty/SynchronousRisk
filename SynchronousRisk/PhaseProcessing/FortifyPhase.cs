@@ -15,13 +15,17 @@ namespace SynchronousRisk.PhaseProcessing
         Territory SourceTerritory;
         Territory DestinationTerritory;
 
+        Phases NextPhase;
+
         public FortifyPhase(GameState g) : base(g)
         {
 
         }
         public override UIManager Start()
         {
-            return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory);
+            gameState.PhaseInt = 3;
+            NextPhase = new DraftPhase(gameState);
+            return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory, NextPhase);
         }
 
         public UIManager GetSourceTerritory(Territory sourceTerr)
@@ -29,20 +33,20 @@ namespace SynchronousRisk.PhaseProcessing
             SourceTerritory = sourceTerr;
             if (SourceTerritory == null)
             {
-                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetSourceTerritory);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetSourceTerritory, NextPhase);
             }
 
             if (!CurrentPlayer.OwnedTerritories.Contains(SourceTerritory))
             {
-                return new SelectTerritory("Sorry, you don't own that territory", GetSourceTerritory);
+                return new SelectTerritory("Sorry, you don't own that territory", GetSourceTerritory, NextPhase);
             }
 
             if (SourceTerritory.GetTroops() < 2)
             {
-                return new SelectTerritory("Sorry, you don't have enough troops there", GetSourceTerritory);
+                return new SelectTerritory("Sorry, you don't have enough troops there", GetSourceTerritory, NextPhase);
             }
 
-            return new SelectTerritory("Input territory to fortify to", GetDestinationTerritory);
+            return new SelectTerritory("Input territory to fortify to", GetDestinationTerritory, NextPhase);
         }
         public UIManager GetDestinationTerritory(Territory destinationTerr)
         {
@@ -50,15 +54,15 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (DestinationTerritory == null)
             {
-                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDestinationTerritory);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDestinationTerritory, NextPhase);
             }
 
             if (!CurrentPlayer.OwnedTerritories.Contains(DestinationTerritory))
             {
-                return new SelectTerritory("Sorry, you don't own that territory", GetDestinationTerritory);
+                return new SelectTerritory("Sorry, you don't own that territory", GetDestinationTerritory, NextPhase);
             }
 
-            return new SelectNumber($"Input number to transfer", GetNumTransfer, 0, SourceTerritory.GetTroops() - 1);
+            return new SelectNumber($"Input number to transfer", GetNumTransfer, 0, SourceTerritory.GetTroops() - 1, NextPhase);
         }
 
         public UIManager GetNumTransfer(int numTransfer)
@@ -70,19 +74,8 @@ namespace SynchronousRisk.PhaseProcessing
             SourceTerritory.SetTroops(SourceTerritory.GetTroops() - numTransfer);
             DestinationTerritory.SetTroops(DestinationTerritory.GetTroops() + numTransfer);
 
-            return new UIManager("Fortify somewhere else? 1 for yes, 0 for no", Continue);
-        }
-        public UIManager Continue(string inp)
-        {
-            int cont = int.Parse(inp);
+            return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory, NextPhase);
 
-            if (cont == 1)
-            {
-                return new SelectTerritory("Input territory to attack from", GetSourceTerritory);
-            }
-
-            gameState.NextPlayerTurn();
-            return new DraftPhase(gameState).Start();
         }
     }
 }

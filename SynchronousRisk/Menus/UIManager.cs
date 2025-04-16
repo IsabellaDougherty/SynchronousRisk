@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SynchronousRisk.PhaseProcessing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace SynchronousRisk.Menus
         internal String Display;
 
         internal bool Continue;
+
+        internal Phases NextPhase;
 
         public UIManager()
         {
@@ -43,6 +46,15 @@ namespace SynchronousRisk.Menus
         public virtual UIManager InputInt(int i)
         {
             Display = "Sorry invalid action";
+            return this;
+        }
+
+        /// <summary>
+        /// Gets the next phase manager if possible
+        /// </summary>
+        /// <returns>new UIManager</returns>
+        public virtual UIManager NextPhaseManager()
+        {
             return this;
         }
 
