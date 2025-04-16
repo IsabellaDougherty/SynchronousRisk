@@ -65,6 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState.cs" />
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\SelectNumber.cs" />
     <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
@@ -100,6 +106,15 @@
     <Compile Include="obj\Game Pieces\Troop.cs" />
     <Compile Include="Resources\Assets\Text Files\FileReadIn.cs" />
     <Compile Include="Resources\Assets\Text Files\InformationDatasets.cs" />
+    <Compile Include="SetupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupScreen.Designer.cs">
+      <DependentUpon>SetupScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +122,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupScreen.resx">
+      <DependentUpon>SetupScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".vs\ProjectSettings.json" />
     <None Include=".vs\Risk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
@@ -158,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
+    <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
     <Content Include="Resources\Assets\CurrentPhasePointer.png" />

@@ -16,7 +16,7 @@ namespace SynchronousRisk
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PlayableForm());
+            Application.Run(new HomeScreen());
         }
     }
 }

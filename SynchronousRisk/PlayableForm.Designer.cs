@@ -109,6 +109,7 @@
             this.Controls.Add(this.SubmitTxtBox);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.outputLbl);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PlayableForm";
             this.Load += new System.EventHandler(this.PlayableForm_Load);
