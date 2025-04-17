@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using SynchronousRisk;
 using SynchronousRisk.Menus;
@@ -109,6 +110,11 @@ namespace SynchronousRisk.PhaseProcessing
             if (CurrentPlayer.OwnedTerritories.Contains(DefenderTerritory))
             {
                 return new SelectTerritory("Sorry, you can't attack yourself", GetDefenderTerritory, NextPhase);
+            }
+
+            if (!AttackerTerritory.GetBorders().Contains(DefenderTerritory.GetName()))
+            {
+                return new SelectTerritory("Sorry, that territory does not border the attacking territory", GetDefenderTerritory, NextPhase);
             }
 
             return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3), NextPhase);
