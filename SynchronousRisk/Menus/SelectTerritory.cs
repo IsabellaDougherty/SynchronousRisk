@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SynchronousRisk.PhaseProcessing;
+
 namespace SynchronousRisk.Menus
 {
     internal class SelectTerritory : UIManager
@@ -14,6 +16,14 @@ namespace SynchronousRisk.Menus
             Display = d;
             TerritoryFunction = TerrFunc;
             Continue = true;
+        }
+
+        public SelectTerritory(string d, Func<Territory, UIManager> TerrFunc, Phases nextPhase)
+        {
+            Display = d;
+            TerritoryFunction = TerrFunc;
+            NextPhase = nextPhase;
+            Continue = false;
         }
 
         public override UIManager InputTerritory(Territory terr)
@@ -27,5 +37,16 @@ namespace SynchronousRisk.Menus
             return this;
         }
 
+        public override UIManager NextPhaseManager()
+        {
+            if (NextPhase is null)
+            {
+                return base.NextPhaseManager();
+            }
+            else
+            {
+                return NextPhase.Start();
+            }
+        }
     }
 }
