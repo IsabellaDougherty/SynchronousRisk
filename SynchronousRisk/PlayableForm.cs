@@ -131,10 +131,10 @@ namespace SynchronousRisk
             position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
             Color color = resizedBackground.GetPixel(position.X, position.Y);
             int[] colorRGB = { color.R, color.G, color.B };
-            Graphics g = CreateGraphics();
 
             // Debug Elements - REMOVE BEFORE SUBMISSION
-            /*g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
+            /*Graphics g = CreateGraphics();
+            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
             String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";*/
             String TerritoryString = "";
 
@@ -187,7 +187,26 @@ namespace SynchronousRisk
 
                 UpdateCurrentValueLbl();
             }
-            DrawToBuffer(graphics.Graphics);
+            updateGraphics();
+        }
+        // Karen Dixon 4/17/2025: updates player icon and troop count for individual territories if they have changed.
+        void updateGraphics()
+        {
+            int i = 0;
+            foreach (Territory t in gameState.Board.GetTerritories()) {
+                if (t.troopChange == true)
+                {
+                    UpdateLabel(i, t);
+                    t.troopChange = false;
+                }
+                if (t.iconChange == true)
+                {
+                    UpdateTerritoryIcon(graphics.Graphics, t);
+                    t.iconChange = false;
+                }
+                i++;
+            }
+            UpdateCurrentPlayerIcon(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
 
@@ -215,12 +234,44 @@ namespace SynchronousRisk
                 g.DrawImage(greyCircle, greyCircleBounds);
 
                 // Position and fill in the troop labels
-                troopLabels[i].Location = new Point(playerIconBounds.X + (int)(Width / 30), playerIconBounds.Y + (int)(Height / 30));
-                troopLabels[i].Text = t.GetTroops().ToString();
+                UpdateLabel(i, t);
                 i++;
             }
+            // Draw Current Player Icon
+            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle((int)(Width / 75),(int)(Height / 2.5),(int)(Width / 10), (int)(Height / 10)));
+        }
+        // Karen Dixon 4/16/2025: Updates the label for the given territory
+        void UpdateLabel(int index, Territory territory)
+        {
+            troopLabels[index].Location = new Point((int)(Width / territory.GetPosition().X) + (int)(Width / 30), (int)(Height / territory.GetPosition().Y) + (int)(Height / 30));
+            troopLabels[index].Text = territory.GetTroops().ToString();
+        }
+        // Karen Dixon 4/16/2025: Updates all labels
+        void UpdateAllLabels()
+        {
+            int index = 0;
+            foreach (Territory territory in gameState.Board.GetTerritories()){
+                UpdateLabel(index, territory);
+                index++;
+            }
+        }
+        //Karen Dixon 4/17/2025: Updates the icon for a specific territory
+        void UpdateTerritoryIcon(Graphics g, Territory territory)
+        {
+            Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            Rectangle territoryIconBounds = new Rectangle((int)(Width / territory.GetPosition().X), (int)(Height / territory.GetPosition().Y), (int)(Width / 25), (int)(Height / 25));
+            g.DrawImage(resizedBackground, territoryIconBounds.X, territoryIconBounds.Y, territoryIconBounds, GraphicsUnit.Pixel);
+            g.DrawImage(greyCircle, new Rectangle(territoryIconBounds.X + (int)(Width / 35), territoryIconBounds.Y + (int)(Height / 35), (int)(Width / 45), (int)(Height / 45)));
+            g.DrawImage(gameState.TerritoryOwnedByWho(territory).GetIcon(), territoryIconBounds);
+        }
 
-            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle(20,20,100,100));
+        // Karen Dixon 4/16/2025: Updates the current player icon
+        void UpdateCurrentPlayerIcon(Graphics g)
+        {
+            Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            Rectangle currentPlayerIconBounds = new Rectangle((int)(Width / 75), (int)(Height / 2.5), (int)(Width / 10), (int)(Height / 10));
+            g.DrawImage(resizedBackground, currentPlayerIconBounds.X, currentPlayerIconBounds.Y, currentPlayerIconBounds, GraphicsUnit.Pixel);
+            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), currentPlayerIconBounds);
         }
 
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.

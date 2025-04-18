@@ -188,6 +188,7 @@ namespace SynchronousRisk.PhaseProcessing
                 }
 
                 CurrentPlayer.OwnedTerritories.Add(DefenderTerritory);
+                DefenderTerritory.iconChange = true;
 
                 BattleWon = true;
                 return true;

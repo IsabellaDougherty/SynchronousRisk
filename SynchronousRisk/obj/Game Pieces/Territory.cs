@@ -17,6 +17,8 @@ namespace SynchronousRisk
         public string[] b;
         public Troops t;
         public PointF position;
+        public bool iconChange;
+        public bool troopChange;
         /// IAD 2/10/2025 <param name="names"></param>
         /// <param name="RGB"></param>
         /// <param name="borders"></param>
@@ -27,6 +29,8 @@ namespace SynchronousRisk
             rgb = RGB;
             b = borders;
             position = p;
+            iconChange = false;
+            troopChange = false;
             if (troopsPresent.getTroops() != 0) t = troopsPresent;
             else t.setTroops(-1);
         }
@@ -78,6 +82,9 @@ namespace SynchronousRisk
         /// Sets the number of troops present in the territory
         /// </summary>
         /// <param name="newTroops"></param>
-        public void SetTroops(int newTroops) { t.setTroops(newTroops);  }
+        public void SetTroops(int newTroops) { 
+            t.setTroops(newTroops);
+            troopChange = true;
+        }
     }
 }
