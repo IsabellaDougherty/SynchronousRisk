@@ -34,6 +34,16 @@ namespace SynchronousRisk
             if (troopsPresent.getTroops() != 0) t = troopsPresent;
             else t.setTroops(-1);
         }
+
+        /// Russell Phillips 4/21/2025
+        /// <summary> 
+        /// Creates a dummy territory with a specified number of troops
+        /// </summary>
+        /// <param name="NumTroops"></param>
+        public Territory(int NumTroops)
+        {
+            t = new Troops(NumTroops);
+        }
         /// IAD 2/10/2025 <summary>
         /// Ensure all territories have borders that are existing territory names
         /// </summary>
