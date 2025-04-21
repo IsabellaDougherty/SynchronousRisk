@@ -13,7 +13,7 @@ namespace SynchronousRisk.obj.Game_Pieces
     /// <summary>
     /// Object that manages one direction of wormhole travel
     /// </summary>
-    internal class Wormhole
+    public class Wormhole
     {
         Territory Source;
         Territory Destination;
@@ -24,8 +24,6 @@ namespace SynchronousRisk.obj.Game_Pieces
         /// <summary>
         /// Make a wormhole with a source and destination territory.
         /// </summary>
-        /// <param name="source"></param>
-        /// <param name="destination"></param>
         public Wormhole(Territory source, Territory destination)
         {
             Source = source;
@@ -37,8 +35,6 @@ namespace SynchronousRisk.obj.Game_Pieces
         /// <summary>
         /// Start the transfer of troops from the source territory to the destination
         /// </summary>
-        /// <param name="player">player that owns the troops</param>
-        /// <param name="numTroops">number of troops</param>
         public void TransferTroops(Player player, int numTroops)
         {
             Transit.Add((player, numTroops));

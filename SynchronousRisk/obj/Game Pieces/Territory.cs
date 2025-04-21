@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SynchronousRisk.obj.Game_Pieces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace SynchronousRisk
         public PointF position;
         public bool iconChange;
         public bool troopChange;
+
+        public Wormhole ExitWormhole;
         /// IAD 2/10/2025 <param name="names"></param>
         /// <param name="RGB"></param>
         /// <param name="borders"></param>
