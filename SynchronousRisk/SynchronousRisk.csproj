@@ -71,6 +71,12 @@
     <Compile Include="HomeScreen.Designer.cs">
       <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSelect.Designer.cs">
+      <DependentUpon>IconSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\SelectNumber.cs" />
     <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
@@ -114,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="HomeScreen.resx">
       <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconSelect.resx">
+      <DependentUpon>IconSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>

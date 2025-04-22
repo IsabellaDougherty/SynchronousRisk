@@ -40,7 +40,9 @@ namespace SynchronousRisk
         public PlayableForm()
         {
             InitializeComponent();
-            
+
+            DoubleBuffered = true;
+
             for (int i = 0; i < troopLabels.Length; i++)
             {
                 troopLabels[i] = new Label();
@@ -119,6 +121,8 @@ namespace SynchronousRisk
             WindowState = FormWindowState.Maximized;
 
             SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
+            DoubleBuffered = false;
+            this.Refresh();
         }
 
         // Karen Dixon 2/20/2025: Checks what color was clicked on
