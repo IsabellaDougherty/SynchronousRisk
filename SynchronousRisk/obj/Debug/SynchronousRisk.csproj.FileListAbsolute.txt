@@ -85,6 +85,12 @@ C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\bin\Debug\Cust
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\bin\Debug\CustomControls.dll
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Text Files\TerritoriesInformation.txt
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryEarth.png
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\AngryFire.png
@@ -107,3 +113,7 @@ C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources

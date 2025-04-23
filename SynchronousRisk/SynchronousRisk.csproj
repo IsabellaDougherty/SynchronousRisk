@@ -65,6 +65,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameState.cs" />
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconSelect.Designer.cs">
+      <DependentUpon>IconSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menus\SelectNumber.cs" />
     <Compile Include="Menus\SelectTerritory.cs" />
     <Compile Include="Menus\UIManager.cs" />
@@ -75,7 +93,7 @@
     <Compile Include="obj\Game Pieces\Card.cs" />
     <Compile Include="obj\Game Pieces\Deck.cs" />
     <Compile Include="obj\Game Pieces\Hand.cs" />
-    <Compile Include="obj\Game Pieces\Wormhole.cs" />
+    <Compile Include="obj\Game Pieces\Portal.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="PhaseProcessing\AttackPhase.cs" />
     <Compile Include="PhaseProcessing\DraftPhase.cs" />
@@ -101,6 +119,21 @@
     <Compile Include="obj\Game Pieces\Troop.cs" />
     <Compile Include="Resources\Assets\Text Files\FileReadIn.cs" />
     <Compile Include="Resources\Assets\Text Files\InformationDatasets.cs" />
+    <Compile Include="SetupScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupScreen.Designer.cs">
+      <DependentUpon>SetupScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconSelect.resx">
+      <DependentUpon>IconSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,14 +142,15 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SetupScreen.resx">
+      <DependentUpon>SetupScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include=".vs\ProjectSettings.json" />
     <None Include=".vs\Risk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
     <None Include=".vs\slnx.sqlite" />
     <None Include=".vs\SynchronousRisk.csproj.dtbcache.json" />
-    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-shm" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-wal" />
-    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-shm" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-wal" />
     <None Include=".vs\SynchronousRisk\FileContentIndex\00213986-81c2-478b-98f3-8266c5d4321a.vsidx" />
@@ -159,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
+    <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
     <Content Include="Resources\Assets\CurrentPhasePointer.png" />

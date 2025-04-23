@@ -1,15 +1,13 @@
 ﻿using SynchronousRisk.Menus;
 using SynchronousRisk.PhaseProcessing;
-using SynchronousRisk.Properties;
 using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 
@@ -17,30 +15,39 @@ namespace SynchronousRisk
 {
     public partial class PlayableForm : Form
     {
-        public InformationDatasets infoData = new InformationDatasets();
-        public Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
+        InformationDatasets infoData = new InformationDatasets();
+        Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
         Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
-        public Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();
-        public int[] water = new int[] { 108, 174, 205 };
+        Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();
+        Bitmap[] playerIcons;
+
+        int players;
+        int[] water = new int[] { 108, 174, 205 };
+        double[] phaseXPositions = { 7.5, 3.38, 2.18, 1.62, 1.28 };
+
         // Karen Dixon 3/3/2025: Variables required for the graphics
         Label[] troopLabels = new Label[42];
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
-        Bitmap[] playerIcons = new Bitmap[Directory.EnumerateFiles("Resources/Assets/Icons").Count()];
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
-        Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
-        Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
-        double[] phaseXPositions = { 7.5, 3.38, 2.18, 1.62, 1.28 };
-        Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
+
+        Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
+        Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
+        Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
+
         UIManager currMenu;
         GameState gameState;
-        public PlayableForm()
+        public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();
-            
+            this.HelpButton = true;
+            playerIcons = pi;
+            players = pl;
+            if (playerIcons.Length < players) fillRandomIcons();
+            DoubleBuffered = true;
             for (int i = 0; i < troopLabels.Length; i++)
             {
                 troopLabels[i] = new Label();
@@ -51,24 +58,21 @@ namespace SynchronousRisk
                 troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
-            
         }
-        /*IAD 3/6/2025: To be replaced once File Read In class has been implemented
-         * Following code to read in file taken and altered from https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file */
-        public void ReadInBitmaps()
+        private void fillRandomIcons()
         {
-            int incriment = 0;
-            string iconsFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Assets", "Icons");
-            string[] iconFiles = Directory.GetFiles(iconsFolder)
-                .Where(file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase)).ToArray();
-            foreach (string icon in iconFiles)
+            Bitmap[] tempIcons = infoData.playerIcons;
+            List<Bitmap> playerIconsList = playerIcons.ToList();
+            int i = 0;
+            while(playerIconsList.Count < players)
             {
-                using (Bitmap bitmap = new Bitmap(icon))
-                {
-                    playerIcons[incriment] = new Bitmap(bitmap);
-                    incriment++;
-                }
+                if (!(playerIconsList.Contains(tempIcons[i])))
+                    playerIconsList.Add(tempIcons[i]);
+                if(i >= tempIcons.Length)
+                    throw new Exception("Not enough player icons to fill the number of players.");
+                i++;
             }
+            playerIcons = playerIconsList.ToArray();
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
@@ -76,8 +80,7 @@ namespace SynchronousRisk
             territories = infoData.territoryLookup;
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
-            ReadInBitmaps();
-            gameState.SetUpPlayers(6, playerIcons);  // default six players for now, need to be user secified
+            gameState.SetUpPlayers(players, playerIcons);
             Phases phase = new SetupPhase(gameState, 1);
             currMenu = phase.Start();
 
@@ -119,6 +122,8 @@ namespace SynchronousRisk
             WindowState = FormWindowState.Maximized;
 
             SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
+            DoubleBuffered = false;
+            this.Refresh();
         }
 
         // Karen Dixon 2/20/2025: Checks what color was clicked on
@@ -139,7 +144,7 @@ namespace SynchronousRisk
             String TerritoryString = "";
 
             //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
-            if(rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName(); 
+            if (rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName();
             if (currMenu is SelectTerritory)
             {
                 Territory SelectedTerritory = gameState.Board.GetTerritoryByName(TerritoryString);
@@ -176,7 +181,7 @@ namespace SynchronousRisk
                 SubmitButton.Show();
             }
             else if (currMenu is SelectTerritory)
-            { 
+            {
             }
             else if (currMenu is SelectNumber sn)
             {
@@ -329,6 +334,17 @@ namespace SynchronousRisk
         private void UpdateCurrentValueLbl()
         {
             CurrentValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Minimum}    {SubmitNumTrackBar.Value}      {SubmitNumTrackBar.Maximum}";
+        }
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+            Help helpMenu = new Help(playerIcons);
+            helpMenu.Show();
+        }
+
+        private void PlayableForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            helpMenu_Click(sender, e);
         }
     }
 }

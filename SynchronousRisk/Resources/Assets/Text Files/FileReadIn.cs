@@ -18,8 +18,12 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
         public static Bitmap[] PlayerIcons() 
         {
             List<Bitmap> playerIcons = new List<Bitmap>();
-            string[] iconsLocation = Directory.GetFiles("SynchronousRisk/Resources/Assets/Icons");
-            foreach(var icon in iconsLocation) playerIcons.Add(new Bitmap(icon));
+            string iconPath = "Resources/Assets/Icons";
+            if (Directory.Exists(iconPath))
+            {
+                string[] file = Directory.GetFiles(iconPath, "*.png");
+                foreach (var icon in file) playerIcons.Add(new Bitmap(icon));
+            }
             return playerIcons.ToArray();
         }
 

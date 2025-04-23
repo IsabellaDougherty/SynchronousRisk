@@ -191,6 +191,16 @@ namespace SynchronousRisk.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SplashScreen {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon SynchronousRiskIcon {
@@ -201,14 +211,12 @@ namespace SynchronousRisk.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alaska	181	North West Territory,Alberta,Kamchatka
-        ///North West Territory	181	Greenland,Quebec,Ontario,Alberta,Alaska
-        ///Greenland	181	North West Territory,Ontario,Quebec,Iceland
-        ///Alberta	181	Alaska,North West Territory,Ontario,Western United States
-        ///Ontario	181	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta
-        ///Quebec	181	Greenland,North West Territory,Ontario,Eastern United States
-        ///Western United States	181	Alberta,Ontario,Eastern United States,Central America
-        ///E [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Alaska	181, 110, 211	North West Territory,Alberta,Kamchatka	27, 10.5
+        ///North West Territory	181, 110, 212	Greenland,Quebec,Ontario,Alberta,Alaska	7, 10
+        ///Greenland	181, 110, 213	North West Territory,Ontario,Quebec,Iceland	3.2, 15
+        ///Alberta	181, 111, 211	Alaska,North West Territory,Ontario,Western United States	8, 6
+        ///Ontario	181, 111, 212	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta	5.5, 5.5
+        ///Quebec	181, 111, 213	Greenland,North West Territory,Ontario,Eastern  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TerritoriesInformation {
             get {
