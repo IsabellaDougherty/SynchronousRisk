@@ -30,6 +30,17 @@ namespace SynchronousRisk.PhaseProcessing
 
         }
 
+        /// Russell Phillips 4/21/2025
+        /// <param name="defenderTerritory"></param>
+        /// <summary>
+        /// AttackPhase with prespecified attacker and defender territories, for use when those are already known
+        /// </summary>
+        public AttackPhase(GameState g, Territory attackerTerritory, Territory defenderTerritory) : base(g)
+        {
+            AttackerTerritory = attackerTerritory;
+            DefenderTerritory = defenderTerritory;
+        }
+
         // Returns the result of 6 sided dice
         private int d6()
         {
@@ -37,7 +48,7 @@ namespace SynchronousRisk.PhaseProcessing
         }
 
         // does one step of battle, subtracting lost troops
-        private void battle(int attackers)
+        public void Battle(int attackers)
         {
             int defenders = Math.Min(DefenderTerritory.GetTroops(), 2);
             attackerRolls = new List<int>();
@@ -127,12 +138,12 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectNumber("Sorry, invalid number of troops", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3), NextPhase);
             }
 
-            battle(attackers);
+            Battle(attackers);
             WriteRolls();
 
             string output = $"You now have {AttackerTerritory.GetTroops()} troops left, and the defender has {DefenderTerritory.GetTroops()} troops left ";
 
-            if (CheckBattleWon())
+            if (CheckBattleWon(gameState.CurrentTurnsPlayer))
             {
                 return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1, NextPhase);
             }
@@ -173,7 +184,7 @@ namespace SynchronousRisk.PhaseProcessing
         /// <summary>
         /// Checks if the recent battle was won
         /// </summary>
-        public bool CheckBattleWon()
+        public bool CheckBattleWon(Player attackingPlayer)
         {
             if (DefenderTerritory.GetTroops() <= 0)
             {
@@ -187,7 +198,8 @@ namespace SynchronousRisk.PhaseProcessing
                     }
                 }
 
-                CurrentPlayer.OwnedTerritories.Add(DefenderTerritory);
+                attackingPlayer.OwnedTerritories.Add(DefenderTerritory);
+                DefenderTerritory.iconChange = true;
 
                 BattleWon = true;
                 return true;
