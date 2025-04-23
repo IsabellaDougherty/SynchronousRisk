@@ -113,3 +113,7 @@ C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
