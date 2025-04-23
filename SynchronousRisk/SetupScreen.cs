@@ -53,15 +53,14 @@ namespace SynchronousRisk
         {
             icons.Show();
             this.ShowIcon = true;
-            icons.Size = new Size((int)(this.Width - gpBxNumMap.Width * 4), (int)(this.Height - btnStart.Height * 2));
+            icons.Size = new Size((int)(this.Width - gpBxNumMap.Width * 2), (int)(this.Height - btnStart.Height * 2));
         }
         /// IAD 4/20/2025 <summary> This method is called when the start button is clicked. It creates a new PlayableForm and shows it as a dialog. </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
-
-            var setup = new Thread(() => Application.Run(new PlayableForm()));
+            var setup = new Thread(() => Application.Run(new PlayableForm(icons.icons.ToArray(), numberOfPlayers)));
             setup.Start();
             this.Close();
         }
@@ -130,8 +129,9 @@ namespace SynchronousRisk
         /// <param name="e"></param>
         private void SetupScreen_SizeChanged(object sender, EventArgs e)
         {
-            icons.Location = new Point(this.Location.X + (int)(this.Width / 5.3), this.Location.Y + (btnStart.Height / 2));
-            icons.Size = new Size((int)(this.Width - (gpBxNumMap.Width * 2.5)), (int)(this.Height - (btnStart.Height * 3)));
+            icons.Location = new Point(this.Location.X + (int)(this.Width / 5), this.Location.Y + (btnStart.Height / 2));
+            icons.Size = new Size((int)(this.Width - (gpBxNumMap.Width * 2)), (int)(this.Height - (btnStart.Height * 3)));
         }
+    
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayableForm));
             this.btnNextPhase = new CustomControls.ImageShapedButton();
             this.outputLbl = new System.Windows.Forms.Label();
@@ -35,6 +36,9 @@
             this.SubmitTxtBox = new System.Windows.Forms.TextBox();
             this.SubmitNumTrackBar = new System.Windows.Forms.TrackBar();
             this.CurrentValueTrackBarLbl = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
+            this.helpMenu = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +102,17 @@
             this.CurrentValueTrackBarLbl.TabIndex = 5;
             this.CurrentValueTrackBarLbl.Text = "label1";
             // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.helpMenu});
+            // 
+            // helpMenu
+            // 
+            this.helpMenu.Index = 0;
+            this.helpMenu.Text = "Help";
+            this.helpMenu.Click += new System.EventHandler(this.helpMenu_Click);
+            // 
             // PlayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,7 +126,9 @@
             this.Controls.Add(this.outputLbl);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Menu = this.mainMenu1;
             this.Name = "PlayableForm";
+            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.PlayableForm_HelpButtonClicked);
             this.Load += new System.EventHandler(this.PlayableForm_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlayableForm_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).EndInit();
@@ -128,6 +145,9 @@
         private System.Windows.Forms.TextBox SubmitTxtBox;
         private System.Windows.Forms.TrackBar SubmitNumTrackBar;
         private System.Windows.Forms.Label CurrentValueTrackBarLbl;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.MainMenu mainMenu1;
+        private System.Windows.Forms.MenuItem helpMenu;
     }
 }
 

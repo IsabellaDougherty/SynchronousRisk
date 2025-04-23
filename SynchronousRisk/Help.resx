@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtRules.Text" xml:space="preserve">
+    <value>INTRODUCTION
+In the classic “World Domination RISK®‘” game of military strategy, you are battling to conquer the world. To win, you must launch daring attacks, defend yourself on all fronts, and sweep across vast continents with boldness and cunning. But remember, the dangers, as well as the rewards, are high. Just when the world is within your grasp, your opponent might strike and take it all away!
+
+OBJECT OF THE GAME
+To conquer the world by occupying every territory on the board, thus eliminating all your opponents.
+
+THE GAME BOARD 
+The game board is a map of 6 continents divided into 42 territories. Each continent is a different color and contains from 4 to 12 territories. The numbers along the bottom (southern) edge of the board indicate the number of armies you will receive for a set of cards you trade in as explained later.
+
+THE ARMIES 
+There are 6 complete sets of armies, each containing 3 denominations of army pieces: Infantry (worth l), Cavalry (worth 5 Infantry), and Artillery (worth 10 Infantry, or 2 Cavalry). 
+	Start the game by placing Infantry pieces; later in the game, you may trade in 5 Infantry for 1 Cavalry, or 2 Cavalry (or 1 Cavalry and 5 Infantry) for 1 Artillery
+
+SETUP
+Unlike most games, RISK demands careful planning before you actually start to play. This Initial Army Placement sets the stage for the battles you’ll fight later on.
+The first player shown places one army onto a territory under their ownership, followed by the next. Rinse and repeat until everyone has run out of armies. There is no limit to the number of armies you may place onto a single territory.
+
+PLAYING
+On your turn, try to capture territories by defeating your opponents’ armies. But be careful: Winning battles will depend on careful planning, quick decisions and bold moves. You’ll have to place your forces wisely, attack at just the right time and fortify your defenses against all enemies.
+
+Each of your turns consists of three steps, in this order:
+1. Getting and placing new armies;
+2. Attacking, if you choose to, by rolling the dice;
+3. Fortifying your position.
+
+			---
+
+DRAFT PHASE
+At the beginning of each turn, you'll be given a number of troops to add to your territories based on . . .
+1. The number of territories you occupy;
+2. The value of the continents you control;
+3. The value of the matched sets of RISK cards you trade in;
+4. The specific territory pictured on a traded-in card.
+	Territories
+		At the beginning of every turn (including your first), the number of territories you currently occupy divided by three is the number of armies you receive. Place the new armies on any territory you already occupy.
+		Example 
+			11 territories = 3 armies
+			14 territories = 4 armies
+			17 territories = 5 armies
+You will always receive at least 3 armies on a turn, even if you occupy fewer
+than 9 territories.
+	Continents 
+		In addition, at the beginning of your turn you will receive armies for each continent you control. (To control a continent, you must occupy all its territories at the start of your turn.) To find the exact number of armies you’ll receive for each continent, look at the chart in the lower left-hand corner of the game board.
+
+RISK CARDS
+	Earning Cards 
+		At the end of any turn in which you have captured at least one territory, you will earn one (and only one) RISK card. You are trying to collect sets of 3 cards in any of the following combinations:
+	3 cards of the same type (Infantry, Cavalry, or Artillery)
+	1 of each type
+	any 2 plus a “wild” card
+		If you have collected a set of 3 RISK cards, you may turn them in at the beginning of your next turn, or you may wait. But if you have 5 or 6 cards at the beginning of your turn, you must trade in at least one set, and may trade in a second set if you have one.
+
+	Trading In Cards for Armies
+		At the beginning of your turn, you may trade in matched sets of cards and take additional armies based on the total number of sets anyone has traded in so far.
+		The first set traded in - 4 armies
+		The second set traded in - 6 armies
+		The third set traded in - 8 armies
+		The fourth set traded in - 10 armies
+		The fifth set traded in - 12 armies
+		The sixth set traded in - 15 armies (and so on and so forth)
+
+			---
+
+ATTACK PHASE
+After placing your armies at the beginning of your turn, decide if you wish to attack at this time. The object of an attack is to capture a territory by defeating all the opposing armies already on it.
+If you choose not to attack, click the "Next Phase" button in the bottom right hand corner to move onto the "Fortify" phase.
+If you choose to attack, the following rules are applied:
+	You may only attack a territory that’s adjacent (touching) to one of your
+own, or connected to it by a dashed line. Examples: Greenland may
+attack the Northwest Territory, Ontario, Quebec and Iceland. North
+Africa may attack Egypt, Western Europe and Brazil. At the western and
+eastern edges of the board, Alaska is considered adjacent to, and may
+attack, Kamchatka.
+	You must always have at least two armies in the territory you’re
+attacking from.
+	You may continue attacking one territory until you have eliminated all
+armies on it, or you may shift your attack from one territory to another,
+attacking each as often as you like and attacking as many territories as
+you like during one turn.
+	To Attack
+		Click the territory you own you wish to attack from
+		Click the territory you wish to attack
+		Determine how many troops you wish to attack with
+			You, the attacker, will roll 1,2 or 3 dice: You must have at least one more army in your territory than the number of dice you roll.
+				If you chose to attack with more than 3 troops, the game will automatically attack in batches of 3 until a victor is determined or all attacking troops outside of 1 is defeated.
+			The defender will roll either 1 or 2 dice: To roll 2 dice, they must have at least 2 armies on the territory under attack.
+Battles are determined by comparing the highest die each of you rolled. If yours (the attacker’s) is higher, the defender loses one army from the territory under attack. But if the defender’s die is higher than yours, you lose one army from the territory you attacked from; put it back in your clear plastic box. If each of you rolled more than one die, now the two are compared by the next-highest dice until a victor is determined.
+Note: In case of a tie, the defender always wins.
+	Capturing territories
+		As soon as you defeat the last opposing army on a territory, you capture that territory and must occupy it immediately. To do so, you'll be required to move in at least as many armies as the number of dice you rolled in your last battle. Remember: In most cases, moving as many armies as you can to the front is advantageous, because armies left behind can’t help you when you are attacking. Also remember it is required to leave at least one army behind on the territory you attacked from. During the game, every territory must always be occupied by at least one army.
+	Ending your attack
+		You may end your attack(s) at any time. If you have captured at least one territory, you will be given a RISK card from the draw pile. (No matter how many territories you captured on your turn, you will only be given one RISK card.)
+	Eliminating an opponent
+		If during your turn you eliminate an opponent by defeating his or her last army on the game board, you win any RISK cards that player has collected.
+		If winning them gives you 6 or more cards, you will be required to trade in enough sets to reduce your hand to 4 or fewer cards, but once your hand is reduced to 4,3, or 2 cards, you will no longer be able to trade until your next "Draft" phase.
+		But if winning them gives you fewer than 6, you must wait until the beginning of your next turn to trade in a set. 
+		Note: When you draw a card from the deck at the end of your turn (for having won a battle), if this brings your total to 6, you must wait until your next turn to trade in.
+
+			---
+
+FORTIFYING YOUR POSITION
+No matter what you’ve done on your turn, you may, if you wish, end your turn by fortifying your position. You are not required to win a battle or even to try an attack to do so. Some players refer to this as the “free move.”
+To fortify your position, move as many armies as you’d like from one of your territories into one (and only one) of your adjacent territories. Remember to move troops towards borders where they can help in an attack!
+In moving your armies from one territory to another, you must leave at least one army behind.
+
+			---
+
+WINNING
+The winner is the first player to eliminate every opponent by capturing all 42 territories on the board.
+</value>
+  </data>
+</root>

@@ -90,3 +90,4 @@ C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\Synchronou
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
