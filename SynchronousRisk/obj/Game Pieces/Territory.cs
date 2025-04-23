@@ -21,7 +21,8 @@ namespace SynchronousRisk
         public bool iconChange;
         public bool troopChange;
 
-        public Wormhole ExitWormhole;
+        public Portal ExitPortal;
+        public bool PortalPresent;
         /// IAD 2/10/2025 <param name="names"></param>
         /// <param name="RGB"></param>
         /// <param name="borders"></param>
@@ -36,6 +37,7 @@ namespace SynchronousRisk
             troopChange = false;
             if (troopsPresent.getTroops() != 0) t = troopsPresent;
             else t.setTroops(-1);
+            PortalPresent = false;
         }
 
         /// Russell Phillips 4/21/2025

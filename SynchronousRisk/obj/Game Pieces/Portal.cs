@@ -13,7 +13,7 @@ namespace SynchronousRisk.obj.Game_Pieces
     /// <summary>
     /// Object that manages one direction of wormhole travel
     /// </summary>
-    public class Wormhole
+    public class Portal
     {
         Territory Source;
         Territory Destination;
@@ -24,7 +24,7 @@ namespace SynchronousRisk.obj.Game_Pieces
         /// <summary>
         /// Make a wormhole with a source and destination territory.
         /// </summary>
-        public Wormhole(Territory source, Territory destination)
+        public Portal(Territory source, Territory destination)
         {
             Source = source;
             Destination = destination;
@@ -44,6 +44,7 @@ namespace SynchronousRisk.obj.Game_Pieces
         /// <summary>
         /// Completes the transfer of troops from the source territory to the destination
         /// </summary>
+        /// may need to be moved to the actual portal receive phase
         public void resolve(GameState gameState)
         {
             foreach ((Player player, int numTroops) in Transit)
@@ -56,7 +57,7 @@ namespace SynchronousRisk.obj.Game_Pieces
                     if (attackPhase.CheckBattleWon(player))
                     {
                         Destination.SetTroops(dummyTerritory.GetTroops());
-                        break;
+                        break;  
                     }
                 }
             }

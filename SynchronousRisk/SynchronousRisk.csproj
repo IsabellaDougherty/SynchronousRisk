@@ -75,6 +75,7 @@
     <Compile Include="obj\Game Pieces\Card.cs" />
     <Compile Include="obj\Game Pieces\Deck.cs" />
     <Compile Include="obj\Game Pieces\Hand.cs" />
+    <Compile Include="obj\Game Pieces\Wormhole.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.8.1.AssemblyAttributes.cs" />
     <Compile Include="PhaseProcessing\AttackPhase.cs" />
     <Compile Include="PhaseProcessing\DraftPhase.cs" />
