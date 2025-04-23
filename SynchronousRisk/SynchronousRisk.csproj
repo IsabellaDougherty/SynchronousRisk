@@ -148,10 +148,8 @@
     <None Include=".vs\Risk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
     <None Include=".vs\slnx.sqlite" />
     <None Include=".vs\SynchronousRisk.csproj.dtbcache.json" />
-    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-shm" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\CodeChunks.db-wal" />
-    <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-shm" />
     <None Include=".vs\SynchronousRisk\CopilotIndices\17.12.53.23981\SemanticSymbols.db-wal" />
     <None Include=".vs\SynchronousRisk\FileContentIndex\00213986-81c2-478b-98f3-8266c5d4321a.vsidx" />
