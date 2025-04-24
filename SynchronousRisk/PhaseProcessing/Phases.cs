@@ -56,6 +56,26 @@ namespace SynchronousRisk.PhaseProcessing
             if(terr == null) { Console.WriteLine("Territory not found."); return terr; }
             else return terr;
         }
+        /// IAD 4/23/2025 <summary> Checks if a player has won the game. A player is considered to have won if they own all territories in the game. </summary>
+        /// <param name="p"></param>
+        public Player FindWinner()
+        {
+            foreach (Player pl in Players) 
+                if (pl.active && activeBoard.GetTerritories().Count() == pl.OwnedTerritories.Count) 
+                    return pl;
+            return null;
+        }
+        /// IAD 4/23/2025 <summary> Checks if a player is active in the game. A player is considered active if they own at least one territory. </summary>
+        /// <param name="p"></param>
+        public bool PlayerActive(Player p)
+        {
+            if (p.OwnedTerritories.Count > 0) return true;
+            else 
+            { 
+                p.active = false;
+                return false; 
+            }
+        }
 
         public virtual UIManager Start()
         {

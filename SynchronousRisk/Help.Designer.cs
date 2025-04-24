@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.rdBtnIconKey = new System.Windows.Forms.RadioButton();
             this.sptCntHelp = new System.Windows.Forms.SplitContainer();
-            this.rdBtnGameRules = new System.Windows.Forms.RadioButton();
-            this.txtRules = new System.Windows.Forms.TextBox();
             this.gpRdBts = new System.Windows.Forms.GroupBox();
+            this.rdBtnGameRules = new System.Windows.Forms.RadioButton();
             this.tblPnIcn = new System.Windows.Forms.TableLayoutPanel();
+            this.txtRules = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sptCntHelp)).BeginInit();
             this.sptCntHelp.Panel1.SuspendLayout();
             this.sptCntHelp.Panel2.SuspendLayout();
@@ -76,6 +76,17 @@
             this.sptCntHelp.SplitterDistance = 75;
             this.sptCntHelp.TabIndex = 1;
             // 
+            // gpRdBts
+            // 
+            this.gpRdBts.Controls.Add(this.rdBtnGameRules);
+            this.gpRdBts.Controls.Add(this.rdBtnIconKey);
+            this.gpRdBts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpRdBts.Location = new System.Drawing.Point(0, 0);
+            this.gpRdBts.Name = "gpRdBts";
+            this.gpRdBts.Size = new System.Drawing.Size(800, 75);
+            this.gpRdBts.TabIndex = 0;
+            this.gpRdBts.TabStop = false;
+            // 
             // rdBtnGameRules
             // 
             this.rdBtnGameRules.AutoSize = true;
@@ -93,31 +104,6 @@
             this.rdBtnGameRules.UseVisualStyleBackColor = false;
             this.rdBtnGameRules.CheckedChanged += new System.EventHandler(this.rdBtnGameRules_CheckedChanged);
             // 
-            // txtRules
-            // 
-            this.txtRules.BackColor = System.Drawing.SystemColors.MenuText;
-            this.txtRules.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRules.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRules.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtRules.Location = new System.Drawing.Point(0, 0);
-            this.txtRules.Multiline = true;
-            this.txtRules.Name = "txtRules";
-            this.txtRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRules.Size = new System.Drawing.Size(800, 447);
-            this.txtRules.TabIndex = 1;
-            this.txtRules.Text = resources.GetString("txtRules.Text");
-            // 
-            // gpRdBts
-            // 
-            this.gpRdBts.Controls.Add(this.rdBtnGameRules);
-            this.gpRdBts.Controls.Add(this.rdBtnIconKey);
-            this.gpRdBts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gpRdBts.Location = new System.Drawing.Point(0, 0);
-            this.gpRdBts.Name = "gpRdBts";
-            this.gpRdBts.Size = new System.Drawing.Size(800, 75);
-            this.gpRdBts.TabIndex = 0;
-            this.gpRdBts.TabStop = false;
-            // 
             // tblPnIcn
             // 
             this.tblPnIcn.AutoScroll = true;
@@ -134,6 +120,20 @@
             this.tblPnIcn.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblPnIcn.Size = new System.Drawing.Size(800, 447);
             this.tblPnIcn.TabIndex = 0;
+            // 
+            // txtRules
+            // 
+            this.txtRules.BackColor = System.Drawing.SystemColors.MenuText;
+            this.txtRules.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRules.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRules.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtRules.Location = new System.Drawing.Point(0, 0);
+            this.txtRules.Multiline = true;
+            this.txtRules.Name = "txtRules";
+            this.txtRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtRules.Size = new System.Drawing.Size(800, 447);
+            this.txtRules.TabIndex = 1;
+            this.txtRules.Text = resources.GetString("txtRules.Text");
             // 
             // Help
             // 

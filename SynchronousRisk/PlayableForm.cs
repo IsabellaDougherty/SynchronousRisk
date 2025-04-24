@@ -108,16 +108,8 @@ namespace SynchronousRisk
 
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
 
-            //IAD 3/6/2025: Troubleshooting lines of code for ensurance of playerIcons array filling
-            /*string playerIconsFillingValuesString = "Player icons initialized\n"; int startingAtOne = 1;
-            foreach (Bitmap bm in playerIcons) { playerIconsFillingValuesString += startingAtOne + "\n"; }
-            MessageBox.Show(playerIconsFillingValuesString);*/
-
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
-
-            //btnNextPhase.Visible = false;
-            //btnNextPhase.Enabled = false;
 
             WindowState = FormWindowState.Maximized;
 
@@ -137,10 +129,6 @@ namespace SynchronousRisk
             Color color = resizedBackground.GetPixel(position.X, position.Y);
             int[] colorRGB = { color.R, color.G, color.B };
 
-            // Debug Elements - REMOVE BEFORE SUBMISSION
-            /*Graphics g = CreateGraphics();
-            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
-            String messageString = color.ToString() + " :: " + Screen.FromControl(this).Bounds + " :: " + MousePosition.ToString() + " :: " + position.ToString() + "\n";*/
             String TerritoryString = "";
 
             //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
@@ -174,7 +162,8 @@ namespace SynchronousRisk
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
             SubmitNumTrackBar.Hide();
-            CurrentValueTrackBarLbl.Text = "";
+            numSlide.Hide();
+            MinimumValueTrackBarLbl.Text = "";
             if (currMenu.GetType() == typeof(UIManager))
             {
                 SubmitTxtBox.Show();
@@ -186,6 +175,7 @@ namespace SynchronousRisk
             else if (currMenu is SelectNumber sn)
             {
                 SubmitButton.Show();
+                numSlide.Show();
                 SubmitNumTrackBar.Show();
                 SubmitNumTrackBar.Minimum = sn.Min;
                 SubmitNumTrackBar.Maximum = sn.Max;
@@ -305,14 +295,21 @@ namespace SynchronousRisk
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+
+            SubmitNumTrackBar.TickStyle = TickStyle.None;
+            numSlide.Location = new Point((int)(btnNextPhase.Width / 2), (this.Height - btnNextPhase.Height - (int)(btnNextPhase.Height / 1.885)));
+            numSlide.Size = new Size((int)(this.Width - btnNextPhase.Width * 1.6), (int)(btnNextPhase.Height / 2));
+            SubmitNumTrackBar.TickStyle = TickStyle.BottomRight;
+            SubmitButton.Location = new Point(numSlide.Location.X + numSlide.Width + 10, numSlide.Location.Y);
+            updateGraphics();
         }
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
             currMenu = currMenu.NextPhaseManager();
             SelectNextScreen();
-
         }
-
+        /// IAD 4/23/2025 <summary> Submits the input from the user to the current menu </summary>
+        /// <param name="sender"></param> <param name="e"></param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (currMenu is SelectNumber)
@@ -325,26 +322,37 @@ namespace SynchronousRisk
             }
             SelectNextScreen();
         }
-
+        /// IAD 4/23/2025 <summary> Submits the input from the user to the current menu </summary>
+        /// <param name="sender"></param> <param name="e"></param>
         private void SubmitNumTrackBar_Scroll(object sender, EventArgs e)
         {
             UpdateCurrentValueLbl();
         }
-
+        /// IAD 4/23/2025 <summary> Updates the label that shows the current value of the trackbar </summary>
         private void UpdateCurrentValueLbl()
         {
-            CurrentValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Minimum}    {SubmitNumTrackBar.Value}      {SubmitNumTrackBar.Maximum}";
+            MinimumValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Minimum}";
+            CurrentValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Value}";
+            MaximumValueTrackBarLbl.Text = $"{SubmitNumTrackBar.Maximum}";
         }
-
+        /// IAD 4/23/2025 <summary> Shows the help menu when the help button is clicked </summary>
+        /// <param name="sender"></param> <param name="e"></param>
         private void helpMenu_Click(object sender, EventArgs e)
         {
             Help helpMenu = new Help(playerIcons);
             helpMenu.Show();
         }
-
+        /// IAD 4/23/2025 <summary> Shows the help menu when the help button is clicked </summary>
+        /// <param name="sender"></param> <param name="e"></param>
         private void PlayableForm_HelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
         {
             helpMenu_Click(sender, e);
+        }
+        /// IAD 4/23/2025 <summary> Shows the exchange cards menu when the exchange cards button is clicked </summary>
+        /// <param name="sender"></param> <param name="e"></param>
+        private void exchangeCardsMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
