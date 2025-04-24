@@ -1,23 +1,20 @@
-﻿using System;
+﻿using SynchronousRisk.Menus;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using SynchronousRisk;
-using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-	/* Russell Phillips
+    /* Russell Phillips
 	   2/10/2025
 	   class for managing attacks */
     public class AttackPhase : Phases
     {
         private Random rand = new Random();
-		
-		List<int> attackerRolls = new List<int>();
-		
-		List<int> defenderRolls = new List<int>();
+
+        List<int> attackerRolls = new List<int>();
+
+        List<int> defenderRolls = new List<int>();
 
         Territory AttackerTerritory;
         Territory DefenderTerritory;
@@ -72,13 +69,13 @@ namespace SynchronousRisk.PhaseProcessing
                 Console.WriteLine(attackerRolls[i]);
                 Console.WriteLine(defenderRolls[i]);
                 if (defenderRolls[i] >= attackerRolls[i])
-                { 
-					AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - 1);
-				}
-				else
-				{
-					DefenderTerritory.SetTroops(DefenderTerritory.GetTroops() - 1);
-				}
+                {
+                    AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - 1);
+                }
+                else
+                {
+                    DefenderTerritory.SetTroops(DefenderTerritory.GetTroops() - 1);
+                }
             }
 
         }
@@ -112,7 +109,7 @@ namespace SynchronousRisk.PhaseProcessing
         public UIManager GetDefenderTerritory(Territory defenderTerr)
         {
             DefenderTerritory = defenderTerr;
-            
+
             if (DefenderTerritory == null)
             {
                 return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDefenderTerritory, NextPhase);
@@ -145,12 +142,14 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (CheckBattleWon(gameState.CurrentTurnsPlayer))
             {
+                if (PlayerActive(gameState.CurrentTurnsPlayer) && FindWinner() != null)
+                    return new UIManager { Display = "You have won the game!", NextPhase = NextPhase };
                 return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1, NextPhase);
             }
-            
+
             if (AttackerTerritory.GetTroops() <= 1)
             {
-                return new SelectTerritory("You no longer have enough troops to attack. Input another territory to attack from", GetAttackerTerritory , NextPhase);
+                return new SelectTerritory("You no longer have enough troops to attack. Input another territory to attack from", GetAttackerTerritory, NextPhase);
             }
 
             if (attackers > 0)
@@ -158,7 +157,7 @@ namespace SynchronousRisk.PhaseProcessing
                 return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Max(AttackerTerritory.GetTroops() - 1, 3));
             }
 
-            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory , NextPhase);
+            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory, NextPhase);
         }
 
         private UIManager TransferTroops(int transfer)
@@ -177,7 +176,7 @@ namespace SynchronousRisk.PhaseProcessing
             AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - transfer);
             DefenderTerritory.SetTroops(transfer);
 
-            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory , NextPhase);
+            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory, NextPhase);
         }
 
         /// Russell Phillips 3/18/2025

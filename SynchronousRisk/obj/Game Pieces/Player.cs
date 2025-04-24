@@ -15,12 +15,14 @@ namespace SynchronousRisk
     {
         Hand playerHand = new Hand();
         Deck deck;
+        public bool active { get; set; }
         private Bitmap Icon { get; set; }
         public List<Territory> OwnedTerritories { get; set; } = new List<Territory>();
         public Player(Deck d, Bitmap i) 
         {
             deck = d;
             Icon = i;
+            active = true;
         }
         public void DrawCard()
         {   //IAD 2/24/2025
