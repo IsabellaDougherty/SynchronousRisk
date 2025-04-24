@@ -154,7 +154,7 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (attackers > 0)
             {
-                return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Max(AttackerTerritory.GetTroops() - 1, 3));
+                return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
             }
 
             return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory, NextPhase);
