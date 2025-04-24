@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExchangeCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExchangeCards.Designer.cs">
+      <DependentUpon>ExchangeCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameState.cs" />
     <Compile Include="Help.cs">
       <SubType>Form</SubType>
@@ -125,6 +131,9 @@
     <Compile Include="SetupScreen.Designer.cs">
       <DependentUpon>SetupScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ExchangeCards.resx">
+      <DependentUpon>ExchangeCards.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Help.resx">
       <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +205,10 @@
     <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
+    <Content Include="Resources\Assets\Cards\Artillery.png" />
+    <Content Include="Resources\Assets\Cards\Cavalry.png" />
+    <Content Include="Resources\Assets\Cards\Infantry.png" />
+    <Content Include="Resources\Assets\Cards\Wild.png" />
     <Content Include="Resources\Assets\CurrentPhasePointer.png" />
     <Content Include="Resources\Assets\GreyCircle.png" />
     <Content Include="Resources\Assets\SynchronousRiskIcon.ico" />
@@ -242,6 +255,7 @@
   <ItemGroup>
     <Folder Include=".vs\SynchronousRisk\copilot-chat\32a6feb0\sessions\" />
     <Folder Include="bin\Release\" />
+    <Folder Include="Resources\Assets\Cards\AutoGenCardImages\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">

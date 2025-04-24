@@ -17,6 +17,9 @@ namespace SynchronousRisk
         //IAD 2/24/2025: Implimented a remove method to remove a card from the hand.
         public void Remove(Card card) { cards.Remove(card); }
         public int CountCards() { return cards.Count; }
+        /// IAD 4/24/2025 <summary> Returns the list of cards in hand. </summary>
+        public List<Card> GetCards() { return cards; }
+
         /// <summary>
         /// Returns the best exchange option for cards currently in hand. If less than three cards are in hand, returns an array of null.
         /// </summary>

@@ -103,6 +103,26 @@ namespace SynchronousRisk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Artillery {
+            get {
+                object obj = ResourceManager.GetObject("Artillery", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cavalry {
+            get {
+                object obj = ResourceManager.GetObject("Cavalry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CurrentPhasePointer {
             get {
                 object obj = ResourceManager.GetObject("CurrentPhasePointer", resourceCulture);
@@ -183,6 +203,16 @@ namespace SynchronousRisk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Infantry {
+            get {
+                object obj = ResourceManager.GetObject("Infantry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NextPhase {
             get {
                 object obj = ResourceManager.GetObject("NextPhase", resourceCulture);
@@ -221,6 +251,16 @@ namespace SynchronousRisk.Properties {
         internal static string TerritoriesInformation {
             get {
                 return ResourceManager.GetString("TerritoriesInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wild {
+            get {
+                object obj = ResourceManager.GetObject("Wild", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

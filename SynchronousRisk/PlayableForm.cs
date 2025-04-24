@@ -352,7 +352,8 @@ namespace SynchronousRisk
         /// <param name="sender"></param> <param name="e"></param>
         private void exchangeCardsMenu_Click(object sender, EventArgs e)
         {
-
+            ExchangeCards exchangeCards = new ExchangeCards(gameState.Players[gameState.currPlayer]);
+            exchangeCards.Show();
         }
     }
 }

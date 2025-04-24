@@ -144,6 +144,7 @@ namespace SynchronousRisk.PhaseProcessing
             {
                 if (PlayerActive(gameState.CurrentTurnsPlayer) && FindWinner() != null)
                     return new UIManager { Display = "You have won the game!", NextPhase = NextPhase };
+                else gameState.CurrentTurnsPlayer.DrawCard();
                 return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1, NextPhase);
             }
 
