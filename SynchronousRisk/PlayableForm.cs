@@ -76,11 +76,10 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
-            gameState = new GameState();
             territories = infoData.territoryLookup;
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
-            gameState.SetUpPlayers(players, playerIcons);
+            gameState = new GameState(2, players, playerIcons);
             Phases phase = new SetupPhase(gameState, 1);
             currMenu = phase.Start();
 
@@ -135,7 +134,7 @@ namespace SynchronousRisk
             if (rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName();
             if (currMenu is SelectTerritory)
             {
-                Territory SelectedTerritory = gameState.Board.GetTerritoryByName(TerritoryString);
+                Territory SelectedTerritory = gameState.GetActiveBoard().GetTerritoryByName(TerritoryString);
                 currMenu = currMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
@@ -188,7 +187,7 @@ namespace SynchronousRisk
         void updateGraphics()
         {
             int i = 0;
-            foreach (Territory t in gameState.Board.GetTerritories()) {
+            foreach (Territory t in gameState.GetActiveBoard().GetTerritories()) {
                 if (t.troopChange == true)
                 {
                     UpdateLabel(i, t);
@@ -215,7 +214,7 @@ namespace SynchronousRisk
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
             int i = 0;
-            foreach (Territory t in gameState.Board.GetTerritories())
+            foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
             {
                 // Draw player icons
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
@@ -245,7 +244,7 @@ namespace SynchronousRisk
         void UpdateAllLabels()
         {
             int index = 0;
-            foreach (Territory territory in gameState.Board.GetTerritories()){
+            foreach (Territory territory in gameState.GetActiveBoard().GetTerritories()){
                 UpdateLabel(index, territory);
                 index++;
             }

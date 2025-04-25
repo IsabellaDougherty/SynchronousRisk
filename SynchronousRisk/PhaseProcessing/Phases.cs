@@ -18,7 +18,7 @@ namespace SynchronousRisk.PhaseProcessing
         /// </summary>
         internal GameState gameState;
         internal Player CurrentPlayer { get { return gameState.CurrentTurnsPlayer; } }
-        internal Board activeBoard { get { return gameState.Board; } }
+        internal Board activeBoard { get { return gameState.GetActiveBoard(); } }
         internal Player[] Players { get { return gameState.Players; } }
         public Phases(GameState g) 
         {
