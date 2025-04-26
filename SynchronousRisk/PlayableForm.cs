@@ -122,10 +122,10 @@ namespace SynchronousRisk
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
         {
             Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
-            Point position = MousePosition;
-            // Karen Dixon 3/3/2025: Corrects the coordinates for the pixel that was clicked on
-            position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
-            position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
+            Point position = new Point(e.X, e.Y);
+            //Karen Dixon 3/3/2025: Corrects the coordinates for the pixel that was clicked on
+            //position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
+            //position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
             Color color = resizedBackground.GetPixel(position.X, position.Y);
             int[] colorRGB = { color.R, color.G, color.B };
 
@@ -139,6 +139,8 @@ namespace SynchronousRisk
                 currMenu = currMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
+            Graphics g = CreateGraphics();
+            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
         }
         /// IAD 3/20/2025 <summary> Looks up a territory based on the rgb values of the pixel clicked on  </summary> <param name="rgb"></param>  <returns></returns>
         private Territory rgbLookup(int[] rgb)

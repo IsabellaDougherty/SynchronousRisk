@@ -118,3 +118,8 @@ C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\Sync
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\obj\Debug\SynchronousRisk.ExchangeCards.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.ExchangeCards.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
