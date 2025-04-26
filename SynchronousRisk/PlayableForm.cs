@@ -122,19 +122,11 @@ namespace SynchronousRisk
         // Karen Dixon 2/20/2025: Checks what color was clicked on
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
         {
-<<<<<<< Updated upstream
             Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
             Point position = new Point(e.X, e.Y);
-            //Karen Dixon 3/3/2025: Corrects the coordinates for the pixel that was clicked on
-            //position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
-            //position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
-=======
-            Bitmap resizedBackground = new Bitmap(worldMapRGBValues, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
-            Point position = MousePosition;
             // Karen Dixon 3/3/2025: Corrects the coordinates for the pixel that was clicked on
             position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
             position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
->>>>>>> Stashed changes
             Color color = resizedBackground.GetPixel(position.X, position.Y);
             int[] colorRGB = { color.R, color.G, color.B };
 
