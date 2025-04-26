@@ -42,6 +42,7 @@
             this.CurrentValueTrackBarLbl = new System.Windows.Forms.Label();
             this.numSlide = new System.Windows.Forms.SplitContainer();
             this.MaximumValueTrackBarLbl = new System.Windows.Forms.Label();
+            this.btnEndTurn = new CustomControls.ImageShapedButton();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
@@ -173,11 +174,28 @@
             this.MaximumValueTrackBarLbl.TabIndex = 7;
             this.MaximumValueTrackBarLbl.Text = "Maximum";
             // 
+            // btnEndTurn
+            // 
+            this.btnEndTurn.BackColor = System.Drawing.Color.Transparent;
+            this.btnEndTurn.BackgroundImage = global::SynchronousRisk.Properties.Resources.EndTurn;
+            this.btnEndTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEndTurn.ButtonImage = global::SynchronousRisk.Properties.Resources.EndTurn;
+            this.btnEndTurn.FlatAppearance.BorderSize = 0;
+            this.btnEndTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEndTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEndTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndTurn.Location = new System.Drawing.Point(676, 329);
+            this.btnEndTurn.Name = "btnEndTurn";
+            this.btnEndTurn.Size = new System.Drawing.Size(100, 100);
+            this.btnEndTurn.TabIndex = 8;
+            this.btnEndTurn.UseVisualStyleBackColor = false;
+            // 
             // PlayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnEndTurn);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
             this.Controls.Add(this.SubmitTxtBox);
@@ -215,6 +233,7 @@
         private System.Windows.Forms.Label CurrentValueTrackBarLbl;
         private System.Windows.Forms.SplitContainer numSlide;
         private System.Windows.Forms.Label MaximumValueTrackBarLbl;
+        private CustomControls.ImageShapedButton btnEndTurn;
     }
 }
 

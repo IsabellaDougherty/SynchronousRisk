@@ -27,7 +27,7 @@ namespace SynchronousRisk
         {
             this.regionID = regionID;
             territoriesInRegion = territories;
-            regionBonus = territoriesInRegion.Length /2;
+            regionBonus = territoriesInRegion.Length / 2;
             //Console.WriteLine("Region " + regionID + " created with " + territoriesInRegion.Length + " territories and a bonus of " + regionBonus);
         }
         /// IAD 2/21/2025 <summary>
