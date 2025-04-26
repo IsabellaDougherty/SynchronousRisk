@@ -15,14 +15,6 @@ namespace SynchronousRisk.Menus
         {
             Display = d;
             TerritoryFunction = TerrFunc;
-            Continue = true;
-        }
-
-        public SelectTerritory(string d, Func<Territory, UIManager> TerrFunc, Phases nextPhase)
-        {
-            Display = d;
-            TerritoryFunction = TerrFunc;
-            NextPhase = nextPhase;
             Continue = false;
         }
 

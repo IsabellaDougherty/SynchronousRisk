@@ -42,6 +42,8 @@
             this.CurrentValueTrackBarLbl = new System.Windows.Forms.Label();
             this.numSlide = new System.Windows.Forms.SplitContainer();
             this.MaximumValueTrackBarLbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
@@ -60,9 +62,10 @@
             this.btnNextPhase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextPhase.Location = new System.Drawing.Point(653, 329);
+            this.btnNextPhase.Location = new System.Drawing.Point(871, 405);
+            this.btnNextPhase.Margin = new System.Windows.Forms.Padding(4);
             this.btnNextPhase.Name = "btnNextPhase";
-            this.btnNextPhase.Size = new System.Drawing.Size(145, 88);
+            this.btnNextPhase.Size = new System.Drawing.Size(193, 108);
             this.btnNextPhase.TabIndex = 0;
             this.btnNextPhase.UseVisualStyleBackColor = false;
             this.btnNextPhase.Click += new System.EventHandler(this.btnNextPhase_Click_1);
@@ -70,17 +73,19 @@
             // outputLbl
             // 
             this.outputLbl.AutoSize = true;
-            this.outputLbl.Location = new System.Drawing.Point(376, 13);
+            this.outputLbl.Location = new System.Drawing.Point(501, 16);
+            this.outputLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.outputLbl.Name = "outputLbl";
-            this.outputLbl.Size = new System.Drawing.Size(0, 13);
+            this.outputLbl.Size = new System.Drawing.Size(0, 16);
             this.outputLbl.TabIndex = 0;
             // 
             // SubmitButton
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            this.SubmitButton.Location = new System.Drawing.Point(337, 320);
+            this.SubmitButton.Location = new System.Drawing.Point(449, 394);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(80, 26);
+            this.SubmitButton.Size = new System.Drawing.Size(107, 32);
             this.SubmitButton.TabIndex = 1;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
@@ -88,9 +93,10 @@
             // 
             // SubmitTxtBox
             // 
-            this.SubmitTxtBox.Location = new System.Drawing.Point(12, 305);
+            this.SubmitTxtBox.Location = new System.Drawing.Point(16, 375);
+            this.SubmitTxtBox.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitTxtBox.Name = "SubmitTxtBox";
-            this.SubmitTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.SubmitTxtBox.Size = new System.Drawing.Size(132, 22);
             this.SubmitTxtBox.TabIndex = 2;
             // 
             // SubmitNumTrackBar
@@ -98,8 +104,9 @@
             this.SubmitNumTrackBar.BackColor = System.Drawing.Color.Gray;
             this.SubmitNumTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SubmitNumTrackBar.Location = new System.Drawing.Point(0, 0);
+            this.SubmitNumTrackBar.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitNumTrackBar.Name = "SubmitNumTrackBar";
-            this.SubmitNumTrackBar.Size = new System.Drawing.Size(517, 30);
+            this.SubmitNumTrackBar.Size = new System.Drawing.Size(690, 37);
             this.SubmitNumTrackBar.TabIndex = 3;
             this.SubmitNumTrackBar.Scroll += new System.EventHandler(this.SubmitNumTrackBar_Scroll);
             // 
@@ -108,8 +115,9 @@
             this.MinimumValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.MinimumValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
+            this.MinimumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MinimumValueTrackBarLbl.Name = "MinimumValueTrackBarLbl";
-            this.MinimumValueTrackBarLbl.Size = new System.Drawing.Size(96, 27);
+            this.MinimumValueTrackBarLbl.Size = new System.Drawing.Size(128, 34);
             this.MinimumValueTrackBarLbl.TabIndex = 5;
             this.MinimumValueTrackBarLbl.Text = "Minimum";
             // 
@@ -136,8 +144,9 @@
             this.CurrentValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CurrentValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
+            this.CurrentValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CurrentValueTrackBarLbl.Name = "CurrentValueTrackBarLbl";
-            this.CurrentValueTrackBarLbl.Size = new System.Drawing.Size(517, 27);
+            this.CurrentValueTrackBarLbl.Size = new System.Drawing.Size(690, 34);
             this.CurrentValueTrackBarLbl.TabIndex = 6;
             this.CurrentValueTrackBarLbl.Text = "Value";
             this.CurrentValueTrackBarLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -146,7 +155,8 @@
             // 
             this.numSlide.BackColor = System.Drawing.Color.DimGray;
             this.numSlide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numSlide.Location = new System.Drawing.Point(118, 352);
+            this.numSlide.Location = new System.Drawing.Point(157, 433);
+            this.numSlide.Margin = new System.Windows.Forms.Padding(4);
             this.numSlide.Name = "numSlide";
             this.numSlide.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -159,25 +169,49 @@
             this.numSlide.Panel2.Controls.Add(this.MaximumValueTrackBarLbl);
             this.numSlide.Panel2.Controls.Add(this.MinimumValueTrackBarLbl);
             this.numSlide.Panel2.Controls.Add(this.CurrentValueTrackBarLbl);
-            this.numSlide.Size = new System.Drawing.Size(519, 65);
-            this.numSlide.SplitterDistance = 32;
+            this.numSlide.Size = new System.Drawing.Size(692, 80);
+            this.numSlide.SplitterDistance = 39;
+            this.numSlide.SplitterWidth = 5;
             this.numSlide.TabIndex = 7;
             // 
             // MaximumValueTrackBarLbl
             // 
             this.MaximumValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaximumValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaximumValueTrackBarLbl.Location = new System.Drawing.Point(424, 0);
+            this.MaximumValueTrackBarLbl.Location = new System.Drawing.Point(566, 0);
+            this.MaximumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MaximumValueTrackBarLbl.Name = "MaximumValueTrackBarLbl";
-            this.MaximumValueTrackBarLbl.Size = new System.Drawing.Size(93, 27);
+            this.MaximumValueTrackBarLbl.Size = new System.Drawing.Size(124, 34);
             this.MaximumValueTrackBarLbl.TabIndex = 7;
             this.MaximumValueTrackBarLbl.Text = "Maximum";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 316);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(16, 345);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // PlayableForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
             this.Controls.Add(this.SubmitTxtBox);
@@ -185,6 +219,7 @@
             this.Controls.Add(this.outputLbl);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Menu = this.mainMenu1;
             this.Name = "PlayableForm";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.PlayableForm_HelpButtonClicked);
@@ -215,6 +250,8 @@
         private System.Windows.Forms.Label CurrentValueTrackBarLbl;
         private System.Windows.Forms.SplitContainer numSlide;
         private System.Windows.Forms.Label MaximumValueTrackBarLbl;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

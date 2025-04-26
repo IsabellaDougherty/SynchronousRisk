@@ -40,6 +40,7 @@ namespace SynchronousRisk
 
         UIManager currMenu;
         GameState gameState;
+
         public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();
@@ -80,8 +81,7 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(2, players, playerIcons);
-            Phases phase = new SetupPhase(gameState, 1);
-            currMenu = phase.Start();
+            currMenu = gameState.NextPhase();
 
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
@@ -156,6 +156,11 @@ namespace SynchronousRisk
         /// </summary>
         void SelectNextScreen()
         {
+            if (currMenu.Continue)
+            {
+                currMenu = gameState.NextPhase();
+            }
+
             SubmitTxtBox.Text = "";
             outputLbl.Text = currMenu.GetDisplay();
             SubmitTxtBox.Hide();
@@ -253,6 +258,7 @@ namespace SynchronousRisk
         void UpdateTerritoryIcon(Graphics g, Territory territory)
         {
             Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            graphics.Render(Graphics.FromHwnd(Handle));
             Rectangle territoryIconBounds = new Rectangle((int)(Width / territory.GetPosition().X), (int)(Height / territory.GetPosition().Y), (int)(Width / 25), (int)(Height / 25));
             g.DrawImage(resizedBackground, territoryIconBounds.X, territoryIconBounds.Y, territoryIconBounds, GraphicsUnit.Pixel);
             g.DrawImage(greyCircle, new Rectangle(territoryIconBounds.X + (int)(Width / 35), territoryIconBounds.Y + (int)(Height / 35), (int)(Width / 45), (int)(Height / 45)));
@@ -272,6 +278,7 @@ namespace SynchronousRisk
         void OnResize(object sender, EventArgs e)
         {
             wolrdMapBounds.Width = Width;
+        bool LastWasSelectNumer = false;
             wolrdMapBounds.Height = Height;
 
             playerIconBounds.Width = Width / 25;
@@ -299,13 +306,17 @@ namespace SynchronousRisk
             numSlide.Location = new Point((int)(btnNextPhase.Width / 2), (this.Height - btnNextPhase.Height - (int)(btnNextPhase.Height / 1.885)));
             numSlide.Size = new Size((int)(this.Width - btnNextPhase.Width * 1.6), (int)(btnNextPhase.Height / 2));
             SubmitNumTrackBar.TickStyle = TickStyle.BottomRight;
+            graphics.Render(Graphics.FromHwnd(Handle));
             SubmitButton.Location = new Point(numSlide.Location.X + numSlide.Width + 10, numSlide.Location.Y);
             updateGraphics();
         }
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
-            currMenu = currMenu.NextPhaseManager();
-            SelectNextScreen();
+            if (gameState.GetCurrentPhase().CanContinue)
+            {
+                currMenu = gameState.NextPhase();
+                SelectNextScreen();
+            }
         }
         /// IAD 4/23/2025 <summary> Submits the input from the user to the current menu </summary>
         /// <param name="sender"></param> <param name="e"></param>
@@ -317,6 +328,7 @@ namespace SynchronousRisk
             }
             else
             {
+            graphics.Render(Graphics.FromHwnd(Handle));
                 currMenu = currMenu.Call((SubmitTxtBox.Text));
             }
             SelectNextScreen();
@@ -352,6 +364,22 @@ namespace SynchronousRisk
         private void exchangeCardsMenu_Click(object sender, EventArgs e)
         {
 
+            graphics.Render(Graphics.FromHwnd(Handle));
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gameState.SetActiveBoard(0);
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gameState.SetActiveBoard(1);
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
         }
     }
 }

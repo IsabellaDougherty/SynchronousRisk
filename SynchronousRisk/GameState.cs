@@ -9,6 +9,7 @@ using SynchronousRisk.PhaseProcessing;
 using SynchronousRisk;
 using System.Drawing;
 using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace SynchronousRisk
 {
@@ -30,6 +31,8 @@ namespace SynchronousRisk
 
         public int numPlayersPerBoard;
 
+        private LinkedList<Phases> Phases;
+
         public GameState(int numBoards, int numPlayers, Bitmap[] icons)
         {
             Boards = new Board[numBoards];
@@ -37,11 +40,15 @@ namespace SynchronousRisk
             {
                 Boards[i] = new Board();
             }
-                Deck = new Deck(Boards[1].GetTerritories());
+            Deck = new Deck(Boards[1].GetTerritories());
             PhaseInt = 0;
             CurrentBoardIndex = 0;
             SetUpPlayers(numPlayers, icons);
             DivideTerritories();
+
+            Phases = new LinkedList<Phases>();
+            Phases.AddLast(new SetupPhase(this)); //dummy phase as NextPhase removes a phase before selecting the next one
+            Phases.AddLast(new SetupPhase(this, 1));
         }
 
         /// Russell Phillips 3/18/2025
@@ -121,6 +128,26 @@ namespace SynchronousRisk
 
         }
 
+        public UIManager NextPhase()
+        {
+            Phases.RemoveFirst();
+
+            if (Phases.Count() == 0)
+            {
+                NextPlayerTurn();
+                Phases.AddLast(new DraftPhase(this));
+                Phases.AddLast(new AttackPhase(this));
+                Phases.AddLast(new FortifyPhase(this));
+            }
+
+            return Phases.First.Value.Start();
+        }
+
+        public Phases GetCurrentPhase()
+        {
+            return Phases.First.Value;
+        }
+
         public Player GetCurrentTurnsPlayer()
         {
             return Players[currPlayer];
@@ -134,7 +161,7 @@ namespace SynchronousRisk
         {
             foreach (Player p in Players)
                 foreach (Territory owned in p.OwnedTerritories)
-                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
+                    if (terr == owned) return p;
             return null;
         }
 
