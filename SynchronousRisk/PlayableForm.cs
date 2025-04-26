@@ -4,10 +4,7 @@ using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 
@@ -15,6 +12,9 @@ namespace SynchronousRisk
 {
     public partial class PlayableForm : Form
     {
+        static ExchangeCards exchangeCards;
+        public Phases phase;
+
         InformationDatasets infoData = new InformationDatasets();
         Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
         Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
@@ -38,8 +38,8 @@ namespace SynchronousRisk
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
-        UIManager currMenu;
         GameState gameState;
+        public UIManager currMenu;
         public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();
@@ -64,11 +64,11 @@ namespace SynchronousRisk
             Bitmap[] tempIcons = infoData.playerIcons;
             List<Bitmap> playerIconsList = playerIcons.ToList();
             int i = 0;
-            while(playerIconsList.Count < players)
+            while (playerIconsList.Count < players)
             {
                 if (!(playerIconsList.Contains(tempIcons[i])))
                     playerIconsList.Add(tempIcons[i]);
-                if(i >= tempIcons.Length)
+                if (i >= tempIcons.Length)
                     throw new Exception("Not enough player icons to fill the number of players.");
                 i++;
             }
@@ -81,7 +81,7 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState.SetUpPlayers(players, playerIcons);
-            Phases phase = new SetupPhase(gameState, 1);
+            phase = new SetupPhase(gameState, 1);
             currMenu = phase.Start();
 
             SubmitTxtBox.Hide();
@@ -188,7 +188,8 @@ namespace SynchronousRisk
         void updateGraphics()
         {
             int i = 0;
-            foreach (Territory t in gameState.Board.GetTerritories()) {
+            foreach (Territory t in gameState.Board.GetTerritories())
+            {
                 if (t.troopChange == true)
                 {
                     UpdateLabel(i, t);
@@ -233,7 +234,7 @@ namespace SynchronousRisk
                 i++;
             }
             // Draw Current Player Icon
-            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle((int)(Width / 75),(int)(Height / 2.5),(int)(Width / 10), (int)(Height / 10)));
+            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle((int)(Width / 75), (int)(Height / 2.5), (int)(Width / 10), (int)(Height / 10)));
         }
         // Karen Dixon 4/16/2025: Updates the label for the given territory
         void UpdateLabel(int index, Territory territory)
@@ -245,7 +246,8 @@ namespace SynchronousRisk
         void UpdateAllLabels()
         {
             int index = 0;
-            foreach (Territory territory in gameState.Board.GetTerritories()){
+            foreach (Territory territory in gameState.Board.GetTerritories())
+            {
                 UpdateLabel(index, territory);
                 index++;
             }
@@ -352,8 +354,12 @@ namespace SynchronousRisk
         /// <param name="sender"></param> <param name="e"></param>
         private void exchangeCardsMenu_Click(object sender, EventArgs e)
         {
-            ExchangeCards exchangeCards = new ExchangeCards(gameState.Players[gameState.currPlayer]);
-            exchangeCards.Show();
+            if (gameState.PhaseInt == 1)
+            {
+                exchangeCards = new ExchangeCards(this, phase, gameState.Players[gameState.currPlayer], false);
+                exchangeCards.Show();
+            }
+            else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }
         }
     }
 }

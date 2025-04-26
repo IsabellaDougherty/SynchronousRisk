@@ -15,16 +15,35 @@ namespace SynchronousRisk.PhaseProcessing
     internal class DraftPhase : Phases
     {
         private int troopsRemaining;
+        int exchangeTroops;
         private Territory CurrTerritory;
         internal DraftPhase(GameState g) : base(g)
         {
         }
 
+        /// Russell Phillips <summary>
+        /// 
+        /// </summary>
         public override UIManager Start()
         {
             gameState.NextPlayerTurn();
             gameState.PhaseInt = 1;
-            troopsRemaining = DraftableTroops();
+            if (CurrentPlayer.GetNumCardsInHand() > 5)
+            {
+                exchangeTroops = ForceTrade();
+                troopsRemaining = DraftableTroops() + exchangeTroops;
+            }
+            else troopsRemaining = DraftableTroops();
+            return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
+        }
+
+        /// IAD and Russell Phillips 4/24/2025 <summary> Used by ExchangeCards for distributing new troops from cards being exchanged. </summary>
+        /// <param name="exchangeTroops"></param>
+        public override UIManager Start(int exchangeTroops)
+        {
+            gameState.NextPlayerTurn();
+            gameState.PhaseInt = 1;
+            troopsRemaining = exchangeTroops;
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
 
@@ -76,14 +95,22 @@ namespace SynchronousRisk.PhaseProcessing
             if(draftableTroops < 3) { draftableTroops = 3; }
             return draftableTroops;
         }
-        internal int CardDraft()
+
+        private int ForceTrade()
         {
-            int draftableTroops = 0;
-            if(CurrentPlayer.GetNumCardsInHand() >= 3)
+            if (CurrentPlayer.GetNumCardsInHand() > 5)
             {
-                CurrentPlayer.TradeCards();
+                exchangeTroops = CurrentPlayer.TradeCards();
             }
-            return draftableTroops;
+            return exchangeTroops;
+        }
+
+        //Reassign result of CardDraft to the currMenu in PlayableForm
+        internal UIManager CardDraft()
+        {
+            if(CurrentPlayer.GetNumCardsInHand() >= 3)
+                troopsRemaining += CurrentPlayer.TradeCards();
+            return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
     }
 }

@@ -456,6 +456,7 @@
             this.btnMakeExchange.Text = "Make Best Exchange";
             this.btnMakeExchange.UseCompatibleTextRendering = true;
             this.btnMakeExchange.UseVisualStyleBackColor = false;
+            this.btnMakeExchange.Click += new System.EventHandler(this.btnMakeExchange_Click);
             // 
             // ExchangeCards
             // 

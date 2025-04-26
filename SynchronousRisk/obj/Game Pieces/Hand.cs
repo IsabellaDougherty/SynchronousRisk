@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SynchronousRisk
 {
@@ -48,22 +49,25 @@ namespace SynchronousRisk
         // Returns what an array of three cards would be worth if turned in
         public int ExchangeValue(Card[] cards)
         {
-            if (cards[0].Type != cards[1].Type && cards[1].Type != cards[2].Type && cards[0].Type != cards[1].Type) // All different cards
+            if (cards != null && !cards.Contains<Card>(null))
             {
-                return 10;
-            }
-            if (cards[0].Compare(cards[1]) && cards[1].Compare(cards[2])) // All same cards
-            {
-                switch (cards[0].Coerce(cards[1]).Coerce(cards[2]).Type)
+                if (cards[0].Type != cards[1].Type && cards[1].Type != cards[2].Type && cards[0].Type != cards[1].Type) // All different cards
                 {
-                    case CardType.Infantry:
-                        return 4;
-                    case CardType.Cavalry:
-                        return 6;
-                    case CardType.Artillery:
-                        return 8;
-                    default:
-                        return 0;
+                    return 10;
+                }
+                if (cards[0].Compare(cards[1]) && cards[1].Compare(cards[2])) // All same cards
+                {
+                    switch (cards[0].Coerce(cards[1]).Coerce(cards[2]).Type)
+                    {
+                        case CardType.Infantry:
+                            return 4;
+                        case CardType.Cavalry:
+                            return 6;
+                        case CardType.Artillery:
+                            return 8;
+                        default:
+                            return 0;
+                    }
                 }
             }
             return 0;

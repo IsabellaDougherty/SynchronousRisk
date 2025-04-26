@@ -1,12 +1,9 @@
-﻿using System;
+﻿using SynchronousRisk.PhaseProcessing;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SynchronousRisk
@@ -14,16 +11,50 @@ namespace SynchronousRisk
     public partial class ExchangeCards : Form
     {
         private Player player;
+        private Phases phase;
+        private PlayableForm activeGame;
         private List<Card> hand;
-        public ExchangeCards(Player p)
+        private bool forced = false;
+        private static int exchangeTroops = 0;
+        private static int countExchanges = 0;
+        public Card[] exchangeCards;
+        public ExchangeCards(PlayableForm game, Phases ph, Player p, bool f)
         {
             InitializeComponent();
             player = p;
+            forced = f;
+            phase = ph;
+            activeGame = game;
             hand = player.GetHand().GetCards();
+            if (hand != null && hand.Count >= 3)
+                exchangeCards = player.GetHand().BestExchangeOption();
+            else exchangeCards = new Card[3] { null, null, null };
+            if (hand != null && hand.Count > 5) forced = true;
+            if (forced)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.TopMost = true;
+            }
         }
+
+        public int ExchangeTroops { get; set; }
         /// IAD 4/23/2024 <summary> Event handler for when the form loads. It reformats the table to display the cards in the player's hand. </summary>
         /// <param name="sender"></param> <param name="e"></param>
-        private void ExchangeCards_Load(object sender, EventArgs e) { reformatTable(); }
+        private void ExchangeCards_Load(object sender, EventArgs e)
+        {
+            reformatTable();
+            resetBestExchange();
+        }
+
+        private void resetBestExchange()
+        {
+            if (!exchangeCards.Contains<Card>(null))
+            {
+                setCardPicture(pctBxBestExchange1, exchangeCards[0]);
+                setCardPicture(pctBxBestExchange2, exchangeCards[1]);
+                setCardPicture(pctBxBestExchange3, exchangeCards[2]);
+            }
+        }
         /// IAD 4/23/2024 <summary> Reformats the table to display the cards in the player's hand. It clears the existing controls and adds new PictureBox controls for each card. </summary>
         private void reformatTable()
         {
@@ -36,7 +67,19 @@ namespace SynchronousRisk
                 PictureBox pb = new PictureBox();
                 setCardPicture(pb, card);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
-                pb.Dock = DockStyle.Fill;
+                pb.BorderStyle = BorderStyle.Fixed3D;
+                if (hand.Count < 4)
+                {
+                    pb.Anchor = AnchorStyles.Top;
+                    pb.Anchor = AnchorStyles.Bottom;
+                    pb.Scale(new Size(1, (int)1.5));
+                    pb.Size = new Size((int)tblPnPlayerHand.Width / 3, tblPnPlayerHand.Height);
+                }
+                else
+                {
+                    pb.Dock = DockStyle.Fill;
+                    pb.Size = new Size((int)tblPnPlayerHand.Width / hand.Count, tblPnPlayerHand.Height);
+                }
                 tblPnPlayerHand.Controls.Add(pb);
             }
         }
@@ -105,6 +148,24 @@ namespace SynchronousRisk
         private void tglExchangeRef_CheckedChanged(object sender, EventArgs e) { gpRef.Visible = tglExchangeRef.Checked; }
         /// IAD 4/23/2024 <summary> Event handler for when the form is closing. It clears the table of all controls and disposes of the form. </summary>
         /// <param name="sender"></param> <param name="e"></param>
-        private void ExchangeCards_Leave(object sender, EventArgs e) { emptyTable(); }
+        private void ExchangeCards_Leave(object sender, EventArgs e) 
+        {
+            emptyTable();
+            if (forced)
+            {
+                this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+                this.TopMost = false;
+            }
+        }
+
+        private void btnMakeExchange_Click(object sender, EventArgs e)
+        {
+            countExchanges++;
+            exchangeTroops = player.GetHand().ExchangeValue(exchangeCards) + (2 * countExchanges);
+            player.TradeCards();
+            activeGame.currMenu = phase.Start(exchangeTroops);
+            //MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
+            this.Close();
+        }
     }
 }
