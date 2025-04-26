@@ -33,11 +33,12 @@
             this.gpBxNumPlayers = new System.Windows.Forms.GroupBox();
             this.numPlays = new System.Windows.Forms.NumericUpDown();
             this.gpBxNumMap = new System.Windows.Forms.GroupBox();
-            this.numMaps = new System.Windows.Forms.NumericUpDown();
+            this.numMaps = new System.Windows.Forms.Label();
+            this.numPlaysPerMap = new System.Windows.Forms.NumericUpDown();
             this.gpBxNumPlayers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPlays)).BeginInit();
             this.gpBxNumMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPlaysPerMap)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -66,6 +67,7 @@
             // 
             this.gpBxNumPlayers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gpBxNumPlayers.BackColor = System.Drawing.Color.Transparent;
+            this.gpBxNumPlayers.Controls.Add(this.numPlaysPerMap);
             this.gpBxNumPlayers.Controls.Add(this.numPlays);
             this.gpBxNumPlayers.Dock = System.Windows.Forms.DockStyle.Left;
             this.gpBxNumPlayers.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -82,7 +84,7 @@
             this.numPlays.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.numPlays.AutoSize = true;
             this.numPlays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(18)))), ((int)(((byte)(99)))));
-            this.numPlays.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numPlays.Dock = System.Windows.Forms.DockStyle.Top;
             this.numPlays.Font = new System.Drawing.Font("Stencil", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPlays.ForeColor = System.Drawing.Color.White;
             this.numPlays.Location = new System.Drawing.Point(3, 32);
@@ -124,32 +126,48 @@
             // 
             // numMaps
             // 
-            this.numMaps.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.numMaps.AutoSize = true;
-            this.numMaps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(18)))), ((int)(((byte)(99)))));
-            this.numMaps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMaps.Font = new System.Drawing.Font("Stencil", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numMaps.ForeColor = System.Drawing.Color.White;
-            this.numMaps.Location = new System.Drawing.Point(3, 32);
-            this.numMaps.Maximum = new decimal(new int[] {
+            this.numMaps.Dock = System.Windows.Forms.DockStyle.Right;
+            this.numMaps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.numMaps.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
+            this.numMaps.Location = new System.Drawing.Point(144, 32);
+            this.numMaps.Name = "numMaps";
+            this.numMaps.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.numMaps.Size = new System.Drawing.Size(23, 35);
+            this.numMaps.TabIndex = 1;
+            this.numMaps.Text = "1";
+            this.numMaps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.numMaps.UseCompatibleTextRendering = true;
+            // 
+            // numPlaysPerMap
+            // 
+            this.numPlaysPerMap.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.numPlaysPerMap.AutoSize = true;
+            this.numPlaysPerMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(18)))), ((int)(((byte)(99)))));
+            this.numPlaysPerMap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.numPlaysPerMap.Font = new System.Drawing.Font("Stencil", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numPlaysPerMap.ForeColor = System.Drawing.Color.White;
+            this.numPlaysPerMap.Location = new System.Drawing.Point(3, 352);
+            this.numPlaysPerMap.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
-            this.numMaps.Minimum = new decimal(new int[] {
+            this.numPlaysPerMap.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numMaps.Name = "numMaps";
-            this.numMaps.Size = new System.Drawing.Size(164, 39);
-            this.numMaps.TabIndex = 0;
-            this.numMaps.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numMaps.Value = new decimal(new int[] {
+            this.numPlaysPerMap.Name = "numPlaysPerMap";
+            this.numPlaysPerMap.Size = new System.Drawing.Size(146, 39);
+            this.numPlaysPerMap.TabIndex = 4;
+            this.numPlaysPerMap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numPlaysPerMap.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
+            this.numPlaysPerMap.ValueChanged += new System.EventHandler(this.numPlaysPerMap_ValueChanged);
             // 
             // SetupScreen
             // 
@@ -176,7 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numPlays)).EndInit();
             this.gpBxNumMap.ResumeLayout(false);
             this.gpBxNumMap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMaps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPlaysPerMap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +206,7 @@
         private System.Windows.Forms.GroupBox gpBxNumPlayers;
         private System.Windows.Forms.NumericUpDown numPlays;
         private System.Windows.Forms.GroupBox gpBxNumMap;
-        private System.Windows.Forms.NumericUpDown numMaps;
+        private System.Windows.Forms.Label numMaps;
+        private System.Windows.Forms.NumericUpDown numPlaysPerMap;
     }
 }
