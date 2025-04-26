@@ -19,6 +19,7 @@ namespace SynchronousRisk.PhaseProcessing
         private Territory CurrTerritory;
         internal DraftPhase(GameState g) : base(g)
         {
+
         }
 
         /// Russell Phillips <summary>

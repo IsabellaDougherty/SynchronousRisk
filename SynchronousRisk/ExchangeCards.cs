@@ -18,6 +18,7 @@ namespace SynchronousRisk
         private static int exchangeTroops = 0;
         private static int countExchanges = 0;
         public Card[] exchangeCards;
+        public int ExchangeTroops { get; set; }
         public ExchangeCards(PlayableForm game, Phases ph, Player p, bool f)
         {
             InitializeComponent();
@@ -36,8 +37,6 @@ namespace SynchronousRisk
                 this.TopMost = true;
             }
         }
-
-        public int ExchangeTroops { get; set; }
         /// IAD 4/23/2024 <summary> Event handler for when the form loads. It reformats the table to display the cards in the player's hand. </summary>
         /// <param name="sender"></param> <param name="e"></param>
         private void ExchangeCards_Load(object sender, EventArgs e)
@@ -45,7 +44,6 @@ namespace SynchronousRisk
             reformatTable();
             resetBestExchange();
         }
-
         private void resetBestExchange()
         {
             if (!exchangeCards.Contains<Card>(null))
@@ -58,6 +56,7 @@ namespace SynchronousRisk
         /// IAD 4/23/2024 <summary> Reformats the table to display the cards in the player's hand. It clears the existing controls and adds new PictureBox controls for each card. </summary>
         private void reformatTable()
         {
+            tblPnPlayerHand.Controls.Clear();
             tblPnPlayerHand.ColumnStyles.Clear();
             tblPnPlayerHand.ColumnCount = hand.Count;
             for (int i = 0; i < hand.Count; i++)
@@ -68,18 +67,10 @@ namespace SynchronousRisk
                 setCardPicture(pb, card);
                 pb.SizeMode = PictureBoxSizeMode.StretchImage;
                 pb.BorderStyle = BorderStyle.Fixed3D;
-                if (hand.Count < 4)
-                {
-                    pb.Anchor = AnchorStyles.Top;
-                    pb.Anchor = AnchorStyles.Bottom;
-                    pb.Scale(new Size(1, (int)1.5));
-                    pb.Size = new Size((int)tblPnPlayerHand.Width / 3, tblPnPlayerHand.Height);
-                }
-                else
-                {
-                    pb.Dock = DockStyle.Fill;
-                    pb.Size = new Size((int)tblPnPlayerHand.Width / hand.Count, tblPnPlayerHand.Height);
-                }
+                pb.Anchor = AnchorStyles.Top;
+                pb.Anchor = AnchorStyles.Bottom;
+                pb.Scale(new Size(1, (int)1.5));
+                pb.Size = new Size((int)pctBxBestExchange1.Width, tblPnPlayerHand.Height);
                 tblPnPlayerHand.Controls.Add(pb);
             }
         }
@@ -145,10 +136,15 @@ namespace SynchronousRisk
         }
         /// IAD 4/24/2025 <summary> Event handler for toggling of being able to see the reference for exchanging cards. </summary>
         /// <param name="sender"></param> <param name="e"></param>
-        private void tglExchangeRef_CheckedChanged(object sender, EventArgs e) { gpRef.Visible = tglExchangeRef.Checked; }
+        private void tglExchangeRef_CheckedChanged(object sender, EventArgs e)
+        {
+            gpRef.Visible = tglExchangeRef.Checked;
+            reformatTable();
+            resetBestExchange();
+        }
         /// IAD 4/23/2024 <summary> Event handler for when the form is closing. It clears the table of all controls and disposes of the form. </summary>
         /// <param name="sender"></param> <param name="e"></param>
-        private void ExchangeCards_Leave(object sender, EventArgs e) 
+        private void ExchangeCards_Leave(object sender, EventArgs e)
         {
             emptyTable();
             if (forced)
@@ -164,7 +160,7 @@ namespace SynchronousRisk
             exchangeTroops = player.GetHand().ExchangeValue(exchangeCards) + (2 * countExchanges);
             player.TradeCards();
             activeGame.currMenu = phase.Start(exchangeTroops);
-            //MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
+            MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
             this.Close();
         }
     }

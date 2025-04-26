@@ -410,6 +410,7 @@
             this.pctBxBestExchange3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pctBxBestExchange3.Name = "pctBxBestExchange3";
             this.pctBxBestExchange3.Size = new System.Drawing.Size(149, 222);
+            this.pctBxBestExchange3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBxBestExchange3.TabIndex = 4;
             this.pctBxBestExchange3.TabStop = false;
             // 
@@ -422,6 +423,7 @@
             this.pctBxBestExchange2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pctBxBestExchange2.Name = "pctBxBestExchange2";
             this.pctBxBestExchange2.Size = new System.Drawing.Size(149, 222);
+            this.pctBxBestExchange2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBxBestExchange2.TabIndex = 3;
             this.pctBxBestExchange2.TabStop = false;
             // 
@@ -434,6 +436,7 @@
             this.pctBxBestExchange1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pctBxBestExchange1.Name = "pctBxBestExchange1";
             this.pctBxBestExchange1.Size = new System.Drawing.Size(149, 222);
+            this.pctBxBestExchange1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBxBestExchange1.TabIndex = 2;
             this.pctBxBestExchange1.TabStop = false;
             // 

@@ -143,6 +143,16 @@ namespace SynchronousRisk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EarthMapRGBValues {
+            get {
+                object obj = ResourceManager.GetObject("EarthMapRGBValues", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EndTurn {
             get {
                 object obj = ResourceManager.GetObject("EndTurn", resourceCulture);
@@ -241,12 +251,13 @@ namespace SynchronousRisk.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Alaska	181, 110, 211	North West Territory,Alberta,Kamchatka	27, 10.5
-        ///North West Territory	181, 110, 212	Greenland,Quebec,Ontario,Alberta,Alaska	7, 10
-        ///Greenland	181, 110, 213	North West Territory,Ontario,Quebec,Iceland	3.2, 15
-        ///Alberta	181, 111, 211	Alaska,North West Territory,Ontario,Western United States	8, 6
-        ///Ontario	181, 111, 212	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta	5.5, 5.5
-        ///Quebec	181, 111, 213	Greenland,North West Territory,Ontario,Eastern  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Alaska	1, 1, 1	North West Territory,Alberta,Kamchatka	27, 10.5
+        ///North West Territory	1, 1, 2	Greenland,Quebec,Ontario,Alberta,Alaska	7, 10
+        ///Greenland	1, 1, 3	North West Territory,Ontario,Quebec,Iceland	3.2, 15
+        ///Alberta	1, 1, 4	Alaska,North West Territory,Ontario,Western United States	8, 6
+        ///Ontario	1, 1, 5	Alaska,North West Territory,Greenland,Quebec,Eastern United States,Western United States,Alberta	5.5, 5.5
+        ///Quebec	1, 1, 6	Greenland,North West Territory,Ontario,Eastern United States	3.9, 5.7
+        ///Western Unit [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TerritoriesInformation {
             get {
