@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="ExchangeCards.Designer.cs">
       <DependentUpon>ExchangeCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="MapSwappingUI.cs">
       <SubType>Form</SubType>
     </Compile>
