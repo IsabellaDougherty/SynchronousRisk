@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapSwappingUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapSwappingUI.Designer.cs">
+      <DependentUpon>MapSwappingUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameState.cs" />
     <Compile Include="Help.cs">
       <SubType>Form</SubType>
@@ -135,6 +141,9 @@
     <EmbeddedResource Include="IconSelect.resx">
       <DependentUpon>IconSelect.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MapSwappingUI.resx">
+      <DependentUpon>MapSwappingUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlayableForm.resx">
       <DependentUpon>PlayableForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +204,8 @@
   <ItemGroup>
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
     <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
+    <Content Include="Resources\Assets\Backgrounds\MapSwappingUI.png" />
+    <Content Include="Resources\Assets\Backgrounds\MapSwappingUIRGBValues.png" />
     <Content Include="Resources\Assets\Buttons\EndTurn.png" />
     <Content Include="Resources\Assets\Buttons\NextPhase.png" />
     <Content Include="Resources\Assets\CurrentPhasePointer.png" />
