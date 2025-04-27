@@ -33,7 +33,6 @@
             this.btnNextPhase = new CustomControls.ImageShapedButton();
             this.outputLbl = new System.Windows.Forms.Label();
             this.SubmitButton = new System.Windows.Forms.Button();
-            this.SubmitTxtBox = new System.Windows.Forms.TextBox();
             this.SubmitNumTrackBar = new System.Windows.Forms.TrackBar();
             this.MinimumValueTrackBarLbl = new System.Windows.Forms.Label();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
@@ -91,14 +90,6 @@
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
-            // 
-            // SubmitTxtBox
-            // 
-            this.SubmitTxtBox.Location = new System.Drawing.Point(16, 375);
-            this.SubmitTxtBox.Margin = new System.Windows.Forms.Padding(4);
-            this.SubmitTxtBox.Name = "SubmitTxtBox";
-            this.SubmitTxtBox.Size = new System.Drawing.Size(132, 22);
-            this.SubmitTxtBox.TabIndex = 2;
             // 
             // SubmitNumTrackBar
             // 
@@ -206,11 +197,29 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // EndTurnBtn
+            // 
+            this.EndTurnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.EndTurnBtn.BackgroundImage = global::SynchronousRisk.Properties.Resources.EndTurn;
+            this.EndTurnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EndTurnBtn.ButtonImage = global::SynchronousRisk.Properties.Resources.EndTurn;
+            this.EndTurnBtn.FlatAppearance.BorderSize = 0;
+            this.EndTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.EndTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.EndTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EndTurnBtn.Location = new System.Drawing.Point(907, 413);
+            this.EndTurnBtn.Name = "EndTurnBtn";
+            this.EndTurnBtn.Size = new System.Drawing.Size(100, 100);
+            this.EndTurnBtn.TabIndex = 10;
+            this.EndTurnBtn.UseVisualStyleBackColor = false;
+            this.EndTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
+            // 
             // PlayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.EndTurnBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             // 
@@ -233,7 +242,6 @@
             this.Controls.Add(this.SwapMapsButton);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
-            this.Controls.Add(this.SubmitTxtBox);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.outputLbl);
             this.HelpButton = true;
@@ -260,7 +268,6 @@
         private CustomControls.ImageShapedButton btnNextPhase;
         private System.Windows.Forms.Label outputLbl;
         private System.Windows.Forms.Button SubmitButton;
-        private System.Windows.Forms.TextBox SubmitTxtBox;
         private System.Windows.Forms.TrackBar SubmitNumTrackBar;
         private System.Windows.Forms.Label MinimumValueTrackBarLbl;
         private System.Windows.Forms.MainMenu mainMenu1;
@@ -272,6 +279,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button SwapMapsButton;
+        private CustomControls.ImageShapedButton EndTurnBtn;
     }
 }
 

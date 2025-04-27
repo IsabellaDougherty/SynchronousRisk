@@ -8,7 +8,7 @@ namespace SynchronousRisk.PhaseProcessing
     /* Russell Phillips
 	   2/10/2025
 	   class for managing attacks */
-    public class AttackPhase : Phases
+    public class AttackPhase : Phase
     {
         private Random rand = new Random();
 

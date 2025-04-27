@@ -19,11 +19,17 @@ namespace SynchronousRisk.Menus
 
         internal bool Continue;
 
-        internal Phases NextPhase;
+        internal Phase NextPhase;
 
         public UIManager()
         {
             Continue = true;
+        }
+
+        public UIManager(string d, bool cont)
+        {
+            Display = d;
+            Continue = cont;
         }
         public UIManager(string d, Func<String, UIManager> start)
         {
@@ -61,11 +67,6 @@ namespace SynchronousRisk.Menus
         public string GetDisplay()
         {
             return Display;
-        }
-
-        public bool CanContinue()
-        {
-            return Continue;
         }
     }
 }

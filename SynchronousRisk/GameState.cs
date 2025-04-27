@@ -33,24 +33,20 @@ namespace SynchronousRisk
 
         public int numPlayersPerBoard;
 
-        private LinkedList<Phases> Phases;
-
         public GameState(int numBoards, int numPlayers, Bitmap[] icons)
         {
-            Boards = new Board[numBoards];
-            for (int i = 0; i < numBoards; i++)
-            {
-                Boards[i] = new Board();
-            }
-            Deck = new Deck(Boards[1].GetTerritories());
+            Deck = new Deck(new Board(this).GetTerritories());
             PhaseInt = 0;
             CurrentBoardIndex = 0;
             SetUpPlayers(numPlayers, icons);
-            DivideTerritories();
+            
+            Boards = new Board[numBoards];
+            for (int i = 0; i < numBoards; i++)
+            {
+                Boards[i] = new Board(this);
+            }
 
-            Phases = new LinkedList<Phases>();
-            Phases.AddLast(new SetupPhase(this)); //dummy phase as NextPhase removes a phase before selecting the next one
-            Phases.AddLast(new SetupPhase(this, 1));
+            DivideTerritories();
 
             mapChange = false;
         }
@@ -78,41 +74,22 @@ namespace SynchronousRisk
         /// </summary>
         private void DivideTerritories()
         {
-            numPlayersPerBoard = Players.Count() / Boards.Count();
+            List<Player>[] distribution = new List<Player>[Boards.Count()];
 
-            for (int Bidx = 0; Bidx < Boards.Length; Bidx++)
+            for (int i = 0; i < Boards.Count(); i++)
             {
-                List<Territory> territories = new List<Territory>(Boards[Bidx].GetTerritories());
-                shuffle(territories);
-                int offset = Bidx * numPlayersPerBoard;
-
-                for (int i = 0; i < territories.Count; i++)
-                {
-                    Players[offset + (i % numPlayersPerBoard)].OwnedTerritories.Add(territories[i]);
-                    territories[i].SetTroops(1);
-                }
-
+                distribution[i] = new List<Player>();
             }
-        }
 
-        /// Russell Phillips 3/18/2025
-        /// <summary>
-        /// shuffles a generic list in place
-        /// </summary>
-        /// <typeparam name="T">type of list to be shuffled</typeparam>
-        /// <param name="lst">list to be shuffled</param>
-        /// <returns>shuffled list</returns>
-        private List<T> shuffle<T>(List<T> lst)
-        {
-            Random Rand = new Random();
-            for (int i = lst.Count - 1; i > 0; i--)
+            for (int i = 0; i < Players.Count(); i++)
             {
-                int j = Rand.Next(i + 1);
-                T value = lst[j];
-                lst[j] = lst[i];
-                lst[i] = value;
+                distribution[i % distribution.Length].Add(Players[i]);
             }
-            return lst;
+
+            for(int i  = 0; i < Boards.Count(); i++)
+            {
+                Boards[i].DistributeTerritories(distribution[i], this);
+            }
         }
 
         /// Russell Phillips 3/18/2025
@@ -123,6 +100,21 @@ namespace SynchronousRisk
         {
             currPlayer = (currPlayer + 1) % Players.Count();
             CurrentTurnsPlayer = Players[currPlayer];
+
+            foreach (Board board in Boards)
+            {
+                board.CreatePhases(this);
+            }
+        }
+
+        public bool CanEndTurn()
+        {
+            foreach (Board board in Boards)
+            {
+                if (!board.CanEndTurn()) 
+                    return false;
+            }
+            return true;
         }
 
         public void RestartTurns()
@@ -132,24 +124,14 @@ namespace SynchronousRisk
 
         }
 
-        public UIManager NextPhase()
+        public Phase GetCurrentPhase()
         {
-            Phases.RemoveFirst();
-
-            if (Phases.Count() == 0)
-            {
-                NextPlayerTurn();
-                Phases.AddLast(new DraftPhase(this));
-                Phases.AddLast(new AttackPhase(this));
-                Phases.AddLast(new FortifyPhase(this));
-            }
-
-            return Phases.First.Value.Start();
+            return GetActiveBoard().GetCurrentPhase();
         }
 
-        public Phases GetCurrentPhase()
+        public void NextPhase()
         {
-            return Phases.First.Value;
+            GetActiveBoard().NextPhase();
         }
 
         public Player GetCurrentTurnsPlayer()
@@ -179,9 +161,16 @@ namespace SynchronousRisk
             return Boards[CurrentBoardIndex];
         }
 
-        public void SetActiveBoard(int nextBoard)
+        public UIManager SetActiveBoard(int nextBoard)
         {
             CurrentBoardIndex = nextBoard;
+
+            if (GetActiveBoard().GetCurrentPhase() is SetupPhase sp && GetActiveBoard().Phases.Count() != 0)
+            {
+                sp.SetCurrentPlayer();
+            }
+
+            return GetActiveBoard().CurrMenu;
         }
     }
 }

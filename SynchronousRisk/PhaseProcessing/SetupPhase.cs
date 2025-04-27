@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-    internal class SetupPhase : Phases
+    internal class SetupPhase : Phase
     {
         Dictionary<Player, int> TroopsLeftPerPlayer;
-        public SetupPhase(GameState g) : base(g)
+        new List<Player> Players;
+
+        int CurrentPlayerIndex = 0;
+        public SetupPhase(GameState g, List<Player> players) : base(g)
         {
+            Players = players;
 
             TroopsLeftPerPlayer = new Dictionary<Player, int>();
             int numTroops;
@@ -38,18 +42,20 @@ namespace SynchronousRisk.PhaseProcessing
                     break;
             }
 
-            foreach (Player player in gameState.GetPlayers())
+            foreach (Player player in Players)
             {
                 TroopsLeftPerPlayer[player] = numTroops - player.OwnedTerritories.Count();
             }
 
             CanContinue = false;
+            Players = players;
         }
 
-        public SetupPhase(GameState g, int numTroops) : base(g)
+        public SetupPhase(GameState g, List<Player> players, int numTroops) : base(g)
         {
+            Players = players;
             TroopsLeftPerPlayer = new Dictionary<Player, int>();
-            foreach (Player player in gameState.GetPlayers())
+            foreach (Player player in Players)
             {
                 TroopsLeftPerPlayer[player] = numTroops;
             }
@@ -85,7 +91,7 @@ namespace SynchronousRisk.PhaseProcessing
 
         private bool CheckDone()
         {
-            foreach (Player player in gameState.GetPlayers())
+            foreach (Player player in Players)
             {
                 if (TroopsLeftPerPlayer[player] != 0)
                 {
@@ -100,10 +106,16 @@ namespace SynchronousRisk.PhaseProcessing
         {
             do
             {
-                gameState.NextPlayerTurn();
+                CurrentPlayerIndex = (CurrentPlayerIndex + 1) % Players.Count();
             }
-            while (TroopsLeftPerPlayer[gameState.GetCurrentTurnsPlayer()] == 0);
+            while (TroopsLeftPerPlayer[Players[CurrentPlayerIndex]] == 0);
 
+            SetCurrentPlayer();
+        }
+
+        public void SetCurrentPlayer()
+        {
+            gameState.currPlayer = Array.IndexOf(gameState.Players, Players[CurrentPlayerIndex]);
         }
     }
 }

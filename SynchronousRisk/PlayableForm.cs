@@ -40,7 +40,6 @@ namespace SynchronousRisk
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
-        UIManager currMenu;
         GameState gameState;
 
         public PlayableForm(Bitmap[] pi, int pl)
@@ -83,11 +82,6 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(2, players, playerIcons);
-            currMenu = gameState.NextPhase();
-
-            SubmitTxtBox.Hide();
-            SubmitButton.Hide();
-            SubmitNumTrackBar.Hide();
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -109,10 +103,10 @@ namespace SynchronousRisk
 
             graphics = context.Allocate(CreateGraphics(), new Rectangle(0, 0, Width, Height));
 
+            WindowState = FormWindowState.Maximized;
+
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
-
-            WindowState = FormWindowState.Maximized;
 
             SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
             DoubleBuffered = false;
@@ -134,10 +128,10 @@ namespace SynchronousRisk
 
             //IAD 3/20/2025 -  Implemented rgbLookup method to find territory based on rgb values rather than nested if statements
             if (rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName();
-            if (currMenu is SelectTerritory)
+            if (gameState.GetActiveBoard().CurrMenu is SelectTerritory)
             {
                 Territory SelectedTerritory = gameState.GetActiveBoard().GetTerritoryByName(TerritoryString);
-                currMenu = currMenu.InputTerritory(SelectedTerritory);
+                gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
         }
@@ -158,27 +152,23 @@ namespace SynchronousRisk
         /// </summary>
         void SelectNextScreen()
         {
-            if (currMenu.Continue)
+            if (gameState.GetActiveBoard().CurrMenu.Continue)
             {
-                currMenu = gameState.NextPhase();
+                gameState.NextPhase();
             }
 
-            SubmitTxtBox.Text = "";
-            outputLbl.Text = currMenu.GetDisplay();
-            SubmitTxtBox.Hide();
+            outputLbl.Text = gameState.GetActiveBoard().CurrMenu.GetDisplay();
             SubmitButton.Hide();
             SubmitNumTrackBar.Hide();
             numSlide.Hide();
             MinimumValueTrackBarLbl.Text = "";
-            if (currMenu.GetType() == typeof(UIManager))
-            {
-                SubmitTxtBox.Show();
-                SubmitButton.Show();
-            }
-            else if (currMenu is SelectTerritory)
+            if (gameState.GetActiveBoard().CurrMenu.GetType() == typeof(UIManager))
             {
             }
-            else if (currMenu is SelectNumber sn)
+            else if (gameState.GetActiveBoard().CurrMenu is SelectTerritory)
+            {
+            }
+            else if (gameState.GetActiveBoard().CurrMenu is SelectNumber sn)
             {
                 SubmitButton.Show();
                 numSlide.Show();
@@ -187,6 +177,17 @@ namespace SynchronousRisk
                 SubmitNumTrackBar.Maximum = sn.Max;
 
                 UpdateCurrentValueLbl();
+            }
+
+            btnNextPhase.Hide();
+            EndTurnBtn.Hide();
+            if (gameState.CanEndTurn())
+            {
+                EndTurnBtn.Show();
+            }
+            if (gameState.GetActiveBoard().GetCurrentPhase().CanContinue)
+            {
+                btnNextPhase.Show();
             }
             updateGraphics();
         }
@@ -290,7 +291,6 @@ namespace SynchronousRisk
         void OnResize(object sender, EventArgs e)
         {
             wolrdMapBounds.Width = Width;
-        bool LastWasSelectNumer = false;
             wolrdMapBounds.Height = Height;
 
             playerIconBounds.Width = Width / 25;
@@ -330,7 +330,7 @@ namespace SynchronousRisk
         {
             if (gameState.GetCurrentPhase().CanContinue)
             {
-                currMenu = gameState.NextPhase();
+                gameState.NextPhase();
                 SelectNextScreen();
             }
         }
@@ -338,14 +338,9 @@ namespace SynchronousRisk
         /// <param name="sender"></param> <param name="e"></param>
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (currMenu is SelectNumber)
+            if (gameState.GetActiveBoard().CurrMenu is SelectNumber)
             {
-                currMenu = currMenu.InputInt(SubmitNumTrackBar.Value);
-            }
-            else
-            {
-            graphics.Render(Graphics.FromHwnd(Handle));
-                currMenu = currMenu.Call((SubmitTxtBox.Text));
+                gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputInt(SubmitNumTrackBar.Value);
             }
             SelectNextScreen();
         }
@@ -385,6 +380,7 @@ namespace SynchronousRisk
         private void button1_Click(object sender, EventArgs e)
         {
             gameState.SetActiveBoard(0);
+            SelectNextScreen();
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
@@ -392,6 +388,15 @@ namespace SynchronousRisk
         private void button2_Click(object sender, EventArgs e)
         {
             gameState.SetActiveBoard(1);
+            SelectNextScreen();
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void EndTurnBtn_Click(object sender, EventArgs e)
+        {
+            gameState.NextPlayerTurn();
+            SelectNextScreen();
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }

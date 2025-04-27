@@ -1,8 +1,11 @@
-﻿using SynchronousRisk.Resources.Assets.Text_Files;
+﻿using SynchronousRisk.PhaseProcessing;
+using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using SynchronousRisk.Menus;
 
 namespace SynchronousRisk
 {
@@ -14,13 +17,18 @@ namespace SynchronousRisk
         private InformationDatasets infoData = new InformationDatasets();
         private Region[] regionsArray;
         private Territory[] allTerritories;
+
+        public LinkedList<Phase> Phases;
+        public UIManager CurrMenu;
         /// IAD 2/12/2025 <summary>
         /// Constructor for the Board class.
         /// </summary>
-        public Board()
+        public Board(GameState g)
         {
             regionsArray = MakeRegions();
             allTerritories = infoData.GetTerritoriesArray();
+            Phases = new LinkedList<Phase>();
+
         }
         /// IAD 3/17/2025 <summary>
         /// Creates a region object for each region in the game.
@@ -129,6 +137,97 @@ namespace SynchronousRisk
             }
             strBuilder.AppendLine("=== End of Board Visualization ===");
             return strBuilder.ToString();
+        }
+
+        public void DistributeTerritories(List<Player> players, GameState g)
+        {
+                List<Territory> territories = new List<Territory>(GetTerritories());
+                shuffle(territories);
+
+                for (int i = 0; i < territories.Count; i++)
+                {
+                    players[i % players.Count()].OwnedTerritories.Add(territories[i]);
+                    territories[i].SetTroops(1);
+                }
+
+            Phases.AddLast(new SetupPhase(g, players, 1));
+            CurrMenu = GetCurrentPhase().Start();
+        }
+
+        /// Russell Phillips 3/18/2025
+        /// <summary>
+        /// shuffles a generic list in place
+        /// </summary>
+        /// <typeparam name="T">type of list to be shuffled</typeparam>
+        /// <param name="lst">list to be shuffled</param>
+        /// <returns>shuffled list</returns>
+        private List<T> shuffle<T>(List<T> lst)
+        {
+            Random Rand = new Random();
+            for (int i = lst.Count - 1; i > 0; i--)
+            {
+                int j = Rand.Next(i + 1);
+                T value = lst[j];
+                lst[j] = lst[i];
+                lst[i] = value;
+            }
+            return lst;
+        }
+
+        public void NextPhase()
+        {
+            if (Phases.Count() == 0)
+            {
+                CurrMenu = new UIManager("Either click end turn button or check other maps for moves to make", false);
+                return;
+            }
+
+            Phases.RemoveFirst();
+
+            if (Phases.Count() == 0)
+            {
+                CurrMenu = new UIManager("Either click end turn button or check other maps for moves to make", false);
+                return;
+            }
+
+            CurrMenu = Phases.First.Value.Start();
+        }
+
+        public Phase GetCurrentPhase()
+        {
+            return Phases.First.Value;
+        }
+
+        public bool CanEndTurn()
+        {
+            return Phases.Count == 0;
+        }
+
+        public void CreatePhases(GameState gameState)
+        {
+            if (PlayerOwnsTerritory(gameState, gameState.GetCurrentTurnsPlayer()))
+            {
+                Phases.AddLast(new DraftPhase(gameState));
+                Phases.AddLast(new AttackPhase(gameState));
+                Phases.AddLast(new FortifyPhase(gameState));
+
+                CurrMenu = Phases.First.Value.Start();
+            }
+        }
+
+        public bool PlayerOwnsTerritory(GameState gameState, Player player)
+        {
+            foreach(Territory territory in GetTerritories())
+            {
+                foreach(Territory playerTerritory in player.OwnedTerritories)
+                {
+                    if (territory == playerTerritory)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

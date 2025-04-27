@@ -9,7 +9,7 @@ using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-    public class FortifyPhase : Phases
+    public class FortifyPhase : Phase
     {
 
         Territory SourceTerritory;

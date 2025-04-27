@@ -9,7 +9,7 @@ using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
-    public class Phases
+    public class Phase
     {
 
         // IAD 2/24/2025
@@ -23,7 +23,7 @@ namespace SynchronousRisk.PhaseProcessing
 
         internal bool CanContinue;
 
-        public Phases(GameState g) 
+        public Phase(GameState g) 
         {
             gameState = g;
             CanContinue = false;

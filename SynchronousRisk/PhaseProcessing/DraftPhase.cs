@@ -12,19 +12,19 @@ namespace SynchronousRisk.PhaseProcessing
     /// <summary>
     /// Draft phase class to handle the drafting of troops for the current player and deployment of troops to the board.
     /// </summary>
-    internal class DraftPhase : Phases
+    internal class DraftPhase : Phase
     {
         private int troopsRemaining;
         private Territory CurrTerritory;
         internal DraftPhase(GameState g) : base(g)
         {
             CanContinue = false;
+            troopsRemaining = DraftableTroops();
         }
 
         public override UIManager Start()
         {
             gameState.PhaseInt = 1;
-            troopsRemaining = DraftableTroops();
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
 
