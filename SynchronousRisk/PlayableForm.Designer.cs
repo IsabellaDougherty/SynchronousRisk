@@ -44,6 +44,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SwapMapsButton = new System.Windows.Forms.Button();
+            this.EndTurnBtn = new CustomControls.ImageShapedButton();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
