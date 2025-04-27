@@ -23,13 +23,13 @@ namespace SynchronousRisk.Menus
 
         public UIManager()
         {
-            Continue = false;
+            Continue = true;
         }
         public UIManager(string d, Func<String, UIManager> start)
         {
             Display = d;
             Func = start;
-            Continue = true;
+            Continue = false;
         }
 
         public virtual UIManager Call(String inp)

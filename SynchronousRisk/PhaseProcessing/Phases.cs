@@ -20,9 +20,13 @@ namespace SynchronousRisk.PhaseProcessing
         internal Player CurrentPlayer { get { return gameState.CurrentTurnsPlayer; } }
         internal Board activeBoard { get { return gameState.GetActiveBoard(); } }
         internal Player[] Players { get { return gameState.Players; } }
+
+        internal bool CanContinue;
+
         public Phases(GameState g) 
         {
             gameState = g;
+            CanContinue = false;
         }
         public int GetUserInputNumber(int min, int max)
         {

@@ -18,11 +18,11 @@ namespace SynchronousRisk.PhaseProcessing
         private Territory CurrTerritory;
         internal DraftPhase(GameState g) : base(g)
         {
+            CanContinue = false;
         }
 
         public override UIManager Start()
         {
-            gameState.NextPlayerTurn();
             gameState.PhaseInt = 1;
             troopsRemaining = DraftableTroops();
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
@@ -58,7 +58,7 @@ namespace SynchronousRisk.PhaseProcessing
             }
             else
             {
-                return new AttackPhase(gameState).Start();
+                return new UIManager();
             }
         }
 

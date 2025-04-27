@@ -12,6 +12,7 @@ namespace SynchronousRisk.PhaseProcessing
         Dictionary<Player, int> TroopsLeftPerPlayer;
         public SetupPhase(GameState g) : base(g)
         {
+
             TroopsLeftPerPlayer = new Dictionary<Player, int>();
             int numTroops;
             int numPlayers = Players.Count();
@@ -41,6 +42,8 @@ namespace SynchronousRisk.PhaseProcessing
             {
                 TroopsLeftPerPlayer[player] = numTroops - player.OwnedTerritories.Count();
             }
+
+            CanContinue = false;
         }
 
         public SetupPhase(GameState g, int numTroops) : base(g)
@@ -50,6 +53,8 @@ namespace SynchronousRisk.PhaseProcessing
             {
                 TroopsLeftPerPlayer[player] = numTroops;
             }
+
+            CanContinue = false;
         }
 
         public override UIManager Start()
@@ -70,8 +75,7 @@ namespace SynchronousRisk.PhaseProcessing
             if (CheckDone())
             {
                 gameState.RestartTurns();
-                Phases phase = new DraftPhase(gameState);
-                return phase.Start();
+                return new UIManager();
             }
 
             FindNextPlayer();

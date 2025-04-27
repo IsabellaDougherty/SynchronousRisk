@@ -20,16 +20,6 @@ namespace SynchronousRisk.Menus
             Min = mi;
             Max = ma;
             IntFunc = Func;
-            Continue = true;
-        }
-
-        public SelectNumber(string d, Func<int, UIManager> Func, int mi, int ma, Phases nextPhase)
-        {
-            Display = d; 
-            Min = mi;
-            Max = ma;
-            IntFunc = Func;
-            NextPhase = nextPhase;
             Continue = false;
         }
 
