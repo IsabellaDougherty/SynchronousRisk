@@ -44,6 +44,7 @@
             this.MaximumValueTrackBarLbl = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.SwapMapsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
@@ -212,6 +213,24 @@
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            // 
+            // SwapMapsButton
+            // 
+            this.SwapMapsButton.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            this.SwapMapsButton.Location = new System.Drawing.Point(32, 173);
+            this.SwapMapsButton.Name = "SwapMapsButton";
+            this.SwapMapsButton.Size = new System.Drawing.Size(283, 69);
+            this.SwapMapsButton.TabIndex = 8;
+            this.SwapMapsButton.Text = "Swap Maps";
+            this.SwapMapsButton.UseVisualStyleBackColor = true;
+            this.SwapMapsButton.Click += new System.EventHandler(this.SwapMapsButton_Click);
+            // 
+            // PlayableForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(2133, 1073);
+            this.Controls.Add(this.SwapMapsButton);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
             this.Controls.Add(this.SubmitTxtBox);
@@ -219,7 +238,7 @@
             this.Controls.Add(this.outputLbl);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Menu = this.mainMenu1;
             this.Name = "PlayableForm";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.PlayableForm_HelpButtonClicked);
@@ -252,6 +271,7 @@
         private System.Windows.Forms.Label MaximumValueTrackBarLbl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SwapMapsButton;
     }
 }
 

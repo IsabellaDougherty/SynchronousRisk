@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows.Forms;
 
 
@@ -29,6 +30,7 @@ namespace SynchronousRisk
         Label[] troopLabels = new Label[42];
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
+
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
@@ -292,6 +294,10 @@ namespace SynchronousRisk
 
             btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
             btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
+
+            SwapMapsButton.Size = new Size((int)(Width / 15), (int)(Height / 15));
+            SwapMapsButton.Location = new Point((int)(Width / 45), (int)(Height / 4.5));
+
             context.MaximumBuffer = new Size(Width, Height);
             if (graphics != null)
             {
@@ -380,6 +386,12 @@ namespace SynchronousRisk
             gameState.SetActiveBoard(1);
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void SwapMapsButton_Click(object sender, EventArgs e)
+        {
+            var mapSwapping = new Thread(() => Application.Run(new MapSwappingUI(gameState)));
+            mapSwapping.Start();
         }
     }
 }

@@ -183,6 +183,26 @@ namespace SynchronousRisk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MapSwappingUI {
+            get {
+                object obj = ResourceManager.GetObject("MapSwappingUI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MapSwappingUIRGBValues {
+            get {
+                object obj = ResourceManager.GetObject("MapSwappingUIRGBValues", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NextPhase {
             get {
                 object obj = ResourceManager.GetObject("NextPhase", resourceCulture);

@@ -22,7 +22,7 @@ namespace SynchronousRisk
         Deck Deck;
 
         public Board[] Boards;
-        private int CurrentBoardIndex;
+        public int CurrentBoardIndex;
         public Player[] Players;
         public Player CurrentTurnsPlayer;
         public int currPlayer;
