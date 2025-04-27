@@ -85,5 +85,10 @@ namespace SynchronousRisk.PhaseProcessing
         {
             return null;
         }
+
+        public virtual UIManager Start(int i)
+        {
+            return null;
+        }
     }
 }

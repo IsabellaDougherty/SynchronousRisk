@@ -44,7 +44,6 @@ namespace SynchronousRisk
             foreach (Card card in tradeCards)
             {
                 playerHand.Remove(card);
-
             }
             return playerHand.ExchangeValue(tradeCards);
         }

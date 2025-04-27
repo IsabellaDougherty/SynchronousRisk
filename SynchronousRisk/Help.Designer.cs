@@ -70,8 +70,8 @@
             // 
             // sptCntHelp.Panel2
             // 
-            this.sptCntHelp.Panel2.Controls.Add(this.tblPnIcn);
             this.sptCntHelp.Panel2.Controls.Add(this.txtRules);
+            this.sptCntHelp.Panel2.Controls.Add(this.tblPnIcn);
             this.sptCntHelp.Size = new System.Drawing.Size(800, 526);
             this.sptCntHelp.SplitterDistance = 75;
             this.sptCntHelp.TabIndex = 1;
