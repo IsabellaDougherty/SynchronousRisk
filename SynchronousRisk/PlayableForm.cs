@@ -16,7 +16,7 @@ namespace SynchronousRisk
     public partial class PlayableForm : Form
     {
         static ExchangeCards exchangeCards;
-        public Phases phase;
+        public Phase phase;
 
         InformationDatasets infoData = new InformationDatasets();
         Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
@@ -43,7 +43,7 @@ namespace SynchronousRisk
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
-        GameState gameState;
+        public GameState gameState;
         public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();

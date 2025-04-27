@@ -11,7 +11,7 @@ namespace SynchronousRisk
     public partial class ExchangeCards : Form
     {
         private Player player;
-        private Phases phase;
+        private Phase phase;
         private PlayableForm activeGame;
         private List<Card> hand;
         private bool forced = false;
@@ -19,7 +19,7 @@ namespace SynchronousRisk
         private static int countExchanges = 0;
         public Card[] exchangeCards;
         public int ExchangeTroops { get; set; }
-        public ExchangeCards(PlayableForm game, Phases ph, Player p, bool f)
+        public ExchangeCards(PlayableForm game, Phase ph, Player p, bool f)
         {
             InitializeComponent();
             player = p;
@@ -159,7 +159,7 @@ namespace SynchronousRisk
             countExchanges++;
             exchangeTroops = player.GetHand().ExchangeValue(exchangeCards) + (2 * countExchanges);
             player.TradeCards();
-            activeGame.currMenu = phase.Start(exchangeTroops);
+            activeGame.gameState.GetActiveBoard().CurrMenu = phase.Start(exchangeTroops);
             MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
             this.Close();
         }

@@ -63,10 +63,10 @@
             this.btnNextPhase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextPhase.Location = new System.Drawing.Point(871, 405);
-            this.btnNextPhase.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNextPhase.Location = new System.Drawing.Point(436, 209);
+            this.btnNextPhase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNextPhase.Name = "btnNextPhase";
-            this.btnNextPhase.Size = new System.Drawing.Size(193, 108);
+            this.btnNextPhase.Size = new System.Drawing.Size(96, 56);
             this.btnNextPhase.TabIndex = 0;
             this.btnNextPhase.UseVisualStyleBackColor = false;
             this.btnNextPhase.Click += new System.EventHandler(this.btnNextPhase_Click_1);
@@ -74,8 +74,8 @@
             // outputLbl
             // 
             this.outputLbl.AutoSize = true;
-            this.outputLbl.Location = new System.Drawing.Point(501, 16);
-            this.outputLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.outputLbl.Location = new System.Drawing.Point(250, 8);
+            this.outputLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.outputLbl.Name = "outputLbl";
             this.outputLbl.Size = new System.Drawing.Size(0, 16);
             this.outputLbl.TabIndex = 0;
@@ -83,10 +83,10 @@
             // SubmitButton
             // 
             this.SubmitButton.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            this.SubmitButton.Location = new System.Drawing.Point(449, 394);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SubmitButton.Location = new System.Drawing.Point(224, 203);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(107, 32);
+            this.SubmitButton.Size = new System.Drawing.Size(54, 17);
             this.SubmitButton.TabIndex = 1;
             this.SubmitButton.Text = "Submit";
             this.SubmitButton.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
             this.SubmitNumTrackBar.BackColor = System.Drawing.Color.Gray;
             this.SubmitNumTrackBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SubmitNumTrackBar.Location = new System.Drawing.Point(0, 0);
-            this.SubmitNumTrackBar.Margin = new System.Windows.Forms.Padding(4);
+            this.SubmitNumTrackBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubmitNumTrackBar.Name = "SubmitNumTrackBar";
-            this.SubmitNumTrackBar.Size = new System.Drawing.Size(690, 37);
+            this.SubmitNumTrackBar.Size = new System.Drawing.Size(344, 24);
             this.SubmitNumTrackBar.TabIndex = 3;
             this.SubmitNumTrackBar.Scroll += new System.EventHandler(this.SubmitNumTrackBar_Scroll);
             // 
@@ -108,9 +108,9 @@
             this.MinimumValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Left;
             this.MinimumValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
-            this.MinimumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MinimumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MinimumValueTrackBarLbl.Name = "MinimumValueTrackBarLbl";
-            this.MinimumValueTrackBarLbl.Size = new System.Drawing.Size(128, 34);
+            this.MinimumValueTrackBarLbl.Size = new System.Drawing.Size(64, 24);
             this.MinimumValueTrackBarLbl.TabIndex = 5;
             this.MinimumValueTrackBarLbl.Text = "Minimum";
             // 
@@ -137,9 +137,9 @@
             this.CurrentValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CurrentValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
-            this.CurrentValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CurrentValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CurrentValueTrackBarLbl.Name = "CurrentValueTrackBarLbl";
-            this.CurrentValueTrackBarLbl.Size = new System.Drawing.Size(690, 34);
+            this.CurrentValueTrackBarLbl.Size = new System.Drawing.Size(344, 24);
             this.CurrentValueTrackBarLbl.TabIndex = 6;
             this.CurrentValueTrackBarLbl.Text = "Value";
             this.CurrentValueTrackBarLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -148,8 +148,8 @@
             // 
             this.numSlide.BackColor = System.Drawing.Color.DimGray;
             this.numSlide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numSlide.Location = new System.Drawing.Point(157, 433);
-            this.numSlide.Margin = new System.Windows.Forms.Padding(4);
+            this.numSlide.Location = new System.Drawing.Point(78, 223);
+            this.numSlide.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numSlide.Name = "numSlide";
             this.numSlide.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -162,27 +162,28 @@
             this.numSlide.Panel2.Controls.Add(this.MaximumValueTrackBarLbl);
             this.numSlide.Panel2.Controls.Add(this.MinimumValueTrackBarLbl);
             this.numSlide.Panel2.Controls.Add(this.CurrentValueTrackBarLbl);
-            this.numSlide.Size = new System.Drawing.Size(692, 80);
-            this.numSlide.SplitterDistance = 39;
-            this.numSlide.SplitterWidth = 5;
+            this.numSlide.Size = new System.Drawing.Size(346, 55);
+            this.numSlide.SplitterDistance = 26;
+            this.numSlide.SplitterWidth = 3;
             this.numSlide.TabIndex = 7;
             // 
             // MaximumValueTrackBarLbl
             // 
             this.MaximumValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Right;
             this.MaximumValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaximumValueTrackBarLbl.Location = new System.Drawing.Point(566, 0);
-            this.MaximumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.MaximumValueTrackBarLbl.Location = new System.Drawing.Point(282, 0);
+            this.MaximumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MaximumValueTrackBarLbl.Name = "MaximumValueTrackBarLbl";
-            this.MaximumValueTrackBarLbl.Size = new System.Drawing.Size(124, 34);
+            this.MaximumValueTrackBarLbl.Size = new System.Drawing.Size(62, 24);
             this.MaximumValueTrackBarLbl.TabIndex = 7;
             this.MaximumValueTrackBarLbl.Text = "Maximum";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 316);
+            this.button1.Location = new System.Drawing.Point(8, 163);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(38, 12);
             this.button1.TabIndex = 8;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -190,13 +191,26 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 345);
+            this.button2.Location = new System.Drawing.Point(8, 178);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(38, 12);
             this.button2.TabIndex = 9;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // SwapMapsButton
+            // 
+            this.SwapMapsButton.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
+            this.SwapMapsButton.Location = new System.Drawing.Point(16, 89);
+            this.SwapMapsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SwapMapsButton.Name = "SwapMapsButton";
+            this.SwapMapsButton.Size = new System.Drawing.Size(142, 36);
+            this.SwapMapsButton.TabIndex = 8;
+            this.SwapMapsButton.Text = "Swap Maps";
+            this.SwapMapsButton.UseVisualStyleBackColor = true;
+            this.SwapMapsButton.Click += new System.EventHandler(this.SwapMapsButton_Click);
             // 
             // EndTurnBtn
             // 
@@ -208,9 +222,10 @@
             this.EndTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.EndTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.EndTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EndTurnBtn.Location = new System.Drawing.Point(907, 413);
+            this.EndTurnBtn.Location = new System.Drawing.Point(454, 213);
+            this.EndTurnBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.EndTurnBtn.Name = "EndTurnBtn";
-            this.EndTurnBtn.Size = new System.Drawing.Size(100, 100);
+            this.EndTurnBtn.Size = new System.Drawing.Size(50, 52);
             this.EndTurnBtn.TabIndex = 10;
             this.EndTurnBtn.UseVisualStyleBackColor = false;
             this.EndTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
@@ -219,27 +234,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(962, 545);
             this.Controls.Add(this.EndTurnBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            // 
-            // SwapMapsButton
-            // 
-            this.SwapMapsButton.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold);
-            this.SwapMapsButton.Location = new System.Drawing.Point(32, 173);
-            this.SwapMapsButton.Name = "SwapMapsButton";
-            this.SwapMapsButton.Size = new System.Drawing.Size(283, 69);
-            this.SwapMapsButton.TabIndex = 8;
-            this.SwapMapsButton.Text = "Swap Maps";
-            this.SwapMapsButton.UseVisualStyleBackColor = true;
-            this.SwapMapsButton.Click += new System.EventHandler(this.SwapMapsButton_Click);
-            // 
-            // PlayableForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2133, 1073);
             this.Controls.Add(this.SwapMapsButton);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
@@ -247,7 +245,7 @@
             this.Controls.Add(this.outputLbl);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Menu = this.mainMenu1;
             this.Name = "PlayableForm";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.PlayableForm_HelpButtonClicked);
