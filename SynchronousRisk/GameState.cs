@@ -21,7 +21,7 @@ namespace SynchronousRisk
         Deck Deck;
 
         public Board[] Boards;
-        private int CurrentBoardIndex;
+        public int CurrentBoardIndex;
         public Player[] Players;
         public Player CurrentTurnsPlayer;
         public int currPlayer;
@@ -134,7 +134,7 @@ namespace SynchronousRisk
         {
             foreach (Player p in Players)
                 foreach (Territory owned in p.OwnedTerritories)
-                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
+                    if (terr == owned) return p;
             return null;
         }
 
