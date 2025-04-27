@@ -139,6 +139,7 @@ namespace SynchronousRisk
             if (color.B >= 1 && color.B <= 6)
             {
                 gameState.SetActiveBoard((6 * (currentPage - 1)) + color.B - 1);
+                gameState.mapChange = true;
                 this.Close();
             }
             //MessageBox.Show(colorRGB[0].ToString() + " " + colorRGB[1].ToString() + " " + colorRGB[2].ToString());

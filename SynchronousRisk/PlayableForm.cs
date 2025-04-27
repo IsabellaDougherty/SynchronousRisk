@@ -193,22 +193,32 @@ namespace SynchronousRisk
         // Karen Dixon 4/17/2025: updates player icon and troop count for individual territories if they have changed.
         void updateGraphics()
         {
-            int i = 0;
-            foreach (Territory t in gameState.GetActiveBoard().GetTerritories()) {
-                if (t.troopChange == true)
-                {
-                    UpdateLabel(i, t);
-                    t.troopChange = false;
-                }
-                if (t.iconChange == true)
-                {
-                    UpdateTerritoryIcon(graphics.Graphics, t);
-                    t.iconChange = false;
-                }
-                i++;
+            if (gameState.mapChange == true)
+            {
+                DrawToBuffer(graphics.Graphics);
+                graphics.Render(Graphics.FromHwnd(Handle));
+                gameState.mapChange = false;
             }
-            UpdateCurrentPlayerIcon(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
+            else
+            {
+                int i = 0;
+                foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
+                {
+                    if (t.troopChange == true)
+                    {
+                        UpdateLabel(i, t);
+                        t.troopChange = false;
+                    }
+                    if (t.iconChange == true)
+                    {
+                        UpdateTerritoryIcon(graphics.Graphics, t);
+                        t.iconChange = false;
+                    }
+                    i++;
+                }
+                UpdateCurrentPlayerIcon(graphics.Graphics);
+                graphics.Render(Graphics.FromHwnd(Handle));
+            }
         }
 
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
@@ -368,9 +378,7 @@ namespace SynchronousRisk
         /// IAD 4/23/2025 <summary> Shows the exchange cards menu when the exchange cards button is clicked </summary>
         /// <param name="sender"></param> <param name="e"></param>
         private void exchangeCardsMenu_Click(object sender, EventArgs e)
-        {
-
-            graphics.Render(Graphics.FromHwnd(Handle));
+        { 
             graphics.Render(Graphics.FromHwnd(Handle));
         }
 

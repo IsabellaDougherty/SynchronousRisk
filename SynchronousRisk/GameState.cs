@@ -27,6 +27,8 @@ namespace SynchronousRisk
         public Player CurrentTurnsPlayer;
         public int currPlayer;
 
+        public bool mapChange;
+
         public int PhaseInt;
 
         public int numPlayersPerBoard;
@@ -49,6 +51,8 @@ namespace SynchronousRisk
             Phases = new LinkedList<Phases>();
             Phases.AddLast(new SetupPhase(this)); //dummy phase as NextPhase removes a phase before selecting the next one
             Phases.AddLast(new SetupPhase(this, 1));
+
+            mapChange = false;
         }
 
         /// Russell Phillips 3/18/2025
