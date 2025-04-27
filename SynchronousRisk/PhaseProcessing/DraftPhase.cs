@@ -19,7 +19,7 @@ namespace SynchronousRisk.PhaseProcessing
         private Territory CurrTerritory;
         internal DraftPhase(GameState g) : base(g)
         {
-
+            CanContinue = false;
         }
 
         /// Russell Phillips <summary>
@@ -27,7 +27,6 @@ namespace SynchronousRisk.PhaseProcessing
         /// </summary>
         public override UIManager Start()
         {
-            gameState.NextPlayerTurn();
             gameState.PhaseInt = 1;
             if (CurrentPlayer.GetNumCardsInHand() > 5)
             {
@@ -78,7 +77,7 @@ namespace SynchronousRisk.PhaseProcessing
             }
             else
             {
-                return new AttackPhase(gameState).Start();
+                return new UIManager();
             }
         }
 

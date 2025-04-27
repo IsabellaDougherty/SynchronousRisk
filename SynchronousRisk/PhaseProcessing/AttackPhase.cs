@@ -21,10 +21,9 @@ namespace SynchronousRisk.PhaseProcessing
 
         bool BattleWon = false;
 
-        Phases NextPhase;
         public AttackPhase(GameState g) : base(g)
         {
-
+            CanContinue = true;
         }
 
         /// Russell Phillips 4/21/2025
@@ -82,8 +81,7 @@ namespace SynchronousRisk.PhaseProcessing
         public override UIManager Start()
         {
             gameState.PhaseInt = 2;
-            NextPhase = new FortifyPhase(gameState);
-            return new SelectTerritory("Input Territory to attack from", GetAttackerTerritory, NextPhase);
+            return new SelectTerritory("Input Territory to attack from", GetAttackerTerritory);
         }
 
         public UIManager GetAttackerTerritory(Territory attackerTerr)
@@ -91,20 +89,20 @@ namespace SynchronousRisk.PhaseProcessing
             AttackerTerritory = attackerTerr;
             if (AttackerTerritory == null)
             {
-                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetAttackerTerritory, NextPhase);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetAttackerTerritory);
             }
 
             if (!CurrentPlayer.OwnedTerritories.Contains(AttackerTerritory))
             {
-                return new SelectTerritory("Sorry, you don't own that territory", GetAttackerTerritory, NextPhase);
+                return new SelectTerritory("Sorry, you don't own that territory", GetAttackerTerritory);
             }
 
             if (AttackerTerritory.GetTroops() < 2)
             {
-                return new SelectTerritory("Sorry, you don't have enough troops there", GetAttackerTerritory, NextPhase);
+                return new SelectTerritory("Sorry, you don't have enough troops there", GetAttackerTerritory);
             }
 
-            return new SelectTerritory("Input territory to attack", GetDefenderTerritory, NextPhase);
+            return new SelectTerritory("Input territory to attack", GetDefenderTerritory);
         }
         public UIManager GetDefenderTerritory(Territory defenderTerr)
         {
@@ -112,27 +110,27 @@ namespace SynchronousRisk.PhaseProcessing
 
             if (DefenderTerritory == null)
             {
-                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDefenderTerritory, NextPhase);
+                return new SelectTerritory("Sorry, couldn't find that territory, try again", GetDefenderTerritory);
             }
 
             if (CurrentPlayer.OwnedTerritories.Contains(DefenderTerritory))
             {
-                return new SelectTerritory("Sorry, you can't attack yourself", GetDefenderTerritory, NextPhase);
+                return new SelectTerritory("Sorry, you can't attack yourself", GetDefenderTerritory);
             }
 
             if (!AttackerTerritory.GetBorders().Contains(DefenderTerritory.GetName()))
             {
-                return new SelectTerritory("Sorry, that territory does not border the attacking territory", GetDefenderTerritory, NextPhase);
+                return new SelectTerritory("Sorry, that territory does not border the attacking territory", GetDefenderTerritory);
             }
 
-            return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3), NextPhase);
+            return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
         }
 
         public UIManager GetNumAttackers(int attackers)
         {
             if (attackers > AttackerTerritory.GetTroops() - 1 || attackers < 0 || attackers > 3) // have to leave one troop behind
             {
-                return new SelectNumber("Sorry, invalid number of troops", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3), NextPhase);
+                return new SelectNumber("Sorry, invalid number of troops", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
             }
 
             Battle(attackers);
@@ -143,22 +141,22 @@ namespace SynchronousRisk.PhaseProcessing
             if (CheckBattleWon(gameState.CurrentTurnsPlayer))
             {
                 if (PlayerActive(gameState.CurrentTurnsPlayer) && FindWinner() != null)
-                    return new UIManager { Display = "You have won the game!", NextPhase = NextPhase };
+                    return new UIManager { Display = "You have won the game!"};
                 else gameState.CurrentTurnsPlayer.DrawCard();
-                return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1, NextPhase);
+                return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1);
             }
 
             if (AttackerTerritory.GetTroops() <= 1)
             {
-                return new SelectTerritory("You no longer have enough troops to attack. Input another territory to attack from", GetAttackerTerritory, NextPhase);
+                return new SelectTerritory("You no longer have enough troops to attack. Input another territory to attack from", GetAttackerTerritory);
             }
 
             if (attackers > 0)
             {
-                return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Max(AttackerTerritory.GetTroops() - 1, 3));
+                return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
             }
 
-            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory, NextPhase);
+            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory);
         }
 
         private UIManager TransferTroops(int transfer)
@@ -177,7 +175,7 @@ namespace SynchronousRisk.PhaseProcessing
             AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - transfer);
             DefenderTerritory.SetTroops(transfer);
 
-            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory, NextPhase);
+            return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory);
         }
 
         /// Russell Phillips 3/18/2025

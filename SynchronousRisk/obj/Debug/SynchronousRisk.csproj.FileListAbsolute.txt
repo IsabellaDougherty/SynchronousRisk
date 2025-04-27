@@ -104,13 +104,11 @@ C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\Resources\Assets\Icons\
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe.config
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.exe
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\SynchronousRisk.pdb
-C:\Users\Karen\SynchronousRisk\SynchronousRisk\bin\Debug\CustomControls.dll
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.GenerateResource.cache
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
-C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
@@ -123,3 +121,4 @@ C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.re
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
 C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources
+C:\Users\Karen\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.MapSwappingUI.resources

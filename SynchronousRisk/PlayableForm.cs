@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Windows.Forms;
 
 
@@ -29,6 +32,7 @@ namespace SynchronousRisk
         Label[] troopLabels = new Label[42];
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
+
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
@@ -40,7 +44,6 @@ namespace SynchronousRisk
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
         GameState gameState;
-        public UIManager currMenu;
         public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();
@@ -77,13 +80,11 @@ namespace SynchronousRisk
         }
         public void PlayableForm_Load(object sender, EventArgs e)
         {
-            gameState = new GameState();
             territories = infoData.territoryLookup;
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
-            gameState.SetUpPlayers(players, playerIcons);
-            phase = new SetupPhase(gameState, 1);
-            currMenu = phase.Start();
+            gameState = new GameState(2, players, playerIcons);
+            currMenu = gameState.NextPhase();
 
             SubmitTxtBox.Hide();
             SubmitButton.Hide();
@@ -136,7 +137,7 @@ namespace SynchronousRisk
             if (rgbLookup(colorRGB) != null) TerritoryString += rgbLookup(colorRGB).GetName();
             if (currMenu is SelectTerritory)
             {
-                Territory SelectedTerritory = gameState.Board.GetTerritoryByName(TerritoryString);
+                Territory SelectedTerritory = gameState.GetActiveBoard().GetTerritoryByName(TerritoryString);
                 currMenu = currMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
@@ -160,6 +161,11 @@ namespace SynchronousRisk
         /// </summary>
         void SelectNextScreen()
         {
+            if (currMenu.Continue)
+            {
+                currMenu = gameState.NextPhase();
+            }
+
             SubmitTxtBox.Text = "";
             outputLbl.Text = currMenu.GetDisplay();
             SubmitTxtBox.Hide();
@@ -190,23 +196,32 @@ namespace SynchronousRisk
         // Karen Dixon 4/17/2025: updates player icon and troop count for individual territories if they have changed.
         void updateGraphics()
         {
-            int i = 0;
-            foreach (Territory t in gameState.Board.GetTerritories())
+            if (gameState.mapChange == true)
             {
-                if (t.troopChange == true)
-                {
-                    UpdateLabel(i, t);
-                    t.troopChange = false;
-                }
-                if (t.iconChange == true)
-                {
-                    UpdateTerritoryIcon(graphics.Graphics, t);
-                    t.iconChange = false;
-                }
-                i++;
+                DrawToBuffer(graphics.Graphics);
+                graphics.Render(Graphics.FromHwnd(Handle));
+                gameState.mapChange = false;
             }
-            UpdateCurrentPlayerIcon(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
+            else
+            {
+                int i = 0;
+                foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
+                {
+                    if (t.troopChange == true)
+                    {
+                        UpdateLabel(i, t);
+                        t.troopChange = false;
+                    }
+                    if (t.iconChange == true)
+                    {
+                        UpdateTerritoryIcon(graphics.Graphics, t);
+                        t.iconChange = false;
+                    }
+                    i++;
+                }
+                UpdateCurrentPlayerIcon(graphics.Graphics);
+                graphics.Render(Graphics.FromHwnd(Handle));
+            }
         }
 
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
@@ -219,7 +234,7 @@ namespace SynchronousRisk
             g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
 
             int i = 0;
-            foreach (Territory t in gameState.Board.GetTerritories())
+            foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
             {
                 // Draw player icons
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
@@ -249,8 +264,7 @@ namespace SynchronousRisk
         void UpdateAllLabels()
         {
             int index = 0;
-            foreach (Territory territory in gameState.Board.GetTerritories())
-            {
+            foreach (Territory territory in gameState.GetActiveBoard().GetTerritories()){
                 UpdateLabel(index, territory);
                 index++;
             }
@@ -259,6 +273,7 @@ namespace SynchronousRisk
         void UpdateTerritoryIcon(Graphics g, Territory territory)
         {
             Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            graphics.Render(Graphics.FromHwnd(Handle));
             Rectangle territoryIconBounds = new Rectangle((int)(Width / territory.GetPosition().X), (int)(Height / territory.GetPosition().Y), (int)(Width / 25), (int)(Height / 25));
             g.DrawImage(resizedBackground, territoryIconBounds.X, territoryIconBounds.Y, territoryIconBounds, GraphicsUnit.Pixel);
             g.DrawImage(greyCircle, new Rectangle(territoryIconBounds.X + (int)(Width / 35), territoryIconBounds.Y + (int)(Height / 35), (int)(Width / 45), (int)(Height / 45)));
@@ -278,6 +293,7 @@ namespace SynchronousRisk
         void OnResize(object sender, EventArgs e)
         {
             wolrdMapBounds.Width = Width;
+        bool LastWasSelectNumer = false;
             wolrdMapBounds.Height = Height;
 
             playerIconBounds.Width = Width / 25;
@@ -291,6 +307,10 @@ namespace SynchronousRisk
 
             btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
             btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
+
+            SwapMapsButton.Size = new Size((int)(Width / 15), (int)(Height / 15));
+            SwapMapsButton.Location = new Point((int)(Width / 45), (int)(Height / 4.5));
+
             context.MaximumBuffer = new Size(Width, Height);
             if (graphics != null)
             {
@@ -305,13 +325,17 @@ namespace SynchronousRisk
             numSlide.Location = new Point((int)(btnNextPhase.Width / 2), (this.Height - btnNextPhase.Height - (int)(btnNextPhase.Height / 1.885)));
             numSlide.Size = new Size((int)(this.Width - btnNextPhase.Width * 1.6), (int)(btnNextPhase.Height / 2));
             SubmitNumTrackBar.TickStyle = TickStyle.BottomRight;
+            graphics.Render(Graphics.FromHwnd(Handle));
             SubmitButton.Location = new Point(numSlide.Location.X + numSlide.Width + 10, numSlide.Location.Y);
             updateGraphics();
         }
         private void btnNextPhase_Click_1(object sender, EventArgs e)
         {
-            currMenu = currMenu.NextPhaseManager();
-            SelectNextScreen();
+            if (gameState.GetCurrentPhase().CanContinue)
+            {
+                currMenu = gameState.NextPhase();
+                SelectNextScreen();
+            }
         }
         /// IAD 4/23/2025 <summary> Submits the input from the user to the current menu </summary>
         /// <param name="sender"></param> <param name="e"></param>
@@ -323,6 +347,7 @@ namespace SynchronousRisk
             }
             else
             {
+            graphics.Render(Graphics.FromHwnd(Handle));
                 currMenu = currMenu.Call((SubmitTxtBox.Text));
             }
             SelectNextScreen();
@@ -363,6 +388,27 @@ namespace SynchronousRisk
                 exchangeCards.Show();
             }
             else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gameState.SetActiveBoard(0);
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gameState.SetActiveBoard(1);
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
+        private void SwapMapsButton_Click(object sender, EventArgs e)
+        {
+            var mapSwapping = new Thread(() => Application.Run(new MapSwappingUI(gameState)));
+            mapSwapping.Start();
         }
     }
 }

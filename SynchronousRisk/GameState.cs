@@ -8,6 +8,8 @@ using SynchronousRisk.Menus;
 using SynchronousRisk.PhaseProcessing;
 using SynchronousRisk;
 using System.Drawing;
+using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace SynchronousRisk
 {
@@ -19,18 +21,38 @@ namespace SynchronousRisk
     {
         Deck Deck;
 
-        public Board Board;
+        public Board[] Boards;
+        public int CurrentBoardIndex;
         public Player[] Players;
         public Player CurrentTurnsPlayer;
         public int currPlayer;
 
+        public bool mapChange;
+
         public int PhaseInt;
 
-        public GameState()
+        public int numPlayersPerBoard;
+
+        private LinkedList<Phases> Phases;
+
+        public GameState(int numBoards, int numPlayers, Bitmap[] icons)
         {
-            Board = new Board();
-            Deck = new Deck(Board.GetTerritories());
+            Boards = new Board[numBoards];
+            for (int i = 0; i < numBoards; i++)
+            {
+                Boards[i] = new Board();
+            }
+            Deck = new Deck(Boards[1].GetTerritories());
             PhaseInt = 0;
+            CurrentBoardIndex = 0;
+            SetUpPlayers(numPlayers, icons);
+            DivideTerritories();
+
+            Phases = new LinkedList<Phases>();
+            Phases.AddLast(new SetupPhase(this)); //dummy phase as NextPhase removes a phase before selecting the next one
+            Phases.AddLast(new SetupPhase(this, 1));
+
+            mapChange = false;
         }
 
         /// Russell Phillips 3/18/2025
@@ -39,7 +61,7 @@ namespace SynchronousRisk
         /// </summary>
         public void SetUpPlayers(int numPlayers, Bitmap[] icons)
         {
-            Players = new Player[numPlayers];
+            Players = new Player[numPlayers];      //*Boards.Count()];
             for (int i = 0; i < Players.Length; i++)
             {
                 Players[i] = new Player(Deck, icons[i]);
@@ -48,24 +70,29 @@ namespace SynchronousRisk
             currPlayer = 0;
             CurrentTurnsPlayer = Players[0];
 
-            DivideTerritories();
         }
 
         /// Russell Phillips 3/18/2025
         /// <summary>
-        /// Randomly divedes territories to each player as evenly as possible
+        /// randomly distrubutes territories from each board to corresponding players
         /// </summary>
         private void DivideTerritories()
         {
-            List<Territory> territories = new List<Territory>(Board.GetTerritories());
-            shuffle(territories);
+            numPlayersPerBoard = Players.Count() / Boards.Count();
 
-            for (int i = 0; i < territories.Count; i++)
+            for (int Bidx = 0; Bidx < Boards.Length; Bidx++)
             {
-                Players[i % Players.Count()].OwnedTerritories.Add(territories[i]);
-                territories[i].SetTroops(1);
-            }
+                List<Territory> territories = new List<Territory>(Boards[Bidx].GetTerritories());
+                shuffle(territories);
+                int offset = Bidx * numPlayersPerBoard;
 
+                for (int i = 0; i < territories.Count; i++)
+                {
+                    Players[offset + (i % numPlayersPerBoard)].OwnedTerritories.Add(territories[i]);
+                    territories[i].SetTroops(1);
+                }
+
+            }
         }
 
         /// Russell Phillips 3/18/2025
@@ -105,6 +132,26 @@ namespace SynchronousRisk
 
         }
 
+        public UIManager NextPhase()
+        {
+            Phases.RemoveFirst();
+
+            if (Phases.Count() == 0)
+            {
+                NextPlayerTurn();
+                Phases.AddLast(new DraftPhase(this));
+                Phases.AddLast(new AttackPhase(this));
+                Phases.AddLast(new FortifyPhase(this));
+            }
+
+            return Phases.First.Value.Start();
+        }
+
+        public Phases GetCurrentPhase()
+        {
+            return Phases.First.Value;
+        }
+
         public Player GetCurrentTurnsPlayer()
         {
             return Players[currPlayer];
@@ -118,13 +165,23 @@ namespace SynchronousRisk
         {
             foreach (Player p in Players)
                 foreach (Territory owned in p.OwnedTerritories)
-                    if (owned.rgb.SequenceEqual(terr.rgb)) return p;
+                    if (terr == owned) return p;
             return null;
         }
 
         public Player[] GetPlayers()
         {
             return Players;
+        }
+
+        public Board GetActiveBoard()
+        {
+            return Boards[CurrentBoardIndex];
+        }
+
+        public void SetActiveBoard(int nextBoard)
+        {
+            CurrentBoardIndex = nextBoard;
         }
     }
 }
