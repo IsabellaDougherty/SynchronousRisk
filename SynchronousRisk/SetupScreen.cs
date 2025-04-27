@@ -11,6 +11,7 @@ namespace SynchronousRisk
     {
         IconSelect icons;
         int numberOfPlayers;
+        int playersPerBoard;
         Rectangle originalFormSize;
         Rectangle originalNumPlayers;
         Rectangle originalNumMap;
@@ -83,16 +84,26 @@ namespace SynchronousRisk
             resizeControl(originalNumMap, numMaps);
             resizeControl(originalNumPlayers, gpBxNumPlayers);
             resizeControl(originalNumMap, gpBxNumMap);
-            ScaleFontNumeric(numPlays, gpBxNumPlayers);
-            ScaleFontNumeric(numMaps, gpBxNumMap);
+            ScaleFont(numPlays, gpBxNumPlayers);
+            ScaleFont(numPlaysPerMap, gpBxNumPlayers);
+            ScaleFont(numMaps, gpBxNumMap);
         }
         /// IAD 4/21/2025 <summary> This method is called when the number of players is changed. It updates the number of players in the IconSelect form. </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void numPlays_ValueChanged(object sender, EventArgs e)
+        private void numPlays_ValueChanged(object sender, EventArgs e) { updateSetupValues(); }
+        private void numPlaysPerMap_ValueChanged(object sender, EventArgs e) { updateSetupValues(); }
+        /// IAD 4/26/2025 <summary> This method updates the number of players and the number of players per map based on the values selected in the numeric up-down controls. It also updates the icons in the IconSelect form. </summary>
+        private void updateSetupValues()
         {
             icons.clearIcons();
             numberOfPlayers = (int)numPlays.Value;
+            playersPerBoard = (int)numPlaysPerMap.Value;
+            numPlaysPerMap.Maximum = numberOfPlayers;
+
+            int numberOfMaps = (int)(numberOfPlayers / playersPerBoard);
+            if (numberOfMaps < 1) numberOfMaps = 1;
+            numMaps.Text = numberOfMaps.ToString();
             icons.setNumPlayers(numberOfPlayers);
         }
         /// IAD 4/21/2025 <summary> This method is called when the form is moved. It adjusts the location of the IconSelect form based on the new location of this form. </summary>
@@ -116,11 +127,11 @@ namespace SynchronousRisk
             m_PreviousLocation = Location;
         }
         /// IAD 4/18/2025 <summary> This method scales the font of a label based on its size and the size of the form. </summary> <param name="lab"></param>
-        private void ScaleFontNumeric(NumericUpDown n, GroupBox g)
+        private void ScaleFont(Control n, GroupBox g)
         {
             SizeF extent = new SizeF(g.Width, g.Height);
 
-            float hRatio = extent.Height / (int)(n.Height * 1.5);
+            float hRatio = extent.Height / (int)(n.Height * 1.75);
             float newSize = n.Font.Size * hRatio;
             n.Font = new Font(n.Font.FontFamily, newSize, n.Font.Style);
         }
@@ -132,6 +143,5 @@ namespace SynchronousRisk
             icons.Location = new Point(this.Location.X + (int)(this.Width / 5), this.Location.Y + (btnStart.Height / 2));
             icons.Size = new Size((int)(this.Width - (gpBxNumMap.Width * 2)), (int)(this.Height - (btnStart.Height * 3)));
         }
-    
     }
 }

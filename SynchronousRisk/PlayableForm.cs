@@ -4,7 +4,6 @@ using SynchronousRisk.Resources.Assets.Text_Files;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -16,6 +15,9 @@ namespace SynchronousRisk
 {
     public partial class PlayableForm : Form
     {
+        static ExchangeCards exchangeCards;
+        public Phases phase;
+
         InformationDatasets infoData = new InformationDatasets();
         Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
         Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
@@ -34,6 +36,7 @@ namespace SynchronousRisk
         Bitmap greyCircle = new Bitmap(Properties.Resources.GreyCircle);
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
+        Bitmap worldMapRGBValues = new Bitmap(Properties.Resources.EarthMapRGBValues);
 
         Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
         Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
@@ -41,7 +44,6 @@ namespace SynchronousRisk
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
         GameState gameState;
-
         public PlayableForm(Bitmap[] pi, int pl)
         {
             InitializeComponent();
@@ -66,11 +68,11 @@ namespace SynchronousRisk
             Bitmap[] tempIcons = infoData.playerIcons;
             List<Bitmap> playerIconsList = playerIcons.ToList();
             int i = 0;
-            while(playerIconsList.Count < players)
+            while (playerIconsList.Count < players)
             {
                 if (!(playerIconsList.Contains(tempIcons[i])))
                     playerIconsList.Add(tempIcons[i]);
-                if(i >= tempIcons.Length)
+                if (i >= tempIcons.Length)
                     throw new Exception("Not enough player icons to fill the number of players.");
                 i++;
             }
@@ -116,11 +118,11 @@ namespace SynchronousRisk
         // Karen Dixon 2/20/2025: Checks what color was clicked on
         private void PlayableForm_MouseClick(object sender, MouseEventArgs e)
         {
-            Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
-            Point position = MousePosition;
+            Bitmap resizedBackground = new Bitmap(worldMapRGBValues, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            Point position = new Point(e.X, e.Y);
             // Karen Dixon 3/3/2025: Corrects the coordinates for the pixel that was clicked on
-            position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
-            position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
+            //position.X -= Left + (Screen.FromControl(this).Bounds.Width / 240);
+            //position.Y -= Top + (Screen.FromControl(this).Bounds.Height / 34);
             Color color = resizedBackground.GetPixel(position.X, position.Y);
             int[] colorRGB = { color.R, color.G, color.B };
 
@@ -134,6 +136,8 @@ namespace SynchronousRisk
                 gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
+            Graphics g = CreateGraphics();
+            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
         }
         /// IAD 3/20/2025 <summary> Looks up a territory based on the rgb values of the pixel clicked on  </summary> <param name="rgb"></param>  <returns></returns>
         private Territory rgbLookup(int[] rgb)
@@ -250,7 +254,7 @@ namespace SynchronousRisk
                 i++;
             }
             // Draw Current Player Icon
-            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle((int)(Width / 75),(int)(Height / 2.5),(int)(Width / 10), (int)(Height / 10)));
+            g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), new Rectangle((int)(Width / 75), (int)(Height / 2.5), (int)(Width / 10), (int)(Height / 10)));
         }
         // Karen Dixon 4/16/2025: Updates the label for the given territory
         void UpdateLabel(int index, Territory territory)
@@ -373,7 +377,13 @@ namespace SynchronousRisk
         /// IAD 4/23/2025 <summary> Shows the exchange cards menu when the exchange cards button is clicked </summary>
         /// <param name="sender"></param> <param name="e"></param>
         private void exchangeCardsMenu_Click(object sender, EventArgs e)
-        { 
+        {
+            if (gameState.PhaseInt == 1)
+            {
+                exchangeCards = new ExchangeCards(this, phase, gameState.Players[gameState.currPlayer], false);
+                exchangeCards.Show();
+            }
+            else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }
             graphics.Render(Graphics.FromHwnd(Handle));
         }
 
