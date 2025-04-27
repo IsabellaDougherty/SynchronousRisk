@@ -16,7 +16,7 @@ namespace SynchronousRisk
         /// </summary>
         public int regionID;
         int regionBonus;
-        public Territory[] territoriesInRegion; 
+        public Territory[] territoriesInRegion;
         public static bool portalPresent = false; //IAD 2/21/2025: To be utilized later when portals are implimented. Will be for a check to assist in ensuring multiple portals don't open in the same place unless that is desired.
         /// IAD 2/21/2025 <summary>
         /// Constructor for the Region class.
@@ -38,9 +38,10 @@ namespace SynchronousRisk
         public bool AllTerritoriesOwnedByPlayer(Player player)
         {
             Territory[] playerTerritories = player.OwnedTerritories.ToArray();
-            for (int i = 0; i < territoriesInRegion.Length; i++) {
+            for (int i = 0; i < territoriesInRegion.Length; i++)
+            {
                 if (!playerTerritories.Contains(territoriesInRegion[i])) { return false; }
-                else return true; }
+            }
             return true;
         }
         /// IAD 2/21/2025 <summary>
@@ -58,5 +59,14 @@ namespace SynchronousRisk
         /// </summary>
         /// <returns></returns>
         public int GetRegionID() { return regionID; }
+        /// IAD 4/26/2024 <summary> Adds a territory to the region and updates the region bonus. </summary>
+        /// <param name="territory"></param>
+        public void AddTerritory(Territory territory)
+        {
+            List<Territory> tempList = territoriesInRegion.ToList();
+            tempList.Add(territory);
+            territoriesInRegion = tempList.ToArray();
+            regionBonus = territoriesInRegion.Length / 2;
+        }
     }
 }
