@@ -28,6 +28,12 @@ namespace SynchronousRisk.PhaseProcessing
             gameState = g;
             CanContinue = false;
         }
+
+        public Phase()
+        {
+            CanContinue = false;
+        }
+
         public int GetUserInputNumber(int min, int max)
         {
             int numReturn;

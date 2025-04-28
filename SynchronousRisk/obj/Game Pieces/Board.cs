@@ -196,6 +196,10 @@ namespace SynchronousRisk
 
         public Phase GetCurrentPhase()
         {
+            if (Phases.Count() == 0)
+            {
+                return new Phase();
+            }
             return Phases.First.Value;
         }
 
