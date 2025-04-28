@@ -86,6 +86,7 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
+            /*  debug settings for card related tests
             for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
             {
                 gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
@@ -108,6 +109,7 @@ namespace SynchronousRisk
                 gameState.Players[1].DrawCard();
                 gameState.Players[2].DrawCard();
             }
+            */
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
