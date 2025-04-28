@@ -160,6 +160,7 @@ namespace SynchronousRisk
             exchangeTroops = player.GetHand().ExchangeValue(exchangeCards) + (2 * countExchanges);
             player.TradeCards();
             activeGame.gameState.GetActiveBoard().CurrMenu = phase.Start(exchangeTroops);
+            activeGame.SelectNextScreen();
             MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
             this.Close();
         }

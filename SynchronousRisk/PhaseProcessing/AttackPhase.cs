@@ -19,7 +19,7 @@ namespace SynchronousRisk.PhaseProcessing
         Territory AttackerTerritory;
         Territory DefenderTerritory;
 
-        bool BattleWon = false;
+        public bool BattleWon = false;
 
         public AttackPhase(GameState g) : base(g)
         {
@@ -142,7 +142,6 @@ namespace SynchronousRisk.PhaseProcessing
             {
                 if (PlayerActive(gameState.CurrentTurnsPlayer) && FindWinner() != null)
                     return new UIManager { Display = "You have won the game!"};
-                else gameState.CurrentTurnsPlayer.DrawCard();
                 return new SelectNumber("Input number of troops to transfer", TransferTroops, 1, AttackerTerritory.GetTroops() - 1);
             }
 
@@ -174,6 +173,8 @@ namespace SynchronousRisk.PhaseProcessing
 
             AttackerTerritory.SetTroops(AttackerTerritory.GetTroops() - transfer);
             DefenderTerritory.SetTroops(transfer);
+
+            gameState.CheckPlayerLost();
 
             return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory);
         }
@@ -213,5 +214,9 @@ namespace SynchronousRisk.PhaseProcessing
             Console.WriteLine(string.Join(" ", defenderRolls));
         }
 
+        public void DrawCard()
+        {
+            gameState.CurrentTurnsPlayer.DrawCard();
+        }
     }
 }

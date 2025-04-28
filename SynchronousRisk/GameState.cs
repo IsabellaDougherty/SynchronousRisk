@@ -23,6 +23,8 @@ namespace SynchronousRisk
     {
         Deck Deck;
 
+        public PlayableForm playableForm;
+
         public Board[] Boards;
         public int CurrentBoardIndex;
         public Player[] Players;
@@ -37,12 +39,14 @@ namespace SynchronousRisk
 
         Random Rand = new Random();
 
-        public GameState(int numBoards, int numPlayers, Bitmap[] icons)
+        public GameState(int numBoards, int numPlayers, Bitmap[] icons, PlayableForm form)
         {
             Deck = new Deck(new Board(this, Rand).GetTerritories());
             PhaseInt = 0;
             CurrentBoardIndex = 0;
             SetUpPlayers(numPlayers, icons);
+
+            playableForm = form;
             
             Boards = new Board[numBoards];
             for (int i = 0; i < numBoards; i++)
@@ -119,8 +123,11 @@ namespace SynchronousRisk
         /// </summary>
         public void NextPlayerTurn()
         {
-            currPlayer = (currPlayer + 1) % Players.Count();
-            CurrentTurnsPlayer = Players[currPlayer];
+            do
+            {
+                currPlayer = (currPlayer + 1) % Players.Count();
+                CurrentTurnsPlayer = Players[currPlayer];
+            } while (CurrentTurnsPlayer.OwnedTerritories.Count == 0);
 
             foreach (Board board in Boards)
             {
@@ -192,6 +199,28 @@ namespace SynchronousRisk
             }
 
             return GetActiveBoard().CurrMenu;
+        }
+
+        public void CheckPlayerLost()
+        {
+            foreach (Player player in Players)
+            {
+                if (player.OwnedTerritories.Count() == 0 && !player.Lost)
+                {
+                    player.Lost = true;
+
+                    CurrentTurnsPlayer.GetHand().Add(player.GetHand());
+
+                    if (CurrentTurnsPlayer.GetHand().CountCards() > 5)
+                    {
+                        Phase draft = new DraftPhase(this, false);
+                        ExchangeCards ec = new ExchangeCards(playableForm, draft, CurrentTurnsPlayer, true);
+                        GetActiveBoard().Phases.AddFirst(draft);
+                        playableForm.SelectNextScreen();
+                        ec.Show();
+                    }
+                }
+            }
         }
     }
 }

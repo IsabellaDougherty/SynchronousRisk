@@ -25,6 +25,7 @@ namespace SynchronousRisk
         Bitmap[] playerIcons;
 
         int players;
+        int NumBoards;
         int[] water = new int[] { 108, 174, 205 };
         double[] phaseXPositions = { 7.5, 3.38, 2.18, 1.62, 1.28 };
 
@@ -44,12 +45,13 @@ namespace SynchronousRisk
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
 
         public GameState gameState;
-        public PlayableForm(Bitmap[] pi, int pl)
+        public PlayableForm(Bitmap[] pi, int pl, int numBoards)
         {
             InitializeComponent();
             this.HelpButton = true;
             playerIcons = pi;
             players = pl;
+            NumBoards = numBoards;
             if (playerIcons.Length < players) fillRandomIcons();
             DoubleBuffered = true;
             for (int i = 0; i < troopLabels.Length; i++)
@@ -83,7 +85,29 @@ namespace SynchronousRisk
             territories = infoData.territoryLookup;
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
-            gameState = new GameState(2, players, playerIcons);
+            gameState = new GameState(NumBoards, players, playerIcons, this);
+            for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
+            {
+                gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
+            }
+            Territory firsts = gameState.Players[0].OwnedTerritories[0];
+            gameState.Players[0].OwnedTerritories.Clear();
+            gameState.Players[0].OwnedTerritories.Add(firsts);
+
+            for (int i = 1; i < gameState.Players[2].OwnedTerritories.Count(); i++)
+            {
+                gameState.Players[1].OwnedTerritories.Add(gameState.Players[2].OwnedTerritories[i]);
+            }
+            firsts = gameState.Players[2].OwnedTerritories[0];
+            gameState.Players[2].OwnedTerritories.Clear();
+            gameState.Players[2].OwnedTerritories.Add(firsts);
+            
+            for (int i = 0; i < 5; i++)
+            {
+                gameState.Players[0].DrawCard();
+                gameState.Players[1].DrawCard();
+                gameState.Players[2].DrawCard();
+            }
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -112,7 +136,7 @@ namespace SynchronousRisk
 
             SelectNextScreen(); // Has to happen after graphics are set up, and to have the starting player playing
             DoubleBuffered = false;
-            this.Refresh();
+            //this.Refresh();
         }
 
         // Karen Dixon 2/20/2025: Checks what color was clicked on
@@ -154,7 +178,7 @@ namespace SynchronousRisk
         /// <summary>
         /// shows appropiate screen for current menu state
         /// </summary>
-        void SelectNextScreen()
+        public void SelectNextScreen()
         {
             if (gameState.GetActiveBoard().CurrMenu.Continue)
             {

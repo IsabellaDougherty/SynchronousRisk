@@ -23,6 +23,12 @@ namespace SynchronousRisk.PhaseProcessing
             troopsRemaining = DraftableTroops();
         }
 
+        public DraftPhase(GameState g, bool f) : base(g)
+        {
+            CanContinue = false;
+            troopsRemaining = 0;
+        }
+
         /// Russell Phillips <summary>
         /// 
         /// </summary>
@@ -42,7 +48,6 @@ namespace SynchronousRisk.PhaseProcessing
         /// <param name="exchangeTroops"></param>
         public override UIManager Start(int exchangeTroops)
         {
-            gameState.NextPlayerTurn();
             gameState.PhaseInt = 1;
             troopsRemaining = exchangeTroops;
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);

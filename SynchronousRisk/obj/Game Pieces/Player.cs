@@ -18,11 +18,14 @@ namespace SynchronousRisk
         public bool active { get; set; }
         private Bitmap Icon { get; set; }
         public List<Territory> OwnedTerritories { get; set; } = new List<Territory>();
+
+        public bool Lost;
         public Player(Deck d, Bitmap i) 
         {
             deck = d;
             Icon = i;
             active = true;
+            Lost = false;
         }
         public void DrawCard()
         {   //IAD 2/24/2025

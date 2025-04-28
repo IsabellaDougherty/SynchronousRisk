@@ -22,6 +22,7 @@ namespace SynchronousRisk
             DoubleBuffered = true;
             InitializeComponent();
             numberOfPlayers = (int)numPlays.Value;
+            playersPerBoard = (int)numPlaysPerMap.Value;
             icons = new IconSelect(numberOfPlayers);
             icons.Owner = this;
 
@@ -61,7 +62,7 @@ namespace SynchronousRisk
         /// <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var setup = new Thread(() => Application.Run(new PlayableForm(icons.icons.ToArray(), numberOfPlayers)));
+            var setup = new Thread(() => Application.Run(new PlayableForm(icons.icons.ToArray(), numberOfPlayers, numberOfPlayers / playersPerBoard)));
             setup.Start();
             this.Close();
         }

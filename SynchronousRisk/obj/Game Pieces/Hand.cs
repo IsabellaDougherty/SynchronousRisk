@@ -15,6 +15,16 @@ namespace SynchronousRisk
         public void Add(Card card)
         { cards.Add(card); }
 
+        public void Add(Hand hand)
+        {
+            foreach (Card card in hand.GetCards())
+            {
+                cards.Add(card);
+            }
+
+            hand.GetCards().Clear();
+        }
+
         //IAD 2/24/2025: Implimented a remove method to remove a card from the hand.
         public void Remove(Card card) { cards.Remove(card); }
         public int CountCards() { return cards.Count; }

@@ -184,6 +184,14 @@ namespace SynchronousRisk
                 return;
             }
 
+            if (GetCurrentPhase() is AttackPhase ap)
+            {
+                if (ap.BattleWon)
+                {
+                    ap.DrawCard();
+                }
+            }
+
             Phases.RemoveFirst();
 
             if (Phases.Count() == 0)
