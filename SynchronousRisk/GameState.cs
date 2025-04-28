@@ -11,6 +11,8 @@ using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Forms;
 
+using SynchronousRisk.obj.Game_Pieces;
+
 namespace SynchronousRisk
 {
     /// Russell Phillips 4/3/2025
@@ -33,9 +35,11 @@ namespace SynchronousRisk
 
         public int numPlayersPerBoard;
 
+        Random Rand = new Random();
+
         public GameState(int numBoards, int numPlayers, Bitmap[] icons)
         {
-            Deck = new Deck(new Board(this).GetTerritories());
+            Deck = new Deck(new Board(this, Rand).GetTerritories());
             PhaseInt = 0;
             CurrentBoardIndex = 0;
             SetUpPlayers(numPlayers, icons);
@@ -43,10 +47,12 @@ namespace SynchronousRisk
             Boards = new Board[numBoards];
             for (int i = 0; i < numBoards; i++)
             {
-                Boards[i] = new Board(this);
+                Boards[i] = new Board(this, Rand);
             }
 
             DivideTerritories();
+
+            GeneratePortals();
 
             mapChange = false;
         }
@@ -89,6 +95,21 @@ namespace SynchronousRisk
             for(int i  = 0; i < Boards.Count(); i++)
             {
                 Boards[i].DistributeTerritories(distribution[i], this);
+            }
+        }
+
+        private void GeneratePortals()
+        {
+            for (int i = 0; i < Boards.Count(); i++)
+            {
+                int TerritoryInd = Rand.Next(Boards[i].GetTerritories().Length);
+                int NextBoard = (i + 1) % Boards.Count();
+                Territory Current = Boards[i].GetTerritories()[TerritoryInd];
+                Territory Next = Boards[NextBoard].GetTerritories()[TerritoryInd];
+                Current.ExitPortal = new Portal(Current, Next);
+                Next.ExitPortal = new Portal(Next, Current);
+                Current.PortalPresent = true;
+                Next.PortalPresent = true;
             }
         }
 

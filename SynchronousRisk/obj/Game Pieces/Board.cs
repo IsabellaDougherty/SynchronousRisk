@@ -20,15 +20,17 @@ namespace SynchronousRisk
 
         public LinkedList<Phase> Phases;
         public UIManager CurrMenu;
+
+        private Random Rand;
         /// IAD 2/12/2025 <summary>
         /// Constructor for the Board class.
         /// </summary>
-        public Board(GameState g)
+        public Board(GameState g, Random rand)
         {
             regionsArray = MakeRegions();
             allTerritories = infoData.GetTerritoriesArray();
             Phases = new LinkedList<Phase>();
-
+            Rand = rand;
         }
         /// IAD 3/17/2025 <summary>
         /// Creates a region object for each region in the game.
@@ -164,7 +166,6 @@ namespace SynchronousRisk
         /// <returns>shuffled list</returns>
         private List<T> shuffle<T>(List<T> lst)
         {
-            Random Rand = new Random();
             for (int i = lst.Count - 1; i > 0; i--)
             {
                 int j = Rand.Next(i + 1);
