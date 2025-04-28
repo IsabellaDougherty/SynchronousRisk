@@ -205,9 +205,9 @@ namespace SynchronousRisk
         {
             foreach (Player player in Players)
             {
-                if (player.OwnedTerritories.Count() == 0 && !player.Lost)
+                if (player.OwnedTerritories.Count() == 0 && player.active)
                 {
-                    player.Lost = true;
+                    player.active = false;
 
                     CurrentTurnsPlayer.GetHand().Add(player.GetHand());
 
