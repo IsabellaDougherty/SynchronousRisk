@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SynchronousRisk"
   ],
+  "SelectedNode": "\\SynchronousRisk\\PlayableForm.cs",
   "PreviewInSolutionExplorer": false
 }
