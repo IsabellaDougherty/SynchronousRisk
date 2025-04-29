@@ -87,28 +87,28 @@ namespace SynchronousRisk
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
             //debug settings for card related tests
-            //for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
-            //    {
-            //        gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
-            //    }
-            //Territory firsts = gameState.Players[0].OwnedTerritories[0];
-            //gameState.Players[0].OwnedTerritories.Clear();
-            //gameState.Players[0].OwnedTerritories.Add(firsts);
+            for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
+            {
+                gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
+            }
+            Territory firsts = gameState.Players[0].OwnedTerritories[0];
+            gameState.Players[0].OwnedTerritories.Clear();
+            gameState.Players[0].OwnedTerritories.Add(firsts);
 
-            //for (int i = 1; i < gameState.Players[2].OwnedTerritories.Count(); i++)
-            //{
-            //    gameState.Players[1].OwnedTerritories.Add(gameState.Players[2].OwnedTerritories[i]);
-            //}
-            //firsts = gameState.Players[2].OwnedTerritories[0];
-            //gameState.Players[2].OwnedTerritories.Clear();
-            //gameState.Players[2].OwnedTerritories.Add(firsts);
+            for (int i = 1; i < gameState.Players[2].OwnedTerritories.Count(); i++)
+            {
+                gameState.Players[1].OwnedTerritories.Add(gameState.Players[2].OwnedTerritories[i]);
+            }
+            firsts = gameState.Players[2].OwnedTerritories[0];
+            gameState.Players[2].OwnedTerritories.Clear();
+            gameState.Players[2].OwnedTerritories.Add(firsts);
 
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    gameState.Players[0].DrawCard();
-            //    gameState.Players[1].DrawCard();
-            //    gameState.Players[2].DrawCard();
-            //}
+            for (int i = 0; i < 5; i++)
+            {
+                gameState.Players[0].DrawCard();
+                gameState.Players[1].DrawCard();
+                gameState.Players[2].DrawCard();
+            }
 
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
