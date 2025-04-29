@@ -212,6 +212,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
+    <None Include="Resources\WinningScreen.jpg" />
+    <None Include="Resources\WinningScreen.bmp" />
     <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
     <Content Include="Resources\Assets\Backgrounds\MapSwappingUI.png" />
     <Content Include="Resources\Assets\Backgrounds\MapSwappingUIRGBValues.png" />

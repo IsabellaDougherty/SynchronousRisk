@@ -50,7 +50,7 @@ namespace SynchronousRisk.PhaseProcessing
         public override UIManager Start(int exchangeTroops)
         {
             gameState.PhaseInt = 1;
-            troopsRemaining = exchangeTroops;
+            troopsRemaining += exchangeTroops;
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
 

@@ -204,24 +204,36 @@ namespace SynchronousRisk
 
         public void CheckPlayerLost()
         {
+            List<Player> activePlayers = new List<Player>();
             foreach (Player player in Players)
             {
-                if (player.OwnedTerritories.Count() == 0 && !player.Lost)
+                if (player.OwnedTerritories.Count() == 0 && player.active)
                 {
-                    player.Lost = true;
+                    player.active = false;
 
                     CurrentTurnsPlayer.GetHand().Add(player.GetHand());
 
                     if (CurrentTurnsPlayer.GetHand().CountCards() > 5)
                     {
                         Phase draft = new DraftPhase(this, false);
-                        ExchangeCards ec = new ExchangeCards(playableForm, draft, CurrentTurnsPlayer, true);
                         GetActiveBoard().Phases.AddFirst(draft);
                         playableForm.SelectNextScreen();
+                        ExchangeCards ec = new ExchangeCards(playableForm, CurrentTurnsPlayer, true);
                         ec.Show();
                     }
                 }
+
+                if (player.active)
+                {
+                    activePlayers.Add(player);
+                }
             }
+
+            if (activePlayers.Count == 1)
+            {
+                playableForm.ShowWinner();
+            }
+            if (activePlayers.Count == 1) { /* Run the win conditional */}
         }
     }
 }

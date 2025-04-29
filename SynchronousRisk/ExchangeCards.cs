@@ -19,13 +19,13 @@ namespace SynchronousRisk
         private static int countExchanges = 0;
         public Card[] exchangeCards;
         public int ExchangeTroops { get; set; }
-        public ExchangeCards(PlayableForm game, Phase ph, Player p, bool f)
+        public ExchangeCards(PlayableForm game, Player p, bool f)
         {
             InitializeComponent();
             player = p;
             forced = f;
-            phase = ph;
             activeGame = game;
+            phase = game.gameState.GetCurrentPhase();
             hand = player.GetHand().GetCards();
             if (hand != null && hand.Count >= 3)
                 exchangeCards = player.GetHand().BestExchangeOption();
@@ -34,6 +34,7 @@ namespace SynchronousRisk
             if (forced)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
                 this.TopMost = true;
             }
         }
@@ -78,12 +79,8 @@ namespace SynchronousRisk
         private void emptyTable()
         {
             foreach (Control c in tblPnPlayerHand.Controls)
-            {
-                if (c is PictureBox)
-                {
+                if (c is PictureBox) 
                     c.Dispose();
-                }
-            }
             tblPnPlayerHand.Controls.Clear();
         }
         /// IAD 4/23/2024 <summary> Sets the image of the PictureBox to the card's image and adds the territory name to the image. </summary>
@@ -160,9 +157,14 @@ namespace SynchronousRisk
             exchangeTroops = player.GetHand().ExchangeValue(exchangeCards) + (2 * countExchanges);
             player.TradeCards();
             activeGame.gameState.GetActiveBoard().CurrMenu = phase.Start(exchangeTroops);
-            activeGame.SelectNextScreen();
-            MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
-            this.Close();
+            reformatTable();
+            resetBestExchange();
+            if (player.GetHand().CountCards() <= 5)
+            {
+                activeGame.SelectNextScreen();
+                MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
+                this.Close();
+            }
         }
     }
 }
