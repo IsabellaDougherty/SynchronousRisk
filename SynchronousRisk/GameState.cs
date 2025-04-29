@@ -216,9 +216,9 @@ namespace SynchronousRisk
                     if (CurrentTurnsPlayer.GetHand().CountCards() > 5)
                     {
                         Phase draft = new DraftPhase(this, false);
-                        ExchangeCards ec = new ExchangeCards(playableForm, CurrentTurnsPlayer, true);
                         GetActiveBoard().Phases.AddFirst(draft);
                         playableForm.SelectNextScreen();
+                        ExchangeCards ec = new ExchangeCards(playableForm, CurrentTurnsPlayer, true);
                         ec.Show();
                     }
                 }
