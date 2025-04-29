@@ -64,6 +64,8 @@ namespace SynchronousRisk
                 troopLabels[i].Font = new Font(troopLabels[i].Font, FontStyle.Bold);
                 this.Controls.Add(troopLabels[i]);
             }
+
+            winningPictureBox1.Hide();
         }
         private void fillRandomIcons()
         {
@@ -444,6 +446,11 @@ namespace SynchronousRisk
         {
             var mapSwapping = new Thread(() => Application.Run(new MapSwappingUI(gameState)));
             mapSwapping.Start();
+        }
+
+        public void ShowWinner()
+        {
+            winningPictureBox1.Show();
         }
     }
 }

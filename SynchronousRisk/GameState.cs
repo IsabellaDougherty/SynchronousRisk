@@ -222,6 +222,16 @@ namespace SynchronousRisk
                         ec.Show();
                     }
                 }
+
+                if (player.active)
+                {
+                    activePlayers.Add(player);
+                }
+            }
+
+            if (activePlayers.Count == 1)
+            {
+                playableForm.ShowWinner();
             }
             if (activePlayers.Count == 1) { /* Run the win conditional */}
         }

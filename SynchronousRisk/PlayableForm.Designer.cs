@@ -45,11 +45,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.SwapMapsButton = new System.Windows.Forms.Button();
             this.EndTurnBtn = new CustomControls.ImageShapedButton();
+            this.winningPictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
             this.numSlide.Panel2.SuspendLayout();
             this.numSlide.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.winningPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNextPhase
@@ -106,7 +108,7 @@
             // MinimumValueTrackBarLbl
             // 
             this.MinimumValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MinimumValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumValueTrackBarLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinimumValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
             this.MinimumValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MinimumValueTrackBarLbl.Name = "MinimumValueTrackBarLbl";
@@ -135,7 +137,7 @@
             // CurrentValueTrackBarLbl
             // 
             this.CurrentValueTrackBarLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CurrentValueTrackBarLbl.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentValueTrackBarLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentValueTrackBarLbl.Location = new System.Drawing.Point(0, 0);
             this.CurrentValueTrackBarLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CurrentValueTrackBarLbl.Name = "CurrentValueTrackBarLbl";
@@ -232,11 +234,23 @@
             this.EndTurnBtn.UseVisualStyleBackColor = false;
             this.EndTurnBtn.Click += new System.EventHandler(this.EndTurnBtn_Click);
             // 
+            // winningPictureBox1
+            // 
+            this.winningPictureBox1.Enabled = false;
+            this.winningPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("winningPictureBox1.Image")));
+            this.winningPictureBox1.Location = new System.Drawing.Point(12, 6);
+            this.winningPictureBox1.Name = "winningPictureBox1";
+            this.winningPictureBox1.Size = new System.Drawing.Size(672, 386);
+            this.winningPictureBox1.TabIndex = 11;
+            this.winningPictureBox1.TabStop = false;
+            this.winningPictureBox1.Visible = false;
+            // 
             // PlayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 443);
+            this.Controls.Add(this.winningPictureBox1);
             this.Controls.Add(this.EndTurnBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -258,6 +272,7 @@
             this.numSlide.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).EndInit();
             this.numSlide.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.winningPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +295,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button SwapMapsButton;
         private CustomControls.ImageShapedButton EndTurnBtn;
+        private System.Windows.Forms.PictureBox winningPictureBox1;
     }
 }
 
