@@ -32,6 +32,7 @@ namespace SynchronousRisk
         public int currPlayer;
 
         public bool mapChange;
+        public bool phaseChange;
 
         public int PhaseInt;
 

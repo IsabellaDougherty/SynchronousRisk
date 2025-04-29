@@ -81,6 +81,7 @@ namespace SynchronousRisk.PhaseProcessing
         public override UIManager Start()
         {
             gameState.PhaseInt = 2;
+            gameState.phaseChange = true;
             return new SelectTerritory("Input Territory to attack from", GetAttackerTerritory);
         }
 
