@@ -15,10 +15,10 @@ namespace SynchronousRisk.obj.Game_Pieces
     /// </summary>
     public class Portal
     {
-        Territory Source;
-        Territory Destination;
+        public Territory Source;
+        public Territory Destination;
 
-        List<(Player, int)> Transit;
+        public List<(Player, int)> Transit;
 
         /// Russell Phillips 4/21/2025
         /// <summary>

@@ -112,6 +112,8 @@
     <Compile Include="PhaseProcessing\DraftPhase.cs" />
     <Compile Include="PhaseProcessing\FortifyPhase.cs" />
     <Compile Include="PhaseProcessing\Phase.cs" />
+    <Compile Include="PhaseProcessing\PortalReceivePhase.cs" />
+    <Compile Include="PhaseProcessing\PortalSendPhase.cs" />
     <Compile Include="PhaseProcessing\SetupPhase.cs" />
     <Compile Include="PlayableForm.cs">
       <SubType>Form</SubType>

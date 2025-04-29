@@ -221,9 +221,11 @@ namespace SynchronousRisk
         {
             if (PlayerOwnsTerritory(gameState, gameState.GetCurrentTurnsPlayer()))
             {
+                Phases.AddLast(new PortalReceivePhase(gameState));
                 Phases.AddLast(new DraftPhase(gameState));
                 Phases.AddLast(new AttackPhase(gameState));
                 Phases.AddLast(new FortifyPhase(gameState));
+                Phases.AddLast(new PortalSendPhase(gameState));
 
                 CurrMenu = Phases.First.Value.Start();
             }

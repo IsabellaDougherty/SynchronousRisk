@@ -91,6 +91,7 @@ namespace SynchronousRisk
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
             //debug settings for card related tests
+            /*
             for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
             {
                 gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
@@ -113,7 +114,7 @@ namespace SynchronousRisk
                 gameState.Players[1].DrawCard();
                 gameState.Players[2].DrawCard();
             }
-
+            */
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -166,6 +167,8 @@ namespace SynchronousRisk
                 gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
             //Graphics g = CreateGraphics();
             //g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
         }
@@ -346,7 +349,14 @@ namespace SynchronousRisk
         void UpdatePhasePointer(Graphics g)
         {
             Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
-            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt - 1]);
+            if (gameState.PhaseInt - 1 < 0)
+            {
+                currentPhasePointerBounds.X = (int)(Width / phaseXPositions[4]);
+            }
+            else
+            {
+                currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt - 1]);
+            }
             currentPhasePointerBounds.Y = (int)(Height / 1.165);
             g.DrawImage(resizedBackground, currentPhasePointerBounds.X, currentPhasePointerBounds.Y, currentPhasePointerBounds, GraphicsUnit.Pixel);
             currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt]);

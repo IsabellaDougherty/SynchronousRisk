@@ -38,6 +38,8 @@ namespace SynchronousRisk
 
         public int numPlayersPerBoard;
 
+        public List<Portal> Portals;
+
         Random Rand = new Random();
 
         public GameState(int numBoards, int numPlayers, Bitmap[] icons, PlayableForm form)
@@ -57,6 +59,7 @@ namespace SynchronousRisk
 
             DivideTerritories();
 
+            Portals = new List<Portal>();
             GeneratePortals();
 
             mapChange = false;
@@ -115,6 +118,8 @@ namespace SynchronousRisk
                 Next.ExitPortal = new Portal(Next, Current);
                 Current.PortalPresent = true;
                 Next.PortalPresent = true;
+                Portals.Add(Current.ExitPortal);
+                Portals.Add(Next.ExitPortal);
             }
         }
 
