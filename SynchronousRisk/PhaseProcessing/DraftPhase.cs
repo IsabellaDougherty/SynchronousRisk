@@ -35,6 +35,7 @@ namespace SynchronousRisk.PhaseProcessing
         public override UIManager Start()
         {
             gameState.PhaseInt = 1;
+            gameState.phaseChange = true;
             if (CurrentPlayer.GetNumCardsInHand() > 5)
             {
                 exchangeTroops = ForceTrade();

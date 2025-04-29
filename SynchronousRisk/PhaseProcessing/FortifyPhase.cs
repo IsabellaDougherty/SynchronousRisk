@@ -24,6 +24,7 @@ namespace SynchronousRisk.PhaseProcessing
         public override UIManager Start()
         {
             gameState.PhaseInt = 3;
+            gameState.phaseChange = true;
             return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory);
         }
 

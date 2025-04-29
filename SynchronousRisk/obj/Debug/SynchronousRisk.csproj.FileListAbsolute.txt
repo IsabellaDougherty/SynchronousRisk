@@ -61,8 +61,6 @@ C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\De
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Bella\Desktop\School\Capstone\GraphicsAssistance\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
-C:\Users\janae\SynchronousRisk\SynchronousRisk\bin\Debug\CustomControls.dll
-C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\Synchron.C6D00C6E.Up2Date
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.AssemblyReference.cache
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.PlayableForm.resources
 C:\Users\Russell\Documents\GitHub\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Properties.Resources.resources
@@ -148,3 +146,9 @@ C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\SynchronousRisk\obj\
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.csproj.CoreCompileInputs.cache
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.exe
 C:\Users\Bella\Desktop\School\Capstone\Risk\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.pdb
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.ExchangeCards.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.Help.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.HomeScreen.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.IconSelect.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.MapSwappingUI.resources
+C:\Users\janae\SynchronousRisk\SynchronousRisk\obj\Debug\SynchronousRisk.SetupScreen.resources

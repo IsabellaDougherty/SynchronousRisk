@@ -38,11 +38,13 @@ namespace SynchronousRisk
         Bitmap currentPhasePointer = new Bitmap(Properties.Resources.CurrentPhasePointer);
         Bitmap worldMap = new Bitmap(Properties.Resources.EarthMap);
         Bitmap worldMapRGBValues = new Bitmap(Properties.Resources.EarthMapRGBValues);
+        Bitmap portal = new Bitmap(Properties.Resources.Portal);
 
         Rectangle greyCircleBounds = new Rectangle(0, 0, 0, 0);
         Rectangle currentPhasePointerBounds = new Rectangle(0, 0, 0, 0);
         Rectangle playerIconBounds = new Rectangle(0, 0, 100, 100);
         Rectangle wolrdMapBounds = new Rectangle(0, 0, 0, 0);
+        Rectangle portalBounds = new Rectangle(0, 0, 0, 0);
 
         public GameState gameState;
         public PlayableForm(Bitmap[] pi, int pl, int numBoards)
@@ -86,6 +88,11 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
+            if (gameState.Boards.Length == 1)
+            {
+                SwapMapsButton.Visible = false;
+                SwapMapsButton.Enabled = false;
+            }
             /*  debug settings for card related tests
             for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
             {
@@ -162,8 +169,8 @@ namespace SynchronousRisk
                 gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputTerritory(SelectedTerritory);
                 SelectNextScreen();
             }
-            Graphics g = CreateGraphics();
-            g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
+            //Graphics g = CreateGraphics();
+            //g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
         }
         /// IAD 3/20/2025 <summary> Looks up a territory based on the rgb values of the pixel clicked on  </summary> <param name="rgb"></param>  <returns></returns>
         private Territory rgbLookup(int[] rgb)
@@ -232,6 +239,11 @@ namespace SynchronousRisk
             }
             else
             {
+                if (gameState.phaseChange == true)
+                {
+                    UpdatePhasePointer(graphics.Graphics);
+                    gameState.phaseChange = false;
+                }
                 int i = 0;
                 foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
                 {
@@ -264,9 +276,19 @@ namespace SynchronousRisk
             int i = 0;
             foreach (Territory t in gameState.GetActiveBoard().GetTerritories())
             {
-                // Draw player icons
+                // Get player icon location
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
                 playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
+
+                // Draw Portal
+                if(t.PortalPresent == true)
+                {
+                    portalBounds.X = playerIconBounds.X - (int)(Width / 170);
+                    portalBounds.Y = playerIconBounds.Y - (int)(Height / 300);
+                    g.DrawImage(portal, portalBounds);
+                }
+
+                // Draw player icons
                 Player owner = gameState.TerritoryOwnedByWho(t);
                 if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
 
@@ -304,6 +326,12 @@ namespace SynchronousRisk
             graphics.Render(Graphics.FromHwnd(Handle));
             Rectangle territoryIconBounds = new Rectangle((int)(Width / territory.GetPosition().X), (int)(Height / territory.GetPosition().Y), (int)(Width / 25), (int)(Height / 25));
             g.DrawImage(resizedBackground, territoryIconBounds.X, territoryIconBounds.Y, territoryIconBounds, GraphicsUnit.Pixel);
+            if (territory.PortalPresent == true)
+            {
+                portalBounds.X = territoryIconBounds.X - (int)(Width / 170);
+                portalBounds.Y = territoryIconBounds.Y - (int)(Height / 300);
+                g.DrawImage(portal, portalBounds);
+            }
             g.DrawImage(greyCircle, new Rectangle(territoryIconBounds.X + (int)(Width / 35), territoryIconBounds.Y + (int)(Height / 35), (int)(Width / 45), (int)(Height / 45)));
             g.DrawImage(gameState.TerritoryOwnedByWho(territory).GetIcon(), territoryIconBounds);
         }
@@ -315,6 +343,17 @@ namespace SynchronousRisk
             Rectangle currentPlayerIconBounds = new Rectangle((int)(Width / 75), (int)(Height / 2.5), (int)(Width / 10), (int)(Height / 10));
             g.DrawImage(resizedBackground, currentPlayerIconBounds.X, currentPlayerIconBounds.Y, currentPlayerIconBounds, GraphicsUnit.Pixel);
             g.DrawImage(gameState.GetCurrentTurnsPlayer().GetIcon(), currentPlayerIconBounds);
+        }
+
+        // Karen Dixon 4/28/2025: Updates the phase pointer
+        void UpdatePhasePointer(Graphics g)
+        {
+            Bitmap resizedBackground = new Bitmap(worldMap, new Size(wolrdMapBounds.Width, wolrdMapBounds.Height));
+            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt - 1]);
+            currentPhasePointerBounds.Y = (int)(Height / 1.165);
+            g.DrawImage(resizedBackground, currentPhasePointerBounds.X, currentPhasePointerBounds.Y, currentPhasePointerBounds, GraphicsUnit.Pixel);
+            currentPhasePointerBounds.X = (int)(Width / phaseXPositions[gameState.PhaseInt]);
+            g.DrawImage(currentPhasePointer, currentPhasePointerBounds);
         }
 
         // Karen Dixon 2/10/2025: Changes the dimensions of the graphics when the window is resized.
@@ -331,6 +370,9 @@ namespace SynchronousRisk
 
             currentPhasePointerBounds.Width = Width / 70;
             currentPhasePointerBounds.Height = Height / 30;
+
+            portalBounds.Width = Width / 20;
+            portalBounds.Height = Height / 20;
 
             btnNextPhase.Size = new Size((int)(Width / 8), (int)(Height / 8));
             btnNextPhase.Location = new Point((int)(this.Width / 1.155), (int)(this.Height / 1.19));
