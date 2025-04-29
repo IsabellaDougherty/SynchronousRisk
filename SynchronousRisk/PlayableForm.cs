@@ -91,7 +91,7 @@ namespace SynchronousRisk
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
             //debug settings for card related tests
-            /*
+
             for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
             {
                 gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
@@ -114,7 +114,7 @@ namespace SynchronousRisk
                 gameState.Players[1].DrawCard();
                 gameState.Players[2].DrawCard();
             }
-            */
+
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -495,9 +495,49 @@ namespace SynchronousRisk
             mapSwapping.Start();
         }
 
+        /// IAD 4/29/2025 <summary> This method is used to resize the font of a control based on the size of the parent control. </summary>
+        /// <param name="n"></param> <param name="g"></param>
+        private void ScaleFont(Control a, Control b)
+        {
+            SizeF extent = TextRenderer.MeasureText(a.Text, a.Font);
+
+            float hRatio = b.Height / a.Height;
+            float wRatio = b.Width / a.Width;
+            float ratio = (hRatio < wRatio) ? hRatio : wRatio;
+
+            float newSize = a.Font.Size * ratio;
+
+            a.Font = new Font(a.Font.FontFamily, newSize, a.Font.Style);
+        }
+
         public void ShowWinner()
         {
+            btnEndGame.Enabled = true;
+            btnEndGame.Visible = true;
+            winningPictureBox1.Visible = true;
+            pctBxWinner.Visible = true;
+            btnEndGame.Show();
             winningPictureBox1.Show();
+            pctBxWinner.Show();
+            btnEndGame.BringToFront();
+            winningPictureBox1.BringToFront();
+            pctBxWinner.BringToFront();
+            ScaleFont(btnEndGame, this);
+
+            btnEndGame.Dock = DockStyle.Bottom;
+            winningPictureBox1.Dock = DockStyle.Fill;
+            pctBxWinner.BackgroundImageLayout = ImageLayout.Stretch;
+
+            pctBxWinner.BackgroundImage = gameState.GetCurrentTurnsPlayer().GetIcon();
+            pctBxWinner.Location = new Point((int)(this.Width / 2), (int)(this.Height / 2.75));
+            pctBxWinner.Size = new Size((int)(this.Width / 5), (int)(this.Height / 5));
+        }
+
+        private void btnEndGame_Click(object sender, EventArgs e)
+        {
+            var home = new Thread(() => Application.Run(new HomeScreen()));
+            home.Start();
+            this.Close();
         }
     }
 }

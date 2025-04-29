@@ -46,12 +46,15 @@
             this.SwapMapsButton = new System.Windows.Forms.Button();
             this.EndTurnBtn = new CustomControls.ImageShapedButton();
             this.winningPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pctBxWinner = new System.Windows.Forms.PictureBox();
+            this.btnEndGame = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SubmitNumTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).BeginInit();
             this.numSlide.Panel1.SuspendLayout();
             this.numSlide.Panel2.SuspendLayout();
             this.numSlide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.winningPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBxWinner)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNextPhase
@@ -65,7 +68,7 @@
             this.btnNextPhase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNextPhase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextPhase.Location = new System.Drawing.Point(327, 170);
+            this.btnNextPhase.Location = new System.Drawing.Point(337, 179);
             this.btnNextPhase.Margin = new System.Windows.Forms.Padding(2);
             this.btnNextPhase.Name = "btnNextPhase";
             this.btnNextPhase.Size = new System.Drawing.Size(72, 46);
@@ -226,7 +229,7 @@
             this.EndTurnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.EndTurnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.EndTurnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EndTurnBtn.Location = new System.Drawing.Point(340, 173);
+            this.EndTurnBtn.Location = new System.Drawing.Point(360, 181);
             this.EndTurnBtn.Margin = new System.Windows.Forms.Padding(2);
             this.EndTurnBtn.Name = "EndTurnBtn";
             this.EndTurnBtn.Size = new System.Drawing.Size(38, 42);
@@ -237,19 +240,52 @@
             // winningPictureBox1
             // 
             this.winningPictureBox1.Enabled = false;
-            this.winningPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("winningPictureBox1.Image")));
+            this.winningPictureBox1.Image = global::SynchronousRisk.Properties.Resources.WinningScreen;
             this.winningPictureBox1.Location = new System.Drawing.Point(12, 6);
             this.winningPictureBox1.Name = "winningPictureBox1";
             this.winningPictureBox1.Size = new System.Drawing.Size(672, 386);
+            this.winningPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.winningPictureBox1.TabIndex = 11;
             this.winningPictureBox1.TabStop = false;
+            // 
+            // pctBxWinner
+            // 
+            this.pctBxWinner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBxWinner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(206)))), ((int)(((byte)(201)))));
+            this.pctBxWinner.BackgroundImage = global::SynchronousRisk.Properties.Resources.AngryEarth;
+            this.pctBxWinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pctBxWinner.Location = new System.Drawing.Point(443, 116);
+            this.pctBxWinner.Name = "pctBxWinner";
+            this.pctBxWinner.Size = new System.Drawing.Size(130, 130);
+            this.pctBxWinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctBxWinner.TabIndex = 12;
+            this.pctBxWinner.TabStop = false;
+            this.pctBxWinner.Visible = false;
+            // 
+            // btnEndGame
+            // 
+            this.btnEndGame.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnEndGame.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnEndGame.Enabled = false;
+            this.btnEndGame.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnEndGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btnEndGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnEndGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndGame.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndGame.Location = new System.Drawing.Point(0, 398);
+            this.btnEndGame.Name = "btnEndGame";
+            this.btnEndGame.Size = new System.Drawing.Size(722, 45);
+            this.btnEndGame.TabIndex = 13;
+            this.btnEndGame.Text = "Return To Home Screen";
+            this.btnEndGame.UseVisualStyleBackColor = false;
+            this.btnEndGame.Visible = false;
+            this.btnEndGame.Click += new System.EventHandler(this.btnEndGame_Click);
             // 
             // PlayableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 443);
-            this.Controls.Add(this.winningPictureBox1);
             this.Controls.Add(this.EndTurnBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -258,6 +294,9 @@
             this.Controls.Add(this.btnNextPhase);
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.outputLbl);
+            this.Controls.Add(this.pctBxWinner);
+            this.Controls.Add(this.winningPictureBox1);
+            this.Controls.Add(this.btnEndGame);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
@@ -272,6 +311,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numSlide)).EndInit();
             this.numSlide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.winningPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBxWinner)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,6 +335,8 @@
         private System.Windows.Forms.Button SwapMapsButton;
         private CustomControls.ImageShapedButton EndTurnBtn;
         private System.Windows.Forms.PictureBox winningPictureBox1;
+        private System.Windows.Forms.PictureBox pctBxWinner;
+        private System.Windows.Forms.Button btnEndGame;
     }
 }
 

@@ -161,6 +161,12 @@ namespace SynchronousRisk
             resetBestExchange();
             if (player.GetHand().CountCards() <= 5)
             {
+                if (forced)
+                {
+                    this.FormBorderStyle = FormBorderStyle.Fixed3D;
+                    this.WindowState = FormWindowState.Normal;
+                    this.TopMost = false;
+                }
                 activeGame.SelectNextScreen();
                 MessageBox.Show($"You have exchanged cards for {exchangeTroops} troops.");
                 this.Close();

@@ -124,14 +124,14 @@
     <Compile Include="obj\Game Pieces\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="obj\Game Pieces\Region.cs" />
+    <Compile Include="obj\Game Pieces\Territory.cs" />
+    <Compile Include="obj\Game Pieces\Troop.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="obj\Game Pieces\Region.cs" />
-    <Compile Include="obj\Game Pieces\Territory.cs" />
-    <Compile Include="obj\Game Pieces\Troop.cs" />
     <Compile Include="Resources\Assets\Text Files\FileReadIn.cs" />
     <Compile Include="Resources\Assets\Text Files\InformationDatasets.cs" />
     <Compile Include="SetupScreen.cs">
@@ -214,8 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Assets\Backgrounds\EarthMapRGBValues.png" />
-    <None Include="Resources\WinningScreen.jpg" />
-    <None Include="Resources\WinningScreen.bmp" />
+    <None Include="Resources\WinningScreen.png" />
     <None Include="Resources\Assets\Backgrounds\SplashScreen.jpg" />
     <Content Include="Resources\Assets\Backgrounds\MapSwappingUI.png" />
     <Content Include="Resources\Assets\Backgrounds\MapSwappingUIRGBValues.png" />
