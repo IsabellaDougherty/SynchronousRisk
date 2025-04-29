@@ -86,30 +86,30 @@ namespace SynchronousRisk
             regions = infoData.regions;
             rgbValues = infoData.rgbLookup;
             gameState = new GameState(NumBoards, players, playerIcons, this);
-            /*  debug settings for card related tests
-            for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
-            {
-                gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
-            }
-            Territory firsts = gameState.Players[0].OwnedTerritories[0];
-            gameState.Players[0].OwnedTerritories.Clear();
-            gameState.Players[0].OwnedTerritories.Add(firsts);
+            //debug settings for card related tests
+            //for (int i = 1; i < gameState.Players[0].OwnedTerritories.Count(); i++)
+            //    {
+            //        gameState.Players[1].OwnedTerritories.Add(gameState.Players[0].OwnedTerritories[i]);
+            //    }
+            //Territory firsts = gameState.Players[0].OwnedTerritories[0];
+            //gameState.Players[0].OwnedTerritories.Clear();
+            //gameState.Players[0].OwnedTerritories.Add(firsts);
 
-            for (int i = 1; i < gameState.Players[2].OwnedTerritories.Count(); i++)
-            {
-                gameState.Players[1].OwnedTerritories.Add(gameState.Players[2].OwnedTerritories[i]);
-            }
-            firsts = gameState.Players[2].OwnedTerritories[0];
-            gameState.Players[2].OwnedTerritories.Clear();
-            gameState.Players[2].OwnedTerritories.Add(firsts);
-            
-            for (int i = 0; i < 5; i++)
-            {
-                gameState.Players[0].DrawCard();
-                gameState.Players[1].DrawCard();
-                gameState.Players[2].DrawCard();
-            }
-            */
+            //for (int i = 1; i < gameState.Players[2].OwnedTerritories.Count(); i++)
+            //{
+            //    gameState.Players[1].OwnedTerritories.Add(gameState.Players[2].OwnedTerritories[i]);
+            //}
+            //firsts = gameState.Players[2].OwnedTerritories[0];
+            //gameState.Players[2].OwnedTerritories.Clear();
+            //gameState.Players[2].OwnedTerritories.Add(firsts);
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    gameState.Players[0].DrawCard();
+            //    gameState.Players[1].DrawCard();
+            //    gameState.Players[2].DrawCard();
+            //}
+
 
             // Karen Dixon 2/20/2025: Initializing various values for the graphics
             wolrdMapBounds.Width = Width;
@@ -356,6 +356,7 @@ namespace SynchronousRisk
             SubmitNumTrackBar.TickStyle = TickStyle.BottomRight;
             graphics.Render(Graphics.FromHwnd(Handle));
             SubmitButton.Location = new Point(numSlide.Location.X + numSlide.Width + 10, numSlide.Location.Y);
+            SubmitButton.Size = new Size((int)((this.Width - numSlide.Width) / 2) - ((int)((this.Width - numSlide.Width) / 15)), (int)(numSlide.Height / 2.25));
             updateGraphics();
         }
         private void btnNextPhase_Click_1(object sender, EventArgs e)
@@ -408,7 +409,7 @@ namespace SynchronousRisk
         {
             if (gameState.PhaseInt == 1)
             {
-                exchangeCards = new ExchangeCards(this, phase, gameState.Players[gameState.currPlayer], false);
+                exchangeCards = new ExchangeCards(this, gameState.Players[gameState.currPlayer], false);
                 exchangeCards.Show();
             }
             else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }

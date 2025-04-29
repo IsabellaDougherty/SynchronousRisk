@@ -203,8 +203,10 @@ namespace SynchronousRisk
 
         public void CheckPlayerLost()
         {
+            List<Player> activePlayers = new List<Player>();
             foreach (Player player in Players)
             {
+                if (player.active) activePlayers.Add(player);
                 if (player.OwnedTerritories.Count() == 0 && player.active)
                 {
                     player.active = false;
@@ -214,13 +216,14 @@ namespace SynchronousRisk
                     if (CurrentTurnsPlayer.GetHand().CountCards() > 5)
                     {
                         Phase draft = new DraftPhase(this, false);
-                        ExchangeCards ec = new ExchangeCards(playableForm, draft, CurrentTurnsPlayer, true);
+                        ExchangeCards ec = new ExchangeCards(playableForm, CurrentTurnsPlayer, true);
                         GetActiveBoard().Phases.AddFirst(draft);
                         playableForm.SelectNextScreen();
                         ec.Show();
                     }
                 }
             }
+            if (activePlayers.Count == 1) { /* Run the win conditional */}
         }
     }
 }
