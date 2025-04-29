@@ -37,7 +37,7 @@ namespace SynchronousRisk
             icons.Clear();
             iconIndex.Clear();
             foreach (Control c in pnlLyIcn.Controls)
-                if (c is PictureBox pic) 
+                if (c is PictureBox pic)
                     pic.BackColor = Color.Transparent;
         }
         /// IAD 4/21/2025 <summary> This method loads the icons from the Resources/Assets/Icons directory and adds them to the flow layout panel. </summary>
@@ -48,19 +48,16 @@ namespace SynchronousRisk
             {
                 string[] files = Directory.GetFiles(iconPath, "*.png");
                 PictureBox pic;
-                for (int i = 0; i < 3; i++)
+                foreach (string filePath in files)
                 {
-                    foreach (string filePath in files)
-                    {
-                        pic = new PictureBox();
-                        pic.Click += pnlLyIcn_Click;
-                        pnlLyIcn.Controls.Add(pic);
-                        pic.Image = Image.FromFile(filePath);
-                        pic.BackColor = Color.Transparent;
-                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pic.Width = 100;
-                        pic.Height = 100;
-                    }
+                    pic = new PictureBox();
+                    pic.Click += pnlLyIcn_Click;
+                    pnlLyIcn.Controls.Add(pic);
+                    pic.Image = Image.FromFile(filePath);
+                    pic.BackColor = Color.Transparent;
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Width = 100;
+                    pic.Height = 100;
                 }
                 pnlLyIcn.Refresh();
             }
