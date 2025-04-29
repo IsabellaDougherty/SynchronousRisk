@@ -206,7 +206,6 @@ namespace SynchronousRisk
             List<Player> activePlayers = new List<Player>();
             foreach (Player player in Players)
             {
-                if (player.active) activePlayers.Add(player);
                 if (player.OwnedTerritories.Count() == 0 && player.active)
                 {
                     player.active = false;

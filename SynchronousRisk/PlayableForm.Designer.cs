@@ -243,7 +243,6 @@
             this.winningPictureBox1.Size = new System.Drawing.Size(672, 386);
             this.winningPictureBox1.TabIndex = 11;
             this.winningPictureBox1.TabStop = false;
-            this.winningPictureBox1.Visible = false;
             // 
             // PlayableForm
             // 
