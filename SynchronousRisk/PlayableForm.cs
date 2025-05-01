@@ -470,6 +470,14 @@ namespace SynchronousRisk
             mapSwapping.Start();
         }
 
+        private void EndTurnBtn_Click(object sender, EventArgs e)
+        {
+            gameState.NextPlayerTurn();
+            SelectNextScreen();
+            DrawToBuffer(graphics.Graphics);
+            graphics.Render(Graphics.FromHwnd(Handle));
+        }
+
         /// IAD 4/29/2025 <summary> This method is used to resize the font of a control based on the size of the parent control. </summary>
         /// <param name="n"></param> <param name="g"></param>
         private void ScaleFont(Control a, Control b)
