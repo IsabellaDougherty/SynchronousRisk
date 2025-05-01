@@ -142,6 +142,11 @@ namespace SynchronousRisk
             return strBuilder.ToString();
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Distrubute territories to players on board
+        /// </summary>
+        /// <param name="players">players on the current board</param>
         public void DistributeTerritories(List<Player> players, GameState g)
         {
                 List<Territory> territories = new List<Territory>(GetTerritories());
@@ -176,6 +181,10 @@ namespace SynchronousRisk
             return lst;
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Moves on to the next phase
+        /// </summary>
         public void NextPhase()
         {
             if (Phases.Count() == 0)
@@ -203,6 +212,11 @@ namespace SynchronousRisk
             CurrMenu = Phases.First.Value.Start();
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Gets the current phase
+        /// </summary>
+        /// <returns>current phase</returns>
         public Phase GetCurrentPhase()
         {
             if (Phases.Count() == 0)
@@ -212,11 +226,20 @@ namespace SynchronousRisk
             return Phases.First.Value;
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Checks if all phases are finished
+        /// </summary>
+        /// <returns>if all phases finished</returns>
         public bool CanEndTurn()
         {
             return Phases.Count == 0;
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Creates phases for the current turns player if they own territories on this board
+        /// </summary>
         public void CreatePhases(GameState gameState)
         {
             if (PlayerOwnsTerritory(gameState, gameState.GetCurrentTurnsPlayer()))
@@ -231,6 +254,12 @@ namespace SynchronousRisk
             }
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Checks if a player owns territory on this board
+        /// </summary>
+        /// <param name="player">Player being checked</param>
+        /// <returns>if player owns territory on this board</returns>
         public bool PlayerOwnsTerritory(GameState gameState, Player player)
         {
             foreach(Territory territory in GetTerritories())

@@ -56,7 +56,11 @@ namespace SynchronousRisk
             return bestExchangeOption;
         }
 
-        // Returns what an array of three cards would be worth if turned in
+        /// Russell Phillips 2/04/2025
+        /// <returns></returns>
+        /// <summary>
+        /// Returns what an array of three cards would be worth if turned in
+        /// </summary>
         public int ExchangeValue(Card[] cards)
         {
             if (cards != null && !cards.Contains<Card>(null))

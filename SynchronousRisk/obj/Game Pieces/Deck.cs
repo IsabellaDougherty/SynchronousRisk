@@ -42,10 +42,11 @@ namespace SynchronousRisk
             Shuffle();
         }
 
+        /// Russell Phillips 2/04/2025
         /// <summary>
         /// Shuffle the draw pile (using the Fisher-Yates shuffle)
         /// </summary>
-         // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+        /// https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
         private void Shuffle()
         {
             List<Card> lst = new List<Card>(Cards);
@@ -59,7 +60,11 @@ namespace SynchronousRisk
             Cards = new Queue<Card>(lst);
         }
 
-        // Draw card from deck
+        /// Russell Phillips 2/04/2025
+        /// <summary>
+        /// Draw card from deck
+        /// </summary>
+        /// <returns></returns>
         public Card Draw()
         {
             if (Cards.Count == 0)
@@ -71,7 +76,11 @@ namespace SynchronousRisk
             return Cards.Dequeue();
         }
 
-        // Add a discarded card to the discard pile
+        /// Russell Phillips 2/04/2025
+        /// <summary>
+        /// Add a discarded card to the discard pile
+        /// </summary>
+        /// <param name="card">card to discard</param>
         public void Discard(Card card)
         {
             DiscardPile.Enqueue(card);

@@ -464,31 +464,6 @@ namespace SynchronousRisk
             else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }
             graphics.Render(Graphics.FromHwnd(Handle));
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            gameState.SetActiveBoard(0);
-            SelectNextScreen();
-            DrawToBuffer(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            gameState.SetActiveBoard(1);
-            SelectNextScreen();
-            DrawToBuffer(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
-        }
-
-        private void EndTurnBtn_Click(object sender, EventArgs e)
-        {
-            gameState.NextPlayerTurn();
-            SelectNextScreen();
-            DrawToBuffer(graphics.Graphics);
-            graphics.Render(Graphics.FromHwnd(Handle));
-        }
-
         private void SwapMapsButton_Click(object sender, EventArgs e)
         {
             var mapSwapping = new Thread(() => Application.Run(new MapSwappingUI(gameState)));
@@ -510,6 +485,10 @@ namespace SynchronousRisk
             a.Font = new Font(a.Font.FontFamily, newSize, a.Font.Style);
         }
 
+        /// Russell Phillips 4/29/2025
+        /// <summary>
+        /// Shows the winning screen
+        /// </summary>
         public void ShowWinner()
         {
             btnEndGame.Enabled = true;

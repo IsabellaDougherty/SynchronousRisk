@@ -41,8 +41,6 @@
             this.CurrentValueTrackBarLbl = new System.Windows.Forms.Label();
             this.numSlide = new System.Windows.Forms.SplitContainer();
             this.MaximumValueTrackBarLbl = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.SwapMapsButton = new System.Windows.Forms.Button();
             this.EndTurnBtn = new CustomControls.ImageShapedButton();
             this.winningPictureBox1 = new System.Windows.Forms.PictureBox();
@@ -183,30 +181,6 @@
             this.MaximumValueTrackBarLbl.TabIndex = 7;
             this.MaximumValueTrackBarLbl.Text = "Maximum";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 132);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(28, 10);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 145);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 10);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // SwapMapsButton
             // 
             this.SwapMapsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
@@ -271,7 +245,7 @@
             this.btnEndGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnEndGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnEndGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEndGame.Font = new System.Drawing.Font("Century", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEndGame.Location = new System.Drawing.Point(0, 398);
             this.btnEndGame.Name = "btnEndGame";
             this.btnEndGame.Size = new System.Drawing.Size(722, 45);
@@ -287,8 +261,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 443);
             this.Controls.Add(this.EndTurnBtn);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.SwapMapsButton);
             this.Controls.Add(this.numSlide);
             this.Controls.Add(this.btnNextPhase);
@@ -330,8 +302,6 @@
         private System.Windows.Forms.Label CurrentValueTrackBarLbl;
         private System.Windows.Forms.SplitContainer numSlide;
         private System.Windows.Forms.Label MaximumValueTrackBarLbl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button SwapMapsButton;
         private CustomControls.ImageShapedButton EndTurnBtn;
         private System.Windows.Forms.PictureBox winningPictureBox1;

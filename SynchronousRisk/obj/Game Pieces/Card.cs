@@ -33,7 +33,10 @@ namespace SynchronousRisk
             this.Type = type;
         }
 
-        // Returns if cards could be considered the same type, including wilds
+        /// Russell Phillips 2/04/2025
+        /// <summary>
+        /// Returns if cards could be considered the same type, including wilds
+        /// </summary>
         public bool Compare(Card other)
         {
             if (other.Type == CardType.Wild || this.Type == CardType.Wild)
@@ -44,7 +47,10 @@ namespace SynchronousRisk
             return other.Type == this.Type;
         }
 
-        // Returns the type of non-wild card
+        /// Russell Phillips 2/04/2025
+        /// <summary>
+        /// Returns the type of non-wild card
+        /// </summary>
         public Card Coerce(Card other)
         {
             if (this.Type == CardType.Wild)

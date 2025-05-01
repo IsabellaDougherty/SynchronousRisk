@@ -106,6 +106,10 @@ namespace SynchronousRisk
             }
         }
 
+        /// Russell Phillips 4/28/2025
+        /// <summary>
+        /// Generates and adds portals to the game board
+        /// </summary>
         private void GeneratePortals()
         {
             for (int i = 0; i < Boards.Count(); i++)
@@ -141,6 +145,11 @@ namespace SynchronousRisk
             }
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Checks if all phases on all boards are complete
+        /// </summary>
+        /// <returns>if the turn can end or not</returns>
         public bool CanEndTurn()
         {
             foreach (Board board in Boards)
@@ -151,6 +160,10 @@ namespace SynchronousRisk
             return true;
         }
 
+        /// Russell Phillips 4/9/2025
+        /// <summary>
+        /// Resets turns to be the first players turn
+        /// </summary>
         public void RestartTurns()
         {
             currPlayer = 0;
@@ -158,25 +171,53 @@ namespace SynchronousRisk
 
         }
 
+        /// Russell Phillips 4/27/2025
+        /// <summary>
+        /// Gets the current phase on the active board
+        /// </summary>
+        /// <returns>The current phase</returns>
         public Phase GetCurrentPhase()
         {
             return GetActiveBoard().GetCurrentPhase();
         }
 
+        /// Russell Phillilps 4/27/2025
+        /// <summary>
+        /// ends the current phase and moves to the next one
+        /// </summary>
         public void NextPhase()
         {
             GetActiveBoard().NextPhase();
         }
 
+        /// Russell Phillips 4/9/2025
+        /// <summary>
+        /// Gets the player whose turn it is
+        /// </summary>
+        /// <returns>Current turns player</returns>
         public Player GetCurrentTurnsPlayer()
         {
             return Players[currPlayer];
         }
 
+        /// Russell Phillips 4/9/2025
+        /// <summary>
+        /// Checks if a player owns a territory
+        /// </summary>
+        /// <param name="player">the player being checked</param>
+        /// <param name="territory">the territory</param>
+        /// <returns>if player owns territory</returns>
         public bool DoesPlayerOwnTerritory(Player player, Territory territory)
         {
             return player.OwnedTerritories.Contains(territory);
         }
+
+        /// Russell Phillips 4/9/2025
+        /// <summary>
+        /// Gets the player that owns a territory
+        /// </summary>
+        /// <param name="terr">territory whose owner the function finds</param>
+        /// <returns>the owner of terr</returns>
         public Player TerritoryOwnedByWho(Territory terr)
         {
             foreach (Player p in Players)
@@ -185,16 +226,32 @@ namespace SynchronousRisk
             return null;
         }
 
+        /// Russell Phillips 4/9/2025
+        /// <summary>
+        /// Gets the array of players
+        /// </summary>
+        /// <returns>array of players</returns>
         public Player[] GetPlayers()
         {
             return Players;
         }
 
+        /// Russell Phillips 4/25/2025
+        /// <summary>
+        /// Gets the board currently shown on screen
+        /// </summary>
+        /// <returns>active Board</returns>
         public Board GetActiveBoard()
         {
             return Boards[CurrentBoardIndex];
         }
 
+        /// Russell phillips 4/27/2025
+        /// <summary>
+        /// Sets which board is the active board
+        /// </summary>
+        /// <param name="nextBoard">the index of the new active board</param>
+        /// <returns>the UIManager of the new active board</returns>
         public UIManager SetActiveBoard(int nextBoard)
         {
             CurrentBoardIndex = nextBoard;
@@ -207,6 +264,10 @@ namespace SynchronousRisk
             return GetActiveBoard().CurrMenu;
         }
 
+        /// Russell Phillips 4/28/2025
+        /// <summary>
+        /// Checks if any player has lost
+        /// </summary>
         public void CheckPlayerLost()
         {
             List<Player> activePlayers = new List<Player>();

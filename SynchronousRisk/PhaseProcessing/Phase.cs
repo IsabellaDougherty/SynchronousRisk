@@ -34,38 +34,6 @@ namespace SynchronousRisk.PhaseProcessing
             CanContinue = false;
         }
 
-        public int GetUserInputNumber(int min, int max)
-        {
-            int numReturn;
-            while (!int.TryParse(Console.ReadLine(), out numReturn) && numReturn >= min && numReturn <= max)
-            {
-                Console.WriteLine($"Invalid input. Please enter a valid number, between {min} and {max}");
-            }
-            return numReturn;
-        }
-        public int GetUserInputNumber()
-        {
-            int numReturn;
-            while (!int.TryParse(Console.ReadLine(), out numReturn))
-            {
-                Console.WriteLine($"Invalid input. Please enter a valid number");
-            }
-            return numReturn;
-        }
-
-        public Territory GetUserInputTerritory()
-        {
-            Territory territoryReturn = GetTerritory(Console.ReadLine());
-            return territoryReturn;
-        }
-        public Territory GetTerritory(string name)
-        {
-            Territory terr = null;
-            foreach(Territory t in activeBoard.GetTerritories()) 
-            { if (t.GetName() == name) { terr = t; break; }}
-            if(terr == null) { Console.WriteLine("Territory not found."); return terr; }
-            else return terr;
-        }
         /// IAD 4/23/2025 <summary> Checks if a player has won the game. A player is considered to have won if they own all territories in the game. </summary>
         /// <param name="p"></param>
         public Player FindWinner()
@@ -87,11 +55,21 @@ namespace SynchronousRisk.PhaseProcessing
             }
         }
 
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Virtual method to get the initial UIManager of a phase
+        /// </summary>
+        /// <returns>UIManager</returns>
         public virtual UIManager Start()
         {
             return null;
         }
 
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Virtual method to get the initial UIManager of a phase when it needs an integer input
+        /// </summary>
+        /// <returns>UIManager</returns>
         public virtual UIManager Start(int i)
         {
             return null;

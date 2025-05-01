@@ -37,13 +37,21 @@ namespace SynchronousRisk.PhaseProcessing
             DefenderTerritory = defenderTerritory;
         }
 
-        // Returns the result of 6 sided dice
+        /// Russell Phillips 2/10/2025
+        /// <summary>
+        /// Returns the result of 6 sided dice
+        /// </summary>
+        /// <returns></returns>
         private int d6()
         {
             return rand.Next(1, 7);
         }
 
-        // does one step of battle, subtracting lost troops
+        /// Russell Phillips 2/10/2025
+        /// <summary>
+        /// does one step of battle, subtracting lost troops
+        /// </summary>
+        /// <param name="attackers"></param>
         public void Battle(int attackers)
         {
             int defenders = Math.Min(DefenderTerritory.GetTroops(), 2);
@@ -78,6 +86,12 @@ namespace SynchronousRisk.PhaseProcessing
             }
 
         }
+
+        /// Russell Phillips 2/20/2025
+        /// <summary>
+        /// Gets the first UImanager for the attack phase
+        /// </summary>
+        /// <returns></returns>
         public override UIManager Start()
         {
             gameState.PhaseInt = 2;
@@ -85,6 +99,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectTerritory("Input Territory to attack from", GetAttackerTerritory);
         }
 
+        /// Russell Phillips 2/20/2025
+        /// <summary>
+        /// Gets the territory that is going to attack
+        /// </summary>
+        /// <param name="attackerTerr">the territory that is going to attack</param>
+        /// <returns>UImanager</returns>
         public UIManager GetAttackerTerritory(Territory attackerTerr)
         {
             AttackerTerritory = attackerTerr;
@@ -105,6 +125,13 @@ namespace SynchronousRisk.PhaseProcessing
 
             return new SelectTerritory("Input territory to attack", GetDefenderTerritory);
         }
+
+        /// Russell Phillips 2/20/2025
+        /// <summary>
+        /// Gets the territory that is going to be attacked
+        /// </summary>
+        /// <param name="defenderTerr">the territory that is going to be attacked</param>
+        /// <returns>UImanager</returns>
         public UIManager GetDefenderTerritory(Territory defenderTerr)
         {
             DefenderTerritory = defenderTerr;
@@ -127,6 +154,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectNumber("Input number to attack with (0 to stop attacking)", GetNumAttackers, 0, Math.Min(AttackerTerritory.GetTroops() - 1, 3));
         }
 
+        /// Russell Phillips 2/20/2025
+        /// <summary>
+        /// Does an attack with a number of troops
+        /// </summary>
+        /// <param name="attackers">number of troops to attack with</param>
+        /// <returns>UImanager</returns>
         public UIManager GetNumAttackers(int attackers)
         {
             if (attackers > AttackerTerritory.GetTroops() - 1 || attackers < 0 || attackers > 3) // have to leave one troop behind
@@ -135,7 +168,6 @@ namespace SynchronousRisk.PhaseProcessing
             }
 
             Battle(attackers);
-            WriteRolls();
 
             string output = $"You now have {AttackerTerritory.GetTroops()} troops left, and the defender has {DefenderTerritory.GetTroops()} troops left ";
 
@@ -157,6 +189,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectTerritory("Input another territory to attack from", GetAttackerTerritory);
         }
 
+        /// Russell Phillips 2/20/2025
+        /// <summary>
+        /// Moves a number of troops after winning a battle
+        /// </summary>
+        /// <param name="transfer">number of troops to transfer</param>
+        /// <returns>UIManager</returns>
         private UIManager TransferTroops(int transfer)
         {
 
@@ -205,14 +243,10 @@ namespace SynchronousRisk.PhaseProcessing
             return false;
         }
 
-        private void WriteRolls()
-        {
-            Console.WriteLine("Your rolls were: ");
-            Console.WriteLine(string.Join(" ", attackerRolls));
-            Console.WriteLine("The defenders rolls were: ");
-            Console.WriteLine(string.Join(" ", defenderRolls));
-        }
-
+        /// Russell Phillips 4/28/2025
+        /// <summary>
+        /// Has the current player draw a card
+        /// </summary>
         public void DrawCard()
         {
             gameState.CurrentTurnsPlayer.DrawCard();

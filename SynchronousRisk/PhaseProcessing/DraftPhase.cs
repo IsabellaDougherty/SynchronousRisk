@@ -29,8 +29,9 @@ namespace SynchronousRisk.PhaseProcessing
             troopsRemaining = 0;
         }
 
-        /// Russell Phillips <summary>
-        /// 
+        /// Russell Phillips 3/7/2025
+        /// <summary>
+        /// Inital UImanager of the draft phase
         /// </summary>
         public override UIManager Start()
         {
@@ -54,6 +55,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectTerritory($"You have {troopsRemaining} troops remaining. Choose a territory", ChooseTerritory);
         }
 
+        /// Russell Phillips 3/7/2025
+        /// <summary>
+        /// Gets the territory to add troops to
+        /// </summary>
+        /// <param name="currTerritory">territory to add troops to</param>
+        /// <returns>UIManager</returns>
         public UIManager ChooseTerritory(Territory currTerritory)
         {
             CurrTerritory = currTerritory;
@@ -70,6 +77,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectNumber($"You have {troopsRemaining} troops remaining. Input number of troops", ChooseNumTroops, 0, troopsRemaining);
         }
 
+        /// Russell Phillips 3/7/2025
+        /// <summary>
+        /// Places a number of troops
+        /// </summary>
+        /// <param name="numTroops">number of troops to place</param>
+        /// <returns>UIManager</returns>
         public UIManager ChooseNumTroops(int numTroops)
         {
             if (numTroops <= troopsRemaining)
@@ -88,6 +101,7 @@ namespace SynchronousRisk.PhaseProcessing
             }
         }
 
+        /// IAD 3/7/2025
         internal int DraftableTroops()
         {
             int numOwnedTerritories = CurrentPlayer.OwnedTerritories.Count;

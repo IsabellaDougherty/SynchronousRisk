@@ -9,6 +9,10 @@ using SynchronousRisk.Menus;
 
 namespace SynchronousRisk.PhaseProcessing
 {
+    /// Russell Phillips 3/4/2025
+    /// <summary>
+    /// Phase that represents the forify phase of risk
+    /// </summary>
     public class FortifyPhase : Phase
     {
 
@@ -21,6 +25,12 @@ namespace SynchronousRisk.PhaseProcessing
             CanContinue = true;
 
         }
+
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Beginning of the fortify phase
+        /// </summary>
+        /// <returns>UImanager</returns>
         public override UIManager Start()
         {
             gameState.PhaseInt = 3;
@@ -28,6 +38,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectTerritory("Input Territory to foritify from", GetSourceTerritory);
         }
 
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Gets the territory where the troops will come from 
+        /// </summary>
+        /// <param name="sourceTerr">territory the troops will be taken from</param>
+        /// <returns>UImanager</returns>
         public UIManager GetSourceTerritory(Territory sourceTerr)
         {
             SourceTerritory = sourceTerr;
@@ -48,6 +64,13 @@ namespace SynchronousRisk.PhaseProcessing
 
             return new SelectTerritory("Input territory to fortify to", GetDestinationTerritory);
         }
+
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Gets the territory the troops will be placed on
+        /// </summary>
+        /// <param name="destinationTerr">territory troops will be placed on</param>
+        /// <returns>UImanager</returns>
         public UIManager GetDestinationTerritory(Territory destinationTerr)
         {
             DestinationTerritory = destinationTerr;
@@ -65,6 +88,12 @@ namespace SynchronousRisk.PhaseProcessing
             return new SelectNumber($"Input number to transfer", GetNumTransfer, 0, SourceTerritory.GetTroops() - 1);
         }
 
+        /// Russell Phillips 3/4/2025
+        /// <summary>
+        /// Transfers a number of troops
+        /// </summary>
+        /// <param name="numTransfer">the number of troops to transfer</param>
+        /// <returns>UImanager</returns>
         public UIManager GetNumTransfer(int numTransfer)
         {
             if (numTransfer > SourceTerritory.GetTroops() - 1 || numTransfer < 0) // have to leave one troop behind
