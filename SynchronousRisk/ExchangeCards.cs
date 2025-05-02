@@ -18,7 +18,9 @@ namespace SynchronousRisk
         private static int exchangeTroops = 0;
         private static int countExchanges = 0;
         public Card[] exchangeCards;
+        /// IAD 4/23/2025 <summary> The number of troops to be exchanged. This is set to 0 by default. </summary>
         public int ExchangeTroops { get; set; }
+        /// IAD 4/23/2025 <summary> Constructor for the ExchangeCards form. It initializes the form and sets up the player, game state, and exchange cards. </summary> <param name="game"></param> <param name="p"></param> <param name="f"></param>
         public ExchangeCards(PlayableForm game, Player p, bool f)
         {
             InitializeComponent();
@@ -38,13 +40,13 @@ namespace SynchronousRisk
                 this.TopMost = true;
             }
         }
-        /// IAD 4/23/2024 <summary> Event handler for when the form loads. It reformats the table to display the cards in the player's hand. </summary>
-        /// <param name="sender"></param> <param name="e"></param>
+        /// IAD 4/23/2024 <summary> Event handler for when the form loads. It reformats the table to display the cards in the player's hand. </summary> <param name="sender"></param> <param name="e"></param>
         private void ExchangeCards_Load(object sender, EventArgs e)
         {
             reformatTable();
             resetBestExchange();
         }
+        /// IAD 4/23/2024 <summary> Resets the best exchange cards to be displayed on the form. It sets the images of the PictureBox controls to the images of the cards in the exchangeCards array. </summary>
         private void resetBestExchange()
         {
             if (!exchangeCards.Contains<Card>(null))
@@ -83,8 +85,7 @@ namespace SynchronousRisk
                     c.Dispose();
             tblPnPlayerHand.Controls.Clear();
         }
-        /// IAD 4/23/2024 <summary> Sets the image of the PictureBox to the card's image and adds the territory name to the image. </summary>
-        /// <param name="pb"></param> <param name="card"></param>
+        /// IAD 4/23/2024 <summary> Sets the image of the PictureBox to the card's image and adds the territory name to the image. </summary> <param name="pb"></param> <param name="card"></param>
         private void setCardPicture(PictureBox pb, Card card)
         {
             Image cardBase;
@@ -131,16 +132,14 @@ namespace SynchronousRisk
 
             pb.Image = cardBase;
         }
-        /// IAD 4/24/2025 <summary> Event handler for toggling of being able to see the reference for exchanging cards. </summary>
-        /// <param name="sender"></param> <param name="e"></param>
+        /// IAD 4/24/2025 <summary> Event handler for toggling of being able to see the reference for exchanging cards. </summary> <param name="sender"></param> <param name="e"></param>
         private void tglExchangeRef_CheckedChanged(object sender, EventArgs e)
         {
             gpRef.Visible = tglExchangeRef.Checked;
             reformatTable();
             resetBestExchange();
         }
-        /// IAD 4/23/2024 <summary> Event handler for when the form is closing. It clears the table of all controls and disposes of the form. </summary>
-        /// <param name="sender"></param> <param name="e"></param>
+        /// IAD 4/23/2024 <summary> Event handler for when the form is closing. It clears the table of all controls and disposes of the form. </summary> <param name="sender"></param> <param name="e"></param>
         private void ExchangeCards_Leave(object sender, EventArgs e)
         {
             emptyTable();
@@ -150,7 +149,7 @@ namespace SynchronousRisk
                 this.TopMost = false;
             }
         }
-
+        /// IAD 4/23/2024 <summary> Event handler for when the "Make Exchange" button is clicked. It increments the count of exchanges, calculates the exchange troops, and updates the game state. </summary> <param name="sender"></param> <param name="e"></param>
         private void btnMakeExchange_Click(object sender, EventArgs e)
         {
             countExchanges++;

@@ -29,17 +29,14 @@ namespace SynchronousRisk
             originalLblSize = new Rectangle(lblRisk.Location.X, lblRisk.Location.Y, lblRisk.Size.Width, lblRisk.Size.Height);
             originalButtonsSize = new Rectangle(btnPlay.Location.X, btnPlay.Location.Y, btnPlay.Size.Width, btnPlay.Size.Height);
         }
-        /// IAD 4/18/2025 <summary> This method is called when the play button is clicked. It creates a new SetupScreen form and shows it as a dialog. </summary>
-        /// <param name="sender"></param> <param name="e"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the play button is clicked. It creates a new SetupScreen form and shows it as a dialog. </summary> <param name="sender"></param> <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
             var setup = new Thread(() => Application.Run(new SetupScreen()));
             setup.Start();
             this.Close();
         }
-        /// IAD 4/18/2025 <summary> This method is called when the credits button is clicked. It shows a message box with the credits for the game. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the credits button is clicked. It shows a message box with the credits for the game. </summary> <param name="sender"></param> <param name="e"></param>
         private void btnCredits_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Game created by:\n\n" +
@@ -50,9 +47,7 @@ namespace SynchronousRisk
                 "Dr. David Beard\n" +
                 "\n\nEducational Rights Reserved.");
         }
-        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
-        /// <param name="r"></param>
-        /// <param name="c"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary> <param name="r"></param> <param name="c"></param>
         private void resizeControl(Rectangle r, Control c)
         {
             float xRatio = (float)(this.Width) / (float)(originalFormSize.Width);
@@ -80,9 +75,7 @@ namespace SynchronousRisk
 
             lab.Font = new Font(lab.Font.FontFamily, newSize, lab.Font.Style);
         }
-        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary> <param name="sender"></param> <param name="e"></param>
         private void HomeScreen_Resize(object sender, EventArgs e)
         {
             resizeControl(originalBtnsPnl, pnlBtns);

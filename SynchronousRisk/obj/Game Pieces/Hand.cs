@@ -31,14 +31,10 @@ namespace SynchronousRisk
         /// IAD 4/24/2025 <summary> Returns the list of cards in hand. </summary>
         public List<Card> GetCards() { return cards; }
 
-        /// <summary>
-        /// Returns the best exchange option for cards currently in hand. If less than three cards are in hand, returns an array of null.
-        /// </summary>
-        /// <returns></returns>
+        /// Russell Phillips 2/04/2025 <summary> Returns the best exchange option for cards currently in hand. If less than three cards are in hand, returns an array of null. </summary>
         public Card[] BestExchangeOption()
         {
-            //IAD 3/3/2025: Adjusted logic of function to return an array instead of a list to match the exchange value function
-            //  and adjusted the bestExchangeOption to be a single value array of null fail checking.
+            //IAD 3/3/2025: Adjusted logic of function to return an array instead of a list to match the exchange value function and adjusted the bestExchangeOption to be a single value array of null fail checking.
             Card[] bestExchangeOption = { null };
             if (cards.Count < 3) { return bestExchangeOption; }
             int maxValue = 0;

@@ -24,11 +24,7 @@ namespace SynchronousRisk
 
         public Card(Territory territory, CardType type)
         {
-            //IAD 2/17/2025
-            /// <summary>
-            /// Pulls the name using the `GetName()` method from the Territory class to create a new Card object.
-            /// Note: You can create a card with a String alone by inputting a String directly here in place of a Territory object.
-            /// </summary>
+            ///IAD 2/17/2025 <summary> Pulls the name using the `GetName()` method from the Territory class to create a new Card object. Note: You can create a card with a String alone by inputting a String directly here in place of a Territory object. </summary>
             this.Name = territory.GetName();
             this.Type = type;
         }

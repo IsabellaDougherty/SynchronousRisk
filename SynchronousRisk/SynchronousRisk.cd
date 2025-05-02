@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SynchronousRisk.SetupScreen">
+    <Position X="3.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAAAEaCAAERAKAACAABADAAAYAggKACwAAACAAEA=</HashCode>
+      <FileName>SetupScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PlayableForm">
+    <Position X="5.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FiBCAAAAUiZBKgIATIKgABiDIBiQMAuIoAVkgChgBAE=</HashCode>
+      <FileName>PlayableForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.MapSwappingUI">
+    <Position X="7" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAAACBAAAAAQQCGAAACgBABACwQAAAgghAAAIQ=</HashCode>
+      <FileName>MapSwappingUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.IconSelect">
+    <Position X="3.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAIKAgAAAEAACACAACAAAAQAABAAAAIAAAAAA=</HashCode>
+      <FileName>IconSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.HomeScreen">
+    <Position X="1.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACAIAQCABBQAAIACAAAACAIgAAAAAAAAAAAAAEEA=</HashCode>
+      <FileName>HomeScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Help">
+    <Position X="8.75" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEQCAAAICAAAAAAAACCAAgGAAAAAIAAAAGAADAgAAA=</HashCode>
+      <FileName>Help.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.GameState">
+    <Position X="10" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAACCAAAAAIEIAAGABxAAACAIIgAAAAAAhQAKIAEBA=</HashCode>
+      <FileName>GameState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.ExchangeCards">
+    <Position X="7" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAgAAACAEHAEEIAwAADgIAgSCgQQAAwFAADkAFGFEAQ=</HashCode>
+      <FileName>ExchangeCards.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Troops">
+    <Position X="15.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAIAACAAAAAAAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Troop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Territory">
+    <Position X="17.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAgAAgAAKAAAwEAIAIgCEQQAAAEABAA=</HashCode>
+      <FileName>obj\Game Pieces\Territory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Region">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAABAAAAIAAAAAAAAAAAQAAAAAAAAAAAABBCAAA=</HashCode>
+      <FileName>obj\Game Pieces\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Player">
+    <Position X="17.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAIAAAACAAAAgAAABAAAEAAAIEAAAAAAYAEAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Hand">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAEAAABAAAAAgABAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Hand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Deck">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAgAAAAAAAIAIAAAEAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>obj\Game Pieces\Deck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Card">
+    <Position X="19.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAQgAAAAAAAAAQBAAAAAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Board">
+    <Position X="19.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gSCSDAAAABAABAAAgAAAAAAAEAAFAIAAAAAQEAgEBAA=</HashCode>
+      <FileName>obj\Game Pieces\Board.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Resources.Assets.Text_Files.InformationDatasets">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACACAFAAEAgACAAAAAIABIAACAAAAAQAAAAAAAQE=</HashCode>
+      <FileName>Resources\Assets\Text Files\InformationDatasets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Resources.Assets.Text_Files.FileReadIn">
+    <Position X="13.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAIAAA=</HashCode>
+      <FileName>Resources\Assets\Text Files\FileReadIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.obj.Game_Pieces.Portal">
+    <Position X="17.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAgAAAAAAgAAAAAIAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Portal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomControls.ImageShapedButton">
+    <Position X="15.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAACAQAAAAAAAAAAAAAEAAAABAAAAAAA=</HashCode>
+      <FileName>obj\Controls\ImageShapedButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Menus.UIManager">
+    <Position X="13" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAESgAAAAAAAAAAAAAAAYABAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Menus\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Menus.SelectTerritory">
+    <Position X="12" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menus\SelectTerritory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Menus.SelectNumber">
+    <Position X="14" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEwAAAABAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menus\SelectNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.AttackPhase">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAEACiAAAAAEAAACAAgEACAAQAAAUBAAIAAAAA=</HashCode>
+      <FileName>PhaseProcessing\AttackPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.DraftPhase">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAIAEAACAAAACAAAAAgAAAAAAAAIAEAAEAAAAAAAA=</HashCode>
+      <FileName>PhaseProcessing\DraftPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.FortifyPhase">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAACAACAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAIA=</HashCode>
+      <FileName>PhaseProcessing\FortifyPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.Phase">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAADAQAAAAAAAAAAAAAAIgAAAAAAAggAAAAAA=</HashCode>
+      <FileName>PhaseProcessing\Phase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.PortalReceivePhase">
+    <Position X="10" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseProcessing\PortalReceivePhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.PortalSendPhase">
+    <Position X="12" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAACAACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhaseProcessing\PortalSendPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.PhaseProcessing.SetupPhase">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAIAAACAAQAQACAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
+      <FileName>PhaseProcessing\SetupPhase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SynchronousRisk.Properties.Resources">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAhAAAAAAAAACgAAgBEAAAJYBCAACIBQAEECIBAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SynchronousRisk.CardType">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAIABAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>obj\Game Pieces\Card.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

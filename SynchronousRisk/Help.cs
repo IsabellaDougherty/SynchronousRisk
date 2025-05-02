@@ -5,10 +5,12 @@ using System.Windows.Forms;
 
 namespace SynchronousRisk
 {
+    /// IAD 4/23/2025 <summary> This class represents the Help form that provides information about the game rules and icon key. </summary>
     public partial class Help : Form
     {
         private bool initilizationComplete = false;
         private Bitmap[] icons;
+        /// IAD 4/23/2025 <summary> Constructor for the Help class. </summary> <param name="p"></param>
         public Help(Bitmap[] p)
         {
             InitializeComponent();
@@ -17,13 +19,13 @@ namespace SynchronousRisk
             icons = p;
             initilizationComplete = true;
         }
-
+        /// IAD 4/23/2025 <summary> This method is called when the form is loaded. It initializes the table and resizes the rows. </summary> <param name="sender"></param> <param name="e"></param>
         private void Help_Load(object sender, EventArgs e)
         {
             loadTable();
             resizeTableRows();
         }
-
+        /// IAD 4/23/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
         private void loadTable()
         {
             int playerCount = 1;
@@ -50,6 +52,7 @@ namespace SynchronousRisk
             }
             tblPnIcn.Visible = !tblPnIcn.Visible;
         }
+        /// IAD 4/23/2025 <summary> This method resizes the rows of the table based on the number of players. </summary>
         private void resizeTableRows()
         {
             int rowCount = tblPnIcn.RowCount;
@@ -60,15 +63,9 @@ namespace SynchronousRisk
                 tblPnIcn.RowStyles.Add(new RowStyle(SizeType.Percent, percentPerRow));
             }
         }
-
-        private void rdBtnIconKey_CheckedChanged(object sender, EventArgs e)
-        {
-            tblPnIcn.Visible = !tblPnIcn.Visible;
-        }
-
-        private void rdBtnGameRules_CheckedChanged(object sender, EventArgs e)
-        {
-            txtRules.Visible = !txtRules.Visible;
-        }
+        /// IAD 4/23/2025 <summary> This method is called when the radio button for the icon key is checked. It toggles the visibility of the icon table. </summary> <param name="sender"></param> <param name="e"></param>
+        private void rdBtnIconKey_CheckedChanged(object sender, EventArgs e) { tblPnIcn.Visible = !tblPnIcn.Visible; }
+        /// IAD 4/23/2025 <summary> This method is called when the radio button for the game rules is checked. It toggles the visibility of the rules text box. </summary> <param name="sender"></param> <param name="e"></param>
+        private void rdBtnGameRules_CheckedChanged(object sender, EventArgs e) { txtRules.Visible = !txtRules.Visible; }
     }
 }

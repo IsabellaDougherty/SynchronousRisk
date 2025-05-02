@@ -11,7 +11,7 @@ namespace SynchronousRisk
         public List<Bitmap> icons;
         private List<int> iconIndex;
         private int numPlayers;
-
+        /// IAD 4/21/2025 <summary> Constructor for the IconSelect class. It initializes the form and sets the number of players. </summary> <param name="np"></param>
         public IconSelect(int np)
         {
             this.DoubleBuffered = true;
@@ -20,16 +20,13 @@ namespace SynchronousRisk
             iconIndex = new List<int>();
             numPlayers = np;
         }
-        /// IAD 4/21/2025 <summary> This method is called when the form is loaded. It initializes the icons and sets the background color of the panel. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is loaded. It initializes the icons and sets the background color of the panel. </summary> <param name="sender"></param> <param name="e"></param>
         private void IconSelect_Load(object sender, EventArgs e)
         {
             loadIcons();
             pnlLyIcn.BackColor = Color.FromArgb(0, 255, 255, 255);
         }
-        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
-        /// <param name="np"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary> <param name="np"></param>
         public void setNumPlayers(int np) { numPlayers = np; }
         /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
         public void clearIcons()
@@ -62,8 +59,7 @@ namespace SynchronousRisk
                 pnlLyIcn.Refresh();
             }
         }
-        /// IAD 4/21/2025 <summary> This method is called when a picture box in the flow layout panel is clicked. It toggles the selection of the icon and manages the list of selected icons. </summary>
-        /// <param name="sender"></param> <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when a picture box in the flow layout panel is clicked. It toggles the selection of the icon and manages the list of selected icons. </summary> <param name="sender"></param> <param name="e"></param>
         private void pnlLyIcn_Click(object sender, EventArgs e)
         {
             if (sender is PictureBox clicked)
@@ -94,6 +90,5 @@ namespace SynchronousRisk
                 }
             }
         }
-
     }
 }

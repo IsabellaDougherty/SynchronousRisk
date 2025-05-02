@@ -13,14 +13,13 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
         public Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
         public Dictionary<int[], Territory> rgbLookup = new Dictionary<int[], Territory>();
         public Bitmap[] playerIcons;
-        /// 3/10/2025 <summary> Constructor for the InformationDatasets class. </summary>
+        ///IAD 3/10/2025 <summary> Constructor for the InformationDatasets class. </summary>
         public InformationDatasets()
         {
             TerritoryInformationParse();
             playerIcons = FileReadIn.PlayerIcons();
         }
-        /// IAD 3/16/2025 <summary> Parses out information read in from the FileReadIn class regarding territories. </summary>
-        /// <exception cref="Exception"></exception>
+        /// IAD 3/16/2025 <summary> Parses out information read in from the FileReadIn class regarding territories. </summary> <exception cref="Exception"></exception>
         private void TerritoryInformationParse()
         {
             string[] lineSplit = FileReadIn.TerritoryInformation().Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
@@ -50,8 +49,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             positions = positionsList.ToArray();
             FillTerritoryLookup(names, territoryRGBs, positions, borders);
         }
-        /// IAD 3/17/2025 <summary> Parses input RGB string into a size 3 int array with int[0] being red, int[1] being green, and int[2] being blue. </summary>
-        /// <param name="rgb"></param> <exception cref="Exception"></exception>
+        /// IAD 3/17/2025 <summary> Parses input RGB string into a size 3 int array with int[0] being red, int[1] being green, and int[2] being blue. </summary> <param name="rgb"></param> <exception cref="Exception"></exception>
         private int[] RGBParse(string rgb)
         {
             string[] RGBSplit = rgb.Split(',');
@@ -62,8 +60,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             else throw new Exception($"Invalid RGB values.");
             return output;
         }
-        /// IAD 3/31/2025 <summary> Parses input position string into a Point object with x and y values. </summary> 
-        /// <param name="position"></param> <exception cref="Exception"></exception>
+        /// IAD 3/31/2025 <summary> Parses input position string into a Point object with x and y values. </summary> <param name="position"></param> <exception cref="Exception"></exception>
         private PointF PositionParse(string position)
         {
             string[] positionSplit = position.Split(',');
@@ -78,8 +75,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             else throw new Exception($"Invalid position values.");
             return output;
         }
-        /// IAD 3/17/2025 <summary> Fills the territory lookup dictionary with information provided from the parameters. </summary>
-        /// <param name="names"></param> <param name="territoryIDs"></param> <param name="borders"></param>
+        /// IAD 3/17/2025 <summary> Fills the territory lookup dictionary with information provided from the parameters. </summary> <param name="names"></param> <param name="territoryIDs"></param> <param name="borders"></param>
         private void FillTerritoryLookup(string[] names, int[][] territoryIDs, PointF[] positions, string[][] borders)
         {
             for (int i = 0; i < names.Length; i++)
@@ -92,8 +88,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
                 FillBorders(tempTerr);
             }
         }
-        /// IAD 3/17/2025 <summary> Fills the regions dictionary with the territories provided. </summary>
-        /// <param name="territory"></param>
+        /// IAD 3/17/2025 <summary> Fills the regions dictionary with the territories provided. </summary> <param name="territory"></param>
         private void FillRegions(Territory territory) 
         {
             if (!regions.ContainsKey(territory.GetRegionID()))
@@ -101,8 +96,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             else regions[territory.GetRegionID()].Add(territory);
             foreach (int[] rgb in rgbLookup.Keys)if (rgb[0] == territory.GetRegionID()) { regions[territory.GetRegionID()].Add(rgbLookup[rgb]); }
         }
-        /// IAD 3/17/2025 <summary> Fills the borders dictionary with the territories provided. </summary>
-        /// <param name="territory"></param>
+        /// IAD 3/17/2025 <summary> Fills the borders dictionary with the territories provided. </summary> <param name="territory"></param>
         private void FillBorders(Territory territory)
         {
             string[] borderString = territory.GetBorders();
@@ -114,8 +108,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             }
             borders[territory.GetName()] = borderingTerrs;
         }
-        /// IAD 3/16/2025 <summary> Fills the rgbLookup dictionary with the territories provided. </summary>
-        /// <param name="territory"></param>
+        /// IAD 3/16/2025 <summary> Fills the rgbLookup dictionary with the territories provided. </summary> <param name="territory"></param>
         private void FillrgbLookup(Territory territory) { rgbLookup[territory.GetRGB()] = territory; }
         /// IAD 3/17/2025 <summary> Returns an array of all the territories. </summary>
         public Territory[] GetTerritoriesArray()
@@ -127,8 +120,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
         }
         /// IAD 3/17/2025 <summary> Returns an array of all the borders for a provided territory. </summary>
         public Territory[] GetTerritoriesBordersArray(string name) { return borders[name].ToArray(); }
-        /// IAD 3/17/2025 <summary> Returns the territory with the provided name given the RGB value. </summary>
-        /// <param name="rgb"></param>
+        /// IAD 3/17/2025 <summary> Returns the territory with the provided name given the RGB value. </summary> <param name="rgb"></param>
         public Territory GetTerritoryByRGB(int[] rgb) { return rgbLookup[rgb]; }
     }
 }

@@ -31,9 +31,7 @@ namespace SynchronousRisk
             originalNumMap = new Rectangle(gpBxNumMap.Location.X, gpBxNumMap.Location.Y, gpBxNumMap.Size.Width, gpBxNumMap.Size.Height);
             originalPlayBtn = new Rectangle(btnStart.Location.X, btnStart.Location.Y, btnStart.Size.Width, btnStart.Size.Height);
         }
-        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
-        /// <param name="r"></param>
-        /// <param name="c"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary> <param name="r"></param> <param name="c"></param>
         private void resizeControl(Rectangle r, Control c)
         {
             float xRatio = (float)(this.Width) / (float)(originalFormSize.Width);
@@ -48,36 +46,28 @@ namespace SynchronousRisk
             c.Location = new Point(newX, newY);
             c.Size = new Size(newWidth, newHeight);
         }
-        /// IAD 4/21/2025 <summary> This method is called when the form is loaded. It resizes the controls and shows the icons. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is loaded. It resizes the controls and shows the icons. </summary> <param name="sender"></param> <param name="e"></param>
         private void SetupScreen_Load(object sender, EventArgs e)
         {
             icons.Show();
             this.ShowIcon = true;
             icons.Size = new Size((int)(this.Width - gpBxNumMap.Width * 2), (int)(this.Height - btnStart.Height * 2));
         }
-        /// IAD 4/20/2025 <summary> This method is called when the start button is clicked. It creates a new PlayableForm and shows it as a dialog. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/20/2025 <summary> This method is called when the start button is clicked. It creates a new PlayableForm and shows it as a dialog. </summary> <param name="sender"></param> <param name="e"></param>
         private void btnStart_Click(object sender, EventArgs e)
         {
             var setup = new Thread(() => Application.Run(new PlayableForm(icons.icons.ToArray(), numberOfPlayers, numberOfPlayers / playersPerBoard)));
             setup.Start();
             this.Close();
         }
-        /// IAD 4/18/2025 <summary> This method is called when the form is closed. It disposes of the form and all its components. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/18/2025 <summary> This method is called when the form is closed. It disposes of the form and all its components. </summary> <param name="sender"></param> <param name="e"></param>
         private void SetupScreen_Leave(object sender, EventArgs e) 
         { 
             this.Dispose();
             icons.Dispose();
             HomeScreen.ActiveForm.Dispose();
         }
-        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the controls based on the new size of the form. </summary> <param name="sender"></param> <param name="e"></param>
         private void SetupScreen_Resize(object sender, EventArgs e)
         {
             resizeControl(originalPlayBtn, btnStart);
@@ -89,10 +79,9 @@ namespace SynchronousRisk
             ScaleFont(numPlaysPerMap, gpBxNumPlayers);
             ScaleFont(numMaps, gpBxNumMap);
         }
-        /// IAD 4/21/2025 <summary> This method is called when the number of players is changed. It updates the number of players in the IconSelect form. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the number of players is changed. It updates the number of players in the IconSelect form. </summary> <param name="sender"></param> <param name="e"></param>
         private void numPlays_ValueChanged(object sender, EventArgs e) { updateSetupValues(); }
+        /// IAD 4/26/2025 <summary> This method is called when the number of players per map is changed. It updates the number of players per map in the IconSelect form. </summary>
         private void numPlaysPerMap_ValueChanged(object sender, EventArgs e) { updateSetupValues(); }
         /// IAD 4/26/2025 <summary> This method updates the number of players and the number of players per map based on the values selected in the numeric up-down controls. It also updates the icons in the IconSelect form. </summary>
         private void updateSetupValues()
@@ -109,9 +98,7 @@ namespace SynchronousRisk
         }
         /// IAD 4/21/2025 <summary> This method is called when the form is moved. It adjusts the location of the IconSelect form based on the new location of this form. </summary>
         private Point m_PreviousLocation = new Point(int.MinValue, int.MinValue);
-        /// IAD 4/21/2025 <summary> This method is called when the form is moved. It adjusts the location of the IconSelect form based on the new location of this form. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is moved. It adjusts the location of the IconSelect form based on the new location of this form. </summary> <param name="sender"></param> <param name="e"></param>
         private void SetupScreen_LocationChanged(object sender, EventArgs e)
         {
             Form[] formsToAdjust = Application
@@ -136,9 +123,7 @@ namespace SynchronousRisk
             float newSize = n.Font.Size * hRatio;
             n.Font = new Font(n.Font.FontFamily, newSize, n.Font.Style);
         }
-        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the icons based on the new size of the form. </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// IAD 4/21/2025 <summary> This method is called when the form is resized. It resizes the icons based on the new size of the form. </summary> <param name="sender"></param> <param name="e"></param>
         private void SetupScreen_SizeChanged(object sender, EventArgs e)
         {
             icons.Location = new Point(this.Location.X + (int)(this.Width / 5), this.Location.Y + (btnStart.Height / 2));
