@@ -165,8 +165,8 @@ namespace SynchronousRisk
             {
                 Territory SelectedTerritory = gameState.GetActiveBoard().GetTerritoryByName(TerritoryString);
                 gameState.GetActiveBoard().CurrMenu = gameState.GetActiveBoard().CurrMenu.InputTerritory(SelectedTerritory);
-                SelectNextScreen();
             }
+            SelectNextScreen();
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
             //Graphics g = CreateGraphics();

@@ -145,6 +145,12 @@ Each of your turns consists of three steps, in this order:
 
 			---
 
+PORTAL SEND PHASE
+If you sent troops through a portal in your previous turn, they will arrive at their destination before the draft phase. If you own the territory that they arrive at, they will be added to the number of troops at that territory. However, if an opponent owns the territory, they will attack the current owner until either side wins.
+You cannot retreat from this fight. Your army will either claim the territory or die trying, so make sure you send enough troops to win.
+
+			---
+
 DRAFT PHASE
 At the beginning of each turn, you'll be given a number of troops to add to your territories based on . . .
 1. The number of territories you occupy;
@@ -177,7 +183,7 @@ RISK CARDS
 		The third set traded in - 8 armies
 		The fourth set traded in - 10 armies
 		The fifth set traded in - 12 armies
-		The sixth set traded in - 14 armies (and so on and so forth)
+		The sixth set traded in - 15 armies (and so on and so forth)
 
 			---
 
@@ -225,8 +231,13 @@ In moving your armies from one territory to another, you must leave at least one
 
 			---
 
+PORTAL RECEIVE PHASE
+The portal send phase behaves similarly to the fortify phase. You can send troops through portals to the territory on the other side, but they will not arrive until the start of your next turn. If you own the territory that they arrive at, they will be added to the number of troops at that territory. However, if an opponent owns the territory, they will attack the current owner until either side wins.
+You cannot retreat from this fight. Your army will either claim the territory or die trying, so make sure you send enough troops to win.
+
+			---
+
 WINNING
-The winner is the first player to eliminate every opponent by capturing all 42 territories on the board.
-</value>
+The winner is the first player to eliminate every opponent by capturing all 42 territories on the board.</value>
   </data>
 </root>
