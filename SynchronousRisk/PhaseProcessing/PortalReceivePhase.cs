@@ -2,6 +2,7 @@
 using SynchronousRisk.obj.Game_Pieces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,18 +25,19 @@ namespace SynchronousRisk.PhaseProcessing
             // Russell Phillips 4/21/2025
             foreach (Portal portal in gameState.Portals)
             {
-                foreach ((Player player, int numTroops) in portal.Transit)
+                //foreach ((Player player, int numTroops) in portal.Transit)
+                for (int i = portal.Transit.Count - 1; i >= 0; i--)
                 {
-                    if (player == CurrentPlayer)
+                    if (portal.Transit[i].Item1 == CurrentPlayer)
                     {
-                        if (!player.OwnedTerritories.Contains(portal.Destination))
+                        if (!portal.Transit[i].Item1.OwnedTerritories.Contains(portal.Destination))
                         {
-                            Territory dummyTerritory = new Territory(numTroops);
+                            Territory dummyTerritory = new Territory(portal.Transit[i].Item2);
                             AttackPhase attackPhase = new AttackPhase(gameState, dummyTerritory, portal.Destination);
                             while (dummyTerritory.GetTroops() != 0)
                             {
                                 attackPhase.Battle(Math.Min(dummyTerritory.GetTroops(), 3));
-                                if (attackPhase.CheckBattleWon(player))
+                                if (attackPhase.CheckBattleWon(portal.Transit[i].Item1))
                                 {
                                     portal.Destination.SetTroops(dummyTerritory.GetTroops());
                                     message = "Battle won";
@@ -46,9 +48,10 @@ namespace SynchronousRisk.PhaseProcessing
                         }
                         else
                         {
-                            portal.Destination.SetTroops(portal.Destination.GetTroops() + numTroops);
+                            portal.Destination.SetTroops(portal.Destination.GetTroops() + portal.Transit[i].Item2);
                             message = "Troops recieved";
                         }
+                        portal.Transit.RemoveAt(i);
                     }
                 }
             }
