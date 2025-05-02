@@ -138,6 +138,12 @@ namespace SynchronousRisk
 
             WindowState = FormWindowState.Maximized;
 
+            if (NumBoards < 2)
+            {
+                SwapMapsButton.Visible = false;
+                SwapMapsButton.Enabled = false;
+            }
+
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
 
