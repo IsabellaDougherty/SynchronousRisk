@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace SynchronousRisk.PhaseProcessing
 {
+    /// Karen Dixon 4/28/2025
+    /// <summary>
+    /// Phase representing the Portal Send Phase at the end of a player's turn
+    /// </summary>
     internal class PortalSendPhase : Phase
     {
         Territory sourceTerritory;
@@ -15,12 +19,23 @@ namespace SynchronousRisk.PhaseProcessing
         {
             CanContinue = true;
         }
+        /// Karen Dixon 4/28/2025
+        /// <summary>
+        /// Start of the Portal Send Phase
+        /// </summary>
+        /// <returns></returns>
         public override UIManager Start()
         {
             gameState.PhaseInt = 4;
             gameState.phaseChange = true;
             return new SelectTerritory("Input portal to send troops through", GetSourceTerritory);
         }
+        /// Karen Dixon 4/28/2025
+        /// <summary>
+        /// Gets the territory with the portal that the player will send troops through
+        /// </summary>
+        /// <param name="sourceTerr"></param>
+        /// <returns></returns>
         public UIManager GetSourceTerritory(Territory sourceTerr)
         {
             if (sourceTerr == null)
@@ -43,6 +58,12 @@ namespace SynchronousRisk.PhaseProcessing
             sourceTerritory = sourceTerr;
             return new SelectNumber($"Input number to transfer", GetNumTransfer, 0, sourceTerritory.GetTroops() - 1);
         }
+        /// Karen Dixon 4/28/2025
+        /// <summary>
+        /// Transfers troops to the portal's troop storage
+        /// </summary>
+        /// <param name="numTransfer"></param>
+        /// <returns></returns>
         public UIManager GetNumTransfer(int numTransfer)
         {
             sourceTerritory.SetTroops(sourceTerritory.GetTroops() - numTransfer);

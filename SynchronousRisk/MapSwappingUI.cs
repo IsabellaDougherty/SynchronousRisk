@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace SynchronousRisk
 {
+    /// Karen Dixon 4/26/2025
+    /// <summary>
+    /// The UI for swapping maps during a game Risk with more than one board
+    /// </summary>
     public partial class MapSwappingUI: Form
     {
         BufferedGraphicsContext context;
@@ -33,6 +37,11 @@ namespace SynchronousRisk
 
         GameState gameState;
         int currentBoardIndexStorage;
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Initializes various values
+        /// </summary>
+        /// <param name="givenGameState"></param>
         public MapSwappingUI(GameState givenGameState)
         {
             InitializeComponent();
@@ -69,6 +78,11 @@ namespace SynchronousRisk
 
             WindowState = FormWindowState.Maximized;
         }
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Draws up to six maps and the player icons for each map
+        /// </summary>
+        /// <param name="g"></param>
         void DrawMaps(Graphics g)
         {
             g.DrawImage(mapSwappingUI, mapSwappingUIBounds);
@@ -105,7 +119,12 @@ namespace SynchronousRisk
             }
             gameState.SetActiveBoard(currentBoardIndexStorage);
         }
-
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Changes the sizes of each bitmap bounding rectangle when the form is resized
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnResize(object sender, EventArgs e)
         {
             mapSwappingUIBounds.Width = Width;
@@ -127,7 +146,12 @@ namespace SynchronousRisk
             DrawMaps(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
-
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Identifies which map the player clicked on and closes the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MapSwappingUI_MouseClick(object sender, MouseEventArgs e)
         {
             DrawMaps(graphics.Graphics);
@@ -136,7 +160,7 @@ namespace SynchronousRisk
             Point position = new Point(e.X, e.Y);
 
             Color color = resizedBackground.GetPixel(position.X, position.Y);
-            if (color.B >= 1 && color.B <= 6)
+            if (color.B >= 1 && color.B <= 6 && ((6 * (currentPage - 1)) + color.B - 1) < totalMaps)
             {
                 gameState.SetActiveBoard((6 * (currentPage - 1)) + color.B - 1);
                 gameState.mapChange = true;
@@ -144,7 +168,12 @@ namespace SynchronousRisk
             }
             //MessageBox.Show(colorRGB[0].ToString() + " " + colorRGB[1].ToString() + " " + colorRGB[2].ToString());
         }
-
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Swaps to the previous page of maps
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PreviousMapsButton_Click(object sender, EventArgs e)
         {
             currentPage--;
@@ -158,6 +187,12 @@ namespace SynchronousRisk
             DrawMaps(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
         }
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Swaps to the next page of maps
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NextMapsButton_Click(object sender, EventArgs e)
         {
             currentPage++;

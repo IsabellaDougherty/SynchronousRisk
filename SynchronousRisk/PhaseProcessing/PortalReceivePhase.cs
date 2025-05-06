@@ -10,22 +10,31 @@ using System.Web;
 
 namespace SynchronousRisk.PhaseProcessing
 {
+    /// Karen Dixon 4/28/2025
+    /// <summary>
+    /// Phase representing the Portal Recieve Phase at the start of a player's turn
+    /// </summary>
     internal class PortalReceivePhase : Phase
     {
         public PortalReceivePhase(GameState g) : base(g) 
         {
             CanContinue = true;
         }
+        /// Karen Dixon 4/28/2025
+        /// <summary>
+        /// Start of the Portal Receive Phase
+        /// </summary>
+        /// <returns></returns>
         public override UIManager Start()
         {
             gameState.PhaseInt = 0;
             gameState.phaseChange = true;
             String message = "No troops to receive";
 
-            // Russell Phillips 4/21/2025
+            // Russell Phillips & Karen Dixon 4/21/2025 
+            // Iterates through portals and (player, troop count) pairs
             foreach (Portal portal in gameState.Portals)
             {
-                //foreach ((Player player, int numTroops) in portal.Transit)
                 for (int i = portal.Transit.Count - 1; i >= 0; i--)
                 {
                     if (portal.Transit[i].Item1 == CurrentPlayer)

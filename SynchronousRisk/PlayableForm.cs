@@ -29,7 +29,7 @@ namespace SynchronousRisk
         int[] water = new int[] { 108, 174, 205 };
         double[] phaseXPositions = { 7.5, 3.38, 2.18, 1.62, 1.28 };
 
-        // Karen Dixon 3/3/2025: Variables required for the graphics
+        // Karen Dixon 3/3/2025: Elements required for the graphics
         Label[] troopLabels = new Label[42];
         BufferedGraphicsContext context;
         BufferedGraphics graphics;
@@ -175,6 +175,7 @@ namespace SynchronousRisk
             SelectNextScreen();
             DrawToBuffer(graphics.Graphics);
             graphics.Render(Graphics.FromHwnd(Handle));
+            // Debug Element: replaces the pixel that was clicked on with a red pixel to show exactly where you clicked
             //Graphics g = CreateGraphics();
             //g.FillRectangle(new SolidBrush(Color.Red), position.X, position.Y, 1, 1);
         }
@@ -235,6 +236,7 @@ namespace SynchronousRisk
             updateGraphics();
         }
         // Karen Dixon 4/17/2025: updates player icon and troop count for individual territories if they have changed.
+        // This was to reduce lag while debugging
         void updateGraphics()
         {
             if (gameState.mapChange == true)
@@ -271,7 +273,7 @@ namespace SynchronousRisk
         }
 
         // Karen Dixon 2/10/2025: Draws each bitmap that will be seen on screen to a buffer.
-        // This prevents flickering caused by redrawing everything every frame.
+        // This prevents flickering caused by drawing every bitmap on screen individually
         void DrawToBuffer(Graphics g)
         {
             g.DrawImage(worldMap, wolrdMapBounds);
@@ -286,7 +288,7 @@ namespace SynchronousRisk
                 playerIconBounds.X = (int)(Width / t.GetPosition().X);
                 playerIconBounds.Y = (int)(Height / t.GetPosition().Y);
 
-                // Draw Portal
+                // Draw Portal if present
                 if(t.PortalPresent == true)
                 {
                     portalBounds.X = playerIconBounds.X - (int)(Width / 170);
@@ -294,7 +296,7 @@ namespace SynchronousRisk
                     g.DrawImage(portal, portalBounds);
                 }
 
-                // Draw player icons
+                // Draw player icon
                 Player owner = gameState.TerritoryOwnedByWho(t);
                 if (owner != null) g.DrawImage(owner.GetIcon(), playerIconBounds);
 
@@ -470,6 +472,12 @@ namespace SynchronousRisk
             else { MessageBox.Show("You can only exchange cards during the draft phase or when you exceed 5 cards from defeating an opponent."); }
             graphics.Render(Graphics.FromHwnd(Handle));
         }
+        /// Karen Dixon 4/26/2025
+        /// <summary>
+        /// Starts the form for the Map Swapping UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SwapMapsButton_Click(object sender, EventArgs e)
         {
             var mapSwapping = new Thread(() => Application.Run(new MapSwappingUI(gameState)));
