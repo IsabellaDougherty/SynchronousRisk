@@ -18,38 +18,27 @@
       <Field Name="icons" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SynchronousRisk.PlayableForm" Collapsed="true">
+  <Class Name="SynchronousRisk.PlayableForm">
     <Position X="34.5" Y="13" Width="1.5" />
     <InheritanceLine Type="System.Windows.Forms.Form" ManuallyRouted="true">
       <Path>
         <Point X="30" Y="12.191" />
         <Point X="30" Y="12.666" />
         <Point X="32.792" Y="12.666" Type="JumpStart" />
-        <Point X="32.99" Y="12.666" Type="JumpEnd" />
+        <Point X="32.989" Y="12.666" Type="JumpEnd" />
         <Point X="35.25" Y="12.666" />
         <Point X="35.25" Y="13" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="gameState" Type="SynchronousRisk.GameState" ManuallyRouted="true">
-      <Path>
-        <Point X="36" Y="13.25" />
-        <Point X="36.523" Y="13.25" />
-        <Point X="36.523" Y="27.036" />
-        <Point X="33.733" Y="27.036" />
-        <Point X="33.733" Y="24.262" />
-        <Point X="23.659" Y="24.262" />
-        <Point X="23.659" Y="14.461" />
-        <Point X="5.257" Y="14.461" />
-        <Point X="5.257" Y="0.799" />
-        <Point X="7.095" Y="0.799" />
-        <Point X="7.095" Y="1.063" />
-        <Point X="10.5" Y="1.063" />
-      </Path>
+    <AssociationLine Name="exchangeCards" Type="SynchronousRisk.ExchangeCards">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.175" Y="0.059" />
+      </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="phase" Type="SynchronousRisk.PhaseProcessing.Phase" ManuallyRouted="true">
       <Path>
-        <Point X="36" Y="13.5" />
-        <Point X="36.296" Y="13.5" />
+        <Point X="36" Y="23.262" />
+        <Point X="36.296" Y="23.262" />
         <Point X="36.296" Y="27.094" />
         <Point X="33.639" Y="27.094" />
         <Point X="33.639" Y="24.27" />
@@ -66,19 +55,30 @@
         <Position X="-0.015" Y="0.185" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="exchangeCards" Type="SynchronousRisk.ExchangeCards">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.175" Y="0.059" />
-      </MemberNameLabel>
+    <AssociationLine Name="gameState" Type="SynchronousRisk.GameState" ManuallyRouted="true">
+      <Path>
+        <Point X="36" Y="18.131" />
+        <Point X="36.523" Y="18.131" />
+        <Point X="36.523" Y="27.036" />
+        <Point X="33.733" Y="27.036" />
+        <Point X="33.733" Y="24.262" />
+        <Point X="23.659" Y="24.262" />
+        <Point X="23.659" Y="14.461" />
+        <Point X="5.257" Y="14.461" />
+        <Point X="5.257" Y="0.799" />
+        <Point X="7.095" Y="0.799" />
+        <Point X="7.095" Y="1.063" />
+        <Point X="10.5" Y="1.063" />
+      </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>FiBCAAAAUiZBKgIATIKgABiDIBiQMAuIoAVkgCBgBAE=</HashCode>
+      <HashCode>FiBCAAAAUiZBKgIATIKgABiDIBiQMAuIoAVkgChgBAE=</HashCode>
       <FileName>PlayableForm.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="exchangeCards" />
-      <Field Name="gameState" />
       <Field Name="phase" />
+      <Field Name="gameState" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.MapSwappingUI" Collapsed="true">
@@ -132,7 +132,7 @@
       <FileName>HomeScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SynchronousRisk.Help" Collapsed="true">
+  <Class Name="SynchronousRisk.Help">
     <Position X="30" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEQCAAAICAAAAAAAACCAAgGAAAAAIAAAAGAADAgAAA=</HashCode>
@@ -157,6 +157,17 @@
   </Class>
   <Class Name="SynchronousRisk.ExchangeCards" Collapsed="true">
     <Position X="31.75" Y="13" Width="1.5" />
+    <AssociationLine Name="player" Type="SynchronousRisk.Player" ManuallyRouted="true">
+      <Path>
+        <Point X="32.875" Y="13" />
+        <Point X="32.875" Y="12.375" />
+        <Point X="32.75" Y="12.375" />
+        <Point X="32.75" Y="2.562" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.692" Y="0.046" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="phase" Type="SynchronousRisk.PhaseProcessing.Phase" ManuallyRouted="true">
       <Path>
         <Point X="33.25" Y="13.563" />
@@ -175,15 +186,9 @@
         <Position X="0.447" Y="-0.114" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="player" Type="SynchronousRisk.Player" ManuallyRouted="true">
-      <Path>
-        <Point X="32.875" Y="13" />
-        <Point X="32.875" Y="12.375" />
-        <Point X="32.75" Y="12.375" />
-        <Point X="32.75" Y="2.562" />
-      </Path>
+    <AssociationLine Name="activeGame" Type="SynchronousRisk.PlayableForm">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.692" Y="0.046" />
+        <Position X="0.061" Y="-0.002" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="exchangeCards" Type="SynchronousRisk.Card" ManuallyRouted="true">
@@ -199,20 +204,15 @@
         <Position X="-1.23" Y="0.114" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="activeGame" Type="SynchronousRisk.PlayableForm">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.061" Y="-0.002" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>MAgAAACAEHAEEIAwAADgIAgSCgQQAAwFAADkAFGFEAQ=</HashCode>
       <FileName>ExchangeCards.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="player" />
+      <Field Name="phase" />
       <Field Name="activeGame" />
       <Field Name="exchangeCards" />
-      <Field Name="phase" />
-      <Field Name="player" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.Troops" Collapsed="true">
@@ -238,6 +238,15 @@
         <Point X="20.5" Y="9.5" />
       </Path>
     </InheritanceLine>
+    <AssociationLine Name="t" Type="SynchronousRisk.Troops" ManuallyRouted="true">
+      <Path>
+        <Point X="23.382" Y="9.5" />
+        <Point X="23.382" Y="4.915" />
+        <Point X="25.6" Y="4.915" />
+        <Point X="25.6" Y="4.563" />
+        <Point X="28" Y="4.563" />
+      </Path>
+    </AssociationLine>
     <AssociationLine Name="ExitPortal" Type="SynchronousRisk.obj.Game_Pieces.Portal" ManuallyRouted="true">
       <Path>
         <Point X="21.511" Y="9.5" />
@@ -248,22 +257,13 @@
         <Position X="0.083" Y="-0.206" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="t" Type="SynchronousRisk.Troops" ManuallyRouted="true">
-      <Path>
-        <Point X="23.382" Y="9.5" />
-        <Point X="23.382" Y="4.915" />
-        <Point X="25.6" Y="4.915" />
-        <Point X="25.6" Y="4.563" />
-        <Point X="28" Y="4.563" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAgAAgAAKAAAwEAIAIgCEQQAAAEABAA=</HashCode>
       <FileName>obj\Game Pieces\Territory.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="ExitPortal" />
       <Field Name="t" />
+      <Field Name="ExitPortal" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.Region" Collapsed="true">
@@ -305,14 +305,14 @@
         <Point X="33.25" Y="2" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="deck" Type="SynchronousRisk.Deck">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.101" Y="0.076" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="playerHand" Type="SynchronousRisk.Hand">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="0.029" Y="-0.271" Height="0.182" Width="1.062" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="deck" Type="SynchronousRisk.Deck">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.101" Y="0.076" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -320,8 +320,8 @@
       <FileName>obj\Game Pieces\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="deck" />
       <Field Name="playerHand" />
+      <Field Name="deck" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.Hand" Collapsed="true">
@@ -365,11 +365,6 @@
         <Point X="28.25" Y="8.562" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="CardType" Type="SynchronousRisk.CardType">
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="0.06" Y="0.045" Height="0.182" Width="1.081" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="Territory" Type="SynchronousRisk.Territory" ManuallyRouted="true">
       <Path>
         <Point X="26.75" Y="8.562" />
@@ -381,17 +376,27 @@
         <Position X="0.345" Y="0.317" Height="0.182" Width="0.756" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="CardType" Type="SynchronousRisk.CardType">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.06" Y="0.045" Height="0.182" Width="1.081" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAAAAAAAAQgAAgAAAAAAQBAAAAAAAA=</HashCode>
       <FileName>obj\Game Pieces\Card.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="CardType" />
       <Property Name="Territory" />
+      <Property Name="CardType" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.Board" Collapsed="true">
     <Position X="18.5" Y="2" Width="1.5" />
+    <AssociationLine Name="infoData" Type="SynchronousRisk.Resources.Assets.Text_Files.InformationDatasets">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.523" Y="0.035" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="regionsArray" Type="SynchronousRisk.Region" ManuallyRouted="true">
       <Path>
         <Point X="20" Y="2.281" />
@@ -417,19 +422,14 @@
         <Position X="0.067" Y="0.126" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="infoData" Type="SynchronousRisk.Resources.Assets.Text_Files.InformationDatasets">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.523" Y="0.035" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>gSCSDAAAABAABAAAgAAAAAAAEAAFAIAAAAAQEAgEBAA=</HashCode>
       <FileName>obj\Game Pieces\Board.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="allTerritories" />
       <Field Name="infoData" />
       <Field Name="regionsArray" />
+      <Field Name="allTerritories" />
       <Field Name="CurrMenu" />
     </ShowAsAssociation>
   </Class>
@@ -457,16 +457,6 @@
         <Point X="27.75" Y="3" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="Destination" Type="SynchronousRisk.Territory" ManuallyRouted="true">
-      <Path>
-        <Point X="27" Y="3.312" />
-        <Point X="21.44" Y="3.312" />
-        <Point X="21.44" Y="9.5" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-5.433" Y="6.232" Height="0.182" Width="0.976" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="Source" Type="SynchronousRisk.Territory" ManuallyRouted="true">
       <Path>
         <Point X="27" Y="3.062" />
@@ -477,13 +467,23 @@
         <Position X="-5.074" Y="6.48" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="Destination" Type="SynchronousRisk.Territory" ManuallyRouted="true">
+      <Path>
+        <Point X="27" Y="3.312" />
+        <Point X="21.44" Y="3.312" />
+        <Point X="21.44" Y="9.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-5.433" Y="6.232" Height="0.182" Width="0.976" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAEAgAAAAAAgAAAAAIAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>obj\Game Pieces\Portal.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Destination" />
       <Field Name="Source" />
+      <Field Name="Destination" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.Menus.UIManager" Collapsed="true">
@@ -618,6 +618,18 @@
         <Point X="9.875" Y="6" />
       </Path>
     </InheritanceLine>
+    <AssociationLine Name="SourceTerritory" Type="SynchronousRisk.Territory" ManuallyRouted="true">
+      <Path>
+        <Point X="8.781" Y="6.691" />
+        <Point X="8.781" Y="10.07" />
+        <Point X="15.857" Y="10.07" />
+        <Point X="15.857" Y="9.687" />
+        <Point X="17.25" Y="9.687" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="1.376" Y="-0.327" Height="0.182" Width="1.159" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="DestinationTerritory" Type="SynchronousRisk.Territory" ManuallyRouted="true">
       <Path>
         <Point X="8.562" Y="6.691" />
@@ -632,25 +644,13 @@
         <Position X="1.498" Y="-0.6" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="SourceTerritory" Type="SynchronousRisk.Territory" ManuallyRouted="true">
-      <Path>
-        <Point X="8.781" Y="6.691" />
-        <Point X="8.781" Y="10.07" />
-        <Point X="15.857" Y="10.07" />
-        <Point X="15.857" Y="9.687" />
-        <Point X="17.25" Y="9.687" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="1.376" Y="-0.327" Height="0.182" Width="1.159" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
       <HashCode>EAAAAACAACAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAIA=</HashCode>
       <FileName>PhaseProcessing\FortifyPhase.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="DestinationTerritory" />
       <Field Name="SourceTerritory" />
+      <Field Name="DestinationTerritory" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SynchronousRisk.PhaseProcessing.Phase" Collapsed="true">

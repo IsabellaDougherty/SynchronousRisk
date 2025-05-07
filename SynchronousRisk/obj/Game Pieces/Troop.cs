@@ -18,9 +18,6 @@ namespace SynchronousRisk
     public class Troops
     {
         private int totalTroops;
-        //IAD 2/19/2025: To be utilized at a later point when portals are implemented. Can be deleted, not a nessesary feature
-        //  but incorporating for assistance in the thought pipeline down the line.
-        //private Board home;
         public Troops(int total) { totalTroops = total; }
         public int getTroops() { return totalTroops; }
         public void setTroops(int newTotal) { totalTroops = newTotal; }
