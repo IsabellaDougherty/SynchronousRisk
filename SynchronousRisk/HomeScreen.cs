@@ -43,6 +43,8 @@ namespace SynchronousRisk
                 "Isabella Dougherty\n" +
                 "Russell Phillips\n" +
                 "Karen Dixon\n\n" +
+                "Icons Created By\n" +
+                "Isabella Dougherty\n\n" +
                 "Supervised By:\n" +
                 "Dr. David Beard\n" +
                 "\n\nEducational Rights Reserved.");

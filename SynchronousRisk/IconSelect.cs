@@ -34,8 +34,7 @@ namespace SynchronousRisk
             icons.Clear();
             iconIndex.Clear();
             foreach (Control c in pnlLyIcn.Controls)
-                if (c is PictureBox pic)
-                    pic.BackColor = Color.Transparent;
+                if (c is PictureBox pic) pic.BackColor = Color.Transparent;
         }
         /// IAD 4/21/2025 <summary> This method loads the icons from the Resources/Assets/Icons directory and adds them to the flow layout panel. </summary>
         private void loadIcons()

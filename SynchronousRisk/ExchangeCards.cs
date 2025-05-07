@@ -29,8 +29,7 @@ namespace SynchronousRisk
             activeGame = game;
             phase = game.gameState.GetCurrentPhase();
             hand = player.GetHand().GetCards();
-            if (hand != null && hand.Count >= 3)
-                exchangeCards = player.GetHand().BestExchangeOption();
+            if (hand != null && hand.Count >= 3) exchangeCards = player.GetHand().BestExchangeOption();
             else exchangeCards = new Card[3] { null, null, null };
             if (hand != null && hand.Count > 5) forced = true;
             if (forced)
@@ -62,8 +61,7 @@ namespace SynchronousRisk
             tblPnPlayerHand.Controls.Clear();
             tblPnPlayerHand.ColumnStyles.Clear();
             tblPnPlayerHand.ColumnCount = hand.Count;
-            for (int i = 0; i < hand.Count; i++)
-                tblPnPlayerHand.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / hand.Count));
+            for (int i = 0; i < hand.Count; i++) tblPnPlayerHand.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / hand.Count));
             foreach (Card card in hand)
             {
                 PictureBox pb = new PictureBox();
@@ -81,8 +79,7 @@ namespace SynchronousRisk
         private void emptyTable()
         {
             foreach (Control c in tblPnPlayerHand.Controls)
-                if (c is PictureBox) 
-                    c.Dispose();
+                if (c is PictureBox) c.Dispose();
             tblPnPlayerHand.Controls.Clear();
         }
         /// IAD 4/23/2024 <summary> Sets the image of the PictureBox to the card's image and adds the territory name to the image. </summary> <param name="pb"></param> <param name="card"></param>
@@ -128,7 +125,6 @@ namespace SynchronousRisk
             string saveto = "Resources/Assets/Cards/AutoGenCardImages";
             Directory.CreateDirectory(Path.GetDirectoryName(saveto));
             System.IO.File.WriteAllBytes(saveto, convertedToBytes);
-
 
             pb.Image = cardBase;
         }

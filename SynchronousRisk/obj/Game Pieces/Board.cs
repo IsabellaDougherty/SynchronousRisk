@@ -40,10 +40,7 @@ namespace SynchronousRisk
                     regionIDs.Add(rgb[1]);
                     Region region = new Region(rgb[1], new Territory[0]);
                     regionsMade.Add(region);
-                    foreach (Territory t in infoData.rgbLookup.Values)
-                    {
-                        if (t.rgb[1] == rgb[1]) { region.AddTerritory(t); }
-                    }
+                    foreach (Territory t in infoData.rgbLookup.Values) { if (t.rgb[1] == rgb[1]) { region.AddTerritory(t); } }
                 }
             }
             return regionsMade.ToArray();
@@ -51,22 +48,17 @@ namespace SynchronousRisk
         /// IAD 3/17/2025 <summary> Returns the regions in the game. </summary>
         public Region[] GetRegions() { return regionsArray; }
         /// IAD 2/12/2025 <summary> Returns the territories in the game. </summary>
-        public Territory[] GetTerritories()
-        {
-            return infoData.GetTerritoriesArray();
-        }
+        public Territory[] GetTerritories() { return infoData.GetTerritoriesArray(); }
         /// IAD 2/12/2025 <summary> Returns the territory object with the given name. </summary> <param name="name"></param>
         public Territory GetTerritoryByName(string name)
         {
-            if (infoData.territoryLookup.TryGetValue(name, out var territory))
-                return territory;
+            if (infoData.territoryLookup.TryGetValue(name, out var territory)) return territory;
             return null;
         }
         /// IAD 2/12/2025 <summary> Returns the territories that border the given territory. </summary> <param name="territoryName"></param>
         public List<Territory> GetBorders(string territoryName)
         {
-            if (infoData.borders.TryGetValue(territoryName, out var borderList))
-                return borderList;
+            if (infoData.borders.TryGetValue(territoryName, out var borderList)) return borderList;
             return new List<Territory>();
         }
         /// IAD 2/12/2025 <summary> Returns all territories in the game. </summary>
@@ -78,8 +70,7 @@ namespace SynchronousRisk
             foreach (var territory in infoData.territoryLookup.Values)
             {
                 int region = territory.GetRegionID();
-                if (!territoriesByRegion.ContainsKey(region))
-                    territoriesByRegion[region] = new List<Territory>();
+                if (!territoriesByRegion.ContainsKey(region)) territoriesByRegion[region] = new List<Territory>();
                 territoriesByRegion[region].Add(territory);
             }
             List<int> sortedRegions = territoriesByRegion.Keys.ToList();
@@ -103,8 +94,7 @@ namespace SynchronousRisk
                     foreach (var border in borderTerritories)
                     {
                         int borderRegion = border.GetRegionID();
-                        if (!bordersByRegion.ContainsKey(borderRegion))
-                            bordersByRegion[borderRegion] = new List<string>();
+                        if (!bordersByRegion.ContainsKey(borderRegion)) bordersByRegion[borderRegion] = new List<string>();
                         bordersByRegion[borderRegion].Add(border.GetName());
                     }
                     List<int> sortedBorderRegions = bordersByRegion.Keys.ToList();

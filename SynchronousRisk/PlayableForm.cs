@@ -17,8 +17,6 @@ namespace SynchronousRisk
     {
         static ExchangeCards exchangeCards;
         public Phase phase;
-
-        InformationDatasets infoData = new InformationDatasets();
         Dictionary<string, Territory> territories = new Dictionary<string, Territory>();
         Dictionary<int, List<Territory>> regions = new Dictionary<int, List<Territory>>();
         Dictionary<int[], Territory> rgbValues = new Dictionary<int[], Territory>();

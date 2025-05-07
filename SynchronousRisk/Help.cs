@@ -58,10 +58,7 @@ namespace SynchronousRisk
             int rowCount = tblPnIcn.RowCount;
             tblPnIcn.RowStyles.Clear();
             float percentPerRow = 100f / rowCount;
-            for (int i = 0; i < rowCount; i++)
-            {
-                tblPnIcn.RowStyles.Add(new RowStyle(SizeType.Percent, percentPerRow));
-            }
+            for (int i = 0; i < rowCount; i++) { tblPnIcn.RowStyles.Add(new RowStyle(SizeType.Percent, percentPerRow)); }
         }
         /// IAD 4/23/2025 <summary> This method is called when the radio button for the icon key is checked. It toggles the visibility of the icon table. </summary> <param name="sender"></param> <param name="e"></param>
         private void rdBtnIconKey_CheckedChanged(object sender, EventArgs e) { tblPnIcn.Visible = !tblPnIcn.Visible; }

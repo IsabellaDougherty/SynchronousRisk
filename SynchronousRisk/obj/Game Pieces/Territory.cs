@@ -61,10 +61,7 @@ namespace SynchronousRisk
         /// IAD 2/10/2025 <summary> Returns the borders of the territory </summary>
         public string[] GetBorders() { return b; }
         /// IAD 2/10/2025 <summary> Returns the territory's name, region ID, and borders (Made for troubleshooting/testing) </summary>
-        public string GetTerritoryInformation()
-        {
-            return "Territory Name: " + GetName() + "\nRegion ID: " + GetRegionID() + "\nBorders: " + GetBorders();
-        }
+        public string GetTerritoryInformation() { return "Territory Name: " + GetName() + "\nRegion ID: " + GetRegionID() + "\nBorders: " + GetBorders(); }
         /// IAD 2/10/2025 <summary> Returns the number of troops present in the territory </summary>
         public int GetTroops() { return t.getTroops(); }
         /// IAD 2/10/2025 <summary> Sets the number of troops present in the territory </summary> <param name="newTroops"></param>

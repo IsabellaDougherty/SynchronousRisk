@@ -43,8 +43,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             int[][] territoryRGBs = new int[territoryRGBStrings.Length][];
             foreach (string RGB in territoryRGBStrings) { territoryRGBs[index] = RGBParse(RGB); index++; }
             List<PointF> positionsList = new List<PointF>();
-            foreach (string pos in stringPositions) 
-                positionsList.Add(PositionParse(pos));
+            foreach (string pos in stringPositions) positionsList.Add(PositionParse(pos));
             PointF[] positions = new PointF[positionsList.Count];
             positions = positionsList.ToArray();
             FillTerritoryLookup(names, territoryRGBs, positions, borders);
@@ -55,8 +54,10 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
             string[] RGBSplit = rgb.Split(',');
             if (RGBSplit.Length < 3) throw new Exception($"Invalid number of RGB values.");
             int[] output = new int[3];
-            if (int.TryParse(RGBSplit[0], out int r) && int.TryParse(RGBSplit[1], out int g) && int.TryParse(RGBSplit[2], out int b))
-            { output[0] = int.Parse(RGBSplit[0]); output[1] = int.Parse(RGBSplit[1]); output[2] = int.Parse(RGBSplit[2]); }
+            if (int.TryParse(RGBSplit[0], out int r) && int.TryParse(RGBSplit[1], out int g) && int.TryParse(RGBSplit[2], out int b)) { 
+                output[0] = int.Parse(RGBSplit[0]); 
+                output[1] = int.Parse(RGBSplit[1]); 
+                output[2] = int.Parse(RGBSplit[2]); }
             else throw new Exception($"Invalid RGB values.");
             return output;
         }
@@ -91,8 +92,7 @@ namespace SynchronousRisk.Resources.Assets.Text_Files
         /// IAD 3/17/2025 <summary> Fills the regions dictionary with the territories provided. </summary> <param name="territory"></param>
         private void FillRegions(Territory territory) 
         {
-            if (!regions.ContainsKey(territory.GetRegionID()))
-                regions.Add(territory.GetRegionID(), new List<Territory>());
+            if (!regions.ContainsKey(territory.GetRegionID())) regions.Add(territory.GetRegionID(), new List<Territory>());
             else regions[territory.GetRegionID()].Add(territory);
             foreach (int[] rgb in rgbLookup.Keys)if (rgb[0] == territory.GetRegionID()) { regions[territory.GetRegionID()].Add(rgbLookup[rgb]); }
         }

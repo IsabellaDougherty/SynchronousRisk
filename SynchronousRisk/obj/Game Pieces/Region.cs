@@ -25,10 +25,7 @@ namespace SynchronousRisk
         public bool AllTerritoriesOwnedByPlayer(Player player)
         {
             Territory[] playerTerritories = player.OwnedTerritories.ToArray();
-            for (int i = 0; i < territoriesInRegion.Length; i++)
-            {
-                if (!playerTerritories.Contains(territoriesInRegion[i])) { return false; }
-            }
+            for (int i = 0; i < territoriesInRegion.Length; i++) { if (!playerTerritories.Contains(territoriesInRegion[i])) { return false; } }
             return true;
         }
         /// IAD 2/21/2025 <summary> Returns the bonus troops for the region. </summary>
